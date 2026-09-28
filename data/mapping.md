@@ -1,5 +1,11 @@
 # 图像缺陷类别 ↔ 知识库条目 映射表 (v1)
 
+> ⚠️ **2026-09-28 晚注：本表基于已弃用的 Minds-R-Lab 8 类体系。**
+> 该数据集经核查**不可获取**（仓库无数据文件、无 LICENSE、无 release），
+> P1 已换源为 Kaggle `wengmhu/fdm-3d-printing-defect-dataset`（MIT，1,912 张 / 5 类）。
+> **本表待按 5 类体系重做**；重做前仅供了解「命名体系差异」的维度参考，**不可作为 P1 映射层依据**。
+> 新 5 类 ↔ 知识库的初步对齐结论见 `00_项目准备总览.md` §三。
+
 > 生成日期：2026-09-28 ｜ 上游：Minds-R-Lab 3D-Printing-Dataset(8类+Okay) ↔ 3D Printing Troubleshooting Guide(75条)
 > ⚠️ 两侧**命名体系不同**（图像用视觉术语，知识库用现象描述），本表为人工映射基准。
 > `match` 字段：`direct`=名称可直接对应 / `semantic`=语义对应需人工确认 / `weak`=覆盖薄弱需补 / `todo`=待补充

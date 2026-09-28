@@ -1,0 +1,8 @@
+# 统一换行：入库一律 LF，避免 Windows 上 CRLF 反复改写导致全文件 diff
+* text=auto eol=lf
+
+# 二进制产物，不做换行转换 / 不参与 diff
+*.bin  binary
+*.pkl  binary
+*.npy  binary
+*.db   binary

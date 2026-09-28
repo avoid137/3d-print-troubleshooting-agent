@@ -6,11 +6,13 @@
 """
 import json
 import pickle
+from datetime import datetime
+
 import numpy as np
-from pathlib import Path
+
 from config import (
     CHUNKS_PATH, FAISS_INDEX_PATH, EMBED_MODEL, EMBED_DIM,
-    DASHSCOPE_API_KEY,
+    EMBED_BATCH_SIZE, DASHSCOPE_API_KEY,
 )
 
 
@@ -21,14 +23,16 @@ def _dashscope_embed(texts):
     if not DASHSCOPE_API_KEY:
         raise RuntimeError("DASHSCOPE_API_KEY not set")
     dashscope.api_key = DASHSCOPE_API_KEY
-    # DashScope 单次最多 25 条
+    # ⚠️ text-embedding-v3 单次上限为 10 条（见 config.EMBED_BATCH_SIZE），
+    #    超过会报 400 InvalidParameter: "batch size ... not larger than 10"
     all_vecs = []
-    for i in range(0, len(texts), 25):
-        batch = texts[i : i + 25]
+    for i in range(0, len(texts), EMBED_BATCH_SIZE):
+        batch = texts[i : i + EMBED_BATCH_SIZE]
         resp = TextEmbedding.call(
             model=EMBED_MODEL,
             input=batch,
             text_type="document",
+            dimension=EMBED_DIM,
         )
         if resp.status_code != 200:
             raise RuntimeError(f"embedding error: {resp.code} {resp.message}")
@@ -85,7 +89,9 @@ def build_vector_index(chunks, use_dashscope=None):
     """构建 FAISS 向量索引。
 
     use_dashscope: None=自动判断（有 key 就用）, True/False=强制
-    返回: (index, embed_fn, used_method)
+    返回: (index, method)  —— method ∈ {"dashscope", "tfidf_svd"}
+    查询时的 embedding 由 hybrid_retriever._embed_query 负责（同方法），
+    本函数不返回 embed_fn。
     """
     import faiss
 
@@ -117,19 +123,29 @@ def build_vector_index(chunks, use_dashscope=None):
         f.write(faiss.serialize_index(index))
     print(f"FAISS 索引已写入 {FAISS_INDEX_PATH}")
 
-    # 保存元数据：chunks 列表
+    # 保存元数据：manifest（含 embedding 方法）+ chunks 列表
+    #
+    # ⚠️ 必须记录 method：DashScope(1024 维) 与 TF-IDF+SVD(补齐到 1024 维) 的
+    #    维度**恰好相同**，若查询侧后端与建索引时不一致，FAISS 不会报错，
+    #    只会返回无意义的相似度——这是最危险的一类静默错误。见 assert_backend_consistent()。
     meta_path = FAISS_INDEX_PATH.with_suffix(".meta.json")
+    manifest = {
+        "method": method,                      # "dashscope" | "tfidf_svd"
+        "model": EMBED_MODEL if method == "dashscope" else "tfidf_svd",
+        "dim": int(dim),
+        "count": len(chunks),
+        "built_at": datetime.now().isoformat(timespec="seconds"),
+        "chunks": [{"chunk_id": c["chunk_id"], "kb_id": c["kb_id"],
+                    "problem": c["problem"]} for c in chunks],
+    }
     with open(meta_path, "w", encoding="utf-8") as f:
-        json.dump([{"chunk_id": c["chunk_id"], "kb_id": c["kb_id"],
-                    "problem": c["problem"]} for c in chunks], f,
-                  ensure_ascii=False, indent=2)
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
 
     return index, method
 
 
 def load_vector_index():
     import faiss
-    import numpy as np
     with open(FAISS_INDEX_PATH, "rb") as f:
         data = np.frombuffer(f.read(), dtype=np.uint8)
     index = faiss.deserialize_index(data)
@@ -137,6 +153,42 @@ def load_vector_index():
     with open(meta_path, "r", encoding="utf-8") as f:
         meta = json.load(f)
     return index, meta
+
+
+def assert_backend_consistent(meta, use_dashscope=None):
+    """校验「建索引时的 embedding 方法」与「查询侧当前后端」是否一致。
+
+    为什么必须显式校验（而不是靠 FAISS 报维度错）：
+        DashScope text-embedding-v3 → 1024 维
+        TF-IDF + TruncatedSVD       → 补齐到 EMBED_DIM = 1024 维
+    两者维度**恰好相同** → FAISS 的 IndexFlatIP.search 不会抛异常，
+    只会拿不同语义空间的向量算内积，返回**无意义的相似度**。
+    这类错误不报错、不崩溃，只是结果悄悄变差，因此必须主动拦截。
+
+    meta: load_vector_index() 的第二个返回值（新版为 dict；旧版为 chunk list）
+    不一致时抛 RuntimeError，并给出可执行的修复命令。
+    """
+    if use_dashscope is None:
+        use_dashscope = bool(DASHSCOPE_API_KEY)
+    expected = "dashscope" if use_dashscope else "tfidf_svd"
+
+    # 旧格式（裸 list）→ 无 method 记录，无法校验，仅告警
+    if not isinstance(meta, dict) or "method" not in meta:
+        print("⚠️ faiss_index.meta.json 为旧格式（无 method 字段），无法校验 "
+              "embedding 后端一致性。请重跑 src/vector_index.py 或运行 "
+              "scripts/rebuild_index.py 生成新版 manifest。")
+        return expected
+
+    actual = meta.get("method")
+    if actual != expected:
+        raise RuntimeError(
+            f"embedding 后端不一致：索引由 `{actual}` 构建"
+            f"（model={meta.get('model')}, dim={meta.get('dim')}, "
+            f"built_at={meta.get('built_at')}），但当前查询侧将使用 `{expected}`。\n"
+            f"两者维度可能相同（{EMBED_DIM}），FAISS 不会报错，只会返回错误结果。\n"
+            f"→ 修复：① 让查询侧改用 `{actual}`；或 ② 重跑 src/vector_index.py 重建索引。"
+        )
+    return expected
 
 
 def load_fitted_embedder():

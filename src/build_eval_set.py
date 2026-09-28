@@ -7,13 +7,55 @@
   库外负例    20%  40 条  — 知识库不覆盖的问题，gold = []（应拒答）
   诱导歧义    20%  40 条  — 含干扰词但指向某一故障，gold = [目标 kb_id]
 
-gold 字段存 kb_id 列表（可能多个）。负例 gold = []。
+每条字段：`id` / `query` / `category` / `gold` / `source` / `gold_basis`
+
+  gold        : kb_id 列表（可能多个）。负例 gold = []。
+  source      : **这条 query 是怎么造出来的**（枚举）——
+                  kb_paraphrase   照某条 kb 的 problem 名改写问法
+                  kb_combination  两条 kb 的问法拼接
+                  spec_param      围绕知识库覆盖的工艺参数构造
+                  spec_negation   含否定/干扰条件的合法提问（抗诱导）
+                  out_of_scope    知识库不覆盖的领域问题，gold 故意为空
+  gold_basis  : **这条题的 gold 照着哪些 kb 条目出的**（出题依据）。
+                若发生过 v1→v2 编号规范化，写成 "KB040 → KB012" 形式，
+                便于识别哪些题受清洗合并影响。
+
+⚠️ gold 一律取 kb_v2（56 条）的编号；构建期有断言保证 gold ⊆ kb_v2 的 id 集合。
 """
 import json
 import random
 from config import KB_V2_PATH, EVAL_SET_PATH
 
 random.seed(42)
+
+# ---- gold 规范化：v1 编号 → v2 编号 ----
+# 本文件早期写于 kb_v1（75 条）时代，部分 gold 直接用了 v1 编号。
+# `preprocess.py` 清洗出 kb_v2（56 条）时按 MERGE_GROUPS 合并同义条目、次 id 被删除，
+# 但这里没有同步 → 7 个 gold 成了悬空引用（KB039/040/045/057/059/064/066）。
+# 后果：判分 `any(kb in gold for kb in retrieved_kb_ids)` 永远为 False
+# （检索结果只可能含 v2 编号）→ 14 条题结构性必错。
+# 下表从 kb_v2.json 的 merged_from 字段派生，与清洗逻辑同源，非人工推断。
+# ⚠️ 注意：不要直接改下面 SINGLE_DEFECT_QUERIES 的 key（其中含 v1 编号 "KB040"），
+#    否则 defect_ids 变化会让 random.shuffle 的配对结果全变，破坏与历史结果的可比性。
+#    统一在生成后做规范化即可。
+V1_TO_V2 = {
+    "KB041": "KB002", "KB071": "KB002", "KB060": "KB003", "KB059": "KB004",
+    "KB029": "KB008", "KB073": "KB009", "KB039": "KB010", "KB036": "KB011",
+    "KB040": "KB012", "KB047": "KB015", "KB057": "KB020", "KB032": "KB022",
+    "KB056": "KB022", "KB075": "KB022", "KB045": "KB024", "KB054": "KB025",
+    "KB064": "KB026", "KB066": "KB027", "KB043": "KB028",
+}
+
+
+def _normalize_gold(gold, valid_ids):
+    """把 v1 编号映射到 v2，去重，并断言结果全部存在于 kb_v2。"""
+    out = []
+    for g in gold:
+        g2 = V1_TO_V2.get(g, g)
+        assert g2 in valid_ids, f"gold {g} → {g2} 不在 kb_v2 中"
+        if g2 not in out:
+            out.append(g2)
+    return out
 
 # 手写的查询模板：问题描述 → 该故障的多种问法
 # key: kb_id, value: list of query strings (paraphrases)
@@ -289,6 +331,7 @@ def build_eval_set():
                 "query": q,
                 "category": "single_defect",
                 "gold": [kb_id],
+                "source": "kb_paraphrase",   # 照某条 kb 的 problem 名改写问法
             })
         if len(single) >= 50:
             break
@@ -308,6 +351,7 @@ def build_eval_set():
             "query": combined,
             "category": "multi_defect",
             "gold": [a, b],
+            "source": "kb_combination",   # 两条 kb 的问法拼接
         })
     # 补足到 30
     while len(multi) < 30:
@@ -319,6 +363,7 @@ def build_eval_set():
             "query": f"{qa} and {qb}",
             "category": "multi_defect",
             "gold": [a, b],
+            "source": "kb_combination",   # 两条 kb 的问法拼接
         })
     eval_set.extend(multi[:30])
 
@@ -329,6 +374,7 @@ def build_eval_set():
             "query": q,
             "category": "param_compensation",
             "gold": gold,
+            "source": "spec_param",       # 围绕知识库覆盖的工艺参数构造
         })
 
     # 4. 库外负例 40 条
@@ -338,6 +384,7 @@ def build_eval_set():
             "query": q,
             "category": "out_of_scope",
             "gold": [],
+            "source": "out_of_scope",     # 知识库不覆盖的领域问题，gold 故意为空
         })
 
     # 5. 诱导歧义 40 条
@@ -347,7 +394,30 @@ def build_eval_set():
             "query": q,
             "category": "ambiguous",
             "gold": gold,
+            "source": "spec_negation",    # 含否定/干扰条件的合法提问，抗诱导
         })
+
+    # ---- 规范化 gold（消除 v1 悬空引用）+ 写溯源字段 + 防复发校验 ----
+    valid_ids = {e["kb_id"] for e in json.load(open(KB_V2_PATH, encoding="utf-8"))}
+    fixed = 0
+    for e in eval_set:
+        raw = list(e["gold"])
+        new_gold = _normalize_gold(raw, valid_ids)
+        # gold_basis：这条题的 gold 是照着哪些 kb 条目出的（出题依据）。
+        # 若发生过 v1→v2 映射，写成 "KB040 → KB012" → 一眼可辨哪些题被规范化过。
+        if any(V1_TO_V2.get(g, g) != g for g in raw):
+            e["gold_basis"] = "+".join(
+                f"{g} → {V1_TO_V2[g]}" if g in V1_TO_V2 else g for g in raw)
+        else:
+            e["gold_basis"] = "+".join(raw)
+        if new_gold != raw:
+            fixed += 1
+            print(f"  gold 修正 {e['id']}: {raw} → {new_gold}")
+        e["gold"] = new_gold
+    print(f"gold 规范化：修正 {fixed} 条 v1 悬空引用（kb_v2 共 {len(valid_ids)} 条）")
+    dangling = [(e["id"], e["gold"]) for e in eval_set
+                if not set(e["gold"]) <= valid_ids]
+    assert not dangling, f"仍有悬空 gold：{dangling}"
 
     random.shuffle(eval_set)
     # 重新编号

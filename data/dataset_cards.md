@@ -26,21 +26,88 @@
 
 ---
 
-## DC-02 · Minds-R-Lab 3D-Printing-Dataset（图像主集）
+## DC-02 · Minds-R-Lab 3D-Printing-Dataset（🔴 2026-09-28 核查：**数据不可获取**，降级为"论文数字参照"）
 
 | 项 | 内容 |
 |---|---|
-| **用途** | CV 缺陷分类器训练/测试（8 类 + Okay） |
-| **来源** | GitHub: `Minds-R-Lab/3D-Printing-Dataset` |
-| **许可** | GitHub 公开仓库（使用前请再次核验仓库 LICENSE） |
-| **规模** | **2,638 张**，人工校验 |
+| **用途** | 原计划作为 CV 缺陷分类器训练主集（8 类 + Okay） |
+| **来源** | GitHub: `Minds-R-Lab/3D-Printing-Dataset`（default branch `main`） |
+| **许可** | ❌ **无 LICENSE 文件**（GitHub API 返回 `license: null`） |
+| **标称规模** | README 声称 **2,638 张**，人工校验 |
 | **类别** | Spaghetti / Stringing / Blobs-Zits / Warping / Z Seam / Layer Shifting / Delamination / Overhang + Okay |
 | **采集条件** | iPhone 13 Pro，均匀光照，白底；Prusa MK4 + Prusa PLA + 默认 PrusaSlicer 设置；22–25°C、40–50% RH |
-| **已提供 baseline** | 10 个模型：ResNet18/34/50、VGG16、MobileNetV2、DenseNet121、EfficientNet-B0/B4、ViT-B/16、Swin-T<br>**Swin-T 最优：F1 87% / Acc 87%**；MobileNetV2 在 Spaghetti 类达 95% F1 |
-| **⚠️ 注意** | 部分难以复现的类别**来自外部数据集（如 Roboflow）** → **跨源类别一致性需抽查** |
-| **下载日期** | 待下载 |
+| **公布 baseline** | 10 个模型：ResNet18/34/50、VGG16、MobileNetV2、DenseNet121、EfficientNet-B0/B4、ViT-B/16、Swin-T<br>**Swin-T 最优：F1 87% / Acc 87%**；MobileNetV2 在 Spaghetti 类达 95% F1 |
+| **⚠️ 注意** | 部分难以复现的类别来自外部数据集（如 Roboflow）→ 跨源一致性需抽查 |
+| **下载日期** | ❌ 不可下载（见下） |
 
-**可对比基线**：直接用其公布的 Swin-T 结果作为你的对照，避免"自己报自己"。
+### 🔴 实测核查结论（GitHub API 直接验证，非推测）
+
+**该仓库不包含数据集本体，且无任何下载入口。**
+
+| 核查项 | 实测结果 |
+|---|---|
+| 仓库总条目 | **11 个**（`git/trees/main?recursive=1` 全量，`truncated: false`） |
+| 文件构成 | 代码 5 个 `.py`（`config.py`/`dataset.py`/`models.py`/`trainpro.py`/`evaluatepro.py`）+ 配图 4 个（`Paper_Overview.jpg` + `figs/*.png`）+ `README.md` |
+| 图片文件 | **0 张**（`figs/` 内是论文配图，不是数据集） |
+| Releases | **0 个**（无 release asset） |
+| 仓库体积 | 1,680 KB —— 2,638 张高分辨率图不可能塞进 1.7 MB |
+| LICENSE | 无 |
+| README 下载链接 | **无**（未指路 Google Drive / Zenodo / Kaggle） |
+
+**代码暴露的数据约定**（说明数据原本只存在于作者本机）：
+
+```python
+# config.py
+BASE_DIR = "F:/3dprinting"                      # ← 作者自己的 F: 盘
+DATA_DIR  = os.path.join(BASE_DIR, 'data')
+TRAIN_DIR = os.path.join(DATA_DIR, 'train')     # torchvision ImageFolder 结构
+VAL_DIR   = os.path.join(DATA_DIR, 'val')
+CLASSES = ['Class 1 - Spaghetti', 'Class 2 - Stringing and oozing',
+           'Class 3 - Blobs and Zits', 'Class 4 - Warping', 'Class 5 - Z Seam',
+           'Class 6 - Layer Shifting', 'Class 7 - Layer Separation',
+           'Class 8 - Overhang Defects', 'Class 9 - Okay']
+```
+
+**处置**：❌ **不作为数据源**。仅引用其**公开的 baseline 数字**（Swin-T F1 87%）作为学术对照——论文数字是公开的，可以用；数据拿不到，不能假装有。
+
+---
+
+## DC-02R · Kaggle `wengmhu` FDM 3D Printing Defect Dataset（✅ **替代 DC-02，P1 主数据源**）
+
+| 项 | 内容 |
+|---|---|
+| **用途** | **P1 视觉缺陷分类主集**（替代不可获取的 DC-02） |
+| **来源** | Kaggle `wengmhu/fdm-3d-printing-defect-dataset` |
+| **许可** | ✅ **MIT**（可放心用于开源项目） |
+| **规模** | **1,912 张**（Kaggle 包 6,293 MB，约 3.3 MB/张） |
+| **类别（5 类，✅ 文件清单实拉核实）** | Warping **538** / Cracking **472** / Stringing **447** / Layer_shifting **364** / Off_platform **91**<br>合计 = **1,912** ✅ 自洽 |
+| **热度** | 下载 2,231 / 13 票（同类检索结果中最高） |
+| **最后更新** | 2024-10-17 |
+| **核查方式** | 2026-09-28 经 Kaggle API 实测：`datasets/view` 得 `licenseName: MIT`；`datasets/list`（96 页分页全量遍历）得 1,912 个 `.jpg` 的真实类别分布 |
+| **⚠️ 上游描述有笔误** | 数据集 README 写 `Cracking（427）`，**实为 472**（数字颠倒）。其自称总量 1,912 与分类相加 1,867 差 45，即由此笔误造成。<br>**以文件清单实测为准**：538+472+447+364+91 = 1,912，与总量完全吻合 |
+| **引用要求** | MIT License, Copyright (c) 2024 Hu Wenjing, ChenChang<br>论文：Hu, W., Chen, C., Su, S. et al. *Real-time defect detection for FFF 3D printing using lightweight model deployment.* Int J Adv Manuf Technol **134**, 4871–4885 (2024). doi:10.1007/s00170-024-14452-4 |
+| **目录结构** | `FDM-3D-Printing-Defect-Dataset/data/<类别>/Image_<时间戳>.jpg` |
+| **⚠️ 注意** | 6.3 GB → **必须下载到 D 盘**（C 盘仅剩 13 GB） |
+
+### 与知识库的类别映射（P1「视觉 → 知识库」映射层的直接依据）
+
+| 数据集类别 | 张数 | 对应知识库条目 | 映射难度 |
+|---|---|---|---|
+| Stringing | 447 | KB006 `Stringing or Oozing` | ✅ 直接同名 |
+| Warping | 538 | `Warping` | ✅ 直接同名 |
+| Layer_shifting | 364 | `Layer Shifting` | ✅ 直接同名 |
+| Cracking | 472 | 层分离 / 结构类 | ⚠️ 需逐条核对 |
+| Off_platform | 91 | 附着类（首层不粘床等） | ⚠️ 需逐条核对 |
+
+**采用理由**：① 许可唯一明确主流（MIT） ② 有真实图像 ③ 类内样本量均衡（91~538） ④ **3 类与知识库条目直接同名**，映射层不用硬凑。
+
+### 检索记录（可复现）
+
+```bash
+# Kaggle API（凭据已存在于 ~/.kaggle/access_token）
+GET https://www.kaggle.com/api/v1/datasets/list?search=3d%20printing%20defect&pageSize=12
+GET https://www.kaggle.com/api/v1/datasets/view/wengmhu/fdm-3d-printing-defect-dataset
+```
 
 ---
 
@@ -89,14 +156,21 @@
 
 ---
 
-## DC-06 · 其他备选
+## DC-06 · 其他备选（2026-09-28 已逐个核验可达性）
 
-| 数据集 | 来源 | 内容 | 备注 |
+| 数据集 | 来源 | 内容 | 实测状态 |
 |---|---|---|---|
+| 3D-Printed-or-Not | HF `cmudrc/3d-printed-or-not` | 二分类（是否 3D 打印件） | ✅ CC-BY-4.0 / 1–10 万张，但**任务是"识别是否打印件"而非缺陷分类** → 不匹配 |
+| Failures in 3D printing | HF `Javiai/failures-3D-print` | 4 类（error/extrusor/part/spaghetti），**目标检测 bbox** | ⚠️ 仅 **73 张**、`license: unknown` → 规格不符 |
+| 3D printing errors | HF `NilsHagenBeyer/3D_printing_errors` | 声明 apache-2.0 | ❌ **仓库内无数据文件**（只有 README + .gitattributes） |
 | 3D-Printer Defected Dataset | Kaggle `justin900429/3d-printer-defected-dataset` | 缺陷图 | 需核验许可 |
-| Failures in 3D printing | HF `Javiai/failures-3D-print` | 4 类（error/extrusor/part/spaghetti），**目标检测 bbox 格式** | 适合检测任务 |
 | YOLO Stringing Dataset | Zenodo `records/14711320` | YOLO 格式拉丝检测 | 适合检测任务 |
-| FDM Sensory Data | GitHub `adiparamartha/fdm_dataset` | **传感器时序数据** | 补"非图像通道" |
+| FDM Sensory Data | GitHub `adiparamtha/fdm_dataset` | **传感器时序数据** | 补"非图像通道" |
+| 3D printing defects | Kaggle `ssharkov/3d-printing-defects` | 缺陷图 26.8 MB | ⚠️ 许可 Unknown |
+| Defect-3D-Printing | Kaggle `muhammadmeftahmafazy/defect-3d-printing` | 201 MB，源自 Roboflow `fwe01/3d-printing-defect` | ⚠️ 许可 Unknown，需溯源 |
+| 3D Printing Failure Detection | Kaggle `padraigvalenti/3d-printing-failure-detection` | 83.4 MB | ✅ **CC0 公共领域**（许可最宽松，可作补充） |
+
+> 检索方式：Kaggle API `datasets/list?search=...` + HuggingFace `api/datasets?search=...`（2026-09-28 实测）。
 
 ---
 
@@ -115,4 +189,6 @@
 1. 本项目数据**仅用于本地学习研究**，不对外分发原始数据
 2. CC BY 4.0 数据集（DC-01 / DC-05）**必须署名**，成果中保留完整引用
 3. 若项目开源，**只提交代码与索引脚本，不提交原始数据**；README 指路原始来源
-4. 使用 DC-02 前**再次核验其 LICENSE**
+4. **只采用许可明确的源**：DC-01（CC BY 4.0）、DC-02R（**MIT**）、DC-06 中的 CC0 项、DC-05（CC BY 4.0）。
+   许可 Unknown 的一律**不入库**，除非能溯源到原始许可方
+5. **DC-02 经核查数据不可获取且无许可** → 不作为数据源；仅引用其已公开发表的 baseline 数字（Swin-T F1 87%）

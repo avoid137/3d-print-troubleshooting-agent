@@ -6,25 +6,33 @@
     "gold": [
       "KB003",
       "KB004"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB003+KB004"
   },
   {
     "id": "eval_002",
     "query": "3D printer mainboard upgrade",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_003",
     "query": "how to use a 3D pen",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_004",
     "query": "best CAD software for beginners",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_005",
@@ -32,13 +40,17 @@
     "category": "ambiguous",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_006",
     "query": "how to connect printer to octoprint",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_007",
@@ -46,7 +58,9 @@
     "category": "ambiguous",
     "gold": [
       "KB063"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB063"
   },
   {
     "id": "eval_008",
@@ -54,7 +68,9 @@
     "category": "single_defect",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_009",
@@ -63,7 +79,9 @@
     "gold": [
       "KB007",
       "KB006"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB007+KB006"
   },
   {
     "id": "eval_010",
@@ -71,7 +89,9 @@
     "category": "single_defect",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_011",
@@ -79,21 +99,27 @@
     "category": "single_defect",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_012",
     "query": "how to calibrate a laser engraver",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_013",
     "query": "no warp but edges bending",
     "category": "ambiguous",
     "gold": [
-      "KB045"
-    ]
+      "KB024"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB045 → KB024"
   },
   {
     "id": "eval_014",
@@ -101,7 +127,9 @@
     "category": "single_defect",
     "gold": [
       "KB011"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB011"
   },
   {
     "id": "eval_015",
@@ -109,13 +137,17 @@
     "category": "param_compensation",
     "gold": [
       "KB005"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB005"
   },
   {
     "id": "eval_016",
     "query": "how to print flexible TPU",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_017",
@@ -123,13 +155,17 @@
     "category": "param_compensation",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_018",
     "query": "best enclosure for ABS printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_019",
@@ -137,7 +173,9 @@
     "category": "single_defect",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_020",
@@ -145,15 +183,19 @@
     "category": "ambiguous",
     "gold": [
       "KB010"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB010"
   },
   {
     "id": "eval_021",
     "query": "no clog but stops extruding mid print",
     "category": "ambiguous",
     "gold": [
-      "KB040"
-    ]
+      "KB012"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB040 → KB012"
   },
   {
     "id": "eval_022",
@@ -161,7 +203,9 @@
     "category": "single_defect",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_023",
@@ -169,7 +213,9 @@
     "category": "single_defect",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_024",
@@ -177,7 +223,9 @@
     "category": "param_compensation",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_025",
@@ -186,7 +234,9 @@
     "gold": [
       "KB020",
       "KB053"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB020+KB053"
   },
   {
     "id": "eval_026",
@@ -194,15 +244,19 @@
     "category": "single_defect",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_027",
     "query": "no ringing but ghosting on sides",
     "category": "ambiguous",
     "gold": [
-      "KB057"
-    ]
+      "KB020"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB057 → KB020"
   },
   {
     "id": "eval_028",
@@ -211,13 +265,17 @@
     "gold": [
       "KB024",
       "KB002"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB024+KB002"
   },
   {
     "id": "eval_029",
     "query": "how to wire a 3D printer",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_030",
@@ -225,7 +283,9 @@
     "category": "single_defect",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_031",
@@ -234,7 +294,9 @@
     "gold": [
       "KB014",
       "KB009"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB014+KB009"
   },
   {
     "id": "eval_032",
@@ -242,7 +304,9 @@
     "category": "single_defect",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_033",
@@ -250,15 +314,19 @@
     "category": "ambiguous",
     "gold": [
       "KB013"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB013"
   },
   {
     "id": "eval_034",
     "query": "not over extruded but stringy droopy",
     "category": "ambiguous",
     "gold": [
-      "KB059"
-    ]
+      "KB004"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB059 → KB004"
   },
   {
     "id": "eval_035",
@@ -266,7 +334,9 @@
     "category": "single_defect",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_036",
@@ -274,7 +344,9 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_037",
@@ -282,7 +354,9 @@
     "category": "single_defect",
     "gold": [
       "KB011"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB011"
   },
   {
     "id": "eval_038",
@@ -290,15 +364,19 @@
     "category": "param_compensation",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_039",
     "query": "no clog but filament stripped",
     "category": "ambiguous",
     "gold": [
-      "KB039"
-    ]
+      "KB010"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB039 → KB010"
   },
   {
     "id": "eval_040",
@@ -307,7 +385,9 @@
     "gold": [
       "KB006",
       "KB028"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB006+KB028"
   },
   {
     "id": "eval_041",
@@ -315,7 +395,9 @@
     "category": "ambiguous",
     "gold": [
       "KB048"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB048"
   },
   {
     "id": "eval_042",
@@ -323,7 +405,9 @@
     "category": "ambiguous",
     "gold": [
       "KB023"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB023"
   },
   {
     "id": "eval_043",
@@ -331,7 +415,9 @@
     "category": "single_defect",
     "gold": [
       "KB020"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB020"
   },
   {
     "id": "eval_044",
@@ -339,8 +425,10 @@
     "category": "multi_defect",
     "gold": [
       "KB004",
-      "KB040"
-    ]
+      "KB012"
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB004+KB040 → KB012"
   },
   {
     "id": "eval_045",
@@ -348,7 +436,9 @@
     "category": "single_defect",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_046",
@@ -356,7 +446,9 @@
     "category": "ambiguous",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_047",
@@ -364,7 +456,9 @@
     "category": "param_compensation",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_048",
@@ -372,7 +466,9 @@
     "category": "param_compensation",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_049",
@@ -380,7 +476,9 @@
     "category": "single_defect",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_050",
@@ -388,13 +486,17 @@
     "category": "single_defect",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_051",
     "query": "how to model organic shapes",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_052",
@@ -402,7 +504,9 @@
     "category": "single_defect",
     "gold": [
       "KB020"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB020"
   },
   {
     "id": "eval_053",
@@ -410,13 +514,17 @@
     "category": "single_defect",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_054",
     "query": "3D printer firmware setup marlin",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_055",
@@ -424,8 +532,10 @@
     "category": "multi_defect",
     "gold": [
       "KB028",
-      "KB040"
-    ]
+      "KB012"
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB028+KB040 → KB012"
   },
   {
     "id": "eval_056",
@@ -433,13 +543,17 @@
     "category": "single_defect",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_057",
     "query": "3D printing food safe",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_058",
@@ -447,7 +561,9 @@
     "category": "single_defect",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_059",
@@ -456,13 +572,17 @@
     "gold": [
       "KB010",
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB010+KB006"
   },
   {
     "id": "eval_060",
     "query": "best infill for strength",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_061",
@@ -470,7 +590,9 @@
     "category": "param_compensation",
     "gold": [
       "KB017"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB017"
   },
   {
     "id": "eval_062",
@@ -478,13 +600,17 @@
     "category": "param_compensation",
     "gold": [
       "KB013"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB013"
   },
   {
     "id": "eval_063",
     "query": "best slicer for 3D printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_064",
@@ -493,7 +619,9 @@
     "gold": [
       "KB024",
       "KB007"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB024+KB007"
   },
   {
     "id": "eval_065",
@@ -501,7 +629,9 @@
     "category": "param_compensation",
     "gold": [
       "KB025"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB025"
   },
   {
     "id": "eval_066",
@@ -509,13 +639,17 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_067",
     "query": "3D printing speed records",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_068",
@@ -523,7 +657,9 @@
     "category": "param_compensation",
     "gold": [
       "KB053"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB053"
   },
   {
     "id": "eval_069",
@@ -531,7 +667,9 @@
     "category": "single_defect",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_070",
@@ -539,7 +677,9 @@
     "category": "ambiguous",
     "gold": [
       "KB017"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB017"
   },
   {
     "id": "eval_071",
@@ -547,7 +687,9 @@
     "category": "ambiguous",
     "gold": [
       "KB101"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB101"
   },
   {
     "id": "eval_072",
@@ -556,7 +698,9 @@
     "gold": [
       "KB008",
       "KB010"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB008+KB010"
   },
   {
     "id": "eval_073",
@@ -564,7 +708,9 @@
     "category": "ambiguous",
     "gold": [
       "KB044"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB044"
   },
   {
     "id": "eval_074",
@@ -573,7 +719,9 @@
     "gold": [
       "KB010",
       "KB024"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB010+KB024"
   },
   {
     "id": "eval_075",
@@ -581,7 +729,9 @@
     "category": "param_compensation",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_076",
@@ -589,7 +739,9 @@
     "category": "param_compensation",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_077",
@@ -597,19 +749,25 @@
     "category": "single_defect",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_078",
     "query": "how to scan objects for 3D printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_079",
     "query": "how to recycle used filament",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_080",
@@ -617,7 +775,9 @@
     "category": "ambiguous",
     "gold": [
       "KB016"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB016"
   },
   {
     "id": "eval_081",
@@ -625,7 +785,9 @@
     "category": "param_compensation",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_082",
@@ -633,7 +795,9 @@
     "category": "single_defect",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_083",
@@ -642,7 +806,9 @@
     "gold": [
       "KB006",
       "KB011"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB006+KB011"
   },
   {
     "id": "eval_084",
@@ -650,13 +816,17 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_085",
     "query": "3D printing business ideas",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_086",
@@ -664,7 +834,9 @@
     "category": "ambiguous",
     "gold": [
       "KB053"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB053"
   },
   {
     "id": "eval_087",
@@ -673,7 +845,9 @@
     "gold": [
       "KB001",
       "KB020"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB001+KB020"
   },
   {
     "id": "eval_088",
@@ -681,7 +855,9 @@
     "category": "param_compensation",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_089",
@@ -689,7 +865,9 @@
     "category": "param_compensation",
     "gold": [
       "KB035"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB035"
   },
   {
     "id": "eval_090",
@@ -697,7 +875,9 @@
     "category": "single_defect",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_091",
@@ -705,7 +885,9 @@
     "category": "single_defect",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_092",
@@ -714,7 +896,9 @@
     "gold": [
       "KB027",
       "KB053"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB027+KB053"
   },
   {
     "id": "eval_093",
@@ -722,7 +906,9 @@
     "category": "param_compensation",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_094",
@@ -730,7 +916,9 @@
     "category": "ambiguous",
     "gold": [
       "KB021"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB021"
   },
   {
     "id": "eval_095",
@@ -739,7 +927,9 @@
     "gold": [
       "KB020",
       "KB002"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB020+KB002"
   },
   {
     "id": "eval_096",
@@ -747,7 +937,9 @@
     "category": "param_compensation",
     "gold": [
       "KB022"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB022"
   },
   {
     "id": "eval_097",
@@ -756,13 +948,17 @@
     "gold": [
       "KB006",
       "KB001"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB006+KB001"
   },
   {
     "id": "eval_098",
     "query": "how to clean PETG prints",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_099",
@@ -770,16 +966,20 @@
     "category": "ambiguous",
     "gold": [
       "KB044"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB044"
   },
   {
     "id": "eval_100",
     "query": "printer stopped extruding halfway and overhang quality is poor",
     "category": "multi_defect",
     "gold": [
-      "KB040",
+      "KB012",
       "KB053"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB040 → KB012+KB053"
   },
   {
     "id": "eval_101",
@@ -787,7 +987,9 @@
     "category": "ambiguous",
     "gold": [
       "KB026"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB026"
   },
   {
     "id": "eval_102",
@@ -796,7 +998,9 @@
     "gold": [
       "KB009",
       "KB101"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB009+KB101"
   },
   {
     "id": "eval_103",
@@ -805,7 +1009,9 @@
     "gold": [
       "KB053",
       "KB027"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB053+KB027"
   },
   {
     "id": "eval_104",
@@ -813,7 +1019,9 @@
     "category": "single_defect",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_105",
@@ -821,7 +1029,9 @@
     "category": "single_defect",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_106",
@@ -830,7 +1040,9 @@
     "gold": [
       "KB003",
       "KB024"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB003+KB024"
   },
   {
     "id": "eval_107",
@@ -838,25 +1050,33 @@
     "category": "param_compensation",
     "gold": [
       "KB013"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB013"
   },
   {
     "id": "eval_108",
     "query": "what is FDM vs SLA",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_109",
     "query": "how to print with nylon",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_110",
     "query": "slicer settings for resin printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_111",
@@ -864,7 +1084,9 @@
     "category": "param_compensation",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_112",
@@ -872,7 +1094,9 @@
     "category": "single_defect",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_113",
@@ -880,7 +1104,9 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_114",
@@ -888,7 +1114,9 @@
     "category": "param_compensation",
     "gold": [
       "KB020"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB020"
   },
   {
     "id": "eval_115",
@@ -896,7 +1124,9 @@
     "category": "single_defect",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_116",
@@ -904,19 +1134,25 @@
     "category": "ambiguous",
     "gold": [
       "KB028"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB028"
   },
   {
     "id": "eval_117",
     "query": "3D printing medical implants",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_118",
     "query": "how to design a 3D model in CAD",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_119",
@@ -924,7 +1160,9 @@
     "category": "ambiguous",
     "gold": [
       "KB061"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB061"
   },
   {
     "id": "eval_120",
@@ -933,15 +1171,19 @@
     "gold": [
       "KB002",
       "KB009"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB002+KB009"
   },
   {
     "id": "eval_121",
     "query": "not over extrusion but print droopy",
     "category": "ambiguous",
     "gold": [
-      "KB059"
-    ]
+      "KB004"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB059 → KB004"
   },
   {
     "id": "eval_122",
@@ -949,7 +1191,9 @@
     "category": "ambiguous",
     "gold": [
       "KB101"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB101"
   },
   {
     "id": "eval_123",
@@ -957,7 +1201,9 @@
     "category": "single_defect",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_124",
@@ -965,13 +1211,17 @@
     "category": "single_defect",
     "gold": [
       "KB024"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB024"
   },
   {
     "id": "eval_125",
     "query": "3D printing tolerances guide",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_126",
@@ -979,7 +1229,9 @@
     "category": "single_defect",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_127",
@@ -987,7 +1239,9 @@
     "category": "single_defect",
     "gold": [
       "KB011"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB011"
   },
   {
     "id": "eval_128",
@@ -995,7 +1249,9 @@
     "category": "param_compensation",
     "gold": [
       "KB013"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB013"
   },
   {
     "id": "eval_129",
@@ -1003,13 +1259,17 @@
     "category": "param_compensation",
     "gold": [
       "KB007"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB007"
   },
   {
     "id": "eval_130",
     "query": "how to print with carbon fiber",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_131",
@@ -1018,7 +1278,9 @@
     "gold": [
       "KB028",
       "KB002"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB028+KB002"
   },
   {
     "id": "eval_132",
@@ -1027,7 +1289,9 @@
     "gold": [
       "KB017",
       "KB004"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB017+KB004"
   },
   {
     "id": "eval_133",
@@ -1036,7 +1300,9 @@
     "gold": [
       "KB017",
       "KB003"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB017+KB003"
   },
   {
     "id": "eval_134",
@@ -1045,15 +1311,19 @@
     "gold": [
       "KB002",
       "KB101"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB002+KB101"
   },
   {
     "id": "eval_135",
     "query": "not dimensional issue but parts too small",
     "category": "ambiguous",
     "gold": [
-      "KB064"
-    ]
+      "KB026"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB064 → KB026"
   },
   {
     "id": "eval_136",
@@ -1061,7 +1331,9 @@
     "category": "ambiguous",
     "gold": [
       "KB019"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB019"
   },
   {
     "id": "eval_137",
@@ -1069,19 +1341,25 @@
     "category": "single_defect",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_138",
     "query": "what is the best 3D printer to buy",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_139",
     "query": "how to level a resin printer",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_140",
@@ -1089,13 +1367,17 @@
     "category": "single_defect",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_141",
     "query": "DLP vs SLA resin printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_142",
@@ -1103,13 +1385,17 @@
     "category": "single_defect",
     "gold": [
       "KB011"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB011"
   },
   {
     "id": "eval_143",
     "query": "how to paint 3D printed parts",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_144",
@@ -1117,7 +1403,9 @@
     "category": "single_defect",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_145",
@@ -1125,13 +1413,17 @@
     "category": "single_defect",
     "gold": [
       "KB003"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB003"
   },
   {
     "id": "eval_146",
     "query": "how to use supports in slicer",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_147",
@@ -1139,7 +1431,9 @@
     "category": "single_defect",
     "gold": [
       "KB008"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB008"
   },
   {
     "id": "eval_148",
@@ -1148,16 +1442,20 @@
     "gold": [
       "KB009",
       "KB003"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB009+KB003"
   },
   {
     "id": "eval_149",
     "query": "filament stops coming out during print and failed bridging over gaps",
     "category": "multi_defect",
     "gold": [
-      "KB040",
+      "KB012",
       "KB027"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB040 → KB012+KB027"
   },
   {
     "id": "eval_150",
@@ -1165,7 +1463,9 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_151",
@@ -1173,7 +1473,9 @@
     "category": "ambiguous",
     "gold": [
       "KB049"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB049"
   },
   {
     "id": "eval_152",
@@ -1181,13 +1483,17 @@
     "category": "single_defect",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_153",
     "query": "best filament storage solutions",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_154",
@@ -1196,13 +1502,17 @@
     "gold": [
       "KB024",
       "KB002"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB024+KB002"
   },
   {
     "id": "eval_155",
     "query": "how to change nozzle",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_156",
@@ -1210,7 +1520,9 @@
     "category": "ambiguous",
     "gold": [
       "KB005"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB005"
   },
   {
     "id": "eval_157",
@@ -1218,13 +1530,17 @@
     "category": "ambiguous",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_158",
     "query": "best 3D printing youtube channels",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_159",
@@ -1232,7 +1548,9 @@
     "category": "single_defect",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_160",
@@ -1240,7 +1558,9 @@
     "category": "param_compensation",
     "gold": [
       "KB002"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB002"
   },
   {
     "id": "eval_161",
@@ -1248,7 +1568,9 @@
     "category": "single_defect",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_162",
@@ -1257,13 +1579,17 @@
     "gold": [
       "KB026",
       "KB004"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB026+KB004"
   },
   {
     "id": "eval_163",
     "query": "how to print multi color",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_164",
@@ -1271,7 +1597,9 @@
     "category": "ambiguous",
     "gold": [
       "KB052"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB052"
   },
   {
     "id": "eval_165",
@@ -1279,7 +1607,9 @@
     "category": "ambiguous",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_166",
@@ -1288,7 +1618,9 @@
     "gold": [
       "KB009",
       "KB011"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB009+KB011"
   },
   {
     "id": "eval_167",
@@ -1296,7 +1628,9 @@
     "category": "ambiguous",
     "gold": [
       "KB067"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB067"
   },
   {
     "id": "eval_168",
@@ -1304,13 +1638,17 @@
     "category": "single_defect",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_169",
     "query": "what is SLA printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_170",
@@ -1318,13 +1656,17 @@
     "category": "single_defect",
     "gold": [
       "KB027"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB027"
   },
   {
     "id": "eval_171",
     "query": "how to make money with 3D printing",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_172",
@@ -1333,7 +1675,9 @@
     "gold": [
       "KB028",
       "KB002"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB028+KB002"
   },
   {
     "id": "eval_173",
@@ -1341,7 +1685,9 @@
     "category": "single_defect",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_174",
@@ -1349,15 +1695,19 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_175",
     "query": "not overheating but ripples on surface",
     "category": "ambiguous",
     "gold": [
-      "KB057"
-    ]
+      "KB020"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB057 → KB020"
   },
   {
     "id": "eval_176",
@@ -1365,7 +1715,9 @@
     "category": "param_compensation",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_177",
@@ -1374,7 +1726,9 @@
     "gold": [
       "KB027",
       "KB002"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB027+KB002"
   },
   {
     "id": "eval_178",
@@ -1382,7 +1736,9 @@
     "category": "single_defect",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_179",
@@ -1391,7 +1747,9 @@
     "gold": [
       "KB002",
       "KB028"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB002+KB028"
   },
   {
     "id": "eval_180",
@@ -1399,7 +1757,9 @@
     "category": "ambiguous",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_181",
@@ -1408,21 +1768,27 @@
     "gold": [
       "KB011",
       "KB053"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB011+KB053"
   },
   {
     "id": "eval_182",
     "query": "how to post process resin prints",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_183",
     "query": "not bridging issue but messy bridges",
     "category": "ambiguous",
     "gold": [
-      "KB066"
-    ]
+      "KB027"
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB066 → KB027"
   },
   {
     "id": "eval_184",
@@ -1430,7 +1796,9 @@
     "category": "single_defect",
     "gold": [
       "KB004"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB004"
   },
   {
     "id": "eval_185",
@@ -1438,7 +1806,9 @@
     "category": "ambiguous",
     "gold": [
       "KB050"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB050"
   },
   {
     "id": "eval_186",
@@ -1446,7 +1816,9 @@
     "category": "ambiguous",
     "gold": [
       "KB038"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB038"
   },
   {
     "id": "eval_187",
@@ -1454,28 +1826,36 @@
     "category": "single_defect",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_188",
     "query": "how to choose nozzle material",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_189",
     "query": "extrusion stopped mid print and print turned into spaghetti",
     "category": "multi_defect",
     "gold": [
-      "KB040",
+      "KB012",
       "KB101"
-    ]
+    ],
+    "source": "kb_combination",
+    "gold_basis": "KB040 → KB012+KB101"
   },
   {
     "id": "eval_190",
     "query": "resin vat cleaning",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_191",
@@ -1483,7 +1863,9 @@
     "category": "param_compensation",
     "gold": [
       "KB026"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB026"
   },
   {
     "id": "eval_192",
@@ -1491,7 +1873,9 @@
     "category": "ambiguous",
     "gold": [
       "KB006"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB006"
   },
   {
     "id": "eval_193",
@@ -1500,7 +1884,9 @@
     "gold": [
       "KB003",
       "KB004"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB003+KB004"
   },
   {
     "id": "eval_194",
@@ -1508,7 +1894,9 @@
     "category": "param_compensation",
     "gold": [
       "KB014"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB014"
   },
   {
     "id": "eval_195",
@@ -1516,13 +1904,17 @@
     "category": "single_defect",
     "gold": [
       "KB011"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB011"
   },
   {
     "id": "eval_196",
     "query": "best build plate surface",
     "category": "out_of_scope",
-    "gold": []
+    "gold": [],
+    "source": "out_of_scope",
+    "gold_basis": ""
   },
   {
     "id": "eval_197",
@@ -1530,7 +1922,9 @@
     "category": "param_compensation",
     "gold": [
       "KB044"
-    ]
+    ],
+    "source": "spec_param",
+    "gold_basis": "KB044"
   },
   {
     "id": "eval_198",
@@ -1538,7 +1932,9 @@
     "category": "ambiguous",
     "gold": [
       "KB063"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB063"
   },
   {
     "id": "eval_199",
@@ -1546,7 +1942,9 @@
     "category": "single_defect",
     "gold": [
       "KB009"
-    ]
+    ],
+    "source": "kb_paraphrase",
+    "gold_basis": "KB009"
   },
   {
     "id": "eval_200",
@@ -1555,6 +1953,8 @@
     "gold": [
       "KB006",
       "KB024"
-    ]
+    ],
+    "source": "spec_negation",
+    "gold_basis": "KB006+KB024"
   }
 ]

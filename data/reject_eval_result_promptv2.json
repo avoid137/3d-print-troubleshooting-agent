@@ -1,0 +1,6958 @@
+{
+  "llm_judge": {
+    "label": "方案 A · LLM 判官（qwen-turbo, prompt v2）",
+    "neg_total": 40,
+    "neg_rejected": 37,
+    "rejection_recall": 0.925,
+    "neg_answered": 3,
+    "neg_answered_rate": 0.075,
+    "pos_total": 160,
+    "pos_rejected": 1,
+    "false_reject_rate": 0.0063,
+    "answered_hit": 126,
+    "answered_miss": 33,
+    "answer_hit_rate": 0.7875,
+    "answer_miss_rate": 0.2062,
+    "reject_precision": 0.9737,
+    "reject_f1": 0.9487,
+    "_check": 1.0
+  },
+  "threshold_baseline": {
+    "label": "方案 B · 余弦阈值基线（阈值 0.6865）",
+    "neg_total": 40,
+    "neg_rejected": 37,
+    "rejection_recall": 0.925,
+    "neg_answered": 3,
+    "neg_answered_rate": 0.075,
+    "pos_total": 160,
+    "pos_rejected": 72,
+    "false_reject_rate": 0.45,
+    "answered_hit": 72,
+    "answered_miss": 16,
+    "answer_hit_rate": 0.45,
+    "answer_miss_rate": 0.1,
+    "reject_precision": 0.3394,
+    "reject_f1": 0.4966,
+    "_check": 1.0
+  },
+  "llm_rows": [
+    {
+      "id": "eval_001",
+      "category": "param_compensation",
+      "query": "temperature tower calibration",
+      "gold": [
+        "KB003",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB022",
+        "KB003",
+        "KB049",
+        "KB025"
+      ],
+      "top_cosine": 0.5163,
+      "rejected": false,
+      "reason": "用户问题涉及温度塔校准，属于FDM打印质量缺陷排障中的校准类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_002",
+      "category": "out_of_scope",
+      "query": "3D printer mainboard upgrade",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB022",
+        "KB002",
+        "KB022",
+        "KB020"
+      ],
+      "top_cosine": 0.6031,
+      "rejected": true,
+      "reason": "用户问题涉及3D打印机主板升级，属于设备硬件改装范畴，不在FDM打印质量缺陷排障知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_003",
+      "category": "out_of_scope",
+      "query": "how to use a 3D pen",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB026",
+        "KB067",
+        "KB027",
+        "KB065"
+      ],
+      "top_cosine": 0.6193,
+      "rejected": true,
+      "reason": "用户的问题是关于如何使用3D笔，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_004",
+      "category": "out_of_scope",
+      "query": "best CAD software for beginners",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB022",
+        "KB055",
+        "KB055",
+        "KB027"
+      ],
+      "top_cosine": 0.4733,
+      "rejected": true,
+      "reason": "用户询问的是CAD软件推荐，不属于FDM打印质量缺陷排障范围"
+    },
+    {
+      "id": "eval_005",
+      "category": "ambiguous",
+      "query": "retraction is fine but still oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB014",
+        "KB006",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.725,
+      "rejected": false,
+      "reason": "用户问题涉及挤出异常中的‘拉丝/渗料’缺陷，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_006",
+      "category": "out_of_scope",
+      "query": "how to connect printer to octoprint",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB027",
+        "KB058",
+        "KB002",
+        "KB024"
+      ],
+      "top_cosine": 0.5447,
+      "rejected": true,
+      "reason": "用户的问题涉及如何连接打印机到OctoPrint，属于切片软件或设备连接操作问题，不属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_007",
+      "category": "ambiguous",
+      "query": "not stringing but web-like strands",
+      "gold": [
+        "KB063"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB102",
+        "KB006"
+      ],
+      "top_cosine": 0.5961,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中出现的类似网状细丝的现象，属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_008",
+      "category": "single_defect",
+      "query": "bridges sag and string",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB006",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.6236,
+      "rejected": false,
+      "reason": "用户的问题涉及桥接下垂（bridges sag）和拉丝（string），属于FDM打印质量缺陷中的‘悬垂质量差’和‘拉丝/渗料’类别，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_009",
+      "category": "multi_defect",
+      "query": "heat deformation on tall prints and hairy prints with whiskers of filament",
+      "gold": [
+        "KB007",
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB031",
+        "KB049",
+        "KB006"
+      ],
+      "top_cosine": 0.6765,
+      "rejected": false,
+      "reason": "用户问题涉及打印件出现的‘hairy prints’和‘whiskers’，属于FDM打印质量缺陷中的拉丝/渗料（Stringing or Oozing）范畴，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_010",
+      "category": "single_defect",
+      "query": "the print layers don't line up",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB050",
+        "KB033",
+        "KB019",
+        "KB072",
+        "KB033"
+      ],
+      "top_cosine": 0.7705,
+      "rejected": false,
+      "reason": "用户的问题属于FDM打印质量缺陷中的'层错位'问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_011",
+      "category": "single_defect",
+      "query": "part doesn't stick to print bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB067",
+        "KB024",
+        "KB002",
+        "KB101",
+        "KB024"
+      ],
+      "top_cosine": 0.7712,
+      "rejected": false,
+      "reason": "用户的问题属于附着类缺陷中的首层不粘床问题，符合知识库覆盖范围"
+    },
+    {
+      "id": "eval_012",
+      "category": "out_of_scope",
+      "query": "how to calibrate a laser engraver",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB009",
+        "KB002",
+        "KB044",
+        "KB058"
+      ],
+      "top_cosine": 0.5429,
+      "rejected": true,
+      "reason": "用户的问题是关于激光雕刻机的校准，不属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_013",
+      "category": "ambiguous",
+      "query": "no warp but edges bending",
+      "gold": [
+        "KB045"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB024",
+        "KB055",
+        "KB055",
+        "KB055"
+      ],
+      "top_cosine": 0.5812,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件边缘弯曲，属于附着类或结构类的打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_014",
+      "category": "single_defect",
+      "query": "how to unclog a 3D printer nozzle",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB022",
+        "KB001",
+        "KB023",
+        "KB011"
+      ],
+      "top_cosine": 0.6974,
+      "rejected": false,
+      "reason": "用户的问题是关于解决3D打印机喷嘴堵塞的故障，属于FDM打印质量缺陷排障中的‘挤出类’问题。"
+    },
+    {
+      "id": "eval_015",
+      "category": "param_compensation",
+      "query": "ironing settings top surface",
+      "gold": [
+        "KB005"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB062",
+        "KB017",
+        "KB018",
+        "KB062"
+      ],
+      "top_cosine": 0.5717,
+      "rejected": false,
+      "reason": "用户问题涉及顶层表面处理，属于FDM打印质量缺陷中的表面类问题"
+    },
+    {
+      "id": "eval_016",
+      "category": "out_of_scope",
+      "query": "how to print flexible TPU",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB028",
+        "KB003",
+        "KB027",
+        "KB024"
+      ],
+      "top_cosine": 0.5564,
+      "rejected": true,
+      "reason": "用户的问题是关于如何打印柔性TPU，这属于材料使用和工艺设置的指导，而非FDM打印质量缺陷的排障范畴。"
+    },
+    {
+      "id": "eval_017",
+      "category": "param_compensation",
+      "query": "nozzle temperature too low under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB006",
+        "KB005",
+        "KB002",
+        "KB058"
+      ],
+      "top_cosine": 0.7988,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出类缺陷中的欠挤出，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_018",
+      "category": "out_of_scope",
+      "query": "best enclosure for ABS printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB024",
+        "KB024",
+        "KB028",
+        "KB024"
+      ],
+      "top_cosine": 0.7053,
+      "rejected": true,
+      "reason": "用户的问题是关于ABS打印的最佳机箱，属于设备选型与硬件改装范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+    },
+    {
+      "id": "eval_019",
+      "category": "single_defect",
+      "query": "zits appearing on the print",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB033",
+        "KB067",
+        "KB067",
+        "KB065"
+      ],
+      "top_cosine": 0.6884,
+      "rejected": false,
+      "reason": "用户问题提到的 'zits' 属于表面类打印缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_020",
+      "category": "ambiguous",
+      "query": "nozzle is not clogged but filament grinds",
+      "gold": [
+        "KB010"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB102",
+        "KB012",
+        "KB023",
+        "KB103"
+      ],
+      "top_cosine": 0.7618,
+      "rejected": false,
+      "reason": "用户问题描述的是 filament grinds（耗材研磨），属于挤出类故障中的‘料线研磨’，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_021",
+      "category": "ambiguous",
+      "query": "no clog but stops extruding mid print",
+      "gold": [
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB012",
+        "KB001",
+        "KB037",
+        "KB010"
+      ],
+      "top_cosine": 0.7765,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中挤出中断，属于FDM打印质量缺陷中的‘挤出类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_022",
+      "category": "single_defect",
+      "query": "weak thin layers from under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB018",
+        "KB051",
+        "KB003",
+        "KB013"
+      ],
+      "top_cosine": 0.6389,
+      "rejected": false,
+      "reason": "用户的问题涉及‘under extrusion’导致的‘weak thin layers’，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_023",
+      "category": "single_defect",
+      "query": "bridging looks messy and droopy",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB046"
+      ],
+      "top_cosine": 0.6926,
+      "rejected": false,
+      "reason": "用户问题描述的是桥接（bridging）质量差，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_024",
+      "category": "param_compensation",
+      "query": "brim width for bed adhesion",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB002",
+        "KB101",
+        "KB028"
+      ],
+      "top_cosine": 0.7199,
+      "rejected": false,
+      "reason": "用户的问题涉及床附着问题，属于附着类缺陷的排障范围。"
+    },
+    {
+      "id": "eval_025",
+      "category": "multi_defect",
+      "query": "ringing artifacts on print sides and overhang quality is poor",
+      "gold": [
+        "KB020",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB020",
+        "KB019",
+        "KB053",
+        "KB055"
+      ],
+      "top_cosine": 0.6527,
+      "rejected": false,
+      "reason": "用户的问题涉及打印表面的振纹（ringing）和悬垂质量差（overhang quality），属于FDM打印质量缺陷排障范围内的表面类和几何类问题。"
+    },
+    {
+      "id": "eval_026",
+      "category": "single_defect",
+      "query": "surface has blobs and imperfections",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB062",
+        "KB014",
+        "KB028",
+        "KB028",
+        "KB026"
+      ],
+      "top_cosine": 0.6332,
+      "rejected": false,
+      "reason": "用户问题描述的是表面存在凸起和瑕疵，属于3D打印表面类缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_027",
+      "category": "ambiguous",
+      "query": "no ringing but ghosting on sides",
+      "gold": [
+        "KB057"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB020",
+        "KB019",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.5725,
+      "rejected": false,
+      "reason": "用户的问题涉及打印表面缺陷中的鬼影（ghosting）现象，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_028",
+      "category": "multi_defect",
+      "query": "the corners of my print are curling up and first layer won't adhere",
+      "gold": [
+        "KB024",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB016",
+        "KB101",
+        "KB101",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.7902,
+      "rejected": false,
+      "reason": "用户的问题涉及首层不粘床和边角翘起，属于附着类和几何类的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_029",
+      "category": "out_of_scope",
+      "query": "how to wire a 3D printer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB020",
+        "KB002",
+        "KB019",
+        "KB051"
+      ],
+      "top_cosine": 0.5828,
+      "rejected": true,
+      "reason": "用户的问题涉及3D打印机的接线操作，属于设备接线与固件范畴，不在FDM打印质量缺陷排障的知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_030",
+      "category": "single_defect",
+      "query": "there are thin plastic strings on my print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7419,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件上存在细塑料丝，属于表面类缺陷中的拉丝/渗料问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_031",
+      "category": "multi_defect",
+      "query": "blobs and zits on the print surface and also cracks between printed layers",
+      "gold": [
+        "KB014",
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB009",
+        "KB026",
+        "KB024",
+        "KB074"
+      ],
+      "top_cosine": 0.7111,
+      "rejected": false,
+      "reason": "用户问题涉及打印表面的 blobs 和 zits 以及层间裂缝，属于表面类和结构类的 FDM 打印质量缺陷。"
+    },
+    {
+      "id": "eval_032",
+      "category": "single_defect",
+      "query": "small bumps on my 3D print",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB062",
+        "KB033",
+        "KB014",
+        "KB008",
+        "KB067"
+      ],
+      "top_cosine": 0.677,
+      "rejected": false,
+      "reason": "用户提到的 'small bumps on my 3D print' 属于表面类打印缺陷，与知识库中覆盖的 'surface defects'（如拉丝、振纹、表面粗糙等）相关。"
+    },
+    {
+      "id": "eval_033",
+      "category": "ambiguous",
+      "query": "not under extruded but walls are weak",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB055",
+        "KB022",
+        "KB013",
+        "KB019",
+        "KB021"
+      ],
+      "top_cosine": 0.6208,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件壁厚弱，属于FDM打印质量缺陷中的附着类或结构类问题。"
+    },
+    {
+      "id": "eval_034",
+      "category": "ambiguous",
+      "query": "not over extruded but stringy droopy",
+      "gold": [
+        "KB059"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB027",
+        "KB053",
+        "KB102",
+        "KB019"
+      ],
+      "top_cosine": 0.5807,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中出现的拉丝和下垂现象，属于FDM打印质量缺陷中的表面类或几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_035",
+      "category": "single_defect",
+      "query": "failed bridging over gaps",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB025",
+        "KB027",
+        "KB051",
+        "KB027"
+      ],
+      "top_cosine": 0.6412,
+      "rejected": false,
+      "reason": "用户问题描述的是桥接失败（failed bridging over gaps），属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_036",
+      "category": "param_compensation",
+      "query": "how much retraction for bowden extruder",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB010",
+        "KB014",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.7276,
+      "rejected": false,
+      "reason": "用户询问的是FDM打印中与挤出相关的回抽设置，属于挤出类故障排障范围。"
+    },
+    {
+      "id": "eval_037",
+      "category": "single_defect",
+      "query": "filament not coming out of the nozzle",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB038",
+        "KB102",
+        "KB011",
+        "KB102"
+      ],
+      "top_cosine": 0.7732,
+      "rejected": false,
+      "reason": "用户的问题属于FDM打印质量缺陷中的挤出类问题，具体为‘不挤出’。"
+    },
+    {
+      "id": "eval_038",
+      "category": "param_compensation",
+      "query": "coasting settings reduce blobs",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB026",
+        "KB014",
+        "KB020",
+        "KB022"
+      ],
+      "top_cosine": 0.5842,
+      "rejected": false,
+      "reason": "用户问题涉及打印缺陷中的 blobs（凸起/滴料），属于 FDM 打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_039",
+      "category": "ambiguous",
+      "query": "no clog but filament stripped",
+      "gold": [
+        "KB039"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB010",
+        "KB010"
+      ],
+      "top_cosine": 0.6157,
+      "rejected": false,
+      "reason": "用户问题描述的是‘filament stripped’（耗材被磨削），属于挤出类故障中的‘料线研磨’，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_040",
+      "category": "multi_defect",
+      "query": "my print has stringing and oozing between parts and first layer issues on my print",
+      "gold": [
+        "KB006",
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB028",
+        "KB016"
+      ],
+      "top_cosine": 0.7388,
+      "rejected": false,
+      "reason": "用户问题涉及字符串状缺陷（stringing/oozing）和首层附着问题（first layer issues），均属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_041",
+      "category": "ambiguous",
+      "query": "first layer fine but infill visible outside",
+      "gold": [
+        "KB048"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB015",
+        "KB033",
+        "KB005",
+        "KB048"
+      ],
+      "top_cosine": 0.6758,
+      "rejected": false,
+      "reason": "用户问题描述的是填充结构从外部可见，属于FDM打印质量缺陷中的‘表面类’或‘结构类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_042",
+      "category": "ambiguous",
+      "query": "not clogging but extrusion inconsistent",
+      "gold": [
+        "KB023"
+      ],
+      "retrieved_kb": [
+        "KB023",
+        "KB023",
+        "KB023",
+        "KB019",
+        "KB102"
+      ],
+      "top_cosine": 0.7088,
+      "rejected": false,
+      "reason": "用户问题描述的是挤出不一致（inconsistent extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_043",
+      "category": "single_defect",
+      "query": "ripples and echoes on surface",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB062",
+        "KB028",
+        "KB020",
+        "KB058"
+      ],
+      "top_cosine": 0.5538,
+      "rejected": false,
+      "reason": "用户问题提到的 'ripples and echoes on surface' 属于表面类打印质量缺陷，与知识库中 '振纹（ringing）' 和 '鬼影（ghosting）' 的范畴相符。"
+    },
+    {
+      "id": "eval_044",
+      "category": "multi_defect",
+      "query": "print looks over extruded and droopy and printer stopped extruding halfway",
+      "gold": [
+        "KB004",
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB019",
+        "KB023",
+        "KB012",
+        "KB004"
+      ],
+      "top_cosine": 0.785,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中出现的过挤出和挤出中断，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_045",
+      "category": "single_defect",
+      "query": "print looks over extruded and droopy",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB037",
+        "KB004",
+        "KB072",
+        "KB027"
+      ],
+      "top_cosine": 0.6436,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件出现过挤出和下垂现象，属于FDM打印质量缺陷中的结构类或几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_046",
+      "category": "ambiguous",
+      "query": "bed is level but print won't stick",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB024",
+        "KB035",
+        "KB044",
+        "KB101"
+      ],
+      "top_cosine": 0.8017,
+      "rejected": false,
+      "reason": "用户的问题属于附着类缺陷中的‘首层不粘床’，符合知识库覆盖的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_047",
+      "category": "param_compensation",
+      "query": "nozzle diameter change under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB023",
+        "KB005",
+        "KB003",
+        "KB021",
+        "KB019"
+      ],
+      "top_cosine": 0.7087,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出异常，属于FDM打印质量缺陷中的挤出类问题。"
+    },
+    {
+      "id": "eval_048",
+      "category": "param_compensation",
+      "query": "filament diameter settings",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB003",
+        "KB003",
+        "KB003",
+        "KB010",
+        "KB023"
+      ],
+      "top_cosine": 0.7116,
+      "rejected": false,
+      "reason": "用户问题涉及耗材直径设置，属于FDM打印质量缺陷排障中的挤出类问题"
+    },
+    {
+      "id": "eval_049",
+      "category": "single_defect",
+      "query": "too much filament coming out",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB023",
+        "KB012",
+        "KB012",
+        "KB010"
+      ],
+      "top_cosine": 0.6872,
+      "rejected": false,
+      "reason": "用户问题描述的是挤出量过多，属于FDM打印质量缺陷中的‘过挤出’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_050",
+      "category": "single_defect",
+      "query": "layers are shifting in my print",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB065",
+        "KB033",
+        "KB009"
+      ],
+      "top_cosine": 0.8005,
+      "rejected": false,
+      "reason": "用户问题描述的是层错位（layers are shifting），属于FDM打印质量缺陷中的表面类或结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_051",
+      "category": "out_of_scope",
+      "query": "how to model organic shapes",
+      "gold": [],
+      "retrieved_kb": [
+        "KB042",
+        "KB044",
+        "KB042",
+        "KB007",
+        "KB025"
+      ],
+      "top_cosine": 0.5315,
+      "rejected": true,
+      "reason": "用户的问题是关于如何建模有机形状，这属于CAD建模或设计阶段的指导，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_052",
+      "category": "single_defect",
+      "query": "vibrations and ringing on the print",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.8271,
+      "rejected": false,
+      "reason": "用户问题涉及打印过程中的振动和波纹（ringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_053",
+      "category": "single_defect",
+      "query": "the corners of my print are curling up",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB016",
+        "KB024",
+        "KB024",
+        "KB101",
+        "KB072"
+      ],
+      "top_cosine": 0.7517,
+      "rejected": false,
+      "reason": "用户的问题是关于打印件角落翘起（curling），属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_054",
+      "category": "out_of_scope",
+      "query": "3D printer firmware setup marlin",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB037",
+        "KB020",
+        "KB003",
+        "KB020"
+      ],
+      "top_cosine": 0.6241,
+      "rejected": true,
+      "reason": "用户的问题涉及3D打印机固件设置（Marlin），不属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_055",
+      "category": "multi_defect",
+      "query": "first layer looks messy and also extrusion stopped mid print",
+      "gold": [
+        "KB028",
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB012",
+        "KB028",
+        "KB046",
+        "KB053"
+      ],
+      "top_cosine": 0.7055,
+      "rejected": false,
+      "reason": "用户的问题涉及首层打印混乱和中途停挤出，属于FDM打印质量缺陷中的附着类和挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_056",
+      "category": "single_defect",
+      "query": "how to make print stick to bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB002",
+        "KB002",
+        "KB101",
+        "KB067"
+      ],
+      "top_cosine": 0.7781,
+      "rejected": false,
+      "reason": "用户的问题是关于打印件附着问题，属于附着类缺陷的排障范围。"
+    },
+    {
+      "id": "eval_057",
+      "category": "out_of_scope",
+      "query": "3D printing food safe",
+      "gold": [],
+      "retrieved_kb": [
+        "KB026",
+        "KB051",
+        "KB028",
+        "KB012",
+        "KB074"
+      ],
+      "top_cosine": 0.5606,
+      "rejected": true,
+      "reason": "用户的问题涉及3D打印材料的安全性，不属于FDM打印质量缺陷排障范围"
+    },
+    {
+      "id": "eval_058",
+      "category": "single_defect",
+      "query": "oozing plastic while the nozzle moves",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB001",
+        "KB006",
+        "KB063",
+        "KB006"
+      ],
+      "top_cosine": 0.7505,
+      "rejected": false,
+      "reason": "用户的问题描述的是打印过程中喷嘴移动时出现的塑料渗出现象，属于FDM打印质量缺陷中的‘拉丝/渗料’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_059",
+      "category": "param_compensation",
+      "query": "retraction speed too high causing grinding",
+      "gold": [
+        "KB010",
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB010",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7282,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出异常中的料线研磨，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_060",
+      "category": "out_of_scope",
+      "query": "best infill for strength",
+      "gold": [],
+      "retrieved_kb": [
+        "KB013",
+        "KB013",
+        "KB013",
+        "KB046",
+        "KB048"
+      ],
+      "top_cosine": 0.6374,
+      "rejected": false,
+      "reason": "用户问题涉及FDM打印强度相关的填充结构优化，属于知识库覆盖的结构类缺陷排障范围。"
+    },
+    {
+      "id": "eval_061",
+      "category": "param_compensation",
+      "query": "z seam alignment settings",
+      "gold": [
+        "KB017"
+      ],
+      "retrieved_kb": [
+        "KB051",
+        "KB027",
+        "KB027",
+        "KB028",
+        "KB006"
+      ],
+      "top_cosine": 0.5112,
+      "rejected": false,
+      "reason": "用户问题涉及Z-seam对齐设置，属于FDM打印质量缺陷中的接缝/疤痕（z-seam）问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_062",
+      "category": "param_compensation",
+      "query": "infill density too low weak print",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB013",
+        "KB046",
+        "KB005",
+        "KB018",
+        "KB046"
+      ],
+      "top_cosine": 0.7491,
+      "rejected": false,
+      "reason": "用户的问题涉及填充密度不足导致打印强度弱，属于FDM打印质量缺陷中的结构类问题。"
+    },
+    {
+      "id": "eval_063",
+      "category": "out_of_scope",
+      "query": "best slicer for 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB003",
+        "KB004",
+        "KB055",
+        "KB003"
+      ],
+      "top_cosine": 0.6501,
+      "rejected": true,
+      "reason": "用户的问题是关于选择最佳切片软件，不属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_064",
+      "category": "multi_defect",
+      "query": "print warping and lifting off the bed and also print looks melted",
+      "gold": [
+        "KB024",
+        "KB007"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB024",
+        "KB101",
+        "KB024",
+        "KB035"
+      ],
+      "top_cosine": 0.7592,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件翘边（warping）和脱离平台（lifting off the bed），以及表面熔化（melted），均属于FDM打印质量缺陷中的附着类和表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_065",
+      "category": "param_compensation",
+      "query": "support density for surface finish",
+      "gold": [
+        "KB025"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB042",
+        "KB025",
+        "KB025",
+        "KB046"
+      ],
+      "top_cosine": 0.6721,
+      "rejected": false,
+      "reason": "用户的问题涉及支撑结构密度对表面质量的影响，属于FDM打印质量缺陷排障中的支撑相关问题。"
+    },
+    {
+      "id": "eval_066",
+      "category": "param_compensation",
+      "query": "retraction prime amount",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB058",
+        "KB010"
+      ],
+      "top_cosine": 0.6449,
+      "rejected": false,
+      "reason": "用户问题涉及回抽设置（retraction prime amount），属于FDM打印质量缺陷排障中的挤出类或表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_067",
+      "category": "out_of_scope",
+      "query": "3D printing speed records",
+      "gold": [],
+      "retrieved_kb": [
+        "KB008",
+        "KB013",
+        "KB015",
+        "KB007",
+        "KB028"
+      ],
+      "top_cosine": 0.6131,
+      "rejected": true,
+      "reason": "用户的问题是关于3D打印速度记录，不属于FDM打印质量缺陷的排障范畴。"
+    },
+    {
+      "id": "eval_068",
+      "category": "param_compensation",
+      "query": "cooling fan for overhang quality",
+      "gold": [
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB101",
+        "KB024",
+        "KB025",
+        "KB003"
+      ],
+      "top_cosine": 0.65,
+      "rejected": false,
+      "reason": "用户的问题涉及悬垂质量（overhang quality），属于FDM打印质量缺陷排障范围中的悬垂质量差问题。"
+    },
+    {
+      "id": "eval_069",
+      "category": "single_defect",
+      "query": "not enough plastic being extruded",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB001",
+        "KB004",
+        "KB019",
+        "KB027"
+      ],
+      "top_cosine": 0.7004,
+      "rejected": false,
+      "reason": "用户的问题属于挤出类缺陷中的‘欠挤出’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_070",
+      "category": "ambiguous",
+      "query": "retraction good but blobs at seams",
+      "gold": [
+        "KB017"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB058",
+        "KB006",
+        "KB014",
+        "KB063"
+      ],
+      "top_cosine": 0.6535,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中出现的接缝处斑点（blobs at seams），属于表面类缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_071",
+      "category": "ambiguous",
+      "query": "bed adhesion good but print detached",
+      "gold": [
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB024",
+        "KB101",
+        "KB028",
+        "KB101"
+      ],
+      "top_cosine": 0.7127,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件从床面脱落，属于附着类缺陷中的‘首层不粘床’或‘附着力不足’，在知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_072",
+      "category": "multi_defect",
+      "query": "layer misalignment on tall prints and also extruder is grinding the filament",
+      "gold": [
+        "KB008",
+        "KB010"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB023",
+        "KB003",
+        "KB010",
+        "KB008"
+      ],
+      "top_cosine": 0.689,
+      "rejected": false,
+      "reason": "用户问题涉及层错位（layer misalignment）和挤出机研磨 filament，属于 FDM 打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_073",
+      "category": "ambiguous",
+      "query": "print sticks but elephant foot at bottom",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB044",
+        "KB044",
+        "KB002",
+        "KB067",
+        "KB002"
+      ],
+      "top_cosine": 0.7007,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件底部出现象脚（elephant foot）现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_074",
+      "category": "multi_defect",
+      "query": "grinding filament in the extruder and the part is warping at the corners",
+      "gold": [
+        "KB010",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB103",
+        "KB010",
+        "KB010",
+        "KB010"
+      ],
+      "top_cosine": 0.7397,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出异常和翘边，属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_075",
+      "category": "param_compensation",
+      "query": "bridging fan speed",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB049",
+        "KB062"
+      ],
+      "top_cosine": 0.7151,
+      "rejected": false,
+      "reason": "用户问题涉及桥接（bridging）相关的风扇速度调整，属于FDM打印质量缺陷排障中的悬垂质量差或桥接下垂/拉丝问题范畴。"
+    },
+    {
+      "id": "eval_076",
+      "category": "param_compensation",
+      "query": "build plate temperature for ABS",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB009",
+        "KB009",
+        "KB002",
+        "KB024"
+      ],
+      "top_cosine": 0.679,
+      "rejected": false,
+      "reason": "用户问题涉及ABS打印时的平台温度设置，属于FDM打印质量缺陷排障中与附着类（如首层不粘床）和结构类（如翘边、层分离）相关的参数调整范畴。"
+    },
+    {
+      "id": "eval_077",
+      "category": "single_defect",
+      "query": "print looks offset in some layers",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB035",
+        "KB019",
+        "KB002"
+      ],
+      "top_cosine": 0.7325,
+      "rejected": false,
+      "reason": "用户的问题描述的是打印层在某些地方偏移，属于FDM打印质量缺陷中的‘层错位’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_078",
+      "category": "out_of_scope",
+      "query": "how to scan objects for 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB008",
+        "KB026",
+        "KB009",
+        "KB007"
+      ],
+      "top_cosine": 0.5973,
+      "rejected": true,
+      "reason": "用户的问题是关于如何扫描物体用于3D打印，这属于3D建模或数据采集的范畴，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_079",
+      "category": "out_of_scope",
+      "query": "how to recycle used filament",
+      "gold": [],
+      "retrieved_kb": [
+        "KB012",
+        "KB012",
+        "KB012",
+        "KB023",
+        "KB061"
+      ],
+      "top_cosine": 0.559,
+      "rejected": true,
+      "reason": "用户的问题涉及耗材回收，不属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_080",
+      "category": "ambiguous",
+      "query": "bed temp correct but corners curl",
+      "gold": [
+        "KB016"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB016",
+        "KB024",
+        "KB044",
+        "KB024"
+      ],
+      "top_cosine": 0.6136,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件角落翘起（curling），属于附着类的打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_081",
+      "category": "param_compensation",
+      "query": "flow rate too high over extrusion",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB009",
+        "KB003",
+        "KB058",
+        "KB003"
+      ],
+      "top_cosine": 0.7267,
+      "rejected": false,
+      "reason": "用户问题涉及挤出量过高导致的过挤出问题，属于FDM打印质量缺陷中的挤出类故障。"
+    },
+    {
+      "id": "eval_082",
+      "category": "single_defect",
+      "query": "print warping and lifting off the bed",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB101",
+        "KB024",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.6737,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件翘边和脱离平台，属于附着类缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_083",
+      "category": "multi_defect",
+      "query": "my print has stringing and oozing between parts and also blocked nozzle not extruding",
+      "gold": [
+        "KB006",
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7679,
+      "rejected": false,
+      "reason": "用户的问题涉及字符串状缺陷（stringing/oozing）和喷嘴堵塞（blocked nozzle），均属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_084",
+      "category": "param_compensation",
+      "query": "retraction when crossing perimeters stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB014",
+        "KB006"
+      ],
+      "top_cosine": 0.7012,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中因回抽设置不当导致的拉丝（stringing）缺陷，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_085",
+      "category": "out_of_scope",
+      "query": "3D printing business ideas",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB014",
+        "KB022",
+        "KB028",
+        "KB009"
+      ],
+      "top_cosine": 0.5624,
+      "rejected": true,
+      "reason": "用户的问题是关于3D打印商业创意，不属于FDM打印质量缺陷排障范围"
+    },
+    {
+      "id": "eval_086",
+      "category": "ambiguous",
+      "query": "cooling is fine but overhangs droop",
+      "gold": [
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB062",
+        "KB007",
+        "KB101",
+        "KB053"
+      ],
+      "top_cosine": 0.6243,
+      "rejected": false,
+      "reason": "用户的问题涉及悬垂质量差（overhangs droop），属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_087",
+      "category": "multi_defect",
+      "query": "no filament comes out at beginning and also ringing artifacts on print sides",
+      "gold": [
+        "KB001",
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB001",
+        "KB019",
+        "KB020",
+        "KB034"
+      ],
+      "top_cosine": 0.6997,
+      "rejected": false,
+      "reason": "用户的问题涉及FDM打印中的挤出问题（无 filament）和表面缺陷（ringing artifacts），属于知识库覆盖的范围。"
+    },
+    {
+      "id": "eval_088",
+      "category": "param_compensation",
+      "query": "print speed too fast causing layer shift",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB065",
+        "KB007",
+        "KB020",
+        "KB008"
+      ],
+      "top_cosine": 0.7526,
+      "rejected": false,
+      "reason": "用户的问题涉及打印速度过快导致的层错位（layer shift），属于FDM打印质量缺陷中的‘层错位’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_089",
+      "category": "param_compensation",
+      "query": "z offset too close to bed",
+      "gold": [
+        "KB035"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB035",
+        "KB002",
+        "KB035",
+        "KB002"
+      ],
+      "top_cosine": 0.6833,
+      "rejected": false,
+      "reason": "用户的问题涉及喷嘴与打印床的Z轴偏移过近，属于FDM打印质量缺陷中的附着类问题。"
+    },
+    {
+      "id": "eval_090",
+      "category": "single_defect",
+      "query": "layer misalignment on tall prints",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB022",
+        "KB049",
+        "KB023",
+        "KB008",
+        "KB042"
+      ],
+      "top_cosine": 0.7078,
+      "rejected": false,
+      "reason": "用户问题涉及层错位（layer misalignment），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_091",
+      "category": "single_defect",
+      "query": "under extrusion causing gaps",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB051",
+        "KB026",
+        "KB051",
+        "KB102"
+      ],
+      "top_cosine": 0.7719,
+      "rejected": false,
+      "reason": "用户的问题涉及 'under extrusion' 导致的 'gaps'，属于 FDM 打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_092",
+      "category": "multi_defect",
+      "query": "failed bridging over gaps and also droopy overhangs on print",
+      "gold": [
+        "KB027",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB027",
+        "KB025",
+        "KB051",
+        "KB053"
+      ],
+      "top_cosine": 0.6857,
+      "rejected": false,
+      "reason": "用户的问题涉及桥接失败和悬垂下垂，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_093",
+      "category": "param_compensation",
+      "query": "print speed for bridging",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.7433,
+      "rejected": false,
+      "reason": "用户问题涉及桥接（bridging）的打印速度设置，属于FDM打印质量缺陷排障中的‘几何类’问题。"
+    },
+    {
+      "id": "eval_094",
+      "category": "ambiguous",
+      "query": "not under extruded but gaps in walls",
+      "gold": [
+        "KB021"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB021",
+        "KB021",
+        "KB027",
+        "KB018"
+      ],
+      "top_cosine": 0.6653,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中壁面出现间隙，属于FDM打印质量缺陷中的‘结构类’或‘表面类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_095",
+      "category": "multi_defect",
+      "query": "vibrations and ringing on the print and part doesn't stick to print bed",
+      "gold": [
+        "KB020",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB067",
+        "KB024",
+        "KB020"
+      ],
+      "top_cosine": 0.7563,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中的振动/振纹（ringing）和打印件附着问题，均属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_096",
+      "category": "param_compensation",
+      "query": "layer height affecting detail",
+      "gold": [
+        "KB022"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB009",
+        "KB022",
+        "KB031",
+        "KB023"
+      ],
+      "top_cosine": 0.6899,
+      "rejected": false,
+      "reason": "用户问题涉及层高对细节的影响，属于FDM打印质量缺陷中的表面类或结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_097",
+      "category": "multi_defect",
+      "query": "there are thin plastic strings on my print and extruder not primed at print start",
+      "gold": [
+        "KB006",
+        "KB001"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB012",
+        "KB063",
+        "KB001",
+        "KB012"
+      ],
+      "top_cosine": 0.7637,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中出现的细丝（拉丝/渗料）和挤出机未充分回抽的问题，属于FDM打印质量缺陷中的表面类和挤出类问题。"
+    },
+    {
+      "id": "eval_098",
+      "category": "out_of_scope",
+      "query": "how to clean PETG prints",
+      "gold": [],
+      "retrieved_kb": [
+        "KB028",
+        "KB101",
+        "KB022",
+        "KB067",
+        "KB009"
+      ],
+      "top_cosine": 0.6582,
+      "rejected": true,
+      "reason": "用户的问题是关于如何清洁PETG打印件，这属于后处理或表面处理范畴，不在FDM打印质量缺陷排障的范围内。"
+    },
+    {
+      "id": "eval_099",
+      "category": "ambiguous",
+      "query": "not warping but print bows at bottom",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB044",
+        "KB044",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.6226,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件底部弯曲（bowing）的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_100",
+      "category": "multi_defect",
+      "query": "printer stopped extruding halfway and overhang quality is poor",
+      "gold": [
+        "KB040",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB019",
+        "KB023",
+        "KB001",
+        "KB023"
+      ],
+      "top_cosine": 0.6932,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出中断和悬垂质量差，属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_101",
+      "category": "ambiguous",
+      "query": "not warping but dimensional inaccurate",
+      "gold": [
+        "KB026"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB026",
+        "KB026",
+        "KB065",
+        "KB001"
+      ],
+      "top_cosine": 0.6107,
+      "rejected": false,
+      "reason": "用户问题涉及尺寸不准确，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_102",
+      "category": "multi_defect",
+      "query": "print splitting along layer lines and filament extruded in the air tangled",
+      "gold": [
+        "KB009",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB023",
+        "KB103",
+        "KB058",
+        "KB009"
+      ],
+      "top_cosine": 0.6714,
+      "rejected": false,
+      "reason": "用户的问题涉及层分离和挤出异常，属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_103",
+      "category": "param_compensation",
+      "query": "cooling fan settings for overhangs",
+      "gold": [
+        "KB053",
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB008",
+        "KB101",
+        "KB062",
+        "KB024"
+      ],
+      "top_cosine": 0.6479,
+      "rejected": false,
+      "reason": "用户问题涉及悬垂结构的冷却风扇设置，属于FDM打印质量缺陷排障中的悬垂质量差问题。"
+    },
+    {
+      "id": "eval_104",
+      "category": "single_defect",
+      "query": "blobs and zits on the print surface",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB026",
+        "KB062",
+        "KB028",
+        "KB058"
+      ],
+      "top_cosine": 0.7284,
+      "rejected": false,
+      "reason": "用户的问题涉及打印表面的 blobs 和 zits，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_105",
+      "category": "single_defect",
+      "query": "print not sticking to the bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB035",
+        "KB067",
+        "KB024",
+        "KB035",
+        "KB002"
+      ],
+      "top_cosine": 0.7192,
+      "rejected": false,
+      "reason": "用户的问题是关于打印件无法粘附到打印床，属于附着类的排障问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_106",
+      "category": "multi_defect",
+      "query": "weak thin layers from under extrusion and the part is warping at the corners",
+      "gold": [
+        "KB003",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB101",
+        "KB051",
+        "KB051",
+        "KB018"
+      ],
+      "top_cosine": 0.6564,
+      "rejected": false,
+      "reason": "用户的问题涉及欠挤出和翘边，属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_107",
+      "category": "param_compensation",
+      "query": "infill pattern strength",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB013",
+        "KB013",
+        "KB015",
+        "KB046",
+        "KB013"
+      ],
+      "top_cosine": 0.7086,
+      "rejected": false,
+      "reason": "用户问题涉及填充结构强度，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_108",
+      "category": "out_of_scope",
+      "query": "what is FDM vs SLA",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB002",
+        "KB072",
+        "KB009",
+        "KB072"
+      ],
+      "top_cosine": 0.4408,
+      "rejected": true,
+      "reason": "用户的问题是关于FDM与SLA的对比，属于工艺类型科普，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+    },
+    {
+      "id": "eval_109",
+      "category": "out_of_scope",
+      "query": "how to print with nylon",
+      "gold": [],
+      "retrieved_kb": [
+        "KB011",
+        "KB044",
+        "KB020",
+        "KB028",
+        "KB024"
+      ],
+      "top_cosine": 0.6206,
+      "rejected": true,
+      "reason": "用户的问题是关于如何使用尼龙进行3D打印，这属于材料使用指导，而非FDM打印质量缺陷的排障范畴。"
+    },
+    {
+      "id": "eval_110",
+      "category": "out_of_scope",
+      "query": "slicer settings for resin printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB003",
+        "KB003",
+        "KB037",
+        "KB069"
+      ],
+      "top_cosine": 0.587,
+      "rejected": true,
+      "reason": "用户问题涉及树脂打印的切片设置，而知识库仅覆盖FDM打印质量缺陷排障，不包含SLA或树脂打印相关内容。"
+    },
+    {
+      "id": "eval_111",
+      "category": "param_compensation",
+      "query": "jerk settings layer shift",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB020",
+        "KB002",
+        "KB005",
+        "KB026"
+      ],
+      "top_cosine": 0.5896,
+      "rejected": false,
+      "reason": "用户问题涉及层错位（layer shift），属于FDM打印质量缺陷中的'表面类'问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_112",
+      "category": "single_defect",
+      "query": "edges bending upwards during printing",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB024",
+        "KB052",
+        "KB055",
+        "KB065"
+      ],
+      "top_cosine": 0.6604,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中边缘向上弯曲，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_113",
+      "category": "param_compensation",
+      "query": "what retraction distance should I use for stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB014",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7298,
+      "rejected": false,
+      "reason": "用户的问题涉及FDM打印中的拉丝（stringing）问题，属于知识库覆盖的表面类缺陷排障范围。"
+    },
+    {
+      "id": "eval_114",
+      "category": "param_compensation",
+      "query": "acceleration too high ringing",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB008",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.647,
+      "rejected": false,
+      "reason": "用户问题涉及打印过程中因加速度过高导致的振纹（ringing），属于FDM打印质量缺陷中的表面类问题。"
+    },
+    {
+      "id": "eval_115",
+      "category": "single_defect",
+      "query": "how to prevent warping",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB101",
+        "KB044",
+        "KB024",
+        "KB008"
+      ],
+      "top_cosine": 0.6662,
+      "rejected": false,
+      "reason": "用户问题关于防止翘边（warping），属于附着类打印质量缺陷排障，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_116",
+      "category": "ambiguous",
+      "query": "the print sticks but first layer is messy",
+      "gold": [
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB026",
+        "KB002",
+        "KB101"
+      ],
+      "top_cosine": 0.7076,
+      "rejected": false,
+      "reason": "用户的问题涉及首层附着问题，属于附着类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_117",
+      "category": "out_of_scope",
+      "query": "3D printing medical implants",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB072",
+        "KB014",
+        "KB022",
+        "KB069"
+      ],
+      "top_cosine": 0.5367,
+      "rejected": true,
+      "reason": "用户的问题涉及3D打印医疗植入物，属于应用领域而非FDM打印质量缺陷排障范畴"
+    },
+    {
+      "id": "eval_118",
+      "category": "out_of_scope",
+      "query": "how to design a 3D model in CAD",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB026",
+        "KB072",
+        "KB022",
+        "KB044"
+      ],
+      "top_cosine": 0.6222,
+      "rejected": true,
+      "reason": "用户的问题是关于如何在CAD中设计3D模型，这属于CAD软件操作范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+    },
+    {
+      "id": "eval_119",
+      "category": "ambiguous",
+      "query": "cooling ok but print looks melted",
+      "gold": [
+        "KB061"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB067",
+        "KB002",
+        "KB024",
+        "KB062"
+      ],
+      "top_cosine": 0.7085,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件外观异常（看起来融化），属于FDM打印质量缺陷中的表面类问题。"
+    },
+    {
+      "id": "eval_120",
+      "category": "multi_defect",
+      "query": "first layer won't adhere and layers coming apart",
+      "gold": [
+        "KB002",
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB026",
+        "KB002",
+        "KB028",
+        "KB003"
+      ],
+      "top_cosine": 0.7497,
+      "rejected": false,
+      "reason": "用户的问题涉及首层附着不良和层间分离，属于附着类和结构类的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_121",
+      "category": "ambiguous",
+      "query": "not over extrusion but print droopy",
+      "gold": [
+        "KB059"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB005",
+        "KB023",
+        "KB019",
+        "KB022"
+      ],
+      "top_cosine": 0.6697,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件下垂（droopy），属于FDM打印质量缺陷中的悬垂质量差问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_122",
+      "category": "ambiguous",
+      "query": "no clog but spaghetti mess",
+      "gold": [
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB101",
+        "KB103",
+        "KB003",
+        "KB028"
+      ],
+      "top_cosine": 0.7036,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中出现的 'spaghetti mess'（ spaghetti 通常指拉丝或挤出异常），属于 FDM 打印质量缺陷中的表面类或挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_123",
+      "category": "single_defect",
+      "query": "print splitting along layer lines",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB019",
+        "KB009",
+        "KB058",
+        "KB009"
+      ],
+      "top_cosine": 0.6881,
+      "rejected": false,
+      "reason": "用户的问题涉及层间分离，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_124",
+      "category": "single_defect",
+      "query": "the part is warping at the corners",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB065",
+        "KB101",
+        "KB016",
+        "KB018"
+      ],
+      "top_cosine": 0.6573,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件角落翘起（warping），属于附着类中的‘翘边’或‘边角翘起’缺陷，符合知识库覆盖的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_125",
+      "category": "out_of_scope",
+      "query": "3D printing tolerances guide",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB021",
+        "KB051",
+        "KB026",
+        "KB003"
+      ],
+      "top_cosine": 0.6663,
+      "rejected": true,
+      "reason": "用户的问题涉及3D打印公差指南，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_126",
+      "category": "single_defect",
+      "query": "first layer won't adhere",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028",
+        "KB003"
+      ],
+      "top_cosine": 0.7537,
+      "rejected": false,
+      "reason": "用户的问题属于附着类中的首层不粘床问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_127",
+      "category": "single_defect",
+      "query": "nozzle is clogged filament won't come out",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB102",
+        "KB010",
+        "KB012",
+        "KB001"
+      ],
+      "top_cosine": 0.782,
+      "rejected": false,
+      "reason": "用户的问题涉及喷嘴堵塞导致无法挤出，属于FDM打印质量缺陷中的挤出类问题。"
+    },
+    {
+      "id": "eval_128",
+      "category": "param_compensation",
+      "query": "wall count for strength",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB031",
+        "KB053",
+        "KB018",
+        "KB021"
+      ],
+      "top_cosine": 0.5249,
+      "rejected": false,
+      "reason": "用户问题涉及打印结构强度，与FDM打印质量缺陷中的结构类问题（如强度不足）相关。"
+    },
+    {
+      "id": "eval_129",
+      "category": "param_compensation",
+      "query": "minimal layer time cooling",
+      "gold": [
+        "KB007"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB002",
+        "KB024",
+        "KB067",
+        "KB101"
+      ],
+      "top_cosine": 0.6171,
+      "rejected": false,
+      "reason": "用户问题涉及打印过程中的冷却设置，属于FDM打印质量缺陷排障中的附着类或结构类问题。"
+    },
+    {
+      "id": "eval_130",
+      "category": "out_of_scope",
+      "query": "how to print with carbon fiber",
+      "gold": [],
+      "retrieved_kb": [
+        "KB015",
+        "KB003",
+        "KB027",
+        "KB024",
+        "KB044"
+      ],
+      "top_cosine": 0.6008,
+      "rejected": true,
+      "reason": "用户的问题是关于如何使用碳纤维进行3D打印，这属于材料选购与存储回收的范畴，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+    },
+    {
+      "id": "eval_131",
+      "category": "param_compensation",
+      "query": "bed leveling for first layer",
+      "gold": [
+        "KB028",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.7397,
+      "rejected": false,
+      "reason": "用户问题涉及首层附着问题，属于附着类打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_132",
+      "category": "multi_defect",
+      "query": "scars on the top surface of print and too much filament coming out",
+      "gold": [
+        "KB017",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB017",
+        "KB062",
+        "KB012",
+        "KB024"
+      ],
+      "top_cosine": 0.7432,
+      "rejected": false,
+      "reason": "用户的问题涉及打印表面的缺陷（scars）和挤出过多（too much filament），属于FDM打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_133",
+      "category": "multi_defect",
+      "query": "diagonal scars on my print and also gaps in the print walls",
+      "gold": [
+        "KB017",
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB021",
+        "KB048",
+        "KB017",
+        "KB019"
+      ],
+      "top_cosine": 0.7857,
+      "rejected": false,
+      "reason": "用户提到的 'diagonal scars on my print' 属于表面类缺陷中的 'z-seam' 或 'scars on top surface'，而 'gaps in the print walls' 属于结构类或几何类缺陷中的 'gaps in thin walls' 或 'structure defects'，均在知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_134",
+      "category": "multi_defect",
+      "query": "first layer won't adhere and also print became a mess of plastic strands",
+      "gold": [
+        "KB002",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028",
+        "KB002"
+      ],
+      "top_cosine": 0.7711,
+      "rejected": false,
+      "reason": "用户的问题涉及首层不粘床和拉丝/渗料，属于知识库覆盖的附着类和表面类缺陷。"
+    },
+    {
+      "id": "eval_135",
+      "category": "ambiguous",
+      "query": "not dimensional issue but parts too small",
+      "gold": [
+        "KB064"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB026",
+        "KB026",
+        "KB101",
+        "KB022"
+      ],
+      "top_cosine": 0.6954,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件尺寸过小，属于FDM打印质量缺陷中的结构类问题（尺寸偏差）。"
+    },
+    {
+      "id": "eval_136",
+      "category": "ambiguous",
+      "query": "no ringing but surface ripples",
+      "gold": [
+        "KB019"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.621,
+      "rejected": false,
+      "reason": "用户的问题涉及表面波纹（surface ripples），属于FDM打印质量缺陷中的表面类问题。"
+    },
+    {
+      "id": "eval_137",
+      "category": "single_defect",
+      "query": "cracks between printed layers",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB049",
+        "KB018",
+        "KB005",
+        "KB019"
+      ],
+      "top_cosine": 0.7731,
+      "rejected": false,
+      "reason": "用户的问题涉及层间开裂，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_138",
+      "category": "out_of_scope",
+      "query": "what is the best 3D printer to buy",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB002",
+        "KB025",
+        "KB051",
+        "KB026"
+      ],
+      "top_cosine": 0.6229,
+      "rejected": true,
+      "reason": "用户的问题是关于选择最佳3D打印机，这属于设备选型，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+    },
+    {
+      "id": "eval_139",
+      "category": "out_of_scope",
+      "query": "how to level a resin printer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB022"
+      ],
+      "top_cosine": 0.715,
+      "rejected": true,
+      "reason": "用户的问题涉及树脂打印机调平，而知识库仅覆盖FDM打印质量缺陷排障，不包含树脂打印机相关问题。"
+    },
+    {
+      "id": "eval_140",
+      "category": "single_defect",
+      "query": "print lifts off the build plate",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB101",
+        "KB025",
+        "KB067",
+        "KB002"
+      ],
+      "top_cosine": 0.6754,
+      "rejected": false,
+      "reason": "用户的问题属于附着类故障，即打印件从平台脱离，与知识库覆盖的FDM打印质量缺陷排障范围一致。"
+    },
+    {
+      "id": "eval_141",
+      "category": "out_of_scope",
+      "query": "DLP vs SLA resin printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB069",
+        "KB002",
+        "KB069",
+        "KB072",
+        "KB072"
+      ],
+      "top_cosine": 0.6574,
+      "rejected": true,
+      "reason": "用户的问题涉及DLP与SLA两种不同3D打印技术的对比，属于工艺类型科普范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+    },
+    {
+      "id": "eval_142",
+      "category": "single_defect",
+      "query": "blocked nozzle not extruding",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB023",
+        "KB001",
+        "KB001",
+        "KB011"
+      ],
+      "top_cosine": 0.7083,
+      "rejected": false,
+      "reason": "用户的问题属于挤出类故障中的‘不挤出’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_143",
+      "category": "out_of_scope",
+      "query": "how to paint 3D printed parts",
+      "gold": [],
+      "retrieved_kb": [
+        "KB005",
+        "KB009",
+        "KB013",
+        "KB022",
+        "KB015"
+      ],
+      "top_cosine": 0.6245,
+      "rejected": true,
+      "reason": "用户的问题是关于如何涂装3D打印件，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_144",
+      "category": "single_defect",
+      "query": "gaps in the print walls",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB021",
+        "KB048",
+        "KB025",
+        "KB018",
+        "KB005"
+      ],
+      "top_cosine": 0.7348,
+      "rejected": false,
+      "reason": "用户的问题 'gaps in the print walls' 属于 FDM 打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_145",
+      "category": "single_defect",
+      "query": "print looks under extruded",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB051",
+        "KB004",
+        "KB037",
+        "KB027"
+      ],
+      "top_cosine": 0.7158,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件出现欠挤出（under extruded）现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_146",
+      "category": "out_of_scope",
+      "query": "how to use supports in slicer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB055",
+        "KB009",
+        "KB042",
+        "KB042"
+      ],
+      "top_cosine": 0.5935,
+      "rejected": false,
+      "reason": "用户的问题是关于如何在切片软件中使用支撑结构，属于FDM打印质量缺陷排障中的‘支撑难拆’或‘悬垂质量差’相关问题。"
+    },
+    {
+      "id": "eval_147",
+      "category": "single_defect",
+      "query": "layers shifted horizontally",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB019",
+        "KB005",
+        "KB072",
+        "KB050"
+      ],
+      "top_cosine": 0.5934,
+      "rejected": false,
+      "reason": "用户问题描述的是层错位（layers shifted horizontally），属于FDM打印质量缺陷中的‘表面类’或‘结构类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_148",
+      "category": "multi_defect",
+      "query": "cracks between printed layers and print looks under extruded",
+      "gold": [
+        "KB009",
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB049",
+        "KB005",
+        "KB027",
+        "KB005"
+      ],
+      "top_cosine": 0.751,
+      "rejected": false,
+      "reason": "用户的问题涉及层间开裂和欠挤出，属于FDM打印质量缺陷中的层分离和欠挤出问题"
+    },
+    {
+      "id": "eval_149",
+      "category": "multi_defect",
+      "query": "filament stops coming out during print and failed bridging over gaps",
+      "gold": [
+        "KB040",
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB034",
+        "KB012",
+        "KB037",
+        "KB051",
+        "KB038"
+      ],
+      "top_cosine": 0.7152,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出中断和桥接失败，属于FDM打印质量缺陷中的挤出类和几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_150",
+      "category": "param_compensation",
+      "query": "hotend temp for PETG oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB003",
+        "KB006",
+        "KB003",
+        "KB006"
+      ],
+      "top_cosine": 0.5982,
+      "rejected": false,
+      "reason": "用户问题涉及 PETG 材料打印时的 oozing（渗料）现象，属于 FDM 打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_151",
+      "category": "ambiguous",
+      "query": "no delamination but cracks in tall print",
+      "gold": [
+        "KB049"
+      ],
+      "retrieved_kb": [
+        "KB049",
+        "KB009",
+        "KB033",
+        "KB024",
+        "KB023"
+      ],
+      "top_cosine": 0.6738,
+      "rejected": false,
+      "reason": "用户问题涉及打印物出现裂纹，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_152",
+      "category": "single_defect",
+      "query": "how to fix stringing on my 3D print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB012",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.695,
+      "rejected": false,
+      "reason": "用户的问题是关于3D打印中常见的表面缺陷‘拉丝/渗料’（stringing），属于知识库覆盖的范围。"
+    },
+    {
+      "id": "eval_153",
+      "category": "out_of_scope",
+      "query": "best filament storage solutions",
+      "gold": [],
+      "retrieved_kb": [
+        "KB010",
+        "KB012",
+        "KB035",
+        "KB025",
+        "KB012"
+      ],
+      "top_cosine": 0.5308,
+      "rejected": true,
+      "reason": "用户的问题涉及耗材存储解决方案，不属于FDM打印质量缺陷排障范围"
+    },
+    {
+      "id": "eval_154",
+      "category": "param_compensation",
+      "query": "bed temperature for PLA warping",
+      "gold": [
+        "KB024",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB044",
+        "KB024",
+        "KB101",
+        "KB028"
+      ],
+      "top_cosine": 0.6621,
+      "rejected": false,
+      "reason": "用户问题涉及PLA打印翘曲（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_155",
+      "category": "out_of_scope",
+      "query": "how to change nozzle",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB012",
+        "KB021",
+        "KB001",
+        "KB023"
+      ],
+      "top_cosine": 0.6513,
+      "rejected": true,
+      "reason": "用户的问题是关于如何更换喷嘴，这属于设备维护操作，而非FDM打印质量缺陷的排障范畴。"
+    },
+    {
+      "id": "eval_156",
+      "category": "ambiguous",
+      "query": "first layer ok but top has gaps",
+      "gold": [
+        "KB005"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB005",
+        "KB026",
+        "KB005",
+        "KB062"
+      ],
+      "top_cosine": 0.6683,
+      "rejected": false,
+      "reason": "用户的问题涉及顶层出现空隙，属于FDM打印质量缺陷中的结构类或表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_157",
+      "category": "ambiguous",
+      "query": "retraction fine but whiskers on print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.6567,
+      "rejected": false,
+      "reason": "用户问题涉及打印表面出现的细丝（whiskers），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_158",
+      "category": "out_of_scope",
+      "query": "best 3D printing youtube channels",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB028",
+        "KB026",
+        "KB028",
+        "KB014"
+      ],
+      "top_cosine": 0.5446,
+      "rejected": true,
+      "reason": "用户的问题是关于推荐3D打印YouTube频道，不属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_159",
+      "category": "single_defect",
+      "query": "layers coming apart",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB019",
+        "KB009",
+        "KB051",
+        "KB053"
+      ],
+      "top_cosine": 0.6578,
+      "rejected": false,
+      "reason": "用户的问题'layers coming apart'属于FDM打印质量缺陷中的结构类问题，即层分离（delamination），在知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_160",
+      "category": "param_compensation",
+      "query": "fan speed for first layer adhesion",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB002",
+        "KB062",
+        "KB024",
+        "KB101"
+      ],
+      "top_cosine": 0.6367,
+      "rejected": false,
+      "reason": "用户问题涉及首层附着与风扇速度的关系，属于附着类打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_161",
+      "category": "single_defect",
+      "query": "layers separating and splitting",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB009",
+        "KB009",
+        "KB009",
+        "KB019"
+      ],
+      "top_cosine": 0.7228,
+      "rejected": false,
+      "reason": "用户问题涉及层分离和分层，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_162",
+      "category": "multi_defect",
+      "query": "part is not the right size and also too much filament coming out",
+      "gold": [
+        "KB026",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB010",
+        "KB023",
+        "KB062",
+        "KB012"
+      ],
+      "top_cosine": 0.6554,
+      "rejected": false,
+      "reason": "用户的问题涉及打印尺寸偏差和过挤出，属于FDM打印质量缺陷中的结构类和挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_163",
+      "category": "out_of_scope",
+      "query": "how to print multi color",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB027",
+        "KB002",
+        "KB009",
+        "KB061"
+      ],
+      "top_cosine": 0.5597,
+      "rejected": true,
+      "reason": "用户的问题是关于多色打印的实现方法，不属于FDM打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_164",
+      "category": "ambiguous",
+      "query": "no layer shift but print leans",
+      "gold": [
+        "KB052"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB052",
+        "KB025",
+        "KB002",
+        "KB005"
+      ],
+      "top_cosine": 0.6379,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件倾斜（print leans），属于FDM打印质量缺陷中的结构类或几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_165",
+      "category": "ambiguous",
+      "query": "not overheating but layers separate",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB009",
+        "KB009",
+        "KB016",
+        "KB007"
+      ],
+      "top_cosine": 0.6473,
+      "rejected": false,
+      "reason": "用户问题涉及层分离（layer separation），属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_166",
+      "category": "multi_defect",
+      "query": "layers coming apart and how to unclog a 3D printer nozzle",
+      "gold": [
+        "KB009",
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB009",
+        "KB001",
+        "KB005",
+        "KB017"
+      ],
+      "top_cosine": 0.6912,
+      "rejected": false,
+      "reason": "用户的问题涉及层分离（layers coming apart）和喷嘴堵塞（unclog a 3D printer nozzle），均属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_167",
+      "category": "ambiguous",
+      "query": "no adhesion issue but print stuck to bed",
+      "gold": [
+        "KB067"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB024",
+        "KB067",
+        "KB028",
+        "KB101"
+      ],
+      "top_cosine": 0.7449,
+      "rejected": false,
+      "reason": "用户的问题涉及打印件粘附到床但没有附着问题，属于FDM打印质量缺陷中的附着类问题。"
+    },
+    {
+      "id": "eval_168",
+      "category": "single_defect",
+      "query": "over extrusion making blobby prints",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB023",
+        "KB004",
+        "KB019",
+        "KB023"
+      ],
+      "top_cosine": 0.6775,
+      "rejected": false,
+      "reason": "用户的问题涉及过挤出导致的打印表面不光滑（blobby prints），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_169",
+      "category": "out_of_scope",
+      "query": "what is SLA printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB072",
+        "KB069",
+        "KB009",
+        "KB069"
+      ],
+      "top_cosine": 0.6685,
+      "rejected": true,
+      "reason": "用户询问的是SLA打印的定义，属于工艺类型科普，不在知识库覆盖范围内。"
+    },
+    {
+      "id": "eval_170",
+      "category": "single_defect",
+      "query": "poor bridging on my print",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB025",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.747,
+      "rejected": false,
+      "reason": "用户的问题涉及桥接质量差，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_171",
+      "category": "out_of_scope",
+      "query": "how to make money with 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB020",
+        "KB026",
+        "KB012",
+        "KB051"
+      ],
+      "top_cosine": 0.5942,
+      "rejected": true,
+      "reason": "用户的问题是关于如何通过3D打印赚钱，属于商业运营范畴，不属于FDM打印质量缺陷排障"
+    },
+    {
+      "id": "eval_172",
+      "category": "multi_defect",
+      "query": "problems with the first layer and print not sticking to the bed",
+      "gold": [
+        "KB028",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB101",
+        "KB002",
+        "KB035"
+      ],
+      "top_cosine": 0.7333,
+      "rejected": false,
+      "reason": "用户的问题涉及首层不粘床和打印物未附着，属于附着类的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_173",
+      "category": "single_defect",
+      "query": "my print has stringing and oozing between parts",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7895,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中出现的拉丝和渗料现象，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_174",
+      "category": "param_compensation",
+      "query": "nozzle wipe for stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.656,
+      "rejected": false,
+      "reason": "用户问题涉及FDM打印中的拉丝（stringing）缺陷，属于知识库覆盖的表面类故障排障范围。"
+    },
+    {
+      "id": "eval_175",
+      "category": "ambiguous",
+      "query": "not overheating but ripples on surface",
+      "gold": [
+        "KB057"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB016",
+        "KB007",
+        "KB003",
+        "KB007"
+      ],
+      "top_cosine": 0.5993,
+      "rejected": false,
+      "reason": "用户问题描述的是表面振纹（ripples）现象，属于3D打印表面类缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_176",
+      "category": "param_compensation",
+      "query": "wipe distance for oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.6091,
+      "rejected": false,
+      "reason": "用户问题涉及挤出过程中因回抽距离设置不当导致的拉丝或渗料问题，属于FDM打印质量缺陷中的表面类问题。"
+    },
+    {
+      "id": "eval_177",
+      "category": "multi_defect",
+      "query": "poor bridging on my print and first layer won't adhere",
+      "gold": [
+        "KB027",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB101",
+        "KB027",
+        "KB002",
+        "KB002"
+      ],
+      "top_cosine": 0.7144,
+      "rejected": false,
+      "reason": "用户的问题涉及首层附着不良和桥接质量差，均属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_178",
+      "category": "single_defect",
+      "query": "extruding too much plastic",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB017",
+        "KB006",
+        "KB005",
+        "KB004",
+        "KB011"
+      ],
+      "top_cosine": 0.7879,
+      "rejected": false,
+      "reason": "用户的问题是关于挤出过多塑料（over-extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_179",
+      "category": "param_compensation",
+      "query": "first layer height too high not sticking",
+      "gold": [
+        "KB002",
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB009",
+        "KB031",
+        "KB026",
+        "KB028"
+      ],
+      "top_cosine": 0.7506,
+      "rejected": false,
+      "reason": "用户的问题属于附着类缺陷中的首层不粘床问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_180",
+      "category": "ambiguous",
+      "query": "no stringing but blobs on surface",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB006",
+        "KB006",
+        "KB026",
+        "KB006"
+      ],
+      "top_cosine": 0.5855,
+      "rejected": false,
+      "reason": "用户的问题涉及打印表面出现斑点（blobs）但没有拉丝（no stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_181",
+      "category": "multi_defect",
+      "query": "how to unclog a 3D printer nozzle and droopy overhangs on print",
+      "gold": [
+        "KB011",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB012",
+        "KB072",
+        "KB001",
+        "KB022"
+      ],
+      "top_cosine": 0.6961,
+      "rejected": false,
+      "reason": "用户的问题涉及喷嘴堵塞和悬垂结构下垂，分别属于挤出类和几何类的FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_182",
+      "category": "out_of_scope",
+      "query": "how to post process resin prints",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB002",
+        "KB009",
+        "KB074",
+        "KB002"
+      ],
+      "top_cosine": 0.6618,
+      "rejected": true,
+      "reason": "用户的问题涉及树脂打印的后处理，而知识库仅覆盖FDM打印质量缺陷排障，不包括SLA或树脂相关的内容。"
+    },
+    {
+      "id": "eval_183",
+      "category": "ambiguous",
+      "query": "not bridging issue but messy bridges",
+      "gold": [
+        "KB066"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.6134,
+      "rejected": false,
+      "reason": "用户的问题涉及桥接质量差，属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_184",
+      "category": "single_defect",
+      "query": "my print is stringy and droopy over extrusion",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB023",
+        "KB004",
+        "KB013",
+        "KB023"
+      ],
+      "top_cosine": 0.7174,
+      "rejected": false,
+      "reason": "用户问题描述的是打印件出现拉丝和过挤出现象，属于FDM打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_185",
+      "category": "ambiguous",
+      "query": "no shift but layers don't line up",
+      "gold": [
+        "KB050"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB033",
+        "KB062",
+        "KB005"
+      ],
+      "top_cosine": 0.6361,
+      "rejected": false,
+      "reason": "用户问题描述的是层对齐问题，属于FDM打印质量缺陷中的‘层错位’类别，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_186",
+      "category": "ambiguous",
+      "query": "no clog but filament snaps",
+      "gold": [
+        "KB038"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB010",
+        "KB102",
+        "KB010",
+        "KB103"
+      ],
+      "top_cosine": 0.7131,
+      "rejected": false,
+      "reason": "用户问题涉及 filament snaps，属于挤出类故障中的料线研磨或挤出异常，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_187",
+      "category": "single_defect",
+      "query": "hairy prints with whiskers of filament",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB031",
+        "KB012",
+        "KB022"
+      ],
+      "top_cosine": 0.6493,
+      "rejected": false,
+      "reason": "用户的问题描述的是 'hairy prints with whiskers of filament'，这属于 FDM 打印质量缺陷中的 'Stringing or Oozing'（拉丝/渗料）类别，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_188",
+      "category": "out_of_scope",
+      "query": "how to choose nozzle material",
+      "gold": [],
+      "retrieved_kb": [
+        "KB011",
+        "KB102",
+        "KB021",
+        "KB011",
+        "KB006"
+      ],
+      "top_cosine": 0.6438,
+      "rejected": true,
+      "reason": "用户的问题是关于如何选择喷嘴材料，这不属于FDM打印质量缺陷的排障范围，而是涉及设备选型与硬件改装，属于知识库不覆盖的内容。"
+    },
+    {
+      "id": "eval_189",
+      "category": "multi_defect",
+      "query": "extrusion stopped mid print and print turned into spaghetti",
+      "gold": [
+        "KB040",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB023"
+      ],
+      "top_cosine": 0.7113,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中挤出中断导致的‘意大利面’现象，属于FDM打印质量缺陷中的挤出类问题。"
+    },
+    {
+      "id": "eval_190",
+      "category": "out_of_scope",
+      "query": "resin vat cleaning",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB072"
+      ],
+      "top_cosine": 0.6897,
+      "rejected": true,
+      "reason": "用户问题涉及树脂槽清洁，属于SLA 3D打印相关操作，不在FDM打印质量缺陷排障范围内"
+    },
+    {
+      "id": "eval_191",
+      "category": "param_compensation",
+      "query": "backlash compensation dimensional",
+      "gold": [
+        "KB026"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB003",
+        "KB026",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.5637,
+      "rejected": true,
+      "reason": "用户的问题涉及 'backlash compensation dimensional'，这属于设备机械校准或硬件调整范畴，不属于 FDM 打印质量缺陷排障的范围。"
+    },
+    {
+      "id": "eval_192",
+      "category": "ambiguous",
+      "query": "no stringing but oozing between moves",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.6241,
+      "rejected": false,
+      "reason": "用户问题描述的是打印过程中出现的‘非拉丝但存在渗料’现象，属于FDM打印质量缺陷中的‘附着类’或‘表面类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_193",
+      "category": "param_compensation",
+      "query": "extrusion multiplier calibration",
+      "gold": [
+        "KB003",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB003",
+        "KB026",
+        "KB009",
+        "KB003"
+      ],
+      "top_cosine": 0.7565,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出量校准（extrusion multiplier calibration），属于FDM打印质量缺陷排障中的挤出类问题。"
+    },
+    {
+      "id": "eval_194",
+      "category": "param_compensation",
+      "query": "travel speed causing blobs",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB026",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.5674,
+      "rejected": false,
+      "reason": "用户问题涉及打印过程中因移动速度导致的滴料（blobs），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_195",
+      "category": "single_defect",
+      "query": "extruder is clogged",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB001",
+        "KB028",
+        "KB010",
+        "KB011"
+      ],
+      "top_cosine": 0.7925,
+      "rejected": false,
+      "reason": "用户的问题涉及挤出类故障中的‘堵头’，属于FDM打印质量缺陷排障的覆盖范围。"
+    },
+    {
+      "id": "eval_196",
+      "category": "out_of_scope",
+      "query": "best build plate surface",
+      "gold": [],
+      "retrieved_kb": [
+        "KB025",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB002"
+      ],
+      "top_cosine": 0.5774,
+      "rejected": false,
+      "reason": "用户问题询问的是最佳的打印平台表面，这与附着类缺陷中的‘首层不粘床’相关，属于FDM打印质量缺陷排障范围。"
+    },
+    {
+      "id": "eval_197",
+      "category": "param_compensation",
+      "query": "elephant foot compensation",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB044",
+        "KB044",
+        "KB003",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.5448,
+      "rejected": false,
+      "reason": "用户问题涉及 'elephant foot compensation'，属于 FDM 打印质量缺陷中的附着类问题，知识库中已包含相关条目。"
+    },
+    {
+      "id": "eval_198",
+      "category": "ambiguous",
+      "query": "not stringing but hairy surface",
+      "gold": [
+        "KB063"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.6141,
+      "rejected": false,
+      "reason": "用户问题描述的是打印表面出现毛发状现象，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "id": "eval_199",
+      "category": "single_defect",
+      "query": "delamination between layers",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB009",
+        "KB025",
+        "KB031",
+        "KB005"
+      ],
+      "top_cosine": 0.5912,
+      "rejected": false,
+      "reason": "用户问题涉及层分离（delamination），属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "id": "eval_200",
+      "category": "ambiguous",
+      "query": "my print has strings but also the corners lift",
+      "gold": [
+        "KB006",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB058",
+        "KB003",
+        "KB016"
+      ],
+      "top_cosine": 0.6472,
+      "rejected": false,
+      "reason": "用户的问题涉及打印过程中出现的拉丝（strings）和角部翘起（corners lift），均属于FDM打印质量缺陷的排障范围。"
+    }
+  ],
+  "threshold_rows": [
+    {
+      "id": "eval_001",
+      "category": "param_compensation",
+      "query": "temperature tower calibration",
+      "gold": [
+        "KB003",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB022",
+        "KB003",
+        "KB049",
+        "KB025"
+      ],
+      "top_cosine": 0.5163,
+      "rejected": true
+    },
+    {
+      "id": "eval_002",
+      "category": "out_of_scope",
+      "query": "3D printer mainboard upgrade",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB022",
+        "KB002",
+        "KB022",
+        "KB020"
+      ],
+      "top_cosine": 0.6031,
+      "rejected": true
+    },
+    {
+      "id": "eval_003",
+      "category": "out_of_scope",
+      "query": "how to use a 3D pen",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB026",
+        "KB067",
+        "KB027",
+        "KB065"
+      ],
+      "top_cosine": 0.6193,
+      "rejected": true
+    },
+    {
+      "id": "eval_004",
+      "category": "out_of_scope",
+      "query": "best CAD software for beginners",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB022",
+        "KB055",
+        "KB055",
+        "KB027"
+      ],
+      "top_cosine": 0.4733,
+      "rejected": true
+    },
+    {
+      "id": "eval_005",
+      "category": "ambiguous",
+      "query": "retraction is fine but still oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB014",
+        "KB006",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.725,
+      "rejected": false
+    },
+    {
+      "id": "eval_006",
+      "category": "out_of_scope",
+      "query": "how to connect printer to octoprint",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB027",
+        "KB058",
+        "KB002",
+        "KB024"
+      ],
+      "top_cosine": 0.5447,
+      "rejected": true
+    },
+    {
+      "id": "eval_007",
+      "category": "ambiguous",
+      "query": "not stringing but web-like strands",
+      "gold": [
+        "KB063"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB102",
+        "KB006"
+      ],
+      "top_cosine": 0.5961,
+      "rejected": true
+    },
+    {
+      "id": "eval_008",
+      "category": "single_defect",
+      "query": "bridges sag and string",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB006",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.6236,
+      "rejected": true
+    },
+    {
+      "id": "eval_009",
+      "category": "multi_defect",
+      "query": "heat deformation on tall prints and hairy prints with whiskers of filament",
+      "gold": [
+        "KB007",
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB031",
+        "KB049",
+        "KB006"
+      ],
+      "top_cosine": 0.6765,
+      "rejected": true
+    },
+    {
+      "id": "eval_010",
+      "category": "single_defect",
+      "query": "the print layers don't line up",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB050",
+        "KB033",
+        "KB019",
+        "KB072",
+        "KB033"
+      ],
+      "top_cosine": 0.7705,
+      "rejected": false
+    },
+    {
+      "id": "eval_011",
+      "category": "single_defect",
+      "query": "part doesn't stick to print bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB067",
+        "KB024",
+        "KB002",
+        "KB101",
+        "KB024"
+      ],
+      "top_cosine": 0.7712,
+      "rejected": false
+    },
+    {
+      "id": "eval_012",
+      "category": "out_of_scope",
+      "query": "how to calibrate a laser engraver",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB009",
+        "KB002",
+        "KB044",
+        "KB058"
+      ],
+      "top_cosine": 0.5429,
+      "rejected": true
+    },
+    {
+      "id": "eval_013",
+      "category": "ambiguous",
+      "query": "no warp but edges bending",
+      "gold": [
+        "KB045"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB024",
+        "KB055",
+        "KB055",
+        "KB055"
+      ],
+      "top_cosine": 0.5812,
+      "rejected": true
+    },
+    {
+      "id": "eval_014",
+      "category": "single_defect",
+      "query": "how to unclog a 3D printer nozzle",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB022",
+        "KB001",
+        "KB023",
+        "KB011"
+      ],
+      "top_cosine": 0.6974,
+      "rejected": false
+    },
+    {
+      "id": "eval_015",
+      "category": "param_compensation",
+      "query": "ironing settings top surface",
+      "gold": [
+        "KB005"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB062",
+        "KB017",
+        "KB018",
+        "KB062"
+      ],
+      "top_cosine": 0.5717,
+      "rejected": true
+    },
+    {
+      "id": "eval_016",
+      "category": "out_of_scope",
+      "query": "how to print flexible TPU",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB028",
+        "KB003",
+        "KB027",
+        "KB024"
+      ],
+      "top_cosine": 0.5564,
+      "rejected": true
+    },
+    {
+      "id": "eval_017",
+      "category": "param_compensation",
+      "query": "nozzle temperature too low under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB006",
+        "KB005",
+        "KB002",
+        "KB058"
+      ],
+      "top_cosine": 0.7988,
+      "rejected": false
+    },
+    {
+      "id": "eval_018",
+      "category": "out_of_scope",
+      "query": "best enclosure for ABS printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB024",
+        "KB024",
+        "KB028",
+        "KB024"
+      ],
+      "top_cosine": 0.7053,
+      "rejected": false
+    },
+    {
+      "id": "eval_019",
+      "category": "single_defect",
+      "query": "zits appearing on the print",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB033",
+        "KB067",
+        "KB067",
+        "KB065"
+      ],
+      "top_cosine": 0.6884,
+      "rejected": false
+    },
+    {
+      "id": "eval_020",
+      "category": "ambiguous",
+      "query": "nozzle is not clogged but filament grinds",
+      "gold": [
+        "KB010"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB102",
+        "KB012",
+        "KB023",
+        "KB103"
+      ],
+      "top_cosine": 0.7618,
+      "rejected": false
+    },
+    {
+      "id": "eval_021",
+      "category": "ambiguous",
+      "query": "no clog but stops extruding mid print",
+      "gold": [
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB012",
+        "KB001",
+        "KB037",
+        "KB010"
+      ],
+      "top_cosine": 0.7765,
+      "rejected": false
+    },
+    {
+      "id": "eval_022",
+      "category": "single_defect",
+      "query": "weak thin layers from under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB018",
+        "KB051",
+        "KB003",
+        "KB013"
+      ],
+      "top_cosine": 0.6389,
+      "rejected": true
+    },
+    {
+      "id": "eval_023",
+      "category": "single_defect",
+      "query": "bridging looks messy and droopy",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB046"
+      ],
+      "top_cosine": 0.6926,
+      "rejected": false
+    },
+    {
+      "id": "eval_024",
+      "category": "param_compensation",
+      "query": "brim width for bed adhesion",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB002",
+        "KB101",
+        "KB028"
+      ],
+      "top_cosine": 0.7199,
+      "rejected": false
+    },
+    {
+      "id": "eval_025",
+      "category": "multi_defect",
+      "query": "ringing artifacts on print sides and overhang quality is poor",
+      "gold": [
+        "KB020",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB020",
+        "KB019",
+        "KB053",
+        "KB055"
+      ],
+      "top_cosine": 0.6527,
+      "rejected": true
+    },
+    {
+      "id": "eval_026",
+      "category": "single_defect",
+      "query": "surface has blobs and imperfections",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB062",
+        "KB014",
+        "KB028",
+        "KB028",
+        "KB026"
+      ],
+      "top_cosine": 0.6332,
+      "rejected": true
+    },
+    {
+      "id": "eval_027",
+      "category": "ambiguous",
+      "query": "no ringing but ghosting on sides",
+      "gold": [
+        "KB057"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB020",
+        "KB019",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.5725,
+      "rejected": true
+    },
+    {
+      "id": "eval_028",
+      "category": "multi_defect",
+      "query": "the corners of my print are curling up and first layer won't adhere",
+      "gold": [
+        "KB024",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB016",
+        "KB101",
+        "KB101",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.7902,
+      "rejected": false
+    },
+    {
+      "id": "eval_029",
+      "category": "out_of_scope",
+      "query": "how to wire a 3D printer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB020",
+        "KB002",
+        "KB019",
+        "KB051"
+      ],
+      "top_cosine": 0.5828,
+      "rejected": true
+    },
+    {
+      "id": "eval_030",
+      "category": "single_defect",
+      "query": "there are thin plastic strings on my print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7419,
+      "rejected": false
+    },
+    {
+      "id": "eval_031",
+      "category": "multi_defect",
+      "query": "blobs and zits on the print surface and also cracks between printed layers",
+      "gold": [
+        "KB014",
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB009",
+        "KB026",
+        "KB024",
+        "KB074"
+      ],
+      "top_cosine": 0.7111,
+      "rejected": false
+    },
+    {
+      "id": "eval_032",
+      "category": "single_defect",
+      "query": "small bumps on my 3D print",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB062",
+        "KB033",
+        "KB014",
+        "KB008",
+        "KB067"
+      ],
+      "top_cosine": 0.677,
+      "rejected": true
+    },
+    {
+      "id": "eval_033",
+      "category": "ambiguous",
+      "query": "not under extruded but walls are weak",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB055",
+        "KB022",
+        "KB013",
+        "KB019",
+        "KB021"
+      ],
+      "top_cosine": 0.6208,
+      "rejected": true
+    },
+    {
+      "id": "eval_034",
+      "category": "ambiguous",
+      "query": "not over extruded but stringy droopy",
+      "gold": [
+        "KB059"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB027",
+        "KB053",
+        "KB102",
+        "KB019"
+      ],
+      "top_cosine": 0.5807,
+      "rejected": true
+    },
+    {
+      "id": "eval_035",
+      "category": "single_defect",
+      "query": "failed bridging over gaps",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB025",
+        "KB027",
+        "KB051",
+        "KB027"
+      ],
+      "top_cosine": 0.6412,
+      "rejected": true
+    },
+    {
+      "id": "eval_036",
+      "category": "param_compensation",
+      "query": "how much retraction for bowden extruder",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB010",
+        "KB014",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.7276,
+      "rejected": false
+    },
+    {
+      "id": "eval_037",
+      "category": "single_defect",
+      "query": "filament not coming out of the nozzle",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB038",
+        "KB102",
+        "KB011",
+        "KB102"
+      ],
+      "top_cosine": 0.7732,
+      "rejected": false
+    },
+    {
+      "id": "eval_038",
+      "category": "param_compensation",
+      "query": "coasting settings reduce blobs",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB026",
+        "KB014",
+        "KB020",
+        "KB022"
+      ],
+      "top_cosine": 0.5842,
+      "rejected": true
+    },
+    {
+      "id": "eval_039",
+      "category": "ambiguous",
+      "query": "no clog but filament stripped",
+      "gold": [
+        "KB039"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB010",
+        "KB010"
+      ],
+      "top_cosine": 0.6157,
+      "rejected": true
+    },
+    {
+      "id": "eval_040",
+      "category": "multi_defect",
+      "query": "my print has stringing and oozing between parts and first layer issues on my print",
+      "gold": [
+        "KB006",
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB028",
+        "KB016"
+      ],
+      "top_cosine": 0.7388,
+      "rejected": false
+    },
+    {
+      "id": "eval_041",
+      "category": "ambiguous",
+      "query": "first layer fine but infill visible outside",
+      "gold": [
+        "KB048"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB015",
+        "KB033",
+        "KB005",
+        "KB048"
+      ],
+      "top_cosine": 0.6758,
+      "rejected": true
+    },
+    {
+      "id": "eval_042",
+      "category": "ambiguous",
+      "query": "not clogging but extrusion inconsistent",
+      "gold": [
+        "KB023"
+      ],
+      "retrieved_kb": [
+        "KB023",
+        "KB023",
+        "KB023",
+        "KB019",
+        "KB102"
+      ],
+      "top_cosine": 0.7088,
+      "rejected": false
+    },
+    {
+      "id": "eval_043",
+      "category": "single_defect",
+      "query": "ripples and echoes on surface",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB062",
+        "KB028",
+        "KB020",
+        "KB058"
+      ],
+      "top_cosine": 0.5538,
+      "rejected": true
+    },
+    {
+      "id": "eval_044",
+      "category": "multi_defect",
+      "query": "print looks over extruded and droopy and printer stopped extruding halfway",
+      "gold": [
+        "KB004",
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB019",
+        "KB023",
+        "KB012",
+        "KB004"
+      ],
+      "top_cosine": 0.785,
+      "rejected": false
+    },
+    {
+      "id": "eval_045",
+      "category": "single_defect",
+      "query": "print looks over extruded and droopy",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB037",
+        "KB004",
+        "KB072",
+        "KB027"
+      ],
+      "top_cosine": 0.6436,
+      "rejected": true
+    },
+    {
+      "id": "eval_046",
+      "category": "ambiguous",
+      "query": "bed is level but print won't stick",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB024",
+        "KB035",
+        "KB044",
+        "KB101"
+      ],
+      "top_cosine": 0.8017,
+      "rejected": false
+    },
+    {
+      "id": "eval_047",
+      "category": "param_compensation",
+      "query": "nozzle diameter change under extrusion",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB023",
+        "KB005",
+        "KB003",
+        "KB021",
+        "KB019"
+      ],
+      "top_cosine": 0.7087,
+      "rejected": false
+    },
+    {
+      "id": "eval_048",
+      "category": "param_compensation",
+      "query": "filament diameter settings",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB003",
+        "KB003",
+        "KB003",
+        "KB010",
+        "KB023"
+      ],
+      "top_cosine": 0.7116,
+      "rejected": false
+    },
+    {
+      "id": "eval_049",
+      "category": "single_defect",
+      "query": "too much filament coming out",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB023",
+        "KB012",
+        "KB012",
+        "KB010"
+      ],
+      "top_cosine": 0.6872,
+      "rejected": false
+    },
+    {
+      "id": "eval_050",
+      "category": "single_defect",
+      "query": "layers are shifting in my print",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB065",
+        "KB033",
+        "KB009"
+      ],
+      "top_cosine": 0.8005,
+      "rejected": false
+    },
+    {
+      "id": "eval_051",
+      "category": "out_of_scope",
+      "query": "how to model organic shapes",
+      "gold": [],
+      "retrieved_kb": [
+        "KB042",
+        "KB044",
+        "KB042",
+        "KB007",
+        "KB025"
+      ],
+      "top_cosine": 0.5315,
+      "rejected": true
+    },
+    {
+      "id": "eval_052",
+      "category": "single_defect",
+      "query": "vibrations and ringing on the print",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.8271,
+      "rejected": false
+    },
+    {
+      "id": "eval_053",
+      "category": "single_defect",
+      "query": "the corners of my print are curling up",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB016",
+        "KB024",
+        "KB024",
+        "KB101",
+        "KB072"
+      ],
+      "top_cosine": 0.7517,
+      "rejected": false
+    },
+    {
+      "id": "eval_054",
+      "category": "out_of_scope",
+      "query": "3D printer firmware setup marlin",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB037",
+        "KB020",
+        "KB003",
+        "KB020"
+      ],
+      "top_cosine": 0.6241,
+      "rejected": true
+    },
+    {
+      "id": "eval_055",
+      "category": "multi_defect",
+      "query": "first layer looks messy and also extrusion stopped mid print",
+      "gold": [
+        "KB028",
+        "KB040"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB012",
+        "KB028",
+        "KB046",
+        "KB053"
+      ],
+      "top_cosine": 0.7055,
+      "rejected": false
+    },
+    {
+      "id": "eval_056",
+      "category": "single_defect",
+      "query": "how to make print stick to bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB002",
+        "KB002",
+        "KB101",
+        "KB067"
+      ],
+      "top_cosine": 0.7781,
+      "rejected": false
+    },
+    {
+      "id": "eval_057",
+      "category": "out_of_scope",
+      "query": "3D printing food safe",
+      "gold": [],
+      "retrieved_kb": [
+        "KB026",
+        "KB051",
+        "KB028",
+        "KB012",
+        "KB074"
+      ],
+      "top_cosine": 0.5606,
+      "rejected": true
+    },
+    {
+      "id": "eval_058",
+      "category": "single_defect",
+      "query": "oozing plastic while the nozzle moves",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB001",
+        "KB006",
+        "KB063",
+        "KB006"
+      ],
+      "top_cosine": 0.7505,
+      "rejected": false
+    },
+    {
+      "id": "eval_059",
+      "category": "param_compensation",
+      "query": "retraction speed too high causing grinding",
+      "gold": [
+        "KB010",
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB010",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7282,
+      "rejected": false
+    },
+    {
+      "id": "eval_060",
+      "category": "out_of_scope",
+      "query": "best infill for strength",
+      "gold": [],
+      "retrieved_kb": [
+        "KB013",
+        "KB013",
+        "KB013",
+        "KB046",
+        "KB048"
+      ],
+      "top_cosine": 0.6374,
+      "rejected": true
+    },
+    {
+      "id": "eval_061",
+      "category": "param_compensation",
+      "query": "z seam alignment settings",
+      "gold": [
+        "KB017"
+      ],
+      "retrieved_kb": [
+        "KB051",
+        "KB027",
+        "KB027",
+        "KB028",
+        "KB006"
+      ],
+      "top_cosine": 0.5112,
+      "rejected": true
+    },
+    {
+      "id": "eval_062",
+      "category": "param_compensation",
+      "query": "infill density too low weak print",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB013",
+        "KB046",
+        "KB005",
+        "KB018",
+        "KB046"
+      ],
+      "top_cosine": 0.7491,
+      "rejected": false
+    },
+    {
+      "id": "eval_063",
+      "category": "out_of_scope",
+      "query": "best slicer for 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB003",
+        "KB004",
+        "KB055",
+        "KB003"
+      ],
+      "top_cosine": 0.6501,
+      "rejected": true
+    },
+    {
+      "id": "eval_064",
+      "category": "multi_defect",
+      "query": "print warping and lifting off the bed and also print looks melted",
+      "gold": [
+        "KB024",
+        "KB007"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB024",
+        "KB101",
+        "KB024",
+        "KB035"
+      ],
+      "top_cosine": 0.7592,
+      "rejected": false
+    },
+    {
+      "id": "eval_065",
+      "category": "param_compensation",
+      "query": "support density for surface finish",
+      "gold": [
+        "KB025"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB042",
+        "KB025",
+        "KB025",
+        "KB046"
+      ],
+      "top_cosine": 0.6721,
+      "rejected": true
+    },
+    {
+      "id": "eval_066",
+      "category": "param_compensation",
+      "query": "retraction prime amount",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB058",
+        "KB010"
+      ],
+      "top_cosine": 0.6449,
+      "rejected": true
+    },
+    {
+      "id": "eval_067",
+      "category": "out_of_scope",
+      "query": "3D printing speed records",
+      "gold": [],
+      "retrieved_kb": [
+        "KB008",
+        "KB013",
+        "KB015",
+        "KB007",
+        "KB028"
+      ],
+      "top_cosine": 0.6131,
+      "rejected": true
+    },
+    {
+      "id": "eval_068",
+      "category": "param_compensation",
+      "query": "cooling fan for overhang quality",
+      "gold": [
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB101",
+        "KB024",
+        "KB025",
+        "KB003"
+      ],
+      "top_cosine": 0.65,
+      "rejected": true
+    },
+    {
+      "id": "eval_069",
+      "category": "single_defect",
+      "query": "not enough plastic being extruded",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB001",
+        "KB004",
+        "KB019",
+        "KB027"
+      ],
+      "top_cosine": 0.7004,
+      "rejected": false
+    },
+    {
+      "id": "eval_070",
+      "category": "ambiguous",
+      "query": "retraction good but blobs at seams",
+      "gold": [
+        "KB017"
+      ],
+      "retrieved_kb": [
+        "KB010",
+        "KB058",
+        "KB006",
+        "KB014",
+        "KB063"
+      ],
+      "top_cosine": 0.6535,
+      "rejected": true
+    },
+    {
+      "id": "eval_071",
+      "category": "ambiguous",
+      "query": "bed adhesion good but print detached",
+      "gold": [
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB024",
+        "KB101",
+        "KB028",
+        "KB101"
+      ],
+      "top_cosine": 0.7127,
+      "rejected": false
+    },
+    {
+      "id": "eval_072",
+      "category": "multi_defect",
+      "query": "layer misalignment on tall prints and also extruder is grinding the filament",
+      "gold": [
+        "KB008",
+        "KB010"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB023",
+        "KB003",
+        "KB010",
+        "KB008"
+      ],
+      "top_cosine": 0.689,
+      "rejected": false
+    },
+    {
+      "id": "eval_073",
+      "category": "ambiguous",
+      "query": "print sticks but elephant foot at bottom",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB044",
+        "KB044",
+        "KB002",
+        "KB067",
+        "KB002"
+      ],
+      "top_cosine": 0.7007,
+      "rejected": false
+    },
+    {
+      "id": "eval_074",
+      "category": "multi_defect",
+      "query": "grinding filament in the extruder and the part is warping at the corners",
+      "gold": [
+        "KB010",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB103",
+        "KB010",
+        "KB010",
+        "KB010"
+      ],
+      "top_cosine": 0.7397,
+      "rejected": false
+    },
+    {
+      "id": "eval_075",
+      "category": "param_compensation",
+      "query": "bridging fan speed",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB049",
+        "KB062"
+      ],
+      "top_cosine": 0.7151,
+      "rejected": false
+    },
+    {
+      "id": "eval_076",
+      "category": "param_compensation",
+      "query": "build plate temperature for ABS",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB009",
+        "KB009",
+        "KB002",
+        "KB024"
+      ],
+      "top_cosine": 0.679,
+      "rejected": true
+    },
+    {
+      "id": "eval_077",
+      "category": "single_defect",
+      "query": "print looks offset in some layers",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB035",
+        "KB019",
+        "KB002"
+      ],
+      "top_cosine": 0.7325,
+      "rejected": false
+    },
+    {
+      "id": "eval_078",
+      "category": "out_of_scope",
+      "query": "how to scan objects for 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB008",
+        "KB026",
+        "KB009",
+        "KB007"
+      ],
+      "top_cosine": 0.5973,
+      "rejected": true
+    },
+    {
+      "id": "eval_079",
+      "category": "out_of_scope",
+      "query": "how to recycle used filament",
+      "gold": [],
+      "retrieved_kb": [
+        "KB012",
+        "KB012",
+        "KB012",
+        "KB023",
+        "KB061"
+      ],
+      "top_cosine": 0.559,
+      "rejected": true
+    },
+    {
+      "id": "eval_080",
+      "category": "ambiguous",
+      "query": "bed temp correct but corners curl",
+      "gold": [
+        "KB016"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB016",
+        "KB024",
+        "KB044",
+        "KB024"
+      ],
+      "top_cosine": 0.6136,
+      "rejected": true
+    },
+    {
+      "id": "eval_081",
+      "category": "param_compensation",
+      "query": "flow rate too high over extrusion",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB009",
+        "KB003",
+        "KB058",
+        "KB003"
+      ],
+      "top_cosine": 0.7267,
+      "rejected": false
+    },
+    {
+      "id": "eval_082",
+      "category": "single_defect",
+      "query": "print warping and lifting off the bed",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB101",
+        "KB024",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.6737,
+      "rejected": true
+    },
+    {
+      "id": "eval_083",
+      "category": "multi_defect",
+      "query": "my print has stringing and oozing between parts and also blocked nozzle not extruding",
+      "gold": [
+        "KB006",
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7679,
+      "rejected": false
+    },
+    {
+      "id": "eval_084",
+      "category": "param_compensation",
+      "query": "retraction when crossing perimeters stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB014",
+        "KB006"
+      ],
+      "top_cosine": 0.7012,
+      "rejected": false
+    },
+    {
+      "id": "eval_085",
+      "category": "out_of_scope",
+      "query": "3D printing business ideas",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB014",
+        "KB022",
+        "KB028",
+        "KB009"
+      ],
+      "top_cosine": 0.5624,
+      "rejected": true
+    },
+    {
+      "id": "eval_086",
+      "category": "ambiguous",
+      "query": "cooling is fine but overhangs droop",
+      "gold": [
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB062",
+        "KB007",
+        "KB101",
+        "KB053"
+      ],
+      "top_cosine": 0.6243,
+      "rejected": true
+    },
+    {
+      "id": "eval_087",
+      "category": "multi_defect",
+      "query": "no filament comes out at beginning and also ringing artifacts on print sides",
+      "gold": [
+        "KB001",
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB001",
+        "KB019",
+        "KB020",
+        "KB034"
+      ],
+      "top_cosine": 0.6997,
+      "rejected": false
+    },
+    {
+      "id": "eval_088",
+      "category": "param_compensation",
+      "query": "print speed too fast causing layer shift",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB065",
+        "KB007",
+        "KB020",
+        "KB008"
+      ],
+      "top_cosine": 0.7526,
+      "rejected": false
+    },
+    {
+      "id": "eval_089",
+      "category": "param_compensation",
+      "query": "z offset too close to bed",
+      "gold": [
+        "KB035"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB035",
+        "KB002",
+        "KB035",
+        "KB002"
+      ],
+      "top_cosine": 0.6833,
+      "rejected": true
+    },
+    {
+      "id": "eval_090",
+      "category": "single_defect",
+      "query": "layer misalignment on tall prints",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB022",
+        "KB049",
+        "KB023",
+        "KB008",
+        "KB042"
+      ],
+      "top_cosine": 0.7078,
+      "rejected": false
+    },
+    {
+      "id": "eval_091",
+      "category": "single_defect",
+      "query": "under extrusion causing gaps",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB051",
+        "KB026",
+        "KB051",
+        "KB102"
+      ],
+      "top_cosine": 0.7719,
+      "rejected": false
+    },
+    {
+      "id": "eval_092",
+      "category": "multi_defect",
+      "query": "failed bridging over gaps and also droopy overhangs on print",
+      "gold": [
+        "KB027",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB027",
+        "KB025",
+        "KB051",
+        "KB053"
+      ],
+      "top_cosine": 0.6857,
+      "rejected": true
+    },
+    {
+      "id": "eval_093",
+      "category": "param_compensation",
+      "query": "print speed for bridging",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.7433,
+      "rejected": false
+    },
+    {
+      "id": "eval_094",
+      "category": "ambiguous",
+      "query": "not under extruded but gaps in walls",
+      "gold": [
+        "KB021"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB021",
+        "KB021",
+        "KB027",
+        "KB018"
+      ],
+      "top_cosine": 0.6653,
+      "rejected": true
+    },
+    {
+      "id": "eval_095",
+      "category": "multi_defect",
+      "query": "vibrations and ringing on the print and part doesn't stick to print bed",
+      "gold": [
+        "KB020",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB067",
+        "KB024",
+        "KB020"
+      ],
+      "top_cosine": 0.7563,
+      "rejected": false
+    },
+    {
+      "id": "eval_096",
+      "category": "param_compensation",
+      "query": "layer height affecting detail",
+      "gold": [
+        "KB022"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB009",
+        "KB022",
+        "KB031",
+        "KB023"
+      ],
+      "top_cosine": 0.6899,
+      "rejected": false
+    },
+    {
+      "id": "eval_097",
+      "category": "multi_defect",
+      "query": "there are thin plastic strings on my print and extruder not primed at print start",
+      "gold": [
+        "KB006",
+        "KB001"
+      ],
+      "retrieved_kb": [
+        "KB001",
+        "KB012",
+        "KB063",
+        "KB001",
+        "KB012"
+      ],
+      "top_cosine": 0.7637,
+      "rejected": false
+    },
+    {
+      "id": "eval_098",
+      "category": "out_of_scope",
+      "query": "how to clean PETG prints",
+      "gold": [],
+      "retrieved_kb": [
+        "KB028",
+        "KB101",
+        "KB022",
+        "KB067",
+        "KB009"
+      ],
+      "top_cosine": 0.6582,
+      "rejected": true
+    },
+    {
+      "id": "eval_099",
+      "category": "ambiguous",
+      "query": "not warping but print bows at bottom",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB044",
+        "KB044",
+        "KB024",
+        "KB024"
+      ],
+      "top_cosine": 0.6226,
+      "rejected": true
+    },
+    {
+      "id": "eval_100",
+      "category": "multi_defect",
+      "query": "printer stopped extruding halfway and overhang quality is poor",
+      "gold": [
+        "KB040",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB019",
+        "KB023",
+        "KB001",
+        "KB023"
+      ],
+      "top_cosine": 0.6932,
+      "rejected": false
+    },
+    {
+      "id": "eval_101",
+      "category": "ambiguous",
+      "query": "not warping but dimensional inaccurate",
+      "gold": [
+        "KB026"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB026",
+        "KB026",
+        "KB065",
+        "KB001"
+      ],
+      "top_cosine": 0.6107,
+      "rejected": true
+    },
+    {
+      "id": "eval_102",
+      "category": "multi_defect",
+      "query": "print splitting along layer lines and filament extruded in the air tangled",
+      "gold": [
+        "KB009",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB023",
+        "KB103",
+        "KB058",
+        "KB009"
+      ],
+      "top_cosine": 0.6714,
+      "rejected": true
+    },
+    {
+      "id": "eval_103",
+      "category": "param_compensation",
+      "query": "cooling fan settings for overhangs",
+      "gold": [
+        "KB053",
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB008",
+        "KB101",
+        "KB062",
+        "KB024"
+      ],
+      "top_cosine": 0.6479,
+      "rejected": true
+    },
+    {
+      "id": "eval_104",
+      "category": "single_defect",
+      "query": "blobs and zits on the print surface",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB026",
+        "KB062",
+        "KB028",
+        "KB058"
+      ],
+      "top_cosine": 0.7284,
+      "rejected": false
+    },
+    {
+      "id": "eval_105",
+      "category": "single_defect",
+      "query": "print not sticking to the bed",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB035",
+        "KB067",
+        "KB024",
+        "KB035",
+        "KB002"
+      ],
+      "top_cosine": 0.7192,
+      "rejected": false
+    },
+    {
+      "id": "eval_106",
+      "category": "multi_defect",
+      "query": "weak thin layers from under extrusion and the part is warping at the corners",
+      "gold": [
+        "KB003",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB101",
+        "KB051",
+        "KB051",
+        "KB018"
+      ],
+      "top_cosine": 0.6564,
+      "rejected": true
+    },
+    {
+      "id": "eval_107",
+      "category": "param_compensation",
+      "query": "infill pattern strength",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB013",
+        "KB013",
+        "KB015",
+        "KB046",
+        "KB013"
+      ],
+      "top_cosine": 0.7086,
+      "rejected": false
+    },
+    {
+      "id": "eval_108",
+      "category": "out_of_scope",
+      "query": "what is FDM vs SLA",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB002",
+        "KB072",
+        "KB009",
+        "KB072"
+      ],
+      "top_cosine": 0.4408,
+      "rejected": true
+    },
+    {
+      "id": "eval_109",
+      "category": "out_of_scope",
+      "query": "how to print with nylon",
+      "gold": [],
+      "retrieved_kb": [
+        "KB011",
+        "KB044",
+        "KB020",
+        "KB028",
+        "KB024"
+      ],
+      "top_cosine": 0.6206,
+      "rejected": true
+    },
+    {
+      "id": "eval_110",
+      "category": "out_of_scope",
+      "query": "slicer settings for resin printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB003",
+        "KB003",
+        "KB037",
+        "KB069"
+      ],
+      "top_cosine": 0.587,
+      "rejected": true
+    },
+    {
+      "id": "eval_111",
+      "category": "param_compensation",
+      "query": "jerk settings layer shift",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB020",
+        "KB002",
+        "KB005",
+        "KB026"
+      ],
+      "top_cosine": 0.5896,
+      "rejected": true
+    },
+    {
+      "id": "eval_112",
+      "category": "single_defect",
+      "query": "edges bending upwards during printing",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB024",
+        "KB052",
+        "KB055",
+        "KB065"
+      ],
+      "top_cosine": 0.6604,
+      "rejected": true
+    },
+    {
+      "id": "eval_113",
+      "category": "param_compensation",
+      "query": "what retraction distance should I use for stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB014",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7298,
+      "rejected": false
+    },
+    {
+      "id": "eval_114",
+      "category": "param_compensation",
+      "query": "acceleration too high ringing",
+      "gold": [
+        "KB020"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB008",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.647,
+      "rejected": true
+    },
+    {
+      "id": "eval_115",
+      "category": "single_defect",
+      "query": "how to prevent warping",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB101",
+        "KB044",
+        "KB024",
+        "KB008"
+      ],
+      "top_cosine": 0.6662,
+      "rejected": true
+    },
+    {
+      "id": "eval_116",
+      "category": "ambiguous",
+      "query": "the print sticks but first layer is messy",
+      "gold": [
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB026",
+        "KB002",
+        "KB101"
+      ],
+      "top_cosine": 0.7076,
+      "rejected": false
+    },
+    {
+      "id": "eval_117",
+      "category": "out_of_scope",
+      "query": "3D printing medical implants",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB072",
+        "KB014",
+        "KB022",
+        "KB069"
+      ],
+      "top_cosine": 0.5367,
+      "rejected": true
+    },
+    {
+      "id": "eval_118",
+      "category": "out_of_scope",
+      "query": "how to design a 3D model in CAD",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB026",
+        "KB072",
+        "KB022",
+        "KB044"
+      ],
+      "top_cosine": 0.6222,
+      "rejected": true
+    },
+    {
+      "id": "eval_119",
+      "category": "ambiguous",
+      "query": "cooling ok but print looks melted",
+      "gold": [
+        "KB061"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB067",
+        "KB002",
+        "KB024",
+        "KB062"
+      ],
+      "top_cosine": 0.7085,
+      "rejected": false
+    },
+    {
+      "id": "eval_120",
+      "category": "multi_defect",
+      "query": "first layer won't adhere and layers coming apart",
+      "gold": [
+        "KB002",
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB026",
+        "KB002",
+        "KB028",
+        "KB003"
+      ],
+      "top_cosine": 0.7497,
+      "rejected": false
+    },
+    {
+      "id": "eval_121",
+      "category": "ambiguous",
+      "query": "not over extrusion but print droopy",
+      "gold": [
+        "KB059"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB005",
+        "KB023",
+        "KB019",
+        "KB022"
+      ],
+      "top_cosine": 0.6697,
+      "rejected": true
+    },
+    {
+      "id": "eval_122",
+      "category": "ambiguous",
+      "query": "no clog but spaghetti mess",
+      "gold": [
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB101",
+        "KB103",
+        "KB003",
+        "KB028"
+      ],
+      "top_cosine": 0.7036,
+      "rejected": false
+    },
+    {
+      "id": "eval_123",
+      "category": "single_defect",
+      "query": "print splitting along layer lines",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB019",
+        "KB009",
+        "KB058",
+        "KB009"
+      ],
+      "top_cosine": 0.6881,
+      "rejected": false
+    },
+    {
+      "id": "eval_124",
+      "category": "single_defect",
+      "query": "the part is warping at the corners",
+      "gold": [
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB065",
+        "KB101",
+        "KB016",
+        "KB018"
+      ],
+      "top_cosine": 0.6573,
+      "rejected": true
+    },
+    {
+      "id": "eval_125",
+      "category": "out_of_scope",
+      "query": "3D printing tolerances guide",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB021",
+        "KB051",
+        "KB026",
+        "KB003"
+      ],
+      "top_cosine": 0.6663,
+      "rejected": true
+    },
+    {
+      "id": "eval_126",
+      "category": "single_defect",
+      "query": "first layer won't adhere",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028",
+        "KB003"
+      ],
+      "top_cosine": 0.7537,
+      "rejected": false
+    },
+    {
+      "id": "eval_127",
+      "category": "single_defect",
+      "query": "nozzle is clogged filament won't come out",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB102",
+        "KB010",
+        "KB012",
+        "KB001"
+      ],
+      "top_cosine": 0.782,
+      "rejected": false
+    },
+    {
+      "id": "eval_128",
+      "category": "param_compensation",
+      "query": "wall count for strength",
+      "gold": [
+        "KB013"
+      ],
+      "retrieved_kb": [
+        "KB048",
+        "KB031",
+        "KB053",
+        "KB018",
+        "KB021"
+      ],
+      "top_cosine": 0.5249,
+      "rejected": true
+    },
+    {
+      "id": "eval_129",
+      "category": "param_compensation",
+      "query": "minimal layer time cooling",
+      "gold": [
+        "KB007"
+      ],
+      "retrieved_kb": [
+        "KB007",
+        "KB002",
+        "KB024",
+        "KB067",
+        "KB101"
+      ],
+      "top_cosine": 0.6171,
+      "rejected": true
+    },
+    {
+      "id": "eval_130",
+      "category": "out_of_scope",
+      "query": "how to print with carbon fiber",
+      "gold": [],
+      "retrieved_kb": [
+        "KB015",
+        "KB003",
+        "KB027",
+        "KB024",
+        "KB044"
+      ],
+      "top_cosine": 0.6008,
+      "rejected": true
+    },
+    {
+      "id": "eval_131",
+      "category": "param_compensation",
+      "query": "bed leveling for first layer",
+      "gold": [
+        "KB028",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.7397,
+      "rejected": false
+    },
+    {
+      "id": "eval_132",
+      "category": "multi_defect",
+      "query": "scars on the top surface of print and too much filament coming out",
+      "gold": [
+        "KB017",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB017",
+        "KB062",
+        "KB012",
+        "KB024"
+      ],
+      "top_cosine": 0.7432,
+      "rejected": false
+    },
+    {
+      "id": "eval_133",
+      "category": "multi_defect",
+      "query": "diagonal scars on my print and also gaps in the print walls",
+      "gold": [
+        "KB017",
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB058",
+        "KB021",
+        "KB048",
+        "KB017",
+        "KB019"
+      ],
+      "top_cosine": 0.7857,
+      "rejected": false
+    },
+    {
+      "id": "eval_134",
+      "category": "multi_defect",
+      "query": "first layer won't adhere and also print became a mess of plastic strands",
+      "gold": [
+        "KB002",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028",
+        "KB002"
+      ],
+      "top_cosine": 0.7711,
+      "rejected": false
+    },
+    {
+      "id": "eval_135",
+      "category": "ambiguous",
+      "query": "not dimensional issue but parts too small",
+      "gold": [
+        "KB064"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB026",
+        "KB026",
+        "KB101",
+        "KB022"
+      ],
+      "top_cosine": 0.6954,
+      "rejected": false
+    },
+    {
+      "id": "eval_136",
+      "category": "ambiguous",
+      "query": "no ringing but surface ripples",
+      "gold": [
+        "KB019"
+      ],
+      "retrieved_kb": [
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020",
+        "KB020"
+      ],
+      "top_cosine": 0.621,
+      "rejected": true
+    },
+    {
+      "id": "eval_137",
+      "category": "single_defect",
+      "query": "cracks between printed layers",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB049",
+        "KB018",
+        "KB005",
+        "KB019"
+      ],
+      "top_cosine": 0.7731,
+      "rejected": false
+    },
+    {
+      "id": "eval_138",
+      "category": "out_of_scope",
+      "query": "what is the best 3D printer to buy",
+      "gold": [],
+      "retrieved_kb": [
+        "KB020",
+        "KB002",
+        "KB025",
+        "KB051",
+        "KB026"
+      ],
+      "top_cosine": 0.6229,
+      "rejected": true
+    },
+    {
+      "id": "eval_139",
+      "category": "out_of_scope",
+      "query": "how to level a resin printer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB022"
+      ],
+      "top_cosine": 0.715,
+      "rejected": false
+    },
+    {
+      "id": "eval_140",
+      "category": "single_defect",
+      "query": "print lifts off the build plate",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB101",
+        "KB025",
+        "KB067",
+        "KB002"
+      ],
+      "top_cosine": 0.6754,
+      "rejected": true
+    },
+    {
+      "id": "eval_141",
+      "category": "out_of_scope",
+      "query": "DLP vs SLA resin printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB069",
+        "KB002",
+        "KB069",
+        "KB072",
+        "KB072"
+      ],
+      "top_cosine": 0.6574,
+      "rejected": true
+    },
+    {
+      "id": "eval_142",
+      "category": "single_defect",
+      "query": "blocked nozzle not extruding",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB023",
+        "KB001",
+        "KB001",
+        "KB011"
+      ],
+      "top_cosine": 0.7083,
+      "rejected": false
+    },
+    {
+      "id": "eval_143",
+      "category": "out_of_scope",
+      "query": "how to paint 3D printed parts",
+      "gold": [],
+      "retrieved_kb": [
+        "KB005",
+        "KB009",
+        "KB013",
+        "KB022",
+        "KB015"
+      ],
+      "top_cosine": 0.6245,
+      "rejected": true
+    },
+    {
+      "id": "eval_144",
+      "category": "single_defect",
+      "query": "gaps in the print walls",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB021",
+        "KB048",
+        "KB025",
+        "KB018",
+        "KB005"
+      ],
+      "top_cosine": 0.7348,
+      "rejected": false
+    },
+    {
+      "id": "eval_145",
+      "category": "single_defect",
+      "query": "print looks under extruded",
+      "gold": [
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB051",
+        "KB004",
+        "KB037",
+        "KB027"
+      ],
+      "top_cosine": 0.7158,
+      "rejected": false
+    },
+    {
+      "id": "eval_146",
+      "category": "out_of_scope",
+      "query": "how to use supports in slicer",
+      "gold": [],
+      "retrieved_kb": [
+        "KB055",
+        "KB055",
+        "KB009",
+        "KB042",
+        "KB042"
+      ],
+      "top_cosine": 0.5935,
+      "rejected": true
+    },
+    {
+      "id": "eval_147",
+      "category": "single_defect",
+      "query": "layers shifted horizontally",
+      "gold": [
+        "KB008"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB019",
+        "KB005",
+        "KB072",
+        "KB050"
+      ],
+      "top_cosine": 0.5934,
+      "rejected": true
+    },
+    {
+      "id": "eval_148",
+      "category": "multi_defect",
+      "query": "cracks between printed layers and print looks under extruded",
+      "gold": [
+        "KB009",
+        "KB003"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB049",
+        "KB005",
+        "KB027",
+        "KB005"
+      ],
+      "top_cosine": 0.751,
+      "rejected": false
+    },
+    {
+      "id": "eval_149",
+      "category": "multi_defect",
+      "query": "filament stops coming out during print and failed bridging over gaps",
+      "gold": [
+        "KB040",
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB034",
+        "KB012",
+        "KB037",
+        "KB051",
+        "KB038"
+      ],
+      "top_cosine": 0.7152,
+      "rejected": false
+    },
+    {
+      "id": "eval_150",
+      "category": "param_compensation",
+      "query": "hotend temp for PETG oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB102",
+        "KB003",
+        "KB006",
+        "KB003",
+        "KB006"
+      ],
+      "top_cosine": 0.5982,
+      "rejected": true
+    },
+    {
+      "id": "eval_151",
+      "category": "ambiguous",
+      "query": "no delamination but cracks in tall print",
+      "gold": [
+        "KB049"
+      ],
+      "retrieved_kb": [
+        "KB049",
+        "KB009",
+        "KB033",
+        "KB024",
+        "KB023"
+      ],
+      "top_cosine": 0.6738,
+      "rejected": true
+    },
+    {
+      "id": "eval_152",
+      "category": "single_defect",
+      "query": "how to fix stringing on my 3D print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB012",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.695,
+      "rejected": false
+    },
+    {
+      "id": "eval_153",
+      "category": "out_of_scope",
+      "query": "best filament storage solutions",
+      "gold": [],
+      "retrieved_kb": [
+        "KB010",
+        "KB012",
+        "KB035",
+        "KB025",
+        "KB012"
+      ],
+      "top_cosine": 0.5308,
+      "rejected": true
+    },
+    {
+      "id": "eval_154",
+      "category": "param_compensation",
+      "query": "bed temperature for PLA warping",
+      "gold": [
+        "KB024",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB044",
+        "KB024",
+        "KB101",
+        "KB028"
+      ],
+      "top_cosine": 0.6621,
+      "rejected": true
+    },
+    {
+      "id": "eval_155",
+      "category": "out_of_scope",
+      "query": "how to change nozzle",
+      "gold": [],
+      "retrieved_kb": [
+        "KB022",
+        "KB012",
+        "KB021",
+        "KB001",
+        "KB023"
+      ],
+      "top_cosine": 0.6513,
+      "rejected": true
+    },
+    {
+      "id": "eval_156",
+      "category": "ambiguous",
+      "query": "first layer ok but top has gaps",
+      "gold": [
+        "KB005"
+      ],
+      "retrieved_kb": [
+        "KB005",
+        "KB005",
+        "KB026",
+        "KB005",
+        "KB062"
+      ],
+      "top_cosine": 0.6683,
+      "rejected": true
+    },
+    {
+      "id": "eval_157",
+      "category": "ambiguous",
+      "query": "retraction fine but whiskers on print",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.6567,
+      "rejected": true
+    },
+    {
+      "id": "eval_158",
+      "category": "out_of_scope",
+      "query": "best 3D printing youtube channels",
+      "gold": [],
+      "retrieved_kb": [
+        "KB051",
+        "KB028",
+        "KB026",
+        "KB028",
+        "KB014"
+      ],
+      "top_cosine": 0.5446,
+      "rejected": true
+    },
+    {
+      "id": "eval_159",
+      "category": "single_defect",
+      "query": "layers coming apart",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB019",
+        "KB009",
+        "KB051",
+        "KB053"
+      ],
+      "top_cosine": 0.6578,
+      "rejected": true
+    },
+    {
+      "id": "eval_160",
+      "category": "param_compensation",
+      "query": "fan speed for first layer adhesion",
+      "gold": [
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB002",
+        "KB002",
+        "KB062",
+        "KB024",
+        "KB101"
+      ],
+      "top_cosine": 0.6367,
+      "rejected": true
+    },
+    {
+      "id": "eval_161",
+      "category": "single_defect",
+      "query": "layers separating and splitting",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB009",
+        "KB009",
+        "KB009",
+        "KB009",
+        "KB019"
+      ],
+      "top_cosine": 0.7228,
+      "rejected": false
+    },
+    {
+      "id": "eval_162",
+      "category": "multi_defect",
+      "query": "part is not the right size and also too much filament coming out",
+      "gold": [
+        "KB026",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB010",
+        "KB023",
+        "KB062",
+        "KB012"
+      ],
+      "top_cosine": 0.6554,
+      "rejected": true
+    },
+    {
+      "id": "eval_163",
+      "category": "out_of_scope",
+      "query": "how to print multi color",
+      "gold": [],
+      "retrieved_kb": [
+        "KB044",
+        "KB027",
+        "KB002",
+        "KB009",
+        "KB061"
+      ],
+      "top_cosine": 0.5597,
+      "rejected": true
+    },
+    {
+      "id": "eval_164",
+      "category": "ambiguous",
+      "query": "no layer shift but print leans",
+      "gold": [
+        "KB052"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB052",
+        "KB025",
+        "KB002",
+        "KB005"
+      ],
+      "top_cosine": 0.6379,
+      "rejected": true
+    },
+    {
+      "id": "eval_165",
+      "category": "ambiguous",
+      "query": "not overheating but layers separate",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB009",
+        "KB009",
+        "KB016",
+        "KB007"
+      ],
+      "top_cosine": 0.6473,
+      "rejected": true
+    },
+    {
+      "id": "eval_166",
+      "category": "multi_defect",
+      "query": "layers coming apart and how to unclog a 3D printer nozzle",
+      "gold": [
+        "KB009",
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB009",
+        "KB001",
+        "KB005",
+        "KB017"
+      ],
+      "top_cosine": 0.6912,
+      "rejected": false
+    },
+    {
+      "id": "eval_167",
+      "category": "ambiguous",
+      "query": "no adhesion issue but print stuck to bed",
+      "gold": [
+        "KB067"
+      ],
+      "retrieved_kb": [
+        "KB024",
+        "KB024",
+        "KB067",
+        "KB028",
+        "KB101"
+      ],
+      "top_cosine": 0.7449,
+      "rejected": false
+    },
+    {
+      "id": "eval_168",
+      "category": "single_defect",
+      "query": "over extrusion making blobby prints",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB023",
+        "KB004",
+        "KB019",
+        "KB023"
+      ],
+      "top_cosine": 0.6775,
+      "rejected": true
+    },
+    {
+      "id": "eval_169",
+      "category": "out_of_scope",
+      "query": "what is SLA printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB072",
+        "KB072",
+        "KB069",
+        "KB009",
+        "KB069"
+      ],
+      "top_cosine": 0.6685,
+      "rejected": true
+    },
+    {
+      "id": "eval_170",
+      "category": "single_defect",
+      "query": "poor bridging on my print",
+      "gold": [
+        "KB027"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB025",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.747,
+      "rejected": false
+    },
+    {
+      "id": "eval_171",
+      "category": "out_of_scope",
+      "query": "how to make money with 3D printing",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB020",
+        "KB026",
+        "KB012",
+        "KB051"
+      ],
+      "top_cosine": 0.5942,
+      "rejected": true
+    },
+    {
+      "id": "eval_172",
+      "category": "multi_defect",
+      "query": "problems with the first layer and print not sticking to the bed",
+      "gold": [
+        "KB028",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB002",
+        "KB101",
+        "KB002",
+        "KB035"
+      ],
+      "top_cosine": 0.7333,
+      "rejected": false
+    },
+    {
+      "id": "eval_173",
+      "category": "single_defect",
+      "query": "my print has stringing and oozing between parts",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006"
+      ],
+      "top_cosine": 0.7895,
+      "rejected": false
+    },
+    {
+      "id": "eval_174",
+      "category": "param_compensation",
+      "query": "nozzle wipe for stringing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.656,
+      "rejected": true
+    },
+    {
+      "id": "eval_175",
+      "category": "ambiguous",
+      "query": "not overheating but ripples on surface",
+      "gold": [
+        "KB057"
+      ],
+      "retrieved_kb": [
+        "KB061",
+        "KB016",
+        "KB007",
+        "KB003",
+        "KB007"
+      ],
+      "top_cosine": 0.5993,
+      "rejected": true
+    },
+    {
+      "id": "eval_176",
+      "category": "param_compensation",
+      "query": "wipe distance for oozing",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB014",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.6091,
+      "rejected": true
+    },
+    {
+      "id": "eval_177",
+      "category": "multi_defect",
+      "query": "poor bridging on my print and first layer won't adhere",
+      "gold": [
+        "KB027",
+        "KB002"
+      ],
+      "retrieved_kb": [
+        "KB028",
+        "KB101",
+        "KB027",
+        "KB002",
+        "KB002"
+      ],
+      "top_cosine": 0.7144,
+      "rejected": false
+    },
+    {
+      "id": "eval_178",
+      "category": "single_defect",
+      "query": "extruding too much plastic",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB017",
+        "KB006",
+        "KB005",
+        "KB004",
+        "KB011"
+      ],
+      "top_cosine": 0.7879,
+      "rejected": false
+    },
+    {
+      "id": "eval_179",
+      "category": "param_compensation",
+      "query": "first layer height too high not sticking",
+      "gold": [
+        "KB002",
+        "KB028"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB009",
+        "KB031",
+        "KB026",
+        "KB028"
+      ],
+      "top_cosine": 0.7506,
+      "rejected": false
+    },
+    {
+      "id": "eval_180",
+      "category": "ambiguous",
+      "query": "no stringing but blobs on surface",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB014",
+        "KB006",
+        "KB006",
+        "KB026",
+        "KB006"
+      ],
+      "top_cosine": 0.5855,
+      "rejected": true
+    },
+    {
+      "id": "eval_181",
+      "category": "multi_defect",
+      "query": "how to unclog a 3D printer nozzle and droopy overhangs on print",
+      "gold": [
+        "KB011",
+        "KB053"
+      ],
+      "retrieved_kb": [
+        "KB008",
+        "KB012",
+        "KB072",
+        "KB001",
+        "KB022"
+      ],
+      "top_cosine": 0.6961,
+      "rejected": false
+    },
+    {
+      "id": "eval_182",
+      "category": "out_of_scope",
+      "query": "how to post process resin prints",
+      "gold": [],
+      "retrieved_kb": [
+        "KB074",
+        "KB002",
+        "KB009",
+        "KB074",
+        "KB002"
+      ],
+      "top_cosine": 0.6618,
+      "rejected": true
+    },
+    {
+      "id": "eval_183",
+      "category": "ambiguous",
+      "query": "not bridging issue but messy bridges",
+      "gold": [
+        "KB066"
+      ],
+      "retrieved_kb": [
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027",
+        "KB027"
+      ],
+      "top_cosine": 0.6134,
+      "rejected": true
+    },
+    {
+      "id": "eval_184",
+      "category": "single_defect",
+      "query": "my print is stringy and droopy over extrusion",
+      "gold": [
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB019",
+        "KB023",
+        "KB004",
+        "KB013",
+        "KB023"
+      ],
+      "top_cosine": 0.7174,
+      "rejected": false
+    },
+    {
+      "id": "eval_185",
+      "category": "ambiguous",
+      "query": "no shift but layers don't line up",
+      "gold": [
+        "KB050"
+      ],
+      "retrieved_kb": [
+        "KB065",
+        "KB050",
+        "KB033",
+        "KB062",
+        "KB005"
+      ],
+      "top_cosine": 0.6361,
+      "rejected": true
+    },
+    {
+      "id": "eval_186",
+      "category": "ambiguous",
+      "query": "no clog but filament snaps",
+      "gold": [
+        "KB038"
+      ],
+      "retrieved_kb": [
+        "KB038",
+        "KB010",
+        "KB102",
+        "KB010",
+        "KB103"
+      ],
+      "top_cosine": 0.7131,
+      "rejected": false
+    },
+    {
+      "id": "eval_187",
+      "category": "single_defect",
+      "query": "hairy prints with whiskers of filament",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB031",
+        "KB012",
+        "KB022"
+      ],
+      "top_cosine": 0.6493,
+      "rejected": true
+    },
+    {
+      "id": "eval_188",
+      "category": "out_of_scope",
+      "query": "how to choose nozzle material",
+      "gold": [],
+      "retrieved_kb": [
+        "KB011",
+        "KB102",
+        "KB021",
+        "KB011",
+        "KB006"
+      ],
+      "top_cosine": 0.6438,
+      "rejected": true
+    },
+    {
+      "id": "eval_189",
+      "category": "multi_defect",
+      "query": "extrusion stopped mid print and print turned into spaghetti",
+      "gold": [
+        "KB040",
+        "KB101"
+      ],
+      "retrieved_kb": [
+        "KB101",
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB023"
+      ],
+      "top_cosine": 0.7113,
+      "rejected": false
+    },
+    {
+      "id": "eval_190",
+      "category": "out_of_scope",
+      "query": "resin vat cleaning",
+      "gold": [],
+      "retrieved_kb": [
+        "KB009",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB072"
+      ],
+      "top_cosine": 0.6897,
+      "rejected": false
+    },
+    {
+      "id": "eval_191",
+      "category": "param_compensation",
+      "query": "backlash compensation dimensional",
+      "gold": [
+        "KB026"
+      ],
+      "retrieved_kb": [
+        "KB026",
+        "KB003",
+        "KB026",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.5637,
+      "rejected": true
+    },
+    {
+      "id": "eval_192",
+      "category": "ambiguous",
+      "query": "no stringing but oozing between moves",
+      "gold": [
+        "KB006"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB063",
+        "KB006",
+        "KB006",
+        "KB014"
+      ],
+      "top_cosine": 0.6241,
+      "rejected": true
+    },
+    {
+      "id": "eval_193",
+      "category": "param_compensation",
+      "query": "extrusion multiplier calibration",
+      "gold": [
+        "KB003",
+        "KB004"
+      ],
+      "retrieved_kb": [
+        "KB004",
+        "KB003",
+        "KB026",
+        "KB009",
+        "KB003"
+      ],
+      "top_cosine": 0.7565,
+      "rejected": false
+    },
+    {
+      "id": "eval_194",
+      "category": "param_compensation",
+      "query": "travel speed causing blobs",
+      "gold": [
+        "KB014"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB026",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.5674,
+      "rejected": true
+    },
+    {
+      "id": "eval_195",
+      "category": "single_defect",
+      "query": "extruder is clogged",
+      "gold": [
+        "KB011"
+      ],
+      "retrieved_kb": [
+        "KB012",
+        "KB001",
+        "KB028",
+        "KB010",
+        "KB011"
+      ],
+      "top_cosine": 0.7925,
+      "rejected": false
+    },
+    {
+      "id": "eval_196",
+      "category": "out_of_scope",
+      "query": "best build plate surface",
+      "gold": [],
+      "retrieved_kb": [
+        "KB025",
+        "KB002",
+        "KB002",
+        "KB002",
+        "KB002"
+      ],
+      "top_cosine": 0.5774,
+      "rejected": true
+    },
+    {
+      "id": "eval_197",
+      "category": "param_compensation",
+      "query": "elephant foot compensation",
+      "gold": [
+        "KB044"
+      ],
+      "retrieved_kb": [
+        "KB044",
+        "KB044",
+        "KB003",
+        "KB026",
+        "KB002"
+      ],
+      "top_cosine": 0.5448,
+      "rejected": true
+    },
+    {
+      "id": "eval_198",
+      "category": "ambiguous",
+      "query": "not stringing but hairy surface",
+      "gold": [
+        "KB063"
+      ],
+      "retrieved_kb": [
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB006",
+        "KB063"
+      ],
+      "top_cosine": 0.6141,
+      "rejected": true
+    },
+    {
+      "id": "eval_199",
+      "category": "single_defect",
+      "query": "delamination between layers",
+      "gold": [
+        "KB009"
+      ],
+      "retrieved_kb": [
+        "KB025",
+        "KB009",
+        "KB025",
+        "KB031",
+        "KB005"
+      ],
+      "top_cosine": 0.5912,
+      "rejected": true
+    },
+    {
+      "id": "eval_200",
+      "category": "ambiguous",
+      "query": "my print has strings but also the corners lift",
+      "gold": [
+        "KB006",
+        "KB024"
+      ],
+      "retrieved_kb": [
+        "KB063",
+        "KB006",
+        "KB058",
+        "KB003",
+        "KB016"
+      ],
+      "top_cosine": 0.6472,
+      "rejected": true
+    }
+  ]
+}

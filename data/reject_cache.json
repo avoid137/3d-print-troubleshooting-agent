@@ -1,0 +1,4422 @@
+{
+  "d9edeaf1b8c612ffb4a82b9ae11dfaef": {
+    "answerable": true,
+    "reason": "用户问题涉及温度塔校准，属于FDM打印质量缺陷排障中的校准类问题，符合知识库覆盖范围。"
+  },
+  "f32566703c00ea53f12377d0a817b3dd": {
+    "answerable": false,
+    "reason": "用户问题涉及3D打印机主板升级，属于设备硬件改装范畴，不在FDM打印质量缺陷排障知识库覆盖范围内。"
+  },
+  "804b89ff17e09ed1d89d4aecce41ba33": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何使用3D笔，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "4635a1536953eaea3cf3c21d0136445a": {
+    "answerable": false,
+    "reason": "用户询问的是CAD软件推荐，不属于FDM打印质量缺陷排障范围"
+  },
+  "3ec473afdd7522c07cb10e299be27b85": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出异常中的‘拉丝/渗料’缺陷，属于FDM打印质量缺陷排障范围。"
+  },
+  "f9a9c85c20c1db72f14fbfb4a1c71712": {
+    "answerable": false,
+    "reason": "用户的问题涉及如何连接打印机到OctoPrint，属于切片软件或设备连接操作问题，不属于FDM打印质量缺陷排障范围。"
+  },
+  "af9059b63d45610accd92466b87ad7a3": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的类似网状细丝的现象，属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "05df5ea149c8a6cca77b6ef7b2f6d437": {
+    "answerable": true,
+    "reason": "用户的问题涉及桥接下垂（bridges sag）和拉丝（string），属于FDM打印质量缺陷中的‘悬垂质量差’和‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "82aace35ac8ad59d6332a251e047b74e": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件出现的‘hairy prints’和‘whiskers’，属于FDM打印质量缺陷中的拉丝/渗料（Stringing or Oozing）范畴，符合知识库覆盖范围。"
+  },
+  "b7b9944c4d25e70c949d79a68005ff64": {
+    "answerable": true,
+    "reason": "用户的问题属于FDM打印质量缺陷中的'层错位'问题，符合知识库覆盖范围。"
+  },
+  "5757bdd59cf64e76420b7d201f69c80f": {
+    "answerable": true,
+    "reason": "用户的问题属于附着类缺陷中的首层不粘床问题，符合知识库覆盖范围"
+  },
+  "d2576f0bd842c481e50fdf56446581dd": {
+    "answerable": false,
+    "reason": "用户的问题是关于激光雕刻机的校准，不属于FDM打印质量缺陷排障范围。"
+  },
+  "4b9356db6623e5434f370fb286b4185a": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件边缘弯曲，属于附着类或结构类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "a69033935bd007ae98cad7e6b2bf4851": {
+    "answerable": true,
+    "reason": "用户的问题是关于解决3D打印机喷嘴堵塞的故障，属于FDM打印质量缺陷排障中的‘挤出类’问题。"
+  },
+  "7653488628bfdb382fab7ac27eda09e3": {
+    "answerable": true,
+    "reason": "用户问题涉及顶层表面处理，属于FDM打印质量缺陷中的表面类问题"
+  },
+  "ffefea1725a74bd5ccd3bdf09adb618b": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何打印柔性TPU，这属于材料使用和工艺设置的指导，而非FDM打印质量缺陷的排障范畴。"
+  },
+  "a49d458d37daa6e12980ed456a881919": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出类缺陷中的欠挤出，属于FDM打印质量缺陷排障范围。"
+  },
+  "7992ceff71f40826021745b5b5d9f4a3": {
+    "answerable": false,
+    "reason": "用户的问题是关于ABS打印的最佳机箱，属于设备选型与硬件改装范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+  },
+  "764083f43a9df07b21a9d00b4ef85d7c": {
+    "answerable": true,
+    "reason": "用户问题提到的 'zits' 属于表面类打印缺陷，符合知识库覆盖范围。"
+  },
+  "7a3a4dd6f56fe3f047c7bac1da128d85": {
+    "answerable": true,
+    "reason": "用户问题描述的是 filament grinds（耗材研磨），属于挤出类故障中的‘料线研磨’，符合知识库覆盖范围。"
+  },
+  "bb4db336fef2cf91ab15ebca015dfbe4": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中挤出中断，属于FDM打印质量缺陷中的‘挤出类’问题，符合知识库覆盖范围。"
+  },
+  "11b4186b246b4e14eebe586bc23d3b1e": {
+    "answerable": true,
+    "reason": "用户的问题涉及‘under extrusion’导致的‘weak thin layers’，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "a2d49a02b3d80fb01bdb07be8d803a3e": {
+    "answerable": true,
+    "reason": "用户问题描述的是桥接（bridging）质量差，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+  },
+  "0462cdf0bac85df35e04ae9f30197108": {
+    "answerable": true,
+    "reason": "用户的问题涉及床附着问题，属于附着类缺陷的排障范围。"
+  },
+  "2308ce02dbab805996e2cb85de783742": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印表面的振纹（ringing）和悬垂质量差（overhang quality），属于FDM打印质量缺陷排障范围内的表面类和几何类问题。"
+  },
+  "663ce30d9ac6ca656402e6de846567d6": {
+    "answerable": true,
+    "reason": "用户问题描述的是表面存在凸起和瑕疵，属于3D打印表面类缺陷，符合知识库覆盖范围。"
+  },
+  "246ffe4f136b01e4e3d57db663c049ef": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印表面缺陷中的鬼影（ghosting）现象，属于FDM打印质量缺陷排障范围。"
+  },
+  "b9005446b609dc58d0a0e0c269c615fa": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层不粘床和边角翘起，属于附着类和几何类的FDM打印质量缺陷排障范围。"
+  },
+  "3a0c53b5984edb23ccd2e526bd4574b8": {
+    "answerable": false,
+    "reason": "用户的问题涉及3D打印机的接线操作，属于设备接线与固件范畴，不在FDM打印质量缺陷排障的知识库覆盖范围内。"
+  },
+  "67fa9086842453430c19de3263578be7": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件上存在细塑料丝，属于表面类缺陷中的拉丝/渗料问题，符合知识库覆盖范围。"
+  },
+  "8adff6908ac6f287bc7556dfcbf69023": {
+    "answerable": true,
+    "reason": "用户问题涉及打印表面的 blobs 和 zits 以及层间裂缝，属于表面类和结构类的 FDM 打印质量缺陷。"
+  },
+  "1ef895adc99c60297b47b3eaed0c9a6d": {
+    "answerable": true,
+    "reason": "用户提到的 'small bumps on my 3D print' 属于表面类打印缺陷，与知识库中覆盖的 'surface defects'（如拉丝、振纹、表面粗糙等）相关。"
+  },
+  "f2d1dc783ac4b62ac6c7c9fd27f35f85": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件壁厚弱，属于FDM打印质量缺陷中的附着类或结构类问题。"
+  },
+  "7adfbb3e669e80adaf4bd288549402af": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的拉丝和下垂现象，属于FDM打印质量缺陷中的表面类或几何类问题，符合知识库覆盖范围。"
+  },
+  "c7d124bd4a1ae136f7c526b2c1e09198": {
+    "answerable": true,
+    "reason": "用户问题描述的是桥接失败（failed bridging over gaps），属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+  },
+  "0e9bc71384617ceec0ad43d1050c329b": {
+    "answerable": true,
+    "reason": "用户询问的是FDM打印中与挤出相关的回抽设置，属于挤出类故障排障范围。"
+  },
+  "9877450f002ddd9ed5368423f575552b": {
+    "answerable": true,
+    "reason": "用户的问题属于FDM打印质量缺陷中的挤出类问题，具体为‘不挤出’。"
+  },
+  "a7de4cb669155b4c0636d3ead5d645dd": {
+    "answerable": true,
+    "reason": "用户问题涉及打印缺陷中的 blobs（凸起/滴料），属于 FDM 打印质量缺陷排障范围。"
+  },
+  "7eb1f8b23f7eb3cb27bfc64a9c7efb99": {
+    "answerable": true,
+    "reason": "用户问题描述的是‘filament stripped’（耗材被磨削），属于挤出类故障中的‘料线研磨’，符合知识库覆盖范围。"
+  },
+  "a06bcf6e5c3f4101083634854e77697a": {
+    "answerable": true,
+    "reason": "用户问题涉及字符串状缺陷（stringing/oozing）和首层附着问题（first layer issues），均属于FDM打印质量缺陷排障范围。"
+  },
+  "ba218f2bd7125e56035107f3c8d23a17": {
+    "answerable": true,
+    "reason": "用户问题描述的是填充结构从外部可见，属于FDM打印质量缺陷中的‘表面类’或‘结构类’问题，符合知识库覆盖范围。"
+  },
+  "26775d9f37196596507e80d797966b16": {
+    "answerable": true,
+    "reason": "用户问题描述的是挤出不一致（inconsistent extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "1d53698c5821686b35c8b1f6676cc658": {
+    "answerable": true,
+    "reason": "用户问题提到的 'ripples and echoes on surface' 属于表面类打印质量缺陷，与知识库中 '振纹（ringing）' 和 '鬼影（ghosting）' 的范畴相符。"
+  },
+  "0856e64d1bfd85e8c6b0be69d16605f6": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中出现的过挤出和挤出中断，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "123475df2686decaf4a47e5a54e6fbb9": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现过挤出和下垂现象，属于FDM打印质量缺陷中的结构类或几何类问题，符合知识库覆盖范围。"
+  },
+  "b3a479e45fa679c9524431c542960bb5": {
+    "answerable": true,
+    "reason": "用户的问题属于附着类缺陷中的‘首层不粘床’，符合知识库覆盖的FDM打印质量缺陷排障范围。"
+  },
+  "24569f52b6f4496986a8160bc0d136b1": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出异常，属于FDM打印质量缺陷中的挤出类问题。"
+  },
+  "44c17467a5ca2f991ea0d35966b8d438": {
+    "answerable": true,
+    "reason": "用户问题涉及耗材直径设置，属于FDM打印质量缺陷排障中的挤出类问题"
+  },
+  "f5bfb5b032084c9ecb89054f6ede587c": {
+    "answerable": true,
+    "reason": "用户问题描述的是挤出量过多，属于FDM打印质量缺陷中的‘过挤出’问题，符合知识库覆盖范围。"
+  },
+  "0f2b4de9782e15ec7eb9865251556ef9": {
+    "answerable": true,
+    "reason": "用户问题描述的是层错位（layers are shifting），属于FDM打印质量缺陷中的表面类或结构类问题，符合知识库覆盖范围。"
+  },
+  "18ba470652ab01b22aa7df6268730307": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何建模有机形状，这属于CAD建模或设计阶段的指导，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "67f29db38d051f5d3b92e7f1a2ae05db": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的振动和波纹（ringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "d306972db8a8ee3f26a50d2a72855ab5": {
+    "answerable": true,
+    "reason": "用户的问题是关于打印件角落翘起（curling），属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "a87fc390775278ef92e63723cc13f6c6": {
+    "answerable": false,
+    "reason": "用户的问题涉及3D打印机固件设置（Marlin），不属于FDM打印质量缺陷的排障范围。"
+  },
+  "131e57a19a07efc263f7af1cf3f7b036": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层打印混乱和中途停挤出，属于FDM打印质量缺陷中的附着类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "d81b1c50239bc98f76fb0d20f6465199": {
+    "answerable": true,
+    "reason": "用户的问题是关于打印件附着问题，属于附着类缺陷的排障范围。"
+  },
+  "cef67f0ef62c0dc5ee90814760ea4af8": {
+    "answerable": false,
+    "reason": "用户的问题涉及3D打印材料的安全性，不属于FDM打印质量缺陷排障范围"
+  },
+  "ef73afd0661c958ccc6afa92b3969573": {
+    "answerable": true,
+    "reason": "用户的问题描述的是打印过程中喷嘴移动时出现的塑料渗出现象，属于FDM打印质量缺陷中的‘拉丝/渗料’问题，符合知识库覆盖范围。"
+  },
+  "771e4612960251f9c8d94789bb95e926": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出异常中的料线研磨，属于FDM打印质量缺陷排障范围。"
+  },
+  "0d3d5ae8fbf27a130f5d2f46f2b77700": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印强度相关的填充结构优化，属于知识库覆盖的结构类缺陷排障范围。"
+  },
+  "5d7e34eb33cdebfa092ea3ea8314ede8": {
+    "answerable": true,
+    "reason": "用户问题涉及Z-seam对齐设置，属于FDM打印质量缺陷中的接缝/疤痕（z-seam）问题，符合知识库覆盖范围。"
+  },
+  "faefc02a731fcf2282a8afe45ff5e866": {
+    "answerable": true,
+    "reason": "用户的问题涉及填充密度不足导致打印强度弱，属于FDM打印质量缺陷中的结构类问题。"
+  },
+  "06f0ae734a3195e0916cb37a1a8cc4c0": {
+    "answerable": false,
+    "reason": "用户的问题是关于选择最佳切片软件，不属于FDM打印质量缺陷排障范围。"
+  },
+  "a1c66cca86cae486a9653cb97b53a366": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件翘边（warping）和脱离平台（lifting off the bed），以及表面熔化（melted），均属于FDM打印质量缺陷中的附着类和表面类问题，符合知识库覆盖范围。"
+  },
+  "8c448ebc2d3f22aa649b3952746ffc91": {
+    "answerable": true,
+    "reason": "用户的问题涉及支撑结构密度对表面质量的影响，属于FDM打印质量缺陷排障中的支撑相关问题。"
+  },
+  "c1bacdf4d6a3fc4f6cf36b429af44747": {
+    "answerable": true,
+    "reason": "用户问题涉及回抽设置（retraction prime amount），属于FDM打印质量缺陷排障中的挤出类或表面类问题，符合知识库覆盖范围。"
+  },
+  "5e4f68e1b0003004b50bbf7199b26f05": {
+    "answerable": false,
+    "reason": "用户的问题是关于3D打印速度记录，不属于FDM打印质量缺陷的排障范畴。"
+  },
+  "147bf14b13037a1c3e65f96b2b470898": {
+    "answerable": true,
+    "reason": "用户的问题涉及悬垂质量（overhang quality），属于FDM打印质量缺陷排障范围中的悬垂质量差问题。"
+  },
+  "99380e99311a26e6272962a00f1774eb": {
+    "answerable": true,
+    "reason": "用户的问题属于挤出类缺陷中的‘欠挤出’问题，符合知识库覆盖范围。"
+  },
+  "a7b03cca544b2c9b78dbb6a9bdd443c2": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中出现的接缝处斑点（blobs at seams），属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "806f5cdfff23c2b479b8de09c251f5d8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件从床面脱落，属于附着类缺陷中的‘首层不粘床’或‘附着力不足’，在知识库覆盖范围内。"
+  },
+  "471e37bc6860846005843f6481e2c312": {
+    "answerable": true,
+    "reason": "用户问题涉及层错位（layer misalignment）和挤出机研磨 filament，属于 FDM 打印质量缺陷的排障范围。"
+  },
+  "762ac16e383eb3901063ed0f7de602c6": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件底部出现象脚（elephant foot）现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "37c6b0733ddac19d40c1fcaff3ea6ae4": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出异常和翘边，属于FDM打印质量缺陷的排障范围。"
+  },
+  "a8fd021c9c281fec45360f597ab455b5": {
+    "answerable": true,
+    "reason": "用户问题涉及桥接（bridging）相关的风扇速度调整，属于FDM打印质量缺陷排障中的悬垂质量差或桥接下垂/拉丝问题范畴。"
+  },
+  "c4d58f3b3ec78f91d66673d0c4504131": {
+    "answerable": true,
+    "reason": "用户问题涉及ABS打印时的平台温度设置，属于FDM打印质量缺陷排障中与附着类（如首层不粘床）和结构类（如翘边、层分离）相关的参数调整范畴。"
+  },
+  "7134f01ffd4ff7da40ebc097358e54ff": {
+    "answerable": true,
+    "reason": "用户的问题描述的是打印层在某些地方偏移，属于FDM打印质量缺陷中的‘层错位’问题，符合知识库覆盖范围。"
+  },
+  "ddfddbfd45bec07bc3c532e88fd0d2fe": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何扫描物体用于3D打印，这属于3D建模或数据采集的范畴，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "2e710e24c5cec8d51c83a995ee3e1a5b": {
+    "answerable": false,
+    "reason": "用户的问题涉及耗材回收，不属于FDM打印质量缺陷的排障范围。"
+  },
+  "230fbe7820b2c5cb4bce1dbb9bd9218b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起（curling），属于附着类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "ab0e333895060c41b61b8aecda0bbae6": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出量过高导致的过挤出问题，属于FDM打印质量缺陷中的挤出类故障。"
+  },
+  "f40d05ea9f533fb722363f6e0b07520e": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件翘边和脱离平台，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "40399d47f9f28238ca312dd1a3319032": {
+    "answerable": true,
+    "reason": "用户的问题涉及字符串状缺陷（stringing/oozing）和喷嘴堵塞（blocked nozzle），均属于FDM打印质量缺陷排障范围。"
+  },
+  "58eec4bc2d2ad0f746bdd13ee94e150b": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中因回抽设置不当导致的拉丝（stringing）缺陷，属于FDM打印质量缺陷排障范围。"
+  },
+  "6e96be830f817fc02dcdbb770e905068": {
+    "answerable": false,
+    "reason": "用户的问题是关于3D打印商业创意，不属于FDM打印质量缺陷排障范围"
+  },
+  "df6976a270165045c315f5f05c26ad02": {
+    "answerable": true,
+    "reason": "用户的问题涉及悬垂质量差（overhangs droop），属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+  },
+  "fd2d9fae79c5c9a88fe115d56f397980": {
+    "answerable": true,
+    "reason": "用户的问题涉及FDM打印中的挤出问题（无 filament）和表面缺陷（ringing artifacts），属于知识库覆盖的范围。"
+  },
+  "e5f59c1155510fee6f32c02cee3401a6": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印速度过快导致的层错位（layer shift），属于FDM打印质量缺陷中的‘层错位’问题，符合知识库覆盖范围。"
+  },
+  "0626c676a5610532289527141b92b047": {
+    "answerable": true,
+    "reason": "用户的问题涉及喷嘴与打印床的Z轴偏移过近，属于FDM打印质量缺陷中的附着类问题。"
+  },
+  "3b0a7afd143f72b47a34ac0d8cc36e3f": {
+    "answerable": true,
+    "reason": "用户问题涉及层错位（layer misalignment），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "571905cb6cfe55a215cd6482dbd7bcca": {
+    "answerable": true,
+    "reason": "用户的问题涉及 'under extrusion' 导致的 'gaps'，属于 FDM 打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "7299ac151fbfb445076cf33274a63e0c": {
+    "answerable": true,
+    "reason": "用户的问题涉及桥接失败和悬垂下垂，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+  },
+  "e8a1d308e7f503720b1f914d331266b4": {
+    "answerable": true,
+    "reason": "用户问题涉及桥接（bridging）的打印速度设置，属于FDM打印质量缺陷排障中的‘几何类’问题。"
+  },
+  "5560c0a8eb617cee45a7f8a4c8aae664": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中壁面出现间隙，属于FDM打印质量缺陷中的‘结构类’或‘表面类’问题，符合知识库覆盖范围。"
+  },
+  "8d4fe2f8c551d10e3b84179b75fac1d8": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中的振动/振纹（ringing）和打印件附着问题，均属于FDM打印质量缺陷的排障范围。"
+  },
+  "573f8aecc4a6f99728d4d95563be0418": {
+    "answerable": true,
+    "reason": "用户问题涉及层高对细节的影响，属于FDM打印质量缺陷中的表面类或结构类问题，符合知识库覆盖范围。"
+  },
+  "26e979ef8030acdc2690b785f1bfdb59": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中出现的细丝（拉丝/渗料）和挤出机未充分回抽的问题，属于FDM打印质量缺陷中的表面类和挤出类问题。"
+  },
+  "6cc7497538a10d4706dc4f6f84d2a212": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何清洁PETG打印件，这属于后处理或表面处理范畴，不在FDM打印质量缺陷排障的范围内。"
+  },
+  "2235d2e01d191083f7b4622fe973d30e": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件底部弯曲（bowing）的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "80eec9cd23b27feca0b84c28d5c2924b": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出中断和悬垂质量差，属于FDM打印质量缺陷的排障范围。"
+  },
+  "9db1692d1d7df1602dda0f07f080ef9a": {
+    "answerable": true,
+    "reason": "用户问题涉及尺寸不准确，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "6b3a86180588fb090a72adad14cc8e95": {
+    "answerable": true,
+    "reason": "用户的问题涉及层分离和挤出异常，属于FDM打印质量缺陷的排障范围。"
+  },
+  "5a401b4de0acb57ddde0db7bff4e6347": {
+    "answerable": true,
+    "reason": "用户问题涉及悬垂结构的冷却风扇设置，属于FDM打印质量缺陷排障中的悬垂质量差问题。"
+  },
+  "f29a7995084785aa803cc2ff5b1a1cc7": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印表面的 blobs 和 zits，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "eac198d55e3a1dabdb0480b72e28ffed": {
+    "answerable": true,
+    "reason": "用户的问题是关于打印件无法粘附到打印床，属于附着类的排障问题，符合知识库覆盖范围。"
+  },
+  "4dc57b78d87137ad6270295afb50ebd6": {
+    "answerable": true,
+    "reason": "用户的问题涉及欠挤出和翘边，属于FDM打印质量缺陷的排障范围。"
+  },
+  "926ac810816f37d69873fe5998620f7a": {
+    "answerable": true,
+    "reason": "用户问题涉及填充结构强度，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "d7056d4c4ed0b838093a339bbbc9abf6": {
+    "answerable": false,
+    "reason": "用户的问题是关于FDM与SLA的对比，属于工艺类型科普，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+  },
+  "337bd2657af61bb5a0e714097279b407": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何使用尼龙进行3D打印，这属于材料使用指导，而非FDM打印质量缺陷的排障范畴。"
+  },
+  "724d732e96897bfb6ae2fd4145f67d54": {
+    "answerable": false,
+    "reason": "用户问题涉及树脂打印的切片设置，而知识库仅覆盖FDM打印质量缺陷排障，不包含SLA或树脂打印相关内容。"
+  },
+  "2e7fc12ac89578dbd32f536eab101831": {
+    "answerable": true,
+    "reason": "用户问题涉及层错位（layer shift），属于FDM打印质量缺陷中的'表面类'问题，符合知识库覆盖范围。"
+  },
+  "b315354647a9e8e5eb8fd4fe51bc37a4": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中边缘向上弯曲，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "90159e4a3d35e7b5a74c91c23c0c2020": {
+    "answerable": true,
+    "reason": "用户的问题涉及FDM打印中的拉丝（stringing）问题，属于知识库覆盖的表面类缺陷排障范围。"
+  },
+  "f457e8a98ca8298b56c29a21fda8468c": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中因加速度过高导致的振纹（ringing），属于FDM打印质量缺陷中的表面类问题。"
+  },
+  "fa8e19a645dcc309cdf0b9f1f2ae2328": {
+    "answerable": true,
+    "reason": "用户问题关于防止翘边（warping），属于附着类打印质量缺陷排障，符合知识库覆盖范围。"
+  },
+  "7edcf9be0cfe34c990059d2ff1e7c477": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层附着问题，属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "bd1137cb44c845c101f123b75a4372e5": {
+    "answerable": false,
+    "reason": "用户的问题涉及3D打印医疗植入物，属于应用领域而非FDM打印质量缺陷排障范畴"
+  },
+  "876c1c68725ab669d7212ce58884b365": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何在CAD中设计3D模型，这属于CAD软件操作范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+  },
+  "d98f39d2371f33b3e8a1512b40cf473e": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件外观异常（看起来融化），属于FDM打印质量缺陷中的表面类问题。"
+  },
+  "db7910e4c27ebbe3f13752bbf1fa2287": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层附着不良和层间分离，属于附着类和结构类的FDM打印质量缺陷排障范围。"
+  },
+  "ee5b0a54f1f387b5c2c6ebb366dfd9ee": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件下垂（droopy），属于FDM打印质量缺陷中的悬垂质量差问题，符合知识库覆盖范围。"
+  },
+  "4089d66398b9748d88f40ce4ce943586": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的 'spaghetti mess'（ spaghetti 通常指拉丝或挤出异常），属于 FDM 打印质量缺陷中的表面类或挤出类问题，符合知识库覆盖范围。"
+  },
+  "7624adf0fb133c562178f47bbc3095b3": {
+    "answerable": true,
+    "reason": "用户的问题涉及层间分离，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "541a73a581f0d438238a53b08062923a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起（warping），属于附着类中的‘翘边’或‘边角翘起’缺陷，符合知识库覆盖的FDM打印质量缺陷排障范围。"
+  },
+  "fd7b4939209baeeaac1bda0c16e2838c": {
+    "answerable": false,
+    "reason": "用户的问题涉及3D打印公差指南，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "7bf64d9ffdf80936c609bc65a553d070": {
+    "answerable": true,
+    "reason": "用户的问题属于附着类中的首层不粘床问题，符合知识库覆盖范围。"
+  },
+  "feab07fa13f0bb6e775bc081ea6006b4": {
+    "answerable": true,
+    "reason": "用户的问题涉及喷嘴堵塞导致无法挤出，属于FDM打印质量缺陷中的挤出类问题。"
+  },
+  "e6342f5ce32fdc8677fac51872762666": {
+    "answerable": true,
+    "reason": "用户问题涉及打印结构强度，与FDM打印质量缺陷中的结构类问题（如强度不足）相关。"
+  },
+  "9e0e6621484632300f7187ef492b69b0": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的冷却设置，属于FDM打印质量缺陷排障中的附着类或结构类问题。"
+  },
+  "e73771a85c80b0314821d8dd3f004d3f": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何使用碳纤维进行3D打印，这属于材料选购与存储回收的范畴，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+  },
+  "edfd61a29ada0563ecd5d57eb0521134": {
+    "answerable": true,
+    "reason": "用户问题涉及首层附着问题，属于附着类打印质量缺陷排障范围。"
+  },
+  "4635dcd1c6725df599a6631809ac45a9": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印表面的缺陷（scars）和挤出过多（too much filament），属于FDM打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "c2f1eeabc8f5b542b755417e92934cb8": {
+    "answerable": true,
+    "reason": "用户提到的 'diagonal scars on my print' 属于表面类缺陷中的 'z-seam' 或 'scars on top surface'，而 'gaps in the print walls' 属于结构类或几何类缺陷中的 'gaps in thin walls' 或 'structure defects'，均在知识库覆盖范围内。"
+  },
+  "b6faded2a23ac766cf35721248d4bd41": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层不粘床和拉丝/渗料，属于知识库覆盖的附着类和表面类缺陷。"
+  },
+  "77362f4986bf94d7fb72c607caa0e79f": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件尺寸过小，属于FDM打印质量缺陷中的结构类问题（尺寸偏差）。"
+  },
+  "31863f880e869fccd923a0a8ce2f51e1": {
+    "answerable": true,
+    "reason": "用户的问题涉及表面波纹（surface ripples），属于FDM打印质量缺陷中的表面类问题。"
+  },
+  "693890608f6d7cf4ebd47c3f1ce31803": {
+    "answerable": true,
+    "reason": "用户的问题涉及层间开裂，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "4de5c653973962b144c98e7ee84c9154": {
+    "answerable": false,
+    "reason": "用户的问题是关于选择最佳3D打印机，这属于设备选型，不在知识库覆盖的FDM打印质量缺陷排障范围内。"
+  },
+  "7a7b8d4fc650bc5391dbdaeb9b4613aa": {
+    "answerable": false,
+    "reason": "用户的问题涉及树脂打印机调平，而知识库仅覆盖FDM打印质量缺陷排障，不包含树脂打印机相关问题。"
+  },
+  "78f718f97a238687d330488187f635e4": {
+    "answerable": true,
+    "reason": "用户的问题属于附着类故障，即打印件从平台脱离，与知识库覆盖的FDM打印质量缺陷排障范围一致。"
+  },
+  "36eadb68199c0282d9d0fde838ef5f6e": {
+    "answerable": false,
+    "reason": "用户的问题涉及DLP与SLA两种不同3D打印技术的对比，属于工艺类型科普范畴，不在FDM打印质量缺陷排障的覆盖范围内。"
+  },
+  "7ed40bba66c4b333e0d306ac7f26c6bf": {
+    "answerable": true,
+    "reason": "用户的问题属于挤出类故障中的‘不挤出’问题，符合知识库覆盖范围。"
+  },
+  "b2bb38b3499bf09958bc06d97b68f5cb": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何涂装3D打印件，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "b416deca01f1ed850981039e66034805": {
+    "answerable": true,
+    "reason": "用户的问题 'gaps in the print walls' 属于 FDM 打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "347738331d65d0a0ceea47561074276e": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现欠挤出（under extruded）现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "f70b887861289ee4d32b6dfb7bf75e98": {
+    "answerable": true,
+    "reason": "用户的问题是关于如何在切片软件中使用支撑结构，属于FDM打印质量缺陷排障中的‘支撑难拆’或‘悬垂质量差’相关问题。"
+  },
+  "c83ed00b131059468997888c21faae6b": {
+    "answerable": true,
+    "reason": "用户问题描述的是层错位（layers shifted horizontally），属于FDM打印质量缺陷中的‘表面类’或‘结构类’问题，符合知识库覆盖范围。"
+  },
+  "b0ad2c7ae1c351fe34a5567ce4b82b50": {
+    "answerable": true,
+    "reason": "用户的问题涉及层间开裂和欠挤出，属于FDM打印质量缺陷中的层分离和欠挤出问题"
+  },
+  "3d1dfa19112c56a4d0758bb245e05bf2": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出中断和桥接失败，属于FDM打印质量缺陷中的挤出类和几何类问题，符合知识库覆盖范围。"
+  },
+  "ffeccf36c6bf04d75b17616f2170cc9b": {
+    "answerable": true,
+    "reason": "用户问题涉及 PETG 材料打印时的 oozing（渗料）现象，属于 FDM 打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "c28b0ff28bf297094662ee182e54b467": {
+    "answerable": true,
+    "reason": "用户问题涉及打印物出现裂纹，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "2731d7a9b9bb98332422029b7bd945e2": {
+    "answerable": true,
+    "reason": "用户的问题是关于3D打印中常见的表面缺陷‘拉丝/渗料’（stringing），属于知识库覆盖的范围。"
+  },
+  "fdcd2f3be0703ea799e6355d2df5aaeb": {
+    "answerable": false,
+    "reason": "用户的问题涉及耗材存储解决方案，不属于FDM打印质量缺陷排障范围"
+  },
+  "aa71f4dd98656c584843928167713f2d": {
+    "answerable": true,
+    "reason": "用户问题涉及PLA打印翘曲（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "8d13425400d74a581c02f913ed50b952": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何更换喷嘴，这属于设备维护操作，而非FDM打印质量缺陷的排障范畴。"
+  },
+  "110b98db06e3a7145b13d9091e773433": {
+    "answerable": true,
+    "reason": "用户的问题涉及顶层出现空隙，属于FDM打印质量缺陷中的结构类或表面类问题，符合知识库覆盖范围。"
+  },
+  "cabcb6c646f22e67a00e8eea1a28648d": {
+    "answerable": true,
+    "reason": "用户问题涉及打印表面出现的细丝（whiskers），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "df6a4514608d0e1a3b66ed8674bcf9c5": {
+    "answerable": false,
+    "reason": "用户的问题是关于推荐3D打印YouTube频道，不属于FDM打印质量缺陷排障范围。"
+  },
+  "ad422aaecefe0f23c1ef28871eb546af": {
+    "answerable": true,
+    "reason": "用户的问题'layers coming apart'属于FDM打印质量缺陷中的结构类问题，即层分离（delamination），在知识库覆盖范围内。"
+  },
+  "74c3049c12836f67f03b2ae368cc9348": {
+    "answerable": true,
+    "reason": "用户问题涉及首层附着与风扇速度的关系，属于附着类打印质量缺陷的排障范围。"
+  },
+  "eddd4fcc2bf97e4ce5dce2c001ecd6ad": {
+    "answerable": true,
+    "reason": "用户问题涉及层分离和分层，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "0d8e944257c83be2f154112ee18193f5": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印尺寸偏差和过挤出，属于FDM打印质量缺陷中的结构类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "ba8eeb6a1c40cb58e99e713af26c28f2": {
+    "answerable": false,
+    "reason": "用户的问题是关于多色打印的实现方法，不属于FDM打印质量缺陷排障的范围。"
+  },
+  "8905e32345955115ae3da33ea75c8a7f": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件倾斜（print leans），属于FDM打印质量缺陷中的结构类或几何类问题，符合知识库覆盖范围。"
+  },
+  "bbb2c70b306df42a769a21aa891e2c90": {
+    "answerable": true,
+    "reason": "用户问题涉及层分离（layer separation），属于FDM打印质量缺陷的排障范围。"
+  },
+  "134c09be06a435818f0effbe139142b8": {
+    "answerable": true,
+    "reason": "用户的问题涉及层分离（layers coming apart）和喷嘴堵塞（unclog a 3D printer nozzle），均属于FDM打印质量缺陷的排障范围。"
+  },
+  "4ab1d410964363599427756ae05ddb55": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印件粘附到床但没有附着问题，属于FDM打印质量缺陷中的附着类问题。"
+  },
+  "6c11b04478c59d4d45f82705d3519134": {
+    "answerable": true,
+    "reason": "用户的问题涉及过挤出导致的打印表面不光滑（blobby prints），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "ec057a361bfcca40e6613d3968a1b5c6": {
+    "answerable": false,
+    "reason": "用户询问的是SLA打印的定义，属于工艺类型科普，不在知识库覆盖范围内。"
+  },
+  "01b7aa3f36ff70c4cd93ede56ef6501b": {
+    "answerable": true,
+    "reason": "用户的问题涉及桥接质量差，属于FDM打印质量缺陷中的几何类问题，符合知识库覆盖范围。"
+  },
+  "cd9750c7baf8ecb3b7f553060dffdc99": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何通过3D打印赚钱，属于商业运营范畴，不属于FDM打印质量缺陷排障"
+  },
+  "4bf30358ddadc32b50c387baca2618fb": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层不粘床和打印物未附着，属于附着类的FDM打印质量缺陷排障范围。"
+  },
+  "ecbfa6544198e0567f2eb30858403db9": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的拉丝和渗料现象，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "ffd890275bf9ff63d33b48e9c94e7aef": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印中的拉丝（stringing）缺陷，属于知识库覆盖的表面类故障排障范围。"
+  },
+  "e4c7680056f5fa82f15a58ce8a7e73a8": {
+    "answerable": true,
+    "reason": "用户问题描述的是表面振纹（ripples）现象，属于3D打印表面类缺陷，符合知识库覆盖范围。"
+  },
+  "bcfbf209b88b1a614a1d16fd097dd809": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出过程中因回抽距离设置不当导致的拉丝或渗料问题，属于FDM打印质量缺陷中的表面类问题。"
+  },
+  "d0462d870e564bac039e10b1daa0efc0": {
+    "answerable": true,
+    "reason": "用户的问题涉及首层附着不良和桥接质量差，均属于FDM打印质量缺陷的排障范围。"
+  },
+  "2076c36ff4d6e97f8ff91662035f9364": {
+    "answerable": true,
+    "reason": "用户的问题是关于挤出过多塑料（over-extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "d3b74a8e8865c374f7926dcdfba7a83a": {
+    "answerable": true,
+    "reason": "用户的问题属于附着类缺陷中的首层不粘床问题，符合知识库覆盖范围。"
+  },
+  "f427e05243b178110bc469f5d2bc24df": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印表面出现斑点（blobs）但没有拉丝（no stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "105a3108f63ff13653e63b9218ed6a95": {
+    "answerable": true,
+    "reason": "用户的问题涉及喷嘴堵塞和悬垂结构下垂，分别属于挤出类和几何类的FDM打印质量缺陷排障范围。"
+  },
+  "9e892c02464fb94767dc1cd006da5473": {
+    "answerable": false,
+    "reason": "用户的问题涉及树脂打印的后处理，而知识库仅覆盖FDM打印质量缺陷排障，不包括SLA或树脂相关的内容。"
+  },
+  "75c04d2313678f484b561fe5ce170ed8": {
+    "answerable": true,
+    "reason": "用户的问题涉及桥接质量差，属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+  },
+  "20f40f6361cd294e56e65bd253be6936": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现拉丝和过挤出现象，属于FDM打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "70d83625d455f42883464c7908986741": {
+    "answerable": true,
+    "reason": "用户问题描述的是层对齐问题，属于FDM打印质量缺陷中的‘层错位’类别，符合知识库覆盖范围。"
+  },
+  "c17450fcad8f71a64d9396217e8abc72": {
+    "answerable": true,
+    "reason": "用户问题涉及 filament snaps，属于挤出类故障中的料线研磨或挤出异常，符合知识库覆盖范围。"
+  },
+  "7b9777774e1f7519f203d6891ff71a90": {
+    "answerable": true,
+    "reason": "用户的问题描述的是 'hairy prints with whiskers of filament'，这属于 FDM 打印质量缺陷中的 'Stringing or Oozing'（拉丝/渗料）类别，符合知识库覆盖范围。"
+  },
+  "b9c1a1679eda2ec1b5ba6d897c2280bb": {
+    "answerable": false,
+    "reason": "用户的问题是关于如何选择喷嘴材料，这不属于FDM打印质量缺陷的排障范围，而是涉及设备选型与硬件改装，属于知识库不覆盖的内容。"
+  },
+  "1664895f71b9d66c933b73f30e6c9668": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中挤出中断导致的‘意大利面’现象，属于FDM打印质量缺陷中的挤出类问题。"
+  },
+  "f09c3b5eabedcb8c091b2bed9503d646": {
+    "answerable": false,
+    "reason": "用户问题涉及树脂槽清洁，属于SLA 3D打印相关操作，不在FDM打印质量缺陷排障范围内"
+  },
+  "53ccbed28730329780e8a0226bb45185": {
+    "answerable": false,
+    "reason": "用户的问题涉及 'backlash compensation dimensional'，这属于设备机械校准或硬件调整范畴，不属于 FDM 打印质量缺陷排障的范围。"
+  },
+  "8129b9d9fb58cc554937475d5eb43993": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的‘非拉丝但存在渗料’现象，属于FDM打印质量缺陷中的‘附着类’或‘表面类’问题，符合知识库覆盖范围。"
+  },
+  "2bbe21b234a05640de020537ad77f409": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出量校准（extrusion multiplier calibration），属于FDM打印质量缺陷排障中的挤出类问题。"
+  },
+  "a6b807c6daded1af990ded6ba4b425a0": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中因移动速度导致的滴料（blobs），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "87693d7f0e302bfac5f22343335fed15": {
+    "answerable": true,
+    "reason": "用户的问题涉及挤出类故障中的‘堵头’，属于FDM打印质量缺陷排障的覆盖范围。"
+  },
+  "780330bffd1366e73748c14e3cca4e2b": {
+    "answerable": true,
+    "reason": "用户问题询问的是最佳的打印平台表面，这与附着类缺陷中的‘首层不粘床’相关，属于FDM打印质量缺陷排障范围。"
+  },
+  "0a73426945a7f223f2f9e28a1d3ad92a": {
+    "answerable": true,
+    "reason": "用户问题涉及 'elephant foot compensation'，属于 FDM 打印质量缺陷中的附着类问题，知识库中已包含相关条目。"
+  },
+  "777ef71f28c82826ddd871c57725b2aa": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现毛发状现象，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "aa584d04306e8ada7fc13ae6f36f5011": {
+    "answerable": true,
+    "reason": "用户问题涉及层分离（delamination），属于FDM打印质量缺陷的排障范围。"
+  },
+  "25532c0c39b4cf4f6cc34f258ff20b81": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中出现的拉丝（strings）和角部翘起（corners lift），均属于FDM打印质量缺陷的排障范围。"
+  },
+  "075350d09f05e55b4c5f5830f3db42e1": {
+    "answerable": true,
+    "reason": "用户的问题涉及打印过程中出现的拉丝（stringing）和渗料（oozing）现象，属于FDM打印质量缺陷中的表面类问题。"
+  },
+  "9c7599e2fb630275d0c9da0fac2e4c65": {
+    "answerable": false,
+    "reason": "用户的问题是关于Prusa MK4的价格，不属于FDM打印质量缺陷排障范围。"
+  },
+  "1a6fbead7941588905b2492b6adca291": {
+    "answerable": false,
+    "reason": "用户问题涉及温度塔校准，属于软件操作或参数设置，不属于打印件已出现的质量现象"
+  },
+  "e11503695d8972c47ecf46b49b47de1c": {
+    "answerable": false,
+    "reason": "用户问题涉及主控板升级，属于硬件改装范畴，不在覆盖范围内"
+  },
+  "51a79a19697631b41756a1837006819e": {
+    "answerable": false,
+    "reason": "用户问题 'how to use a 3D pen' 属于工具使用指导，而非打印件已出现的质量现象，属于库外内容。"
+  },
+  "0ff55a854a35f836d2c77a952223501e": {
+    "answerable": false,
+    "reason": "用户询问的是CAD软件推荐，属于软件选型问题，不在知识库覆盖范围内"
+  },
+  "5b477868c0fa32e708d1063de42dba65": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的 oozing（渗料）现象，属于表面类缺陷，且在知识库覆盖范围内。"
+  },
+  "c93c5c88657f03759d7467ca70a4fead": {
+    "answerable": false,
+    "reason": "用户询问的是如何连接打印机到OctoPrint，属于软件操作问题，不在知识库覆盖范围内"
+  },
+  "a61ef3eaa48ef7cc156a676c2e8d9739": {
+    "answerable": true,
+    "reason": "用户描述的现象属于表面类缺陷中的拉丝/渗料问题，且明确指向打印件上出现的异常现象，符合知识库覆盖范围"
+  },
+  "4dd895d8d726eb00bf55c41404ac8cc5": {
+    "answerable": true,
+    "reason": "用户问题描述的是3D打印中常见的桥接下垂和拉丝现象，属于知识库覆盖的几何类和表面类缺陷"
+  },
+  "ec39db52ad544f6034022048c932c10a": {
+    "answerable": true,
+    "reason": "用户描述的现象是'tall prints and hairy prints with whiskers of filament'，这属于表面类缺陷中的拉丝/渗料（Stringing or Oozing），在知识库中有多处相关条目。"
+  },
+  "e06f86d2e5b102c2bd726eee82b180d2": {
+    "answerable": true,
+    "reason": "用户询问的 'the print layers don't line up' 属于表面类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "3e5e966d821c817e188a765d35db7580": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件无法粘附到打印床的现象，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "e27d72686514a73bf024d61e81d5fae1": {
+    "answerable": false,
+    "reason": "用户询问的是激光雕刻机的校准方法，不属于FDM打印质量缺陷排障范围"
+  },
+  "b23d08923b7edb83341ce0568eaaa271": {
+    "answerable": true,
+    "reason": "用户描述的‘edges bending’属于附着类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "15fc1d175894dba07e0a9eb515f8d347": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的挤出问题，属于FDM打印质量缺陷排障手册覆盖范围内的‘不挤出’或‘堵头’现象。"
+  },
+  "49c8a538649b6de718e8362925c485df": {
+    "answerable": true,
+    "reason": "用户询问的是3D打印件顶部表面的缺陷现象（ironing settings top surface），属于表面类质量缺陷，符合知识库覆盖范围"
+  },
+  "c562b9dfe44c1875ceb151c2e592eb95": {
+    "answerable": false,
+    "reason": "用户询问的是如何打印柔性TPU，属于材料使用和工艺参数咨询，而非已出现的质量现象"
+  },
+  "3e6fbd8351b59dd63db8e44c78edcd44": {
+    "answerable": true,
+    "reason": "用户询问的是挤出类缺陷中的‘不挤出’现象，属于知识库覆盖范围"
+  },
+  "2420ed5ac943d15161702a18a1fcb03e": {
+    "answerable": false,
+    "reason": "用户询问的是最佳 ABS 打印外壳，属于设备选型或配件咨询，不在知识库覆盖范围内"
+  },
+  "4f604e223104103a516fd276148a5ff8": {
+    "answerable": true,
+    "reason": "用户提到的 'zits' 属于表面类缺陷，与知识库中 'Blobs and Zits' 的内容相关，属于覆盖范围"
+  },
+  "fd7a7d4a76ed1969b7e09e777660e64b": {
+    "answerable": true,
+    "reason": "用户询问的是打印过程中出现的 filament grinds 现象，属于挤出类缺陷中的流量异常或挤出问题，符合知识库覆盖范围。"
+  },
+  "7e2251be350a6f6eaf8abb933c330c72": {
+    "answerable": true,
+    "reason": "用户描述的是打印过程中挤出中断的现象，属于挤出类缺陷，且问题意图是解决已出现的质量现象，符合知识库覆盖范围。"
+  },
+  "d00cb690294bbb0ae2e679c9679ea340": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的弱层现象，属于FDM打印质量缺陷中的结构类问题，且与欠挤出相关，符合知识库覆盖范围。"
+  },
+  "2ac100f0529088172b996d695a809aba": {
+    "answerable": true,
+    "reason": "用户询问的是打印件上出现的桥接质量问题，属于FDM打印质量缺陷中的‘几何类’问题，且符合知识库覆盖范围"
+  },
+  "da8aa4f55c250d80a199c5c0ae6e1bdd": {
+    "answerable": true,
+    "reason": "用户询问的是与床附着相关的现象，属于附着类缺陷的范畴。"
+  },
+  "f4b69641d555222bb2f8dc55e97ca224": {
+    "answerable": true,
+    "reason": "用户描述的 'ringing artifacts' 和 'overhang quality is poor' 属于表面类和几何类打印缺陷，符合知识库覆盖范围"
+  },
+  "2d341e2455f5dab7d95c9d4d72ba5689": {
+    "answerable": true,
+    "reason": "用户询问的是打印表面出现凸起和瑕疵（blobs and imperfections），属于表面类缺陷，符合知识库覆盖范围"
+  },
+  "f6b92de6aacd30248cd0d26ce6136338": {
+    "answerable": true,
+    "reason": "用户描述的现象属于表面类缺陷中的鬼影（ghosting），且涉及机械类根因，符合知识库覆盖范围。"
+  },
+  "641aa66071f324a990b6e81346188658": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类缺陷中的首层不粘床和翘边问题，符合知识库覆盖范围"
+  },
+  "81040adb37bdaaa56c6cd9624ffe7d57": {
+    "answerable": false,
+    "reason": "用户询问的是如何接线3D打印机，属于硬件接线操作，不在知识库覆盖范围内"
+  },
+  "0745625449fe636e531766def60fe3c5": {
+    "answerable": true,
+    "reason": "用户描述的现象是打印件上出现细塑料丝，属于表面类缺陷中的拉丝/渗料（Stringing），在知识库覆盖范围内。"
+  },
+  "0c8cf30950ef659f44df749b26dae657": {
+    "answerable": true,
+    "reason": "用户描述的 'blobs and zits on the print surface' 属于表面类缺陷，'cracks between printed layers' 属于结构类缺陷，均在知识库覆盖范围内"
+  },
+  "c4f5362ca92c5f6fbbc6fefd497c9c67": {
+    "answerable": true,
+    "reason": "用户描述的 'small bumps on my 3D print' 属于表面类缺陷，符合知识库覆盖范围"
+  },
+  "fae1b6fe1075346d0160affd915f09b4": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印件的结构类缺陷，具体为壁厚弱，属于知识库覆盖范围内的质量缺陷问题。"
+  },
+  "53d6382430834823f0e179796cfa4666": {
+    "answerable": true,
+    "reason": "用户描述的现象属于表面类缺陷中的拉丝/渗料，且问题意图是关于打印件已出现的质量现象，符合知识库覆盖范围。"
+  },
+  "0b034cae9b495d144c855f542545a72c": {
+    "answerable": true,
+    "reason": "用户询问的 'failed bridging over gaps' 属于 FDM 打印质量缺陷中的 '桥接下垂/拉丝' 类别，符合知识库覆盖范围"
+  },
+  "cc095a9b839165f0bce979c7653e79e3": {
+    "answerable": false,
+    "reason": "用户询问的是关于回抽参数的设置，属于软件参数配置问题，不属于打印件已出现的质量现象"
+  },
+  "c25f5e1d0873661014c8f8af4310b28a": {
+    "answerable": true,
+    "reason": "用户询问的是打印过程中 filament not coming out of the nozzle，属于挤出类缺陷中的不挤出问题，符合知识库覆盖范围。"
+  },
+  "10501009fcbe2cbd33d69617ec130155": {
+    "answerable": true,
+    "reason": "用户询问的是打印件上出现的 'blobs' 现象，属于表面类缺陷，且问题意图是减少该现象，符合知识库覆盖范围"
+  },
+  "58c32d78cf4bfbd6bda4c36a1acaef62": {
+    "answerable": true,
+    "reason": "用户描述的是打印过程中出现的挤出异常现象，属于FDM打印质量缺陷中的挤出类问题，且明确提到‘no clog’但‘filament stripped’，符合知识库覆盖范围"
+  },
+  "256249ab37a19298d0cf039764825520": {
+    "answerable": true,
+    "reason": "用户描述的现象属于3D打印质量缺陷中的'拉丝/渗料'和'首层不粘床'，均在知识库覆盖范围内。"
+  },
+  "321cd6c0e3bf67e58c9f4d0370701b67": {
+    "answerable": true,
+    "reason": "用户描述的是打印件上出现的缺陷现象，属于表面类或结构类问题，符合知识库覆盖范围"
+  },
+  "624c37f9c572a94b7a45eecdad0ed4c7": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的挤出不一致现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "1bf83de49cf3de5d5f511ebe1427b026": {
+    "answerable": true,
+    "reason": "用户提到的 'ripples and echoes on surface' 属于表面类缺陷，与知识库中 'Vibrations and Ringing' 和 'Ringing' 相关，符合覆盖范围"
+  },
+  "9d1b70b5ec8d5e6bd6afbecaf5638084": {
+    "answerable": true,
+    "reason": "用户描述的打印件出现过挤出和下垂现象，并且打印机中途停止挤出，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "370ca64469ba453b15f01e2c90c80035": {
+    "answerable": true,
+    "reason": "用户描述的 'over extruded and droopy' 属于打印件已出现的质量现象，符合知识库覆盖的挤出类和结构类缺陷范围。"
+  },
+  "064793d3f6502e7fcb9c436613b187a1": {
+    "answerable": true,
+    "reason": "用户询问的是打印件无法粘附到床的问题，属于附着类缺陷中的‘首层不粘床’，在知识库覆盖范围内。"
+  },
+  "cbbfcd45888aefd0dc8bfde321db90e8": {
+    "answerable": false,
+    "reason": "用户问题涉及 'nozzle diameter change'，属于硬件选型或改装范畴，不在覆盖范围内"
+  },
+  "59fa9b248cff8a3c113f3791ebb1e27a": {
+    "answerable": false,
+    "reason": "用户询问的是 filament diameter settings，属于软件参数设置问题，而非打印件上已出现的质量现象"
+  },
+  "9479fe322519657e591ebba8fb6ad6f4": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现的挤出异常现象，属于FDM打印质量缺陷中的‘过挤出’或‘流量异常’范畴"
+  },
+  "be359bffdfa0f7241ef07478a976eaf3": {
+    "answerable": true,
+    "reason": "用户提到 'layers are shifting in my print'，属于打印件上已出现的质量现象，符合知识库覆盖的 '层错位' 缺陷类别。"
+  },
+  "51de9b95cbb07bf7671b89ed46e9c36a": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何建模有机形状，属于软件操作或设计方法，不属于打印质量缺陷排障范围"
+  },
+  "b8c59537e37b1498406fc0a2fec4093a": {
+    "answerable": true,
+    "reason": "用户询问的是打印件上出现的振动和回 ringing 现象，属于表面类缺陷，且在知识库覆盖范围内。"
+  },
+  "8038ebd5800d0c6a5340284afd4e058f": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件边缘翘起（corners curling up），属于附着类缺陷中的翘边或边角翘起，符合知识库覆盖范围"
+  },
+  "46515aaba2145a700922f81a851b4e15": {
+    "answerable": false,
+    "reason": "用户询问的是关于3D打印机固件设置（Marlin）的问题，属于软件配置类问题，不在覆盖范围内"
+  },
+  "6d5c68c4cae9cd67ab5e3ec14a0152ab": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印件已出现的质量问题，涉及首层不粘床和挤出中断，均在知识库覆盖范围内。"
+  },
+  "f9dfa07727956dd2c5b634b35734fa13": {
+    "answerable": true,
+    "reason": "用户询问的是打印件无法粘附到床的问题，属于附着类缺陷中的‘首层不粘床’，在覆盖范围内。"
+  },
+  "f1a7b30957235bafc9c91fd7301d4dcd": {
+    "answerable": false,
+    "reason": "用户问题涉及食品级3D打印材料的安全性，属于材料选购与存储范畴，不在覆盖范围内"
+  },
+  "cd8af2654a16f93dab7d314592ca9437": {
+    "answerable": true,
+    "reason": "用户描述的是打印过程中出现的拉丝/渗料现象，属于表面类质量缺陷，且在知识库覆盖范围内。"
+  },
+  "e2bb18d886d50a9ccf65d8505bfa0db7": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件出现的缺陷现象（filament grinding），属于挤出类故障，且与 retraction speed 相关，符合知识库覆盖范围"
+  },
+  "5e8f3027a2cbf3093f909f511890809f": {
+    "answerable": false,
+    "reason": "用户询问的是 'best infill for strength'，属于选型咨询，而非已出现的质量现象"
+  },
+  "ad49868182b2ad9526822183ce2bdf2f": {
+    "answerable": false,
+    "reason": "用户询问的是软件设置（z seam alignment settings），属于软件操作类问题，不在覆盖范围内"
+  },
+  "2861e9c8f72a00cf37c29b7a696c6d93": {
+    "answerable": true,
+    "reason": "用户询问的是打印件强度不足的现象，属于结构类缺陷中的‘强度不足’，在知识库覆盖范围内。"
+  },
+  "a8f0b436e1a0a1ecfcfc939f58cb0eec": {
+    "answerable": false,
+    "reason": "用户询问的是 slicer 软件的推荐，属于软件选型咨询，不在故障诊断知识库覆盖范围内"
+  },
+  "24dbb703e71e1f6693aeecd2472d1636": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类和表面类缺陷，涉及翘边、熔化等问题，符合知识库覆盖范围"
+  },
+  "deae6a7865983a80b88e9b3f46f34feb": {
+    "answerable": true,
+    "reason": "用户询问的是与表面质量相关的支撑结构密度问题，属于3D打印质量缺陷排障手册覆盖范围内的现象"
+  },
+  "2a801e4c8f221da8f46513780a63aeb0": {
+    "answerable": true,
+    "reason": "用户询问的是与挤出相关的质量现象，属于知识库覆盖范围内的‘不挤出、欠挤出、过挤出、堵头、料线研磨、流量异常’问题"
+  },
+  "c9c73b6c646f86fca8b26cb455ab964f": {
+    "answerable": false,
+    "reason": "用户询问的是 '3D printing speed records'，属于参数设置或软件操作类问题，不属于打印件已出现的质量现象"
+  },
+  "d4a202163fe6c25b15f929a9c926e1fe": {
+    "answerable": true,
+    "reason": "用户询问的是悬垂质量问题，属于FDM打印质量缺陷中的‘悬垂质量差’类别，符合知识库覆盖范围"
+  },
+  "f00252064feda5a4a69e5a9036506633": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的挤出不足现象，属于FDM打印质量缺陷中的‘挤出类’问题，符合知识库覆盖范围。"
+  },
+  "2cb0b0bfc839a026ab930bbc4f187a59": {
+    "answerable": true,
+    "reason": "用户描述的是打印件上出现的缺陷现象（blobs at seams），属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "d2dfb0ed9ac93b01688decbd52271b3d": {
+    "answerable": true,
+    "reason": "用户描述的是打印件在床附着良好的情况下仍然脱落的现象，属于附着类缺陷中的‘print detached’，在知识库覆盖范围内。"
+  },
+  "f459542a43b0930c09bc2db09669cea3": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印质量缺陷中的层错位（layer misalignment）和挤出机研磨 filament（grinding filament），均在知识库覆盖范围内。"
+  },
+  "51e3fd80a4a81e5f23c5abe8fb668cc9": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类缺陷（首层不粘床）和表面类缺陷（elephant foot），均在知识库覆盖范围内。"
+  },
+  "81e2ce6f700056544cb9609a15d0e135": {
+    "answerable": true,
+    "reason": "用户描述的现象属于挤出类和附着类缺陷，符合知识库覆盖范围"
+  },
+  "f0fb02e514f0710d7be592b4d3700a0e": {
+    "answerable": true,
+    "reason": "用户询问的是桥接区域的风扇速度问题，属于打印质量缺陷中的桥接下垂/拉丝现象，符合知识库覆盖范围"
+  },
+  "3039ae1e0586c15c7324c63d3ec1c0e2": {
+    "answerable": false,
+    "reason": "用户询问的是关于ABS打印时的床温设置，属于参数咨询，而非已出现的质量现象"
+  },
+  "8535f96c34acf5312bbaa89f7933f991": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的层偏移现象，属于表面类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "7463cda0368cc25c4daefe025d3dac18": {
+    "answerable": false,
+    "reason": "用户询问的是如何扫描物体用于3D打印，属于设备选型与硬件操作范畴，不在知识库覆盖范围内"
+  },
+  "743131dc7466c146ecfe6893fc831b94": {
+    "answerable": false,
+    "reason": "用户询问的是如何回收使用过的耗材，属于材料回收与存储范畴，不在覆盖范围内"
+  },
+  "af3e9dfebea8d631d81337b007ce9f21": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的翘边现象，属于附着类缺陷，且问题意图是排障，符合知识库覆盖范围"
+  },
+  "6a7b0e22032001a3b1919c060f356e72": {
+    "answerable": true,
+    "reason": "用户询问的是过挤出（over extrusion）现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "164abc919dbcd3014558be90a9ae5deb": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件翘边和脱离平台的现象，属于附着类缺陷，明确在知识库覆盖范围内。"
+  },
+  "3d507f1d2b1a9e6a5602b84dfbd66f96": {
+    "answerable": true,
+    "reason": "用户描述的打印件出现拉丝/渗料和喷嘴堵塞现象，属于3D打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围"
+  },
+  "1d7914bd07d32fc22b172bb21ffa0bc4": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的拉丝/渗料现象，属于表面类缺陷，且问题意图是解决该现象，符合知识库覆盖范围。"
+  },
+  "04e590673955150d3bf167f6de6cf1d5": {
+    "answerable": false,
+    "reason": "用户问题询问的是3D打印商业创意，属于选型或商业运营范畴，不在故障诊断知识库覆盖范围内"
+  },
+  "79f970f0b41dfeed555a5a1c41186fd4": {
+    "answerable": true,
+    "reason": "用户询问的是3D打印中悬垂部分下垂的现象，属于悬垂质量差的缺陷类别，符合知识库覆盖范围"
+  },
+  "7a5f3623782f93d1b51354c7c16085f3": {
+    "answerable": true,
+    "reason": "用户描述的现象属于挤出类和表面类缺陷，符合知识库覆盖范围"
+  },
+  "f7f5d8823ac1afe7fde3e1c036ad1798": {
+    "answerable": true,
+    "reason": "用户询问的现象是层错位（layer shift），属于知识库覆盖的表面类缺陷"
+  },
+  "234a1b31f5c2c4f60a27dcb9ab9f8c7b": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的质量现象，即喷嘴与床太近导致的问题，属于挤出类或附着类缺陷的机械根因范畴。"
+  },
+  "18f3f3449e184074f726e262209d755d": {
+    "answerable": true,
+    "reason": "用户询问的是层错位（layer misalignment）现象，属于3D打印质量缺陷中的表面类问题，且在知识库覆盖范围内。"
+  },
+  "63ce9a7454ad747e2570096821f29325": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现的‘gaps’现象，属于表面类或结构类缺陷，且明确指向‘under extrusion’（欠挤出），符合知识库覆盖范围"
+  },
+  "59dc8ca9cef99324a13de6acd21b1313": {
+    "answerable": true,
+    "reason": "用户描述的是打印过程中出现的桥接失败和悬垂下垂现象，属于FDM打印质量缺陷中的'桥接下垂/拉丝'类别，符合知识库覆盖范围。"
+  },
+  "02c10d962587f7db0a352a3c17724598": {
+    "answerable": false,
+    "reason": "用户询问的是打印速度设置，属于参数咨询，而非已出现的质量现象"
+  },
+  "ca18e213b03fc2af1fe731f0e0dd6237": {
+    "answerable": true,
+    "reason": "用户描述的是打印件上出现的‘壁面有空隙’现象，属于表面类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "e014a93122f87dedca354b1d8ce506e4": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的振动/振纹和附着问题，属于知识库覆盖的表面类和附着类缺陷"
+  },
+  "d995d4fdcb2f5cae1217f8240e5452b1": {
+    "answerable": true,
+    "reason": "用户询问的是层高对细节的影响，属于表面类或结构类缺陷的参数影响，符合知识库覆盖范围"
+  },
+  "03e67caafa1022eb7c1f4d2378661f50": {
+    "answerable": true,
+    "reason": "用户描述的现象属于3D打印质量缺陷中的'拉丝/渗料'和'不挤出'，符合知识库覆盖范围"
+  },
+  "816a11d5549640e64f129e89612b4da1": {
+    "answerable": false,
+    "reason": "用户询问的是如何清洁PETG打印件，属于后处理与上色装饰范畴，不在覆盖范围内"
+  },
+  "44d975c3fe16c85d703227fc80dbbe38": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类缺陷中的‘首层不粘床’或结构类缺陷中的‘尺寸偏差’，且符合知识库覆盖范围"
+  },
+  "8e1957f14cc9e806cfc9b49763ba5a1a": {
+    "answerable": true,
+    "reason": "用户描述的‘printer stopped extruding halfway’属于挤出类缺陷，‘overhang quality is poor’属于悬垂质量差，均在知识库覆盖范围内。"
+  },
+  "0abe8168149ad48586835f7cb592ab16": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件尺寸不准确的现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "1500900e3d1b7e219e133217a803bd4a": {
+    "answerable": true,
+    "reason": "用户描述的现象属于3D打印质量缺陷中的层分离和挤出异常，符合知识库覆盖的打印件质量现象范围。"
+  },
+  "146935391ff1842917dfd6ce16d95a2d": {
+    "answerable": false,
+    "reason": "用户询问的是冷却风扇设置，属于软件参数设置，不在3D打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "4355028d537ca7142e1c1cc193917ad4": {
+    "answerable": true,
+    "reason": "用户询问的是打印表面出现的 blobs and zits，属于表面类缺陷，符合知识库覆盖范围"
+  },
+  "6386b599ce79ddda006abc27ad1e64a6": {
+    "answerable": true,
+    "reason": "用户询问的是打印件无法粘附到床的问题，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "d89024cfd4d5600734ce50d1d0bb31cd": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印件质量缺陷中的‘欠挤出’和‘翘边/变形’，均在知识库覆盖范围内。"
+  },
+  "76bbc88875375c2fc0a69908c4ba8899": {
+    "answerable": true,
+    "reason": "用户询问的是填充结构强度问题，属于结构类缺陷中的强度不足范畴，符合知识库覆盖范围。"
+  },
+  "42a07f8b5ff0ef86de1bfc084e08915b": {
+    "answerable": false,
+    "reason": "用户询问的是FDM与SLA的对比，属于工艺科普，不在覆盖范围内"
+  },
+  "c3467e2e7ec99a91118680ba72c7ee61": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何使用尼龙进行3D打印，属于材料选择和操作指导，而非已出现的打印质量现象。"
+  },
+  "8c2d90f1bb26ad2d8fb2cd262d791a90": {
+    "answerable": false,
+    "reason": "用户询问的是 slicer 设置，属于软件操作，不在故障诊断知识库覆盖范围内"
+  },
+  "d01f8f3876663595de5018d52ba73668": {
+    "answerable": false,
+    "reason": "用户问题涉及 'jerk settings'，属于参数设置类问题，而非打印件已出现的质量现象"
+  },
+  "ddaab049f06d48cb2bcb43222cdd27ea": {
+    "answerable": true,
+    "reason": "用户描述的现象是打印件边缘向上弯曲，属于附着类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "e719db4f25746dee5c498b24926588fa": {
+    "answerable": true,
+    "reason": "用户询问的是关于打印件出现拉丝现象时的回抽距离设置，属于表面类缺陷的排障问题，符合知识库覆盖范围。"
+  },
+  "4e99be24ddf77f5cdc2c6e55ca44067b": {
+    "answerable": true,
+    "reason": "用户询问的是打印过程中出现的 'ringing' 现象，属于表面类缺陷，且与机械振动相关，符合知识库覆盖范围"
+  },
+  "3f624824db0cbb6412e9222b719b1894": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的warping现象，属于附着类缺陷，且问题形式为prevent，符合知识库覆盖范围"
+  },
+  "ec7fbabea0d57996716683da0953d170": {
+    "answerable": true,
+    "reason": "用户描述的是打印件首层粘附但表面不整洁的现象，属于附着类或表面类缺陷，符合知识库覆盖范围"
+  },
+  "26ba1487b27c782ad9d72f78baa25569": {
+    "answerable": false,
+    "reason": "用户问题涉及3D打印医疗植入物，属于设备选型与应用领域，不属于FDM打印质量缺陷排障范围"
+  },
+  "714b55b498ed75dac9d8c8aede64593f": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何在CAD中设计3D模型，属于软件操作和设计流程，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "90c9f03beb5a75e525ac5ff81a3780bb": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的‘看起来融化’的质量现象，属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "ebe9eaec11f7566bd828d038fc69b641": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类缺陷（首层不粘床、层间分离），在知识库覆盖范围内。"
+  },
+  "1cd9b1dc1f661da1448b62dc88e22386": {
+    "answerable": true,
+    "reason": "用户描述的 'print droopy' 可对应到 '悬垂质量差' 或 '桥接下垂/拉丝' 等结构类缺陷，属于知识库覆盖范围"
+  },
+  "f62d0ff75946b213b530599e9a483ba9": {
+    "answerable": true,
+    "reason": "用户描述的 'no clog but spaghetti mess' 属于打印件表面类缺陷中的拉丝/渗料或挤出异常，符合知识库覆盖范围"
+  },
+  "a1f08d0f7e0dc31ae99d564f1af81872": {
+    "answerable": true,
+    "reason": "用户询问的 'print splitting along layer lines' 属于结构类缺陷中的层分离（delamination），在覆盖范围内。"
+  },
+  "857acc9fbbfc6a87ca0d6e47adc190a3": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起（warping），属于附着类缺陷，且在知识库覆盖范围内。"
+  },
+  "a8c12837bebbae06796fea4d038d4753": {
+    "answerable": false,
+    "reason": "用户问题 '3D printing tolerances guide' 属于选型或事前参数咨询，而非打印件上已出现的质量现象"
+  },
+  "145a381ae322844707b73c1654e54873": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的首层不粘床现象，属于附着类缺陷，符合知识库覆盖范围"
+  },
+  "1e4adafb471709aa1a834d65fd112193": {
+    "answerable": true,
+    "reason": "用户询问的是喷嘴堵塞导致无法挤出的问题，属于挤出类缺陷中的‘不挤出’现象，符合知识库覆盖范围。"
+  },
+  "b9787868d023bd3db8c54a72e1e23c75": {
+    "answerable": true,
+    "reason": "用户询问的是与打印强度相关的墙数设置，属于结构类缺陷的机械类根因问题"
+  },
+  "3de2849a772c1cac3834db2c9bbc1754": {
+    "answerable": false,
+    "reason": "用户问题涉及的是打印参数设置（minimal layer time cooling），属于软件参数咨询，不在知识库覆盖范围内"
+  },
+  "7dba385c154f2d1713e05515aaacfe77": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何使用碳纤维进行打印，属于材料选型和操作指导，不属于已出现的质量现象排障"
+  },
+  "911e08e80fa4277e9fc5fbc0d741af4b": {
+    "answerable": true,
+    "reason": "用户询问的是打印件首层附着问题，属于附着类缺陷，且涉及床面水平度这一机械类根因，符合知识库覆盖范围"
+  },
+  "5426cf54872fc709bca4d8d57b1ad71f": {
+    "answerable": true,
+    "reason": "用户描述的 'scars on the top surface of print and too much filament coming out' 属于表面类或挤出类缺陷，符合知识库覆盖范围。"
+  },
+  "08617aa68e56e9ec98818bff5a9697d8": {
+    "answerable": true,
+    "reason": "用户描述的 'diagonal scars on my print' 和 'gaps in the print walls' 属于表面类和结构类缺陷，符合知识库覆盖范围"
+  },
+  "a66066cec49f5bfc9ac547518f9f2048": {
+    "answerable": true,
+    "reason": "用户描述的现象属于附着类（首层不粘床）和表面类（拉丝/渗料）的打印质量缺陷，符合知识库覆盖范围"
+  },
+  "d01436e8bbe544591d03be096610b535": {
+    "answerable": true,
+    "reason": "用户询问的是打印件尺寸过小的质量现象，属于尺寸偏差范畴，符合知识库覆盖范围。"
+  },
+  "8a12debedf7808ac9442634c4942b0ee": {
+    "answerable": true,
+    "reason": "用户询问的是打印件表面出现波纹（surface ripples）的问题，属于表面类缺陷，且在知识库覆盖范围内。"
+  },
+  "406bf1fa18b2db6f68ec8055c669aea9": {
+    "answerable": true,
+    "reason": "用户询问的 'cracks between printed layers' 属于打印件已出现的质量现象，符合知识库覆盖的 '层分离（delamination）' 类别"
+  },
+  "c8e5f97842ca9455606c6131163e0eeb": {
+    "answerable": false,
+    "reason": "用户询问的是推荐购买的3D打印机，属于选型咨询，不在知识库覆盖范围内"
+  },
+  "6badf3e5cf80840f4b627bdd66cf4393": {
+    "answerable": false,
+    "reason": "用户询问的是如何校平树脂打印机，属于设备操作或硬件调整，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "8f70e04aeaa3949718c621106a529b02": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件脱离平台的现象，属于附着类缺陷中的‘首层不粘床’或‘翘边’，在知识库覆盖范围内。"
+  },
+  "abaf5e26b829a1b5f254377cbdd72961": {
+    "answerable": false,
+    "reason": "用户问题涉及DLP与SLA两种不同工艺的对比，属于工艺科普，不在覆盖范围内"
+  },
+  "47bfc7b770d40bcdb1ab1f919062688f": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的挤出问题，属于FDM打印质量缺陷排障手册覆盖范围内的‘挤出类’故障。"
+  },
+  "99e83b43baad26745a39da815ce5ec64": {
+    "answerable": false,
+    "reason": "用户问题涉及3D打印件的涂装方法，属于后处理与上色装饰范畴，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "8f97c73d471f1b55116a37086e6df37d": {
+    "answerable": true,
+    "reason": "用户询问的 'gaps in the print walls' 属于结构类缺陷中的孔洞问题，符合知识库覆盖范围"
+  },
+  "00542d81b39809f552e935d36e2614e0": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现的‘under extruded’现象，属于挤出类质量缺陷，符合知识库覆盖范围。"
+  },
+  "37bf3fbf1cd4436dcdd89156fa6c9843": {
+    "answerable": false,
+    "reason": "用户询问的是 slicer 软件中如何使用 supports，属于软件操作指导，不在知识库覆盖的排障范围之内。"
+  },
+  "5ff05446f550d417fa737b062f9bbe44": {
+    "answerable": true,
+    "reason": "用户询问的 'layers shifted horizontally' 属于打印件已出现的质量现象，符合知识库覆盖的表面类或结构类缺陷范围。"
+  },
+  "5a236f29a188daf8de8b60a6d7246360": {
+    "answerable": true,
+    "reason": "用户描述的现象属于层分离和欠挤出的打印质量缺陷，符合知识库覆盖范围"
+  },
+  "9fb471a1016f355de7d30a7dc6dac805": {
+    "answerable": true,
+    "reason": "用户描述的是打印过程中挤出中断和桥接失败的现象，属于挤出类和几何类缺陷，符合知识库覆盖范围"
+  },
+  "fa9802d1f0c6c2883ac31276f17cad0c": {
+    "answerable": true,
+    "reason": "用户询问的是 PETG 打印时出现的 oozing（渗料/拉丝）现象，属于表面类缺陷，且在知识库覆盖范围内。"
+  },
+  "d1442d59a1c8024273ac3ec438270630": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现裂纹的现象，属于结构类缺陷中的尺寸偏差或层分离问题，符合知识库覆盖范围"
+  },
+  "d739d81e426ad8ee80679ff6d532c83c": {
+    "answerable": true,
+    "reason": "用户询问的是3D打印中出现的stringing现象，属于表面类质量缺陷，符合知识库覆盖范围"
+  },
+  "1f1ef59f8a3a2edf8c91a8411d745eb0": {
+    "answerable": false,
+    "reason": "用户询问的是 filament storage solutions，属于材料存储策略，不属于打印质量缺陷现象，且涉及选型与事前参数咨询，为库外内容"
+  },
+  "712f9f72d6f996a70ed366921dcba796": {
+    "answerable": true,
+    "reason": "用户询问的是 PLA 打印件出现的翘边现象，属于附着类缺陷，且问题形式为 'why'，符合知识库覆盖范围"
+  },
+  "72b744413e80369396cc978dc3a49a34": {
+    "answerable": false,
+    "reason": "用户问题 'how to change nozzle' 属于硬件操作类问题，而非打印件已出现的质量现象"
+  },
+  "bef87b05575582f5d605fd9e12378b20": {
+    "answerable": true,
+    "reason": "用户询问的是打印件顶部出现空隙的质量现象，属于表面类或结构类缺陷，符合知识库覆盖范围"
+  },
+  "60edf8e335e28f5539a82c3835723424": {
+    "answerable": true,
+    "reason": "用户描述的现象是‘print 上有 whiskers’，属于表面类缺陷中的拉丝/渗料（stringing/oozing），在知识库覆盖范围内。"
+  },
+  "674dda2b2c82c1d2335da5ee50c5840b": {
+    "answerable": false,
+    "reason": "用户询问的是YouTube频道推荐，属于软件/平台选型咨询，不在知识库覆盖范围内"
+  },
+  "9ba08cf249d448f8d7d289ff03443512": {
+    "answerable": true,
+    "reason": "用户问题 'layers coming apart' 属于打印件已出现的质量现象，符合知识库覆盖的 '层分离（delamination）' 缺陷类别。"
+  },
+  "a130d6701a992f5060543b36c53585f7": {
+    "answerable": false,
+    "reason": "用户询问的是风扇速度设置，属于软件参数配置问题，不在3D打印质量缺陷排障手册的覆盖范围内"
+  },
+  "be7153583e5d0b59f29c1c427b38a34b": {
+    "answerable": true,
+    "reason": "用户询问的 'layers separating and splitting' 属于 3D 打印质量缺陷中的结构类问题，符合知识库覆盖范围"
+  },
+  "3472a78f4052ad57b219cf68d728d64b": {
+    "answerable": true,
+    "reason": "用户描述的‘part is not the right size’属于尺寸偏差，‘too much filament coming out’属于过挤出，均在FDM打印质量缺陷排障手册覆盖范围内。"
+  },
+  "6c22b56683a83f17fa756c2228ac7e0d": {
+    "answerable": false,
+    "reason": "用户询问的是多色打印方法，属于软件操作或工艺设置问题，不在3D打印故障诊断知识库覆盖范围内"
+  },
+  "b4348c9a5c6a5b306f7805ec678a8ec2": {
+    "answerable": true,
+    "reason": "用户描述的现象 'print leans' 属于打印件的几何类质量缺陷，符合知识库覆盖范围。"
+  },
+  "02d730b09cfafab99bfb4f1f90ba2d98": {
+    "answerable": true,
+    "reason": "用户问题描述的是层分离现象，属于知识库覆盖的结构类缺陷"
+  },
+  "5c50a02e44b4c7dbdd2a62d200d1912b": {
+    "answerable": true,
+    "reason": "用户询问的‘layers coming apart’属于结构类缺陷中的层分离，‘unclog a 3D printer nozzle’属于挤出类缺陷中的堵头，均在知识库覆盖范围内。"
+  },
+  "db6641f8f0c50f094911556206012235": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印件附着类问题，具体为打印件粘附在床面上，这属于知识库覆盖的缺陷范围。"
+  },
+  "1f11d61c9f535383b3b74384157b17bc": {
+    "answerable": true,
+    "reason": "用户询问的是过挤出导致的 blobby prints，属于挤出类缺陷，覆盖在知识库范围内"
+  },
+  "070cf14c4031e37cf7e43887f7d01ecf": {
+    "answerable": false,
+    "reason": "用户询问的是SLA打印技术的定义，属于工艺科普，不在覆盖范围内"
+  },
+  "9d68342f0448130d77317e56c7d35176": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的‘poor bridging’（桥接质量差）现象，属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围"
+  },
+  "ce87ca8958007c4eb93d24bea038a71a": {
+    "answerable": false,
+    "reason": "用户询问的是如何通过3D打印赚钱，属于商业运营范畴，不在知识库覆盖的故障诊断范围内"
+  },
+  "95f429d209a111d834d1184a51b72201": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件出现的首层不粘床和打印件不附着的问题，属于附着类缺陷，覆盖在知识库范围内。"
+  },
+  "d14586bfd725463e3d5b98c0935ff554": {
+    "answerable": true,
+    "reason": "用户描述的现象是打印件出现拉丝和渗料，属于表面类质量缺陷，符合知识库覆盖范围"
+  },
+  "32176b6d43b97c41d74ff72a03294bc8": {
+    "answerable": true,
+    "reason": "用户询问的是打印件上出现的拉丝现象（stringing），属于表面类缺陷，且问题意图是解决该现象，符合知识库覆盖范围。"
+  },
+  "c489fe2d3bb0c1793b1f38df0a5e22c0": {
+    "answerable": true,
+    "reason": "用户描述的是打印件表面出现波纹（ripples），属于表面类缺陷，且未涉及软件操作、选型或非FDM工艺，符合知识库覆盖范围"
+  },
+  "cb9901248da565f7c474d45e412fc2c6": {
+    "answerable": true,
+    "reason": "用户询问的是打印过程中出现的‘拉丝/渗料’现象，属于表面类缺陷，且问题意图是解决该现象，符合知识库覆盖范围。"
+  },
+  "07e4288801c768b27b82e7280c3ed860": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的两个质量现象：桥接不良和首层附着不足，均属于知识库覆盖的缺陷类别。"
+  },
+  "10a9da193b50bcb6c45dbd04603d6e00": {
+    "answerable": true,
+    "reason": "用户询问的是‘extruding too much plastic’，属于挤出类质量缺陷中的‘过挤出’，在覆盖范围内"
+  },
+  "23ccddd69762dd42bf39ca930ce65537": {
+    "answerable": true,
+    "reason": "用户询问的是打印件首层高度过高导致无法粘附的问题，属于附着类缺陷中的首层不粘床现象，符合知识库覆盖范围。"
+  },
+  "cb4467c5251925ad9142c77a69db7e9a": {
+    "answerable": true,
+    "reason": "用户描述的现象属于表面类缺陷中的'blobs'（凸起），在知识库覆盖范围内"
+  },
+  "33e4fe32ded0be8169093a8a8ed20fe8": {
+    "answerable": true,
+    "reason": "用户询问了两个明确的打印质量现象：喷嘴堵塞和悬垂部分下垂，均属于知识库覆盖的故障诊断范围。"
+  },
+  "b0ff0e86e7866ba66e18992caef894b4": {
+    "answerable": false,
+    "reason": "用户询问的是树脂打印的后处理方法，属于非FDM工艺的后处理内容，不在覆盖范围内"
+  },
+  "a3f64c610b6c5507f545e67db4e4943c": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的桥接区域不整洁的问题，属于FDM打印质量缺陷中的‘桥接下垂/拉丝’现象，符合知识库覆盖范围。"
+  },
+  "43e461bb30cd717d16163e2b75d790dc": {
+    "answerable": true,
+    "reason": "用户描述的现象属于挤出类和表面类缺陷，符合知识库覆盖范围"
+  },
+  "39d15f9181b15c571e6715224e1e8114": {
+    "answerable": true,
+    "reason": "用户询问的是打印件层与层不对齐的现象，属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "fd12eba94a758fc17945f3767153f6aa": {
+    "answerable": true,
+    "reason": "用户描述的现象属于挤出类故障中的‘料线研磨’，且明确提到‘no clog’，符合知识库中关于‘Grinding Filament’的覆盖范围。"
+  },
+  "3fa5a2b3572354e39865bf21abd6e3d9": {
+    "answerable": true,
+    "reason": "用户描述的是3D打印件出现的表面缺陷现象，属于知识库覆盖的‘拉丝/渗料’类别"
+  },
+  "48247c5d8a294f07643437451f446b97": {
+    "answerable": false,
+    "reason": "用户询问的是如何选择喷嘴材料，属于设备选型咨询，不在知识库覆盖范围内。"
+  },
+  "93507c32fcabbfa911885eb838020950": {
+    "answerable": true,
+    "reason": "用户描述的现象属于挤出类缺陷中的‘不挤出’，且涉及打印件变成‘spaghetti’，属于知识库中覆盖的故障现象"
+  },
+  "2b2219d77e5a03b60d6445077542434f": {
+    "answerable": false,
+    "reason": "用户问题涉及树脂槽清洁，属于SLA 3D打印的后处理环节，不属于FDM打印质量缺陷排障范围"
+  },
+  "54e60b58766de0331c9821dbfddcfdb1": {
+    "answerable": true,
+    "reason": "用户询问的是与尺寸偏差相关的机械根因（backlash compensation），属于知识库覆盖的范围"
+  },
+  "9c4f3abde312b3c36fd82b1308dc1922": {
+    "answerable": true,
+    "reason": "用户描述的是打印件上出现的‘无拉丝但有渗料’现象，属于表面类缺陷中的‘渗料’问题，且在知识库覆盖范围内。"
+  },
+  "180380d2ac5b92e4daaa7150645eecaa": {
+    "answerable": false,
+    "reason": "用户询问的是关于 extrusion multiplier 的校准，属于软件参数设置问题，而非打印件上已出现的质量现象。"
+  },
+  "2c40f7b89691c968da3a9520862fb86f": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件出现的blobs现象，属于表面类缺陷，且问题意图是解决该质量现象，符合知识库覆盖范围"
+  },
+  "4fa9a9685a1647b3d70c7df36df90883": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的挤出问题，属于FDM打印质量缺陷中的‘挤出类’问题，符合知识库覆盖范围。"
+  },
+  "1c460a93c7c15c39a2e678978dedb165": {
+    "answerable": false,
+    "reason": "用户询问的是 'best build plate surface'，属于设备选型或事前参数咨询，不覆盖"
+  },
+  "5ce2145caf085f2a19b75632823cbdf7": {
+    "answerable": true,
+    "reason": "用户询问的是打印件出现的 'elephant foot' 现象，属于表面类缺陷，且在知识库覆盖范围内"
+  },
+  "bf153fda07544fd260ec5b83330b207c": {
+    "answerable": true,
+    "reason": "用户描述的 'hairy surface' 属于表面类缺陷，且与知识库中 'Stringing or Oozing'（拉丝/渗料）相关，属于覆盖范围内的打印质量现象。"
+  },
+  "53c6555eafc0ddc697115e6d0fccf5a0": {
+    "answerable": true,
+    "reason": "用户询问的是层分离（delamination between layers），属于FDM打印质量缺陷中的结构类问题，且在知识库覆盖范围内。"
+  },
+  "12309d37706fe3d1e77d2b79a981f141": {
+    "answerable": true,
+    "reason": "用户描述的现象属于打印件已出现的质量问题，涉及拉丝（strings）和翘边（corners lift），均在知识库覆盖的缺陷类别范围内。"
+  },
+  "33894c043a0c1ca10d66c43e832c12be": {
+    "answerable": true,
+    "reason": "问题涉及打印参数校准，属于知识库覆盖范围内的参数与校准内容。"
+  },
+  "722de45a06fa89c4413d7325be066e80": {
+    "answerable": false,
+    "reason": "问题涉及主控板升级，属于硬件改装，不在FDM打印质量缺陷排障手册范围内。"
+  },
+  "5b451810111bead7cb0b60ce4244a259": {
+    "answerable": false,
+    "reason": "问题询问的是如何使用3D笔，不属于FDM打印质量缺陷或参数校准范畴，而是关于设备的使用方法，属于库外内容。"
+  },
+  "a3e2c2311a530be5f4aed8c7fe136d6a": {
+    "answerable": false,
+    "reason": "问题询问的是CAD软件的推荐，属于择优类问题，且未提及任何打印质量缺陷或参数设置，因此不在知识库覆盖范围内。"
+  },
+  "b94226554c203200af04c00117c11a0a": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷（oozing）"
+  },
+  "592841def3654b98e2b5d9c7e2bd6a2c": {
+    "answerable": false,
+    "reason": "问题询问的是如何将打印机连接到OctoPrint，属于切片/控制软件的功能操作教程，而非FDM打印质量缺陷或参数校准问题。"
+  },
+  "d69ea8b937c60e8532c09d769f185617": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的‘web-like strands’现象，属于FDM打印质量缺陷中的‘stringing’问题，符合知识库覆盖范围。"
+  },
+  "ad435350ab5bca39f372eb82da488d56": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的桥接下垂（bridges sag）和拉丝（stringing），属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "6dcabc794251c3b429349a0a6dc6ff8b": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印中出现的‘hairy prints’（拉丝/渗料）和‘heat deformation’（热变形），属于表面类和结构类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "e1bc0fbb90a83d50c54b33f5420aedb8": {
+    "answerable": true,
+    "reason": "问题描述的是打印层对齐问题，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "62c31d87e3e84a46cc21f09932cc55a2": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件无法粘附到打印床，属于附着类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "805eed91a371d9f0d9c566b069731921": {
+    "answerable": false,
+    "reason": "问题询问的是激光雕刻机的校准，不属于FDM打印质量缺陷或相关参数校准"
+  },
+  "145668f1c92076966b00681484d28416": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中边缘弯曲的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "66a38e2467d7ff9285911e8993207d14": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的挤出类缺陷（堵头），属于知识库覆盖范围。"
+  },
+  "18aca863406aa38ba3d4b5001607d131": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的顶面处理，属于表面类缺陷的修复参数调整范围。"
+  },
+  "911f975085c5ea139acd8cf2fc3054b4": {
+    "answerable": false,
+    "reason": "问题询问的是如何打印柔性TPU，属于材料使用和工艺选择范畴，而非具体打印质量缺陷或参数校准问题，不符合知识库覆盖范围。"
+  },
+  "8410f5454ab864bccda1b3e3f2c0af46": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷（nozzle temperature too low under extrusion），属于挤出类故障，覆盖范围包含温度参数调整。"
+  },
+  "8de17bfb80cdf8713d044835f32bcd89": {
+    "answerable": false,
+    "reason": "问题询问的是最佳的ABS打印用外壳（best enclosure），属于择优类问题，且未描述具体打印质量缺陷现象，因此不在知识库覆盖范围内。"
+  },
+  "f6db0cc565da9228d8c9c96eea9c59ec": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的 'zits' 现象，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "8a4ad388dc45c5bc8fff53f7a883aeac": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的挤出类问题，具体为 'filament grinds'，属于知识库覆盖范围。"
+  },
+  "b97e54184db47e7c146047516535c939": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'stops extruding mid print'，属于挤出类故障，覆盖范围包含该现象的诊断与修复方案。"
+  },
+  "470e8ae7dc156abc0bbbb3c0aa72ebbe": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'weak thin layers from under extrusion'，属于挤出类故障，覆盖在知识库范围内。"
+  },
+  "719ef22a9e822d654a3d06fe86575558": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的桥接问题（bridging looks messy and droopy），属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "dcbcef1eb0645515452f76971f54531a": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的附着类缺陷，具体为床面附着问题，属于知识库覆盖范围。"
+  },
+  "6f73648522e6492c7eb502551444021a": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量缺陷（ringing artifacts和overhang quality poor），属于知识库覆盖的表面类和几何类故障范围。"
+  },
+  "80216030bcfa8465f7809c55e178847b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面存在凸起和瑕疵，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "be93a3b75b1606a8fee1defde9e79a8f": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（ghosting on sides），属于知识库覆盖的表面类缺陷"
+  },
+  "636dc92fea71b48a18483aa32482cf24": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件角部翘起和首层附着不良，属于附着类和表面类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "21476af4698709dafae3dc5de0fa9590": {
+    "answerable": false,
+    "reason": "问题询问的是如何接线（how to wire），属于硬件接线与固件范畴，不在知识库覆盖范围内"
+  },
+  "315c631232863ca6c2ce2e632c5a51e5": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的拉丝现象，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "ed3cab5a1dc04b219a9266b0972cfe9d": {
+    "answerable": true,
+    "reason": "问题描述的是3D打印表面出现的blobs和zits以及层间裂缝，属于FDM打印质量缺陷中的表面类和结构类问题，符合知识库覆盖范围。"
+  },
+  "1d8745d6bfe9830cf6efe1aa4d6162ff": {
+    "answerable": true,
+    "reason": "用户问题描述的是3D打印表面出现的小 bumps，属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "e9be8f34ce7e4c5d5689c53edccf71be": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（弱壁），属于知识库覆盖的附着类和结构类问题"
+  },
+  "9ffa1e2c46bc96ace6576690bfea8379": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（stringy droopy），属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "20c616eda872732f1db2e03d0e9b45ba": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的桥接失败现象，属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "632dc810c45f17aef620be5432594b21": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的回抽设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "b18e4ee2b5f38c3664dbcf1c27eb48c7": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，属于知识库覆盖范围"
+  },
+  "d4c8b02022ea8350ec6e9841adf80be3": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs）的修复方法，属于知识库覆盖的表面类缺陷及参数调整范围。"
+  },
+  "7f1330356835e5fd4c33cd252001c162": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的挤出异常现象，属于FDM打印质量缺陷中的‘挤出类’问题，且涉及‘filament stripped’这一具体现象，符合知识库覆盖范围。"
+  },
+  "8dae2da998933a106d28ad5d17cd4145": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（stringing 和 first layer issues），属于知识库覆盖范围内的现象类问题。"
+  },
+  "c4267e7e0d7587a783516bbfe9bbd29f": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（infill visible outside），属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "5f20ccd4b099eb8cb44877b0a6ab5d6d": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的挤出不一致现象，属于知识库覆盖范围。"
+  },
+  "4862cff28594043d69f8855368165db1": {
+    "answerable": true,
+    "reason": "问题描述的是打印表面出现的波纹（ripples and echoes），属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "b67aa6a9ea4d7ddc91bc1b90de74d41e": {
+    "answerable": true,
+    "reason": "问题描述了打印过程中出现的过挤出和中途停挤现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "0f281342b3a0256eaab2a0f1d050663f": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件出现过挤出和下垂现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "0f126e6a3730e281e234b6a12c7b067e": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（首层不粘床），属于知识库覆盖范围内的附着类问题。"
+  },
+  "6f873e27a0a7447a71871534ad1f4a07": {
+    "answerable": true,
+    "reason": "问题涉及挤出量异常，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "a8f95b43402f9af272193bdf878b50f9": {
+    "answerable": true,
+    "reason": "用户问题涉及打印参数中的filament diameter settings，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "a9e5891b1de3c4058f1ccf81b459520e": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中挤出过多材料的现象，属于FDM打印质量缺陷中的‘过挤出’问题，符合知识库覆盖范围。"
+  },
+  "6d615fbb1d20d7948a9c5d6f7c28a771": {
+    "answerable": true,
+    "reason": "用户问题描述的是层错位（layers are shifting），属于FDM打印质量缺陷中的‘表面类’和‘结构类’，符合知识库覆盖范围。"
+  },
+  "2367d16afdc768c83142ac027f2a27fa": {
+    "answerable": false,
+    "reason": "问题询问的是如何建模有机形状，属于CAD建模或设计领域，而非FDM打印质量缺陷或参数校准，因此不在知识库覆盖范围内。"
+  },
+  "9ea3df5865e6dc6fd1910a65b20d3977": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的振动和波纹（ringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "ebfe026247e7faa314e9c0a944ee0347": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起，属于附着类的翘边或边角翘起问题，符合知识库覆盖范围。"
+  },
+  "300ee18d49418d08e75843838feaf1f7": {
+    "answerable": false,
+    "reason": "问题落点是 firmware setup，不属于 FDM 打印质量缺陷或参数校准"
+  },
+  "b8897905b79dcdb55824bb76cdf8b963": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（首层混乱、中途停挤出），属于知识库覆盖的打印质量故障范围。"
+  },
+  "8cf03d04d28f9945e814eddbf65441c1": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的附着类缺陷，属于知识库覆盖范围"
+  },
+  "d51939b8e2d264549f0557cab15a880b": {
+    "answerable": false,
+    "reason": "问题不锚定到FDM打印质量缺陷或参数校准，而是询问3D打印食品安全性，属于材料应用范畴，不在知识库覆盖范围内。"
+  },
+  "84a3940e154e32f58c9c1c4db1ec99ab": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的‘挤出物在喷嘴移动时滴落’现象，属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "271d9e6afabee789c603f00bef69bd7d": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的挤出类问题，涉及回抽速度过高导致的料线研磨，属于知识库覆盖范围。"
+  },
+  "cc35f0a23d202341b0412366b6cdf287": {
+    "answerable": false,
+    "reason": "问题属于择优类，询问的是最佳填充方式，而非具体打印质量缺陷的修复方案"
+  },
+  "d6099845ad88f43ce5bbd027dfaac682": {
+    "answerable": true,
+    "reason": "问题涉及Z-seam对齐设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "12d2e01f93e14956270983b95c4af434": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（弱结构）并指向填充密度参数，属于知识库覆盖范围"
+  },
+  "758b2082eb82595c1c848f83136ae1ba": {
+    "answerable": false,
+    "reason": "问题属于‘best X’形式，且未描述具体打印质量缺陷，属于设备选购建议，不在知识库覆盖范围内"
+  },
+  "aef99c33e971bea72c08d42637853707": {
+    "answerable": true,
+    "reason": "用户问题描述了打印翘边（warping and lifting off the bed）和熔化（looks melted），属于FDM打印质量缺陷中的附着类和表面类问题，符合知识库覆盖范围。"
+  },
+  "8747592aa40f01664bb0758ccb65f0c4": {
+    "answerable": true,
+    "reason": "用户询问的是支撑密度对表面质量的影响，属于打印参数与校准范畴，且与表面类缺陷相关。"
+  },
+  "13f7de4f7c69e4f3939d60d04d653605": {
+    "answerable": true,
+    "reason": "问题涉及回抽参数（retraction prime amount）的设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "3f7ccc4b521c417c9588108f09fe09ec": {
+    "answerable": false,
+    "reason": "问题‘3D printing speed records’未锚定到具体的打印质量缺陷或参数设置，属于对速度记录的询问，而非针对FDM打印质量的故障或参数调整。"
+  },
+  "ce79b594fed18794aa5b937ad3f4d0ca": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的悬垂质量，且明确提到冷却风扇对悬垂质量的影响，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "00e780ad1d14a6dd522f98fde6597d6e": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的挤出不足问题，属于知识库覆盖范围"
+  },
+  "ac1da0de73b362821faedbffd3ad685d": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（blobs at seams），属于知识库覆盖的表面类缺陷范畴。"
+  },
+  "3634736c0d6767c3c509d1738a4a974c": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷，具体为打印件从床面脱落，属于附着类故障"
+  },
+  "c386483aa5676c5439b65e26f9f2619a": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（层错位和挤出机研磨 filament），属于知识库覆盖的打印质量排障范围。"
+  },
+  "d578acd5dd7f8382fc07398b1f4f6d80": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印质量缺陷（elephant foot）以及打印件粘附问题，属于知识库覆盖的附着类和表面类缺陷范围。"
+  },
+  "17743bf85e02388446e7883354e71574": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（filament grinding 和 warping at the corners），属于知识库覆盖的挤出类和附着类故障范围。"
+  },
+  "890fa8281b95f1a57176032a681506a3": {
+    "answerable": true,
+    "reason": "问题涉及桥接区域的风扇速度调整，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "a32c7ee3ad762dc015e0a0ad847387fe": {
+    "answerable": true,
+    "reason": "问题涉及 ABS 材料的打印温度设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "7284f653dfc23adba099bea0f74df1f2": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的层偏移现象，属于FDM打印质量缺陷中的层错位问题，符合知识库覆盖范围。"
+  },
+  "7db4b960affedbf53df8d3ba1ae9b364": {
+    "answerable": false,
+    "reason": "问题询问的是如何扫描物体用于3D打印，这属于建模或准备阶段的操作，而非FDM打印质量缺陷的诊断或修复，因此不在知识库覆盖范围内。"
+  },
+  "273692147799238d3d4fffe80fcb4c04": {
+    "answerable": false,
+    "reason": "问题落点是 filament recycling（回收使用过的丝材），不属于 FDM 打印质量缺陷或相关参数校准，而是材料处理与回收，属于知识库不覆盖范围。"
+  },
+  "475bbeb3edbba01baaab8ea3fbfb4b20": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（角落翘起），属于附着类问题，符合知识库覆盖范围。"
+  },
+  "dff1713f0d3367e66fdfb5d8a3f5471d": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的过挤出（over extrusion），属于知识库覆盖范围"
+  },
+  "27c00aa7c49a4503ec073cf51c5b78f2": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中出现的翘边和脱离平台现象，属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "089e3de5ef09c85cf7cb0133439cebe1": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的字符串和堵头问题，属于FDM打印质量缺陷中的挤出类和表面类问题，符合知识库覆盖范围。"
+  },
+  "01094c9fad18afcf2734fce20310cd73": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（stringing）的参数设置（retraction），属于知识库覆盖范围"
+  },
+  "dda9304534460663e53c40557ecee132": {
+    "answerable": false,
+    "reason": "问题询问的是3D打印业务创意，不属于FDM打印质量缺陷或参数校准范畴，而是商业运营相关。"
+  },
+  "a1cac00639cc10d93a9871cf62e92c10": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（overhangs droop）"
+  },
+  "c5be3dd313f3b8beeded479061532228": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量缺陷（不挤出和振纹），属于知识库覆盖范围"
+  },
+  "f87d393b7b26233d8829e99082d4e546": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer shift'，且涉及打印速度过快这一参数设置。"
+  },
+  "67a4a32e414456cc744dbd83d5a06f76": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的 Z 轴偏移问题，属于知识库覆盖的打印参数与校准范畴。"
+  },
+  "6fa029552fc7bfdecb94c046fe849e42": {
+    "answerable": true,
+    "reason": "问题涉及层错位（layer misalignment），属于FDM打印质量缺陷，且在知识库覆盖范围内。"
+  },
+  "e5f88599e4823f80f603583a3e4c5ad2": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'under extrusion causing gaps'，属于挤出类故障，覆盖范围包含该现象及对应的参数调整方案。"
+  },
+  "a57164b020c582f77e3e74f6de7e2bb0": {
+    "answerable": true,
+    "reason": "用户问题描述的是FDM打印过程中出现的桥接失败和悬垂下垂现象，属于打印质量缺陷中的‘几何类’问题，且涉及打印参数与校准的调整，符合知识库覆盖范围。"
+  },
+  "83b7d737a7f8332903b1a4d6322570a4": {
+    "answerable": true,
+    "reason": "用户问题涉及打印速度设置，属于FDM打印参数与校准的覆盖范围。"
+  },
+  "09d95a6efd8c7672d837eb8fb700b55f": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷，涉及 'gaps in walls' 的现象，属于知识库覆盖的附着类和结构类缺陷范围。"
+  },
+  "3142629a673e3e931af2fa5b2c9dc1ca": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（振动/波纹和附着问题），属于知识库覆盖范围"
+  },
+  "ac8f0f541fa0a2b35b7c5b02d7745e17": {
+    "answerable": true,
+    "reason": "用户问题涉及层高对细节的影响，属于打印参数与校准的范畴，且锚定到FDM打印质量缺陷。"
+  },
+  "65c2aecc1a963fbaabfa6db929c187d6": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的细丝（stringing）和挤出机未预充（not primed at print start）现象，属于FDM打印质量缺陷中的表面类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "235bb2705ac36bb8d29fca323338e806": {
+    "answerable": false,
+    "reason": "问题询问的是如何清洁 PETG 打印件，属于后处理与上色装饰范畴，不在 FDM 打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "f0df1e614a42a59dc7ca5c67165a5cea": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件底部弯曲（bowing）的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "340d6397d359a3b79b256d076fba2c7e": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量缺陷（不挤出、悬垂质量差），属于知识库覆盖范围"
+  },
+  "a229a425abd98d123c4b3ecd87f085b5": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件尺寸不准确，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "1f4032587e0fa36fae943c9b4468cd0d": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的层分离和 filament 紊乱现象，属于 FDM 打印质量缺陷，且涉及挤出异常和附着问题，符合知识库覆盖范围。"
+  },
+  "8b83a7af747196e36a33cf6bf5d675f0": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的冷却风扇设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "b24c7bde5c03b468c276596915e85f53": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现的缺陷（blobs and zits），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "91e111afa511f4ea94e874dbb559a9e2": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的附着类问题，即 'print not sticking to the bed'，属于知识库覆盖范围。"
+  },
+  "d43186907c196b353d5b7d9a7e5ff848": {
+    "answerable": true,
+    "reason": "问题描述了打印质量缺陷（弱层和角部翘曲），属于知识库覆盖的附着类和结构类问题。"
+  },
+  "1a6acbb35365f69b919427f131501195": {
+    "answerable": true,
+    "reason": "用户问题涉及填充结构强度，属于FDM打印质量缺陷中的结构类问题，且与填充模式相关，属于知识库覆盖范围。"
+  },
+  "f33b3e2ea5564b0b36c58c5e0f7a8599": {
+    "answerable": false,
+    "reason": "问题询问的是 FDM 与 SLA 的区别，属于工艺科普，不在覆盖范围内"
+  },
+  "3d18075ef9e883ae8285da793d9762c0": {
+    "answerable": false,
+    "reason": "问题询问的是如何用尼龙打印，属于材料使用指导，而非具体打印质量缺陷或参数校准问题，未锚定到FDM打印质量本身。"
+  },
+  "6172333ab57eb4d13f97271159f9ae9a": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印的切片设置，而知识库仅覆盖FDM打印质量缺陷，不包含SLA/树脂工艺相关的内容。"
+  },
+  "93e83260326d02d00b7e9f70cf680198": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer shift'，且涉及参数 'jerk settings'，属于知识库覆盖范围。"
+  },
+  "fc60767f80bf93a2cdb281c3a3eb3144": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中边缘向上弯曲的现象，属于打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "9d33047f8af19207dc424e7bc2599f08": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'stringing'，并询问回抽距离设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "aab3d06a5f3da6b4d4173276988254e8": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的振纹（ringing），且涉及加速参数设置，属于知识库覆盖范围。"
+  },
+  "9c6d94d15629075110129d2b6b02acad": {
+    "answerable": true,
+    "reason": "用户问题 'how to prevent warping' 锚定到 FDM 打印质量中的翘边/变形问题，属于知识库覆盖的附着类和结构类缺陷范围。"
+  },
+  "e7f0009714960fe4c591033cbe6f2774": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（首层不粘床导致的 messy 首层）"
+  },
+  "596ee4d11afe2f602793d36ad2bf8a37": {
+    "answerable": false,
+    "reason": "问题未锚定到FDM打印质量缺陷或参数校准，而是涉及医疗植入物的3D打印应用，属于非FDM工艺和特定领域应用，不在知识库覆盖范围内。"
+  },
+  "eea21b880c1978aee10c6b0016a50218": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何在CAD中设计3D模型，属于CAD软件功能操作教程，不属于FDM打印质量缺陷排障范围。"
+  },
+  "dd723052bf4324f57ca8893a0497888f": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（print looks melted），属于表面类缺陷，符合知识库覆盖范围"
+  },
+  "87b41868948af9bee676d99e4954a8e1": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，涉及首层附着和层间分离，属于知识库覆盖范围"
+  },
+  "c369a6da745544ab22e7d776c4068445": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'print droopy'（悬垂质量差），属于知识库覆盖范围内的几何类问题。"
+  },
+  "8687e9523e0eadda008dd9733c8ca470": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'spaghetti mess'，属于表面类或挤出类问题，符合知识库覆盖范围。"
+  },
+  "2e03165e7f96dccaac4151dd3aea2afb": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'print splitting along layer lines'，属于知识库覆盖的结构类缺陷（层分离）。"
+  },
+  "7e503e5ffccc5eba54f4b88a0af18a6e": {
+    "answerable": true,
+    "reason": "问题描述的是打印件角落翘起（warping），属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "0b855a088cebebe6399d0d433b0c976c": {
+    "answerable": true,
+    "reason": "用户问题涉及3D打印公差，属于打印质量缺陷的范畴，且与尺寸偏差相关，符合知识库覆盖范围。"
+  },
+  "6b2676f9256b487fbe1a71d19b904a54": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的首层附着问题，属于知识库覆盖的附着类故障"
+  },
+  "ce81a85f55e1277eedf9c60bdc86adbb": {
+    "answerable": true,
+    "reason": "问题描述的是喷嘴堵塞导致无法挤出，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "0d18f0c55567cc330e0d5ccc8844c598": {
+    "answerable": true,
+    "reason": "用户询问的是与打印强度相关的墙数设置，属于结构类缺陷的修复方案范畴，符合知识库覆盖范围。"
+  },
+  "74666af8303a92fc7af5cc5615007f3e": {
+    "answerable": true,
+    "reason": "问题涉及打印冷却设置，属于打印参数与校准的覆盖范围"
+  },
+  "edd0e667290b77c49c7f7309a753f0bf": {
+    "answerable": false,
+    "reason": "问题询问的是如何使用碳纤维打印，属于材料使用方法，而非具体打印质量缺陷或参数校准，未锚定到FDM打印质量"
+  },
+  "372ce041cdd290e33791ef293c6fbfcd": {
+    "answerable": true,
+    "reason": "问题涉及首层附着不良的校准，属于打印质量缺陷的范畴，且与床面水平度相关，符合知识库覆盖范围。"
+  },
+  "bf5920a1bb05667842b495d1e149d8a4": {
+    "answerable": true,
+    "reason": "用户问题描述了打印表面出现疤痕和过多 filament 的现象，属于表面类和挤出类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "9af748d6d8291ee7bc11d4fb6818bd51": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件上的对角线疤痕和壁体间隙，属于表面类和结构类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "8e7d5833000afbebf29a7d43d7a01c8f": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（首层不粘床和塑料丝状物），属于知识库覆盖的附着类和表面类问题。"
+  },
+  "280ff2352abb4f059992bc4e8fee3b22": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件尺寸偏小，属于结构类中的尺寸偏差问题，符合知识库覆盖范围"
+  },
+  "e077131c9644ad567837886173a295e9": {
+    "answerable": true,
+    "reason": "问题锚定到打印质量缺陷（表面波纹）"
+  },
+  "f81cc8b8330902f5fc89407e83e139bb": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层间开裂现象，属于知识库覆盖的层分离（delamination）和结构类缺陷范畴。"
+  },
+  "9ec5889771616379ebd8071ec1cb3fb0": {
+    "answerable": false,
+    "reason": "问题属于选购建议，未提及具体打印质量缺陷或参数设置"
+  },
+  "ac9fefcebf3ca06ec2994a5e6812e613": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印机调平方法，而知识库仅覆盖FDM打印质量缺陷排障，不包含树脂打印机相关操作"
+  },
+  "c222c9e7688dd85e833993757f04ad99": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件从平台脱离的现象，属于附着类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "ebed135d24ee41680371f0c9d73bc87d": {
+    "answerable": false,
+    "reason": "问题涉及DLP与SLA两种不同3D打印工艺的对比，不属于FDM打印质量缺陷排障范围，且未提及具体打印质量缺陷或参数设置"
+  },
+  "33c5d8e45b225ceedae9c457c2998c2a": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的‘不挤出’现象，属于知识库覆盖范围"
+  },
+  "e8f3b41ce36c0ee5cdaef0c90a1fa9eb": {
+    "answerable": false,
+    "reason": "问题询问的是如何对3D打印件进行涂装，属于后处理与上色装饰，不在知识库覆盖范围内。"
+  },
+  "895aeabef10f4f718130fdcc0c337911": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的壁面间隙（gaps in the print walls），属于知识库覆盖的结构类或表面类缺陷。"
+  },
+  "b08d2d6394d9258956ef87b8daa1f831": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的‘欠挤出’现象，属于知识库覆盖的挤出类故障范畴。"
+  },
+  "77939ea266d2e769f7d1363f224f80a6": {
+    "answerable": false,
+    "reason": "问题询问的是切片软件中如何使用支撑结构，属于软件功能操作教程，不属于FDM打印质量缺陷排障范围"
+  },
+  "a06f436dc0c520f7deb3749a16f29139": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷'layers shifted horizontally'，属于知识库覆盖的层错位（layers shifted）现象"
+  },
+  "0da115c29c706b29df5e47602be29d19": {
+    "answerable": true,
+    "reason": "问题描述的是打印层间开裂和欠挤出现象，属于FDM打印质量缺陷的范畴。"
+  },
+  "a90e5ab0446d0e0666c92f3d62f29a9c": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的挤出中断和桥接失败现象，属于FDM打印质量缺陷范畴。"
+  },
+  "dcf66fc7fa19c2840f21bc632e35b500": {
+    "answerable": true,
+    "reason": "问题锚定到 PETG 打印中的 oozing（渗料）现象，属于 FDM 打印质量缺陷，且涉及热端温度参数调整，符合知识库覆盖范围。"
+  },
+  "be85a87ee4c62ef7a98582e503cdfa34": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（裂缝），属于FDM打印质量排障范围"
+  },
+  "042b1e64ef56c0a73ca664fa35ccb378": {
+    "answerable": true,
+    "reason": "用户询问如何解决3D打印中的拉丝问题，属于FDM打印质量缺陷的范畴，且知识库中包含相关修复方案。"
+  },
+  "5e37d4bfff4f5318deac9bc8119dfc65": {
+    "answerable": false,
+    "reason": "问题询问的是最佳丝材存储方案，属于材料存储建议，不属于FDM打印质量缺陷的排障范围，且涉及择优选择，符合库外判定标准"
+  },
+  "8206c19599f8b8ae3250e49de6df9086": {
+    "answerable": true,
+    "reason": "问题涉及 PLA 打印翘边（warping）的床温设置，属于附着类缺陷的参数调整范畴，符合知识库覆盖范围。"
+  },
+  "20c595c3488362f3501fdbf8de5275b3": {
+    "answerable": false,
+    "reason": "问题意图是询问如何更换喷嘴，属于硬件操作和设备维护，不属于FDM打印质量缺陷排障范围"
+  },
+  "0f1b6e97198b13c52b073f214a39f314": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（顶部有空隙），属于知识库覆盖的表面类或结构类缺陷"
+  },
+  "796aaecd6c4b640ee4d04540defa8514": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'whiskers on print'，属于表面类缺陷，且涉及回抽设置，符合知识库覆盖范围。"
+  },
+  "daf679ed905f7c1a6440df74a6fc9aa7": {
+    "answerable": false,
+    "reason": "问题询问的是YouTube频道推荐，属于择优类问题，且未描述具体打印质量缺陷现象"
+  },
+  "ee8a6fdce9b6982806cd600bcb2776e7": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer separation'，属于知识库覆盖的结构类缺陷"
+  },
+  "a2af8c3db1aef2eb736603555fe7ed2a": {
+    "answerable": true,
+    "reason": "用户询问的是第一层附着相关的风扇速度设置，属于打印参数与校准范畴，且锚定到打印质量缺陷（首层不粘床）。"
+  },
+  "11965fbd2bf84fad42dacb9b7fa44d29": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'layers separating and splitting'，属于知识库覆盖的结构类缺陷"
+  },
+  "f458c1b9a85beb16de46cf18f6bc438d": {
+    "answerable": true,
+    "reason": "用户问题涉及打印尺寸偏差和过挤出，属于FDM打印质量缺陷的结构类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "32fbf2e16aebf5bbb01f628fd46c6def": {
+    "answerable": false,
+    "reason": "问题询问的是如何实现多色打印，属于切片软件功能操作教程，而非打印质量缺陷或参数校准。"
+  },
+  "6f43ea2b935151752055444317938fc3": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的‘print leans’现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "d89b3610730881ea95d64c70d68cdf63": {
+    "answerable": true,
+    "reason": "问题锚定在FDM打印质量缺陷，具体为层分离现象，属于知识库覆盖范围。"
+  },
+  "adfd878c1650b38b1e8d7608682b88ae": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（层分离和喷嘴堵塞），属于知识库覆盖范围"
+  },
+  "951eba1d1006bf8c37632c44cc3ce0c1": {
+    "answerable": true,
+    "reason": "用户问题涉及打印后零件粘附在床面上的现象，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "163a271db35026ea80e81c5fa3ed94fb": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'over extrusion'，属于知识库覆盖的挤出类问题"
+  },
+  "69ed6a478c12ac1ff07f875c0aace894": {
+    "answerable": false,
+    "reason": "问题询问的是SLA打印技术本身，属于非FDM工艺，不在知识库覆盖范围内。"
+  },
+  "9657cdb559454c6f573de699e23853a1": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的‘桥接质量差’，属于知识库覆盖的‘几何类’打印缺陷"
+  },
+  "860445a0e8ac4aa6d27d1cfe505ac5bb": {
+    "answerable": false,
+    "reason": "问题询问如何通过3D打印赚钱，属于商业运营范畴，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "d834f9478da45002f3dca34026bfd389": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷中的首层附着问题，属于知识库覆盖的附着类故障"
+  },
+  "cebc1cd1eb6fdaedc27bd60ec77faa86": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印中的stringing和oozing现象，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "01d70cb398c7e698a8968e5fe9e581cb": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的 'stringing'（拉丝/渗料），属于知识库覆盖范围"
+  },
+  "4a3eba1fd66ddd42ab32fa3f50d2caf1": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现波纹（ripples），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "baaf3a185a468ed422d798d2a8b073ac": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（oozing）的参数设置（wipe distance），属于知识库覆盖范围内的打印参数与校准内容。"
+  },
+  "a3d545e88f3eeda1519966a3ea18c598": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（首层不粘床和桥接不良），属于知识库覆盖范围"
+  },
+  "6eb9fdffee2e1528f934a0820ec75bfa": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的 'over-extrusion'（过挤出）"
+  },
+  "b4c3cb873dce3abefc39a00fb4e08739": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，具体为第一层高度过高导致附着不足，属于知识库覆盖的附着类和参数类问题。"
+  },
+  "6db4494537772032fb672ad6ad45da31": {
+    "answerable": true,
+    "reason": "问题描述的是打印表面出现斑点（blobs）但没有拉丝（no stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "1b1ec1dbf14c2dfe032b0a8f90db917c": {
+    "answerable": true,
+    "reason": "问题涉及3D打印质量缺陷（堵头和悬垂质量差），属于知识库覆盖范围"
+  },
+  "15f929b84597623d0f7b33df4d701af3": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印的后处理方法，而知识库覆盖范围仅限于FDM打印质量缺陷排障，不包含SLA/DLP等非FDM工艺的后处理内容。"
+  },
+  "adc0193e0e37ba29df3d3d940f60cc69": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中桥接区域出现的混乱现象，属于FDM打印质量缺陷中的‘桥接下垂/拉丝’类别，符合知识库覆盖范围。"
+  },
+  "b8c498c14087966a353688b8fe217337": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（stringy and droopy over extrusion），属于知识库覆盖的挤出类问题。"
+  },
+  "10cd9c54b4b117e8b71af6e441a70ea6": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层错位现象，属于知识库覆盖范围"
+  },
+  "597133d209ddf4f6fc0b583db7ace64e": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的 filament snaps 现象，属于挤出类缺陷，符合知识库覆盖范围。"
+  },
+  "10e8b3d01b365fb8b8223eed9ac388be": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印质量缺陷（hairy prints with whiskers of filament），属于知识库覆盖的表面类缺陷"
+  },
+  "a2f3f8ab82e17ba1b32269ca46e0581c": {
+    "answerable": false,
+    "reason": "问题询问的是如何选择喷嘴材料，属于硬件选购范畴，而非打印质量缺陷或参数校准"
+  },
+  "2800555d8b07df19b0f0e81a28199921": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的挤出中断并形成意大利面状结构，属于FDM打印质量缺陷中的挤出类和表面类问题，符合知识库覆盖范围。"
+  },
+  "b6f2febc29536872c5669333d88f5997": {
+    "answerable": false,
+    "reason": "问题涉及树脂槽清洁，属于SLA工艺的后处理操作，不在FDM打印质量缺陷排障手册覆盖范围内"
+  },
+  "d80cd7f3f3ba581f24f1129c36eb2684": {
+    "answerable": true,
+    "reason": "问题涉及打印尺寸偏差，属于知识库覆盖的打印质量缺陷范畴"
+  },
+  "441ca1a9b7626e5e573cba08e452cc9f": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（oozing between moves）"
+  },
+  "f89340d6e337ae2485f8aad162af1197": {
+    "answerable": true,
+    "reason": "用户问题涉及 extrusion multiplier 校准，属于打印参数与校准范畴，且锚定到 FDM 打印质量缺陷的修复方案。"
+  },
+  "1cf3d667ff493ef089374a3792214502": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs）及其可能原因（travel speed），属于知识库覆盖的挤出类和表面类缺陷范围。"
+  },
+  "0758b7c3a3339d8af143c7872eec19fd": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，属于知识库覆盖范围"
+  },
+  "2a391bb040d6eef26bdd5a6018eddfcb": {
+    "answerable": false,
+    "reason": "问题以 'best' 开头，属于在候选项之间挑一个，且没有描述已出现的缺陷现象，属于库外内容"
+  },
+  "e4816a28f91ae658bcbe1b596ba13a25": {
+    "answerable": true,
+    "reason": "用户问题涉及 'elephant foot compensation'，属于打印质量缺陷（表面类）的修复方案，符合知识库覆盖范围。"
+  },
+  "3baed4f61325a6e62de7a5ccd84b4b9b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现‘hairy’现象，属于表面类缺陷中的拉丝/渗料问题，符合知识库覆盖范围。"
+  },
+  "c8bc5eba30dd9c85d0645412f9714b71": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'delamination between layers'，属于知识库覆盖范围"
+  },
+  "eec62fdcda5a921e16068c581ea4aea7": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的两个质量缺陷：拉丝（strings）和角部翘起（corners lift），均属于FDM打印质量缺陷排障手册的覆盖范围。"
+  },
+  "990cacf46779165da7a1e863b6ec19f7": {
+    "answerable": true,
+    "reason": "用户问题涉及温度塔校准，属于打印参数与校准的覆盖范围。"
+  },
+  "58caca972d41f9f9f041d044f72c4e81": {
+    "answerable": false,
+    "reason": "问题涉及3D打印机主控板升级，属于硬件改装，不在FDM打印质量缺陷排障手册覆盖范围内。"
+  },
+  "7e86086fc76e26641508c1038fd6dee8": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何使用3D笔，不属于FDM打印质量缺陷或参数校准范畴，而是关于设备的使用方法，属于库外内容。"
+  },
+  "b796be125ae32b18a4dc13855347e7fd": {
+    "answerable": false,
+    "reason": "问题询问的是适合初学者的CAD软件，属于软件选购建议，而非FDM打印质量缺陷或参数校准问题。"
+  },
+  "383adec15c04737ca54a972830d04ff1": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（oozing，即拉丝/渗料），属于知识库覆盖的表面类缺陷"
+  },
+  "5375f452a492ceb7eca609b218980de4": {
+    "answerable": false,
+    "reason": "问题询问的是如何将打印机连接到OctoPrint，属于切片/控制软件的功能操作教程，而非打印质量缺陷或参数校准问题。"
+  },
+  "07aa150817ebb8877c38ff138fea8a34": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的异常现象（web-like strands），属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "ed3bf6a5ef3683693bf619cccf898329": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的桥接下垂（bridges sag）和拉丝（stringing），属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "7a99367346bc5f1628ce3aa1285b7425": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印中出现的‘hairy prints’（拉丝/渗料）和‘heat deformation’（热变形），属于表面类和结构类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "46913b8c3791dcdaf663d20f140be3da": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layers don't line up'，属于知识库覆盖的打印质量缺陷范畴。"
+  },
+  "ae2e4755528be45e77be6cc4e0e50100": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件无法粘附到打印床，属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "6549e16ecae28e2fb817accba4f99153": {
+    "answerable": false,
+    "reason": "问题询问的是激光雕刻机的校准，不属于FDM打印质量缺陷或相关参数校准范围"
+  },
+  "ace71725be501dcc624b3e7a5ce1af59": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中边缘弯曲的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "36df41a5fe8bfccab95f64e1899b1c81": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的挤出类缺陷，具体为喷嘴堵塞问题，属于知识库覆盖范围。"
+  },
+  "06de6f0017ea283e69ef204c7d06adba": {
+    "answerable": true,
+    "reason": "用户询问的是与顶层表面质量相关的参数设置，属于FDM打印质量缺陷的修复方案范畴。"
+  },
+  "c395c0242ea20049026330131f86d8d5": {
+    "answerable": false,
+    "reason": "问题询问的是如何打印柔性TPU，属于材料使用指导，而非具体打印质量缺陷或参数校准问题，且未提及任何已发生的打印质量问题。"
+  },
+  "2675ad4773b0a3563aadc80b5913ae83": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，具体为挤出不足（under extrusion），属于知识库覆盖范围。"
+  },
+  "fc584546b7f372b4c59a09aa463d2da7": {
+    "answerable": false,
+    "reason": "问题询问的是最佳 ABS 打印外壳（best enclosure），属于择优类问题，未提及具体打印质量缺陷，因此不在知识库覆盖范围内。"
+  },
+  "668110cfd98e4dedf1cd8a0fbba11aba": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的 'zits' 现象，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "c3796dfc2578a11f0b11e7d1e1520df9": {
+    "answerable": true,
+    "reason": "问题锚定在FDM打印质量缺陷，具体为‘filament grinds’，属于挤出类故障，覆盖在知识库范围内。"
+  },
+  "684df065483c1faf90ba5d48c8e6af5b": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷，具体为‘mid print 停止挤出’，属于挤出类故障，覆盖范围明确。"
+  },
+  "e38a67714f9fdc05ade5bd70a5d4f102": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的‘弱薄层’，属于挤出类问题，符合知识库覆盖范围。"
+  },
+  "f0b2452e6d3e12476dbc4b6cfd79eb4c": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的桥接质量差（messy and droopy）现象，属于FDM打印质量缺陷中的‘桥接下垂/拉丝’类别，符合知识库覆盖范围。"
+  },
+  "a823e5afb75f91be8f88a3bfe3c5c7a6": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的附着类缺陷，具体为床附着问题，属于知识库覆盖范围。"
+  },
+  "888bdf5371b88d04a65b2226c85f83de": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（ringing artifacts 和 overhang quality），属于知识库覆盖的表面类和几何类故障范围。"
+  },
+  "154288863f1a390460dc5d048ed074ea": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面存在凸起和瑕疵，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "0377329dd304b55d47123455a209a918": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（ghosting on sides），属于知识库覆盖的表面类缺陷范畴。"
+  },
+  "2367ad5103dc7d7dd10db02dd73f33c6": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的附着问题（首层不粘床、角部翘起），属于FDM打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "2df77ea11b8a4974a39a917c9b8d4985": {
+    "answerable": false,
+    "reason": "问题询问的是如何接线（how to wire），属于硬件接线与固件范畴，不属于FDM打印质量缺陷排障范围"
+  },
+  "ac1d3fd99bb749e282ff96a8b3add373": {
+    "answerable": true,
+    "reason": "用户问题描述的是3D打印中的表面缺陷现象（细塑料丝，即拉丝/渗料），属于知识库覆盖的‘表面类’缺陷范畴。"
+  },
+  "8bd53a3b3b536a7ec0b6a3dc846e4f06": {
+    "answerable": true,
+    "reason": "问题描述的是3D打印表面出现的blobs和zits以及层间裂缝，属于FDM打印质量缺陷范畴，符合知识库覆盖范围。"
+  },
+  "0e6b6fdb01910c639ac42add8cddec09": {
+    "answerable": true,
+    "reason": "用户问题描述的是3D打印表面出现的小凸起（small bumps），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "474484215cba89348232c856b1f9b176": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，涉及弱壁现象，属于知识库覆盖的附着类和结构类缺陷范围。"
+  },
+  "2133a49a93db7f981c98c9ea675c73eb": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（stringy droopy），属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "fa30aa85ebd6e3782236cb448c7dbfd5": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的桥接失败现象，属于知识库覆盖的打印质量缺陷范畴。"
+  },
+  "e792172da081f40b0bf80aee74335f5b": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量，询问的是回抽参数设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "1273f576f54ba3accd5d8ebae1c785bf": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（挤出类）"
+  },
+  "b5d008f1dee25625256faca77dcf6826": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs）的修复方法，属于知识库覆盖范围内的现象类问题。"
+  },
+  "658700cae14329fa32be04fe3ede3c02": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷中的挤出类问题，具体为‘filament stripped’，属于知识库覆盖范围"
+  },
+  "909dca119e4ac3f8b22b2e900b481e06": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（stringing 和 first layer issues），属于知识库覆盖范围内的现象类问题。"
+  },
+  "57bc0da6792630f41df3f49766ed0cbb": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（infill visible outside），属于知识库覆盖的表面类或结构类缺陷范畴。"
+  },
+  "84c0b93d646bd14b39147a8cf2270ebd": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出不一致现象，属于知识库覆盖范围。"
+  },
+  "5e4f071a49980337be94d6b9edbaeae1": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现的波纹（ripples and echoes），属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "7477e3b69fea581e1c5bebe0a642cc64": {
+    "answerable": true,
+    "reason": "问题描述的是 FDM 打印过程中出现的过挤出和中途停止挤出现象，属于打印质量缺陷范畴。"
+  },
+  "9c64ee712c4814e620bb2cb518e9a49b": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件出现过挤出和下垂现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "08e8f5f5941537f5e8f3bf8c2ebae8b0": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（首层不粘床）"
+  },
+  "f331220b911b5dc569f9885936afaf86": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，涉及 nozzle diameter change under extrusion，属于知识库覆盖范围"
+  },
+  "8b8d30f4e6bc6a386ce9ec831abc55d2": {
+    "answerable": true,
+    "reason": "用户询问的是与挤出量相关的参数设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "eb6421b3dd95599ceb971dd32b5a01b3": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中挤出过多材料的现象，属于FDM打印质量缺陷中的‘过挤出’问题，符合知识库覆盖范围。"
+  },
+  "26f3bffdf351efab6bcaf5effda8ffea": {
+    "answerable": true,
+    "reason": "用户问题描述的是层偏移（layers are shifting），属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "4fed64f5a931500b163ab12117558716": {
+    "answerable": false,
+    "reason": "用户问题 'how to model organic shapes' 不是关于 FDM 打印质量缺陷或参数校准的问题，而是关于建模方法的询问，属于 CAD 建模范畴，不在知识库覆盖范围内。"
+  },
+  "9d9285a6ddd5b3def2c601cbcda4ca73": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的振纹（ringing），属于知识库覆盖的表面类缺陷。"
+  },
+  "69e4af0731bf702d37fc268de62ddfb5": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的角落翘起现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "e15360eb1b35ec22a695c00fec13c967": {
+    "answerable": false,
+    "reason": "问题涉及 firmware setup marlin，属于固件配置，不属于 FDM 打印质量缺陷的排障范围。"
+  },
+  "ea39e334063b822a08ce8ac2808cb7da": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（首层混乱、中途停挤出），属于FDM打印质量排障范围"
+  },
+  "3ce1be8d403dfcbe8c03ad06b960a888": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的附着类缺陷，属于知识库覆盖范围。"
+  },
+  "580a18230df51fa2ba20f1427eb775c4": {
+    "answerable": false,
+    "reason": "用户问题询问的是3D打印食品安全性，不属于FDM打印质量缺陷或参数校准范畴，且未描述具体打印质量问题"
+  },
+  "2b24825ec625a3840ec0bd0de199e226": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的‘挤出塑料’现象，属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "36eb103100c91dc043096afa404a77f2": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷，涉及回抽速度过高导致的料线研磨，属于知识库覆盖的打印参数与校准范畴。"
+  },
+  "a67efb7d4e6bfa5291a57ea87066ed38": {
+    "answerable": false,
+    "reason": "问题属于择优形态，询问的是‘best infill’，未描述具体打印质量缺陷，属于选购建议，不在知识库覆盖范围内。"
+  },
+  "b0b6a30388872f7a6ab5d257bf20fe09": {
+    "answerable": true,
+    "reason": "问题涉及 Z 缝对齐设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "d9696126d221e5e4f6659ce11711066e": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（弱结构），属于知识库覆盖的结构类问题"
+  },
+  "f1fd122c4a8a444de4e0d1ba1dec4f08": {
+    "answerable": false,
+    "reason": "问题属于择优类（best slicer），未描述具体打印质量缺陷，直接判为库外"
+  },
+  "feb97e0354e9ac22000272970963750b": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件翘边（warping and lifting off the bed）和表面熔化（looks melted），属于FDM打印质量缺陷中的附着类和表面类问题，符合知识库覆盖范围。"
+  },
+  "81d255e65928986a53284264ab96aa10": {
+    "answerable": true,
+    "reason": "用户询问的是支撑结构密度对表面质量的影响，属于打印参数与校准范畴，且锚定在FDM打印质量缺陷的修复方案中。"
+  },
+  "60577efbaf0fafdccb539744da105c44": {
+    "answerable": true,
+    "reason": "问题涉及回抽参数（retraction prime amount），属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "ba2d0e6cf232c7dd85a0910ed6510a40": {
+    "answerable": true,
+    "reason": "用户问题涉及3D打印速度对打印质量的影响，属于打印参数与校准的覆盖范围。"
+  },
+  "85447b23c88e07e743fbfb88992270f7": {
+    "answerable": true,
+    "reason": "问题涉及冷却风扇对悬垂质量的影响，属于打印参数与校准范畴，且锚定到FDM打印质量缺陷。"
+  },
+  "6ca96fc03c7ceee59f02673832134b61": {
+    "answerable": true,
+    "reason": "用户问题描述的是挤出不足（not enough plastic being extruded），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "b216d36e3a44b7d74a4d947697568c36": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷（blobs at seams），属于知识库覆盖的表面类缺陷"
+  },
+  "109b86bf9c23e7030ef18c246761ade8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件从床面脱落的现象，属于打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "8e1d6a381eb3da065fbb949bde0340e8": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（层错位和挤出机研磨 filament），属于知识库覆盖的打印参数与机械类根因范围。"
+  },
+  "f5fdf6866d7533357facbed393fda50b": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，涉及打印附着和表面现象（print sticks but elephant foot at bottom）"
+  },
+  "a00bd30b448b83382d87bfbf63db09db": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的挤出异常和翘边现象，属于知识库覆盖范围。"
+  },
+  "2847dbbf66cd438afdde7b33bc54d75a": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量中的桥接问题，且询问的是风扇速度这一打印参数，属于知识库覆盖范围。"
+  },
+  "50c490331d13aca7316579d09e802221": {
+    "answerable": true,
+    "reason": "问题涉及 ABS 材料的打印温度设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "83e2ccf4072a9a9b21b52eb84cacf526": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的层偏移现象，属于FDM打印质量缺陷中的层错位问题，符合知识库覆盖范围。"
+  },
+  "b4f95b7977781ec2391c07420d9b21e4": {
+    "answerable": false,
+    "reason": "问题询问的是如何扫描物体用于3D打印，这属于建模或准备阶段的流程，而非FDM打印质量缺陷的排查或参数调整，因此不在知识库覆盖范围内。"
+  },
+  "80ced71f6e86f69fa12cf873ad102c65": {
+    "answerable": false,
+    "reason": "问题询问的是如何回收使用过的耗材，不属于FDM打印质量缺陷或参数校准范畴，而是材料处理与回收相关，属于知识库不覆盖范围。"
+  },
+  "709f01d3cab395849c63958bdc7a4974": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（角落翘起），属于附着类问题，符合知识库覆盖范围。"
+  },
+  "577ddedf10bdb53975a291c43616c4ab": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的过挤出（over extrusion）"
+  },
+  "259115d6af192a40fc66db9a1697f54d": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中出现的翘边（warping and lifting off the bed），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "6fab85097bb487ae3ec162993ff47d68": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷（stringing和nozzle blocked），属于知识库覆盖范围内的挤出类和表面类问题。"
+  },
+  "5f4ddc7273d7cea76e2c4d086a83b11f": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷中的拉丝（stringing）现象，并询问回抽设置，属于知识库覆盖范围内的参数调整问题。"
+  },
+  "704793d5bfe0071fbdd1dfffaa30a178": {
+    "answerable": false,
+    "reason": "问题询问的是3D打印业务创意，不属于FDM打印质量缺陷或相关参数校准的范畴"
+  },
+  "53685d2c22f5801066a4c2f4474dd971": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷，具体为悬垂质量差（overhangs droop），属于知识库覆盖范围。"
+  },
+  "d19abe9352e1f9acf45491a0bcf083e1": {
+    "answerable": true,
+    "reason": "问题描述了打印质量缺陷（无挤出和振纹），属于知识库覆盖的挤出类和表面类故障"
+  },
+  "4f0c94d952511e8c52bec79890c3957e": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer shift'，且涉及打印速度过快这一参数设置。"
+  },
+  "9f6df7b48e3cc061acba146901d0e72a": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的 Z 轴偏移问题，属于知识库覆盖的打印参数与校准范畴。"
+  },
+  "3869c0c3fd4c0e3cc65329938a34360e": {
+    "answerable": true,
+    "reason": "用户问题涉及层错位（layer misalignment），属于FDM打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "f0c28eb6c29f88729f2ef135163013f9": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（under extrusion causing gaps），属于知识库覆盖的挤出类故障范围。"
+  },
+  "5b07e236fd1c2a1ab3264e5f43ad974b": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的桥接失败和悬垂下垂现象，属于FDM打印质量缺陷中的悬垂质量差和桥接下垂问题，符合知识库覆盖范围。"
+  },
+  "1b1ad1ae5231b797a73f084ccc1d4555": {
+    "answerable": true,
+    "reason": "问题涉及打印速度对桥接质量的影响，属于FDM打印参数与校准的覆盖范围。"
+  },
+  "837b1374f85f84c71dda15b9b97c1434": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的‘壁面有空隙’现象，属于FDM打印质量缺陷范畴，且与知识库中覆盖的‘欠挤出’、‘壁面空隙’等故障类型相关。"
+  },
+  "8007962c4496a840aa2e83e2694bc3db": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（振动/ ringing 和附着不足），属于知识库覆盖范围"
+  },
+  "ca940399610b8c67df342f7917212f6b": {
+    "answerable": true,
+    "reason": "用户问题涉及层高对细节的影响，属于打印参数与校准的覆盖范围"
+  },
+  "8315fa520264de2c9d6bad99ecb4c3e6": {
+    "answerable": true,
+    "reason": "用户描述的现象属于FDM打印质量缺陷中的拉丝（stringing）和挤出问题，符合知识库覆盖范围。"
+  },
+  "f3b62e730dbe996d47e7344b11f0cb3e": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何清洁 PETG 打印件，属于后处理与上色装饰范畴，不在 FDM 打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "a77c99ee2baa5cefb54e3dff9e9b0ccd": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，描述的是打印底部弯曲（bowing）现象，属于知识库覆盖的附着类或结构类缺陷。"
+  },
+  "23f84714d50abc982a390875e6fef942": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量缺陷（不挤出、悬垂质量差），属于知识库覆盖范围"
+  },
+  "354a188af00c530baf727efdc7cbee73": {
+    "answerable": true,
+    "reason": "用户问题涉及打印尺寸不准确，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "76259ac7686e7943e6934b1d818ea8c9": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的层分离和 filament 紊乱现象，属于 FDM 打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "be9a6dcb5578a78579f045f979028129": {
+    "answerable": true,
+    "reason": "用户询问的是与打印质量相关的冷却风扇设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "e64a7048666f9eefd813b0fa0830f895": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现的 blobs and zits，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "80c41ad89794ef8242e9b2d5f4c923ea": {
+    "answerable": true,
+    "reason": "用户问题‘print not sticking to the bed’锚定到FDM打印质量中的附着类缺陷，属于知识库覆盖范围。"
+  },
+  "cbfdc256be4b9e9262dac8b5d42bb1cb": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（弱薄层和角部翘曲），属于知识库覆盖的挤出类和附着类问题范围。"
+  },
+  "8967869e7bf9addc31f5498acf955d2d": {
+    "answerable": true,
+    "reason": "用户问题涉及填充模式对强度的影响，属于结构类打印质量缺陷的范畴，符合知识库覆盖范围。"
+  },
+  "36d3f4ef1447e14e4ded4203c363d984": {
+    "answerable": false,
+    "reason": "问题询问的是FDM与SLA两种3D打印工艺的对比，属于工艺科普，不在知识库覆盖范围内。"
+  },
+  "b1b5f4ef6e3d7b3cc8ee872b124a55e2": {
+    "answerable": false,
+    "reason": "问题询问的是如何用尼龙打印，属于材料使用指导，而非针对已发生的打印质量缺陷或参数校准问题，因此不在知识库覆盖范围内。"
+  },
+  "b1eba0bb0580e2a1ec1045b70219c95a": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印的切片设置，而知识库仅覆盖FDM打印相关的内容，不包含SLA/树脂打印的切片设置"
+  },
+  "f8b891893980ae64ffb89e194408647b": {
+    "answerable": true,
+    "reason": "问题涉及层偏移（layer shift）这一打印质量缺陷，且提到jerk settings，属于知识库覆盖的打印参数与校准范畴。"
+  },
+  "f62438c742742a57aad56abb4ede7f3b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中边缘向上弯曲的现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "e3f688ecacc5d4f6a3b9c5f9c22fb9c2": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的 stringing 现象，并询问回抽距离设置，属于知识库覆盖范围。"
+  },
+  "e077303eee0bce642426614d3aa0ab32": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的 'ringing' 现象，属于知识库覆盖范围"
+  },
+  "80de4cd76c4b50e42dc12f04f481883a": {
+    "answerable": true,
+    "reason": "用户问题涉及防止翘边（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "cf5280618b57d04a3b74e003b21d6eb9": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，涉及首层附着和表面质量问题。"
+  },
+  "a0e522260c86bf8ec269d35660aae1c0": {
+    "answerable": false,
+    "reason": "问题落点是‘3D printing medical implants’，属于医疗应用领域，未明确指向FDM打印质量缺陷或相关参数校准，不符合知识库覆盖范围。"
+  },
+  "47c6156a264d6c76f0400c78f0da03c8": {
+    "answerable": false,
+    "reason": "用户问题询问如何在CAD中设计3D模型，属于CAD软件功能操作教程，不属于FDM打印质量缺陷排障范围"
+  },
+  "48ef1c9cca38aa5edfb7fcad71c5b42f": {
+    "answerable": true,
+    "reason": "用户问题锚定到 FDM 打印质量缺陷（打印看起来熔化）"
+  },
+  "1b552e422f3e6c62d36b5d82902332a6": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（首层不粘床、层间分离），属于知识库覆盖的附着类和结构类问题。"
+  },
+  "24a9be78e931a7f15c155ea170b9ffe4": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，描述的是打印过程中出现的 'droopy' 现象，属于结构类或悬垂质量差的范畴，符合知识库覆盖范围。"
+  },
+  "ef64ab67e729f4f40ad8daa9ef4d73b4": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'spaghetti mess'，属于知识库覆盖的打印质量缺陷范畴。"
+  },
+  "9ecbe63a2350e94f83793a8f1aee7260": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的层间分离现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "d027f0d572800aacd2d046997532e5bb": {
+    "answerable": true,
+    "reason": "问题描述的是打印件角落翘起（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "44b0243a98e7741339026247f01ffeba": {
+    "answerable": false,
+    "reason": "用户问题 '3D printing tolerances guide' 属于索取参考资料形态，不是在排查已发生的打印质量缺陷，因此不在知识库覆盖范围内。"
+  },
+  "b6fdfdb4daba882042bbdb567cbc0b56": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的首层附着问题，属于知识库覆盖的附着类故障"
+  },
+  "a335db390f6e36524212e837a5044f20": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷，具体为喷嘴堵塞导致无法挤出 filament，属于知识库覆盖的挤出类故障"
+  },
+  "c34d53396c0d036f3bfb4ccab248fa9e": {
+    "answerable": true,
+    "reason": "用户询问的是与打印强度相关的墙数设置，属于结构类缺陷的修复方案范畴。"
+  },
+  "9c1822713c6decfbd0c737f9922168e1": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的冷却设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "16d86d811dc598514f442466b942df9a": {
+    "answerable": false,
+    "reason": "问题询问的是如何使用碳纤维打印，属于材料使用方法，而非具体打印质量缺陷或参数校准，未锚定到FDM打印质量"
+  },
+  "50dac84dbb9a1a0e6254e4d23a03640d": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的首层附着问题，属于库内覆盖范围"
+  },
+  "4b1015003a86a54735301652e3f37d37": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件顶部表面有疤痕且挤出过多 filament，属于表面类和挤出类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "7535df899ae5b30cdf83e760bc79a1a7": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件上的两个现象：对角线疤痕和壁面间隙，均属于FDM打印质量缺陷范畴，符合知识库覆盖的表面类和结构类故障。"
+  },
+  "c036d3d74f8855c11417871065d88e09": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（首层不粘床和拉丝现象），属于知识库覆盖的附着类和表面类问题。"
+  },
+  "f710b2a5966e02483fdcde61f281c016": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件尺寸偏小，属于结构类中的尺寸偏差问题，符合知识库覆盖范围。"
+  },
+  "c25ea1cfb93310a67b1718ddb5769fd2": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现波纹（surface ripples），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "16a70e96d68bdf8acdecf9a0935c0f66": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层分离或裂纹现象，属于知识库覆盖范围"
+  },
+  "f3384e66ad96e2c6104519edb4a87322": {
+    "answerable": false,
+    "reason": "问题询问的是‘最好的3D打印机’，属于择优类问题，未提及任何已发生的打印质量缺陷或参数调整需求，因此不在知识库覆盖范围内。"
+  },
+  "84dd770090daa5cdab1e6609a24c479d": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印机的调平方法，而知识库仅覆盖FDM打印相关问题，不包含树脂打印机（SLA/DLP）的调平操作。"
+  },
+  "f84c97a5039440ab8fe0006b20686429": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件从平台脱离的现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "80a4c8fa58f437806242d1d4ffda751d": {
+    "answerable": false,
+    "reason": "问题涉及DLP与SLA两种非FDM工艺的对比，不属于FDM打印质量缺陷排障范围"
+  },
+  "a6656338660f7b5cd0d839452d9ec383": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的挤出类缺陷，属于知识库覆盖范围。"
+  },
+  "e4697c6fe1d418e349395b04d1127cc8": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何对3D打印件进行涂装，属于后处理与上色装饰，不在知识库覆盖范围内。"
+  },
+  "030a43f6ac411b795b6165e0aeab71ae": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的壁面间隙（gaps in the print walls），属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "ef992e86ee7feaeedad9aa3aa2ed1eb1": {
+    "answerable": true,
+    "reason": "用户问题‘print looks under extruded’锚定到FDM打印质量缺陷中的‘欠挤出’现象，属于知识库覆盖范围。"
+  },
+  "a884bb34cb4d02bbb0bf36ca31cf7260": {
+    "answerable": false,
+    "reason": "用户询问的是如何在切片软件中使用支撑结构，属于切片软件功能操作教程，而非打印质量缺陷或参数校准问题。"
+  },
+  "20e3498192a1fce1b0045bba7eb82907": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layers shifted horizontally'，属于知识库覆盖的层错位（layer shift）问题"
+  },
+  "9f19a1ea6182afc20cf56d2286952e4a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印层间开裂和打印件看起来欠挤出，属于FDM打印质量缺陷中的层分离和欠挤出问题，符合知识库覆盖范围。"
+  },
+  "7164b3e3f8e60ab54f4f83c8f2db1726": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的挤出中断和桥接失败现象，属于FDM打印质量缺陷中的挤出类和几何类问题，符合知识库覆盖范围。"
+  },
+  "db160146c01f05c9ee791b7cfe652ff0": {
+    "answerable": true,
+    "reason": "问题锚定到 PETG 打印中的 oozing（渗料）现象，属于 FDM 打印质量缺陷，且涉及热端温度参数，符合知识库覆盖范围。"
+  },
+  "e13fa9290461d525ffefecadce87272c": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷（ cracks in tall print）"
+  },
+  "5f21afeb3eb684afd08d2409e9394c57": {
+    "answerable": true,
+    "reason": "用户询问如何解决3D打印中的拉丝问题，属于FDM打印质量缺陷的范畴，且知识库中包含相关修复方案。"
+  },
+  "ff54eed5c7649f1cf0e702ab2197ab4d": {
+    "answerable": false,
+    "reason": "问题询问的是最佳丝材存储方案，属于材料存储与选购范畴，而非打印质量缺陷或参数校准问题，因此不在知识库覆盖范围内。"
+  },
+  "aca7ee56ca86c64a1ab2421d3acad511": {
+    "answerable": true,
+    "reason": "问题涉及 PLA 打印时的翘边（warping）现象，属于附着类打印质量缺陷，且询问的是加热床温度设置，属于知识库覆盖的参数与校准范畴。"
+  },
+  "9376f2b71f115bc3e93e1a1c93bc3c6d": {
+    "answerable": false,
+    "reason": "问题意图是询问如何更换喷嘴，属于硬件操作和设备维护，不属于FDM打印质量缺陷的排障范围"
+  },
+  "105f5532565e5f90aa5329977c164ae1": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（顶部有空隙），属于知识库覆盖的表面类或结构类缺陷范畴。"
+  },
+  "e76e9bd0d6e623db16fdb41c2f8d9f0f": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（whiskers on print）"
+  },
+  "fd62d9310ff4a7ad88a998bc3c87aa3a": {
+    "answerable": false,
+    "reason": "问题询问的是推荐的 YouTube 频道，属于择优类问题，且未描述具体打印质量缺陷现象"
+  },
+  "2e6ba039130e4a080317f46ecc7d592e": {
+    "answerable": true,
+    "reason": "用户问题 'layers coming apart' 属于打印质量缺陷中的结构类问题，即层分离（delamination），在知识库覆盖范围内。"
+  },
+  "e64601eede11b339a3b3923e4da9b9f6": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的首层附着问题，且询问的是风扇速度这一打印参数设置，属于知识库覆盖范围。"
+  },
+  "233a360bbb7e260ef1f1f75017e83146": {
+    "answerable": true,
+    "reason": "用户问题涉及层分离和分层，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "1a216938a6bdbce1384ffd1c23cdf030": {
+    "answerable": true,
+    "reason": "用户问题涉及打印尺寸偏差和挤出过量，属于FDM打印质量缺陷中的结构类和挤出类问题，符合知识库覆盖范围。"
+  },
+  "ffba7b551fd86557ee63b1baadc82a82": {
+    "answerable": false,
+    "reason": "问题询问的是多色打印方法，属于切片软件功能操作教程，不在FDM打印质量缺陷排障手册范围内"
+  },
+  "9d63da5f9994155d6ea74b7dd4d53b1d": {
+    "answerable": true,
+    "reason": "用户问题锚定到 FDM 打印质量缺陷，具体为打印件倾斜（print leans），属于知识库覆盖的打印质量范畴。"
+  },
+  "bc5b5390883964d1d26d8cd155e709e7": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layers separate'，属于知识库覆盖的层分离（delamination）范畴。"
+  },
+  "18f3e35831db9877a8de9b58b4142d5e": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（层分离）和 nozzle 堵塞的修复方法，属于知识库覆盖范围。"
+  },
+  "38a3ef0e8b555a88f28796ca0c251b1f": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的附着类问题，具体为打印件粘附在床面上，属于知识库覆盖范围。"
+  },
+  "797e6c28de238bde15f3c69f1a3fca56": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷 'over extrusion'，属于知识库覆盖范围"
+  },
+  "653626f8c1251cf93fe2c42f016d43e9": {
+    "answerable": false,
+    "reason": "问题询问的是SLA打印技术本身，属于非FDM工艺，不在知识库覆盖范围内"
+  },
+  "10af5c45ee2f79365680313b4a306c42": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的桥接问题，属于知识库覆盖的打印参数与校准范畴。"
+  },
+  "c7201a1a99a23ad597fa17787eeba07e": {
+    "answerable": false,
+    "reason": "问题不锚定到FDM打印质量，而是询问如何通过3D打印赚钱，属于商业运营范畴，不在知识库覆盖范围内。"
+  },
+  "03da1aa7ec97cac9d6b06b629a5280ba": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷（首层不粘床）"
+  },
+  "55c7892435646bfbd96ad2b6f3c82b5a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（stringing and oozing），属于知识库覆盖的表面类缺陷。"
+  },
+  "2e49dd9eba573cabedf50dd6facd515b": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（stringing）的修复方法，属于知识库覆盖范围内的参数调整类问题。"
+  },
+  "88c73a7bdfea67c92bf793165daa7934": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现波纹（ripples），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "6af48c7552ade19d21b358eb6fa825b1": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（oozing）的参数设置（wipe distance），属于知识库覆盖范围"
+  },
+  "3d01d3ce8ed1565072ecfc9af586ec43": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷，具体为首层附着不足和桥接质量差，属于知识库覆盖的附着类和几何类问题。"
+  },
+  "3b02051771a09ac783963cc1136de7e6": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出过多塑料（over-extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "20624f08101d1c83e01fa72972720feb": {
+    "answerable": true,
+    "reason": "用户问题涉及首层附着不良，属于打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "d73dddebca04feefa6c001fc3378963b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现斑点（blobs）但没有拉丝（no stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "1c0cae65b2b571b1329ca8a0693a124d": {
+    "answerable": true,
+    "reason": "问题涉及3D打印质量缺陷（喷嘴堵塞和悬垂质量差），属于知识库覆盖范围"
+  },
+  "9bf54e8d7eef6c8d65b97629c0e593ac": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印的后处理方法，而知识库仅覆盖FDM打印质量缺陷，不包含SLA/DLP等其他工艺的后处理内容"
+  },
+  "7f045797990ec3b6e6ebc4521967eb12": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量中的桥接问题，属于知识库覆盖的‘几何类’缺陷范畴。"
+  },
+  "71f718717ed5de50b10123f2be4e9932": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（stringy and droopy over extrusion），属于FDM打印质量排障范围。"
+  },
+  "563379ec6a0cbcab9fe2065ded91895c": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层错位现象，属于知识库覆盖范围"
+  },
+  "0a8c507a3eba4255d0d46f179c003a63": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷，具体为 filament snaps（断丝），属于挤出类故障，知识库覆盖范围包含此类问题。"
+  },
+  "5df1b16a771b5883d1d17da90076250b": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印质量缺陷'hairy prints with whiskers of filament'，属于知识库覆盖的表面类缺陷（拉丝/渗料）。"
+  },
+  "52c2b606ae52e268446ab305f25f653b": {
+    "answerable": false,
+    "reason": "问题属于择优类，询问的是应选购哪种喷嘴材料，而非针对已发生的打印质量问题"
+  },
+  "ac7aa926d462d11ee85b30d0878360a7": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的挤出中断导致打印变成意大利面状，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "531dad3ac79cff161e6e28d644422d67": {
+    "answerable": false,
+    "reason": "问题涉及树脂槽清洁，属于SLA工艺相关操作，不在FDM打印质量缺陷排障手册覆盖范围内"
+  },
+  "22d138af9d5dae191bb6c8e6409642d7": {
+    "answerable": true,
+    "reason": "问题涉及打印尺寸偏差，属于知识库覆盖的打印质量缺陷范畴"
+  },
+  "474b54a302114f6585643930d8401b11": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（oozing between moves），属于知识库覆盖的表面类或挤出类缺陷范畴。"
+  },
+  "9c5f4f7622a3e0d2fe78a964a40f004c": {
+    "answerable": true,
+    "reason": "问题涉及打印参数中的extrusion multiplier校准，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "c86bd052573d05fe830c56dcd695959b": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs）及其可能原因（travel speed），属于知识库覆盖的打印参数与校准范围。"
+  },
+  "1ccdea53f4504d88c71a004fc8f5ddc3": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的挤出类问题，属于知识库覆盖范围"
+  },
+  "b40e7d5a80c0edf1160d33fbf64b2bd4": {
+    "answerable": false,
+    "reason": "问题属于‘best X’形式，且未描述具体打印质量缺陷现象，属于择优类问题，不在知识库覆盖范围内。"
+  },
+  "a06935a85a70561b622af580f77e7dec": {
+    "answerable": true,
+    "reason": "用户问题涉及 'elephant foot compensation'，属于打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "e5a00b2ae1529ab9f47ff2de1f094499": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'hairy surface'，属于知识库覆盖的 'Stringing or Oozing' 类别"
+  },
+  "9311c862205abf6d1b1a528091ef5e7a": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的层分离（delamination）现象，属于知识库覆盖范围。"
+  },
+  "9d5ede870dba5d1eb9c305e82e342280": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（stringing 和 corners lift），属于知识库覆盖的表面类和附着类问题。"
+  },
+  "3607e647ac8d29cbcba5853d3db927b7": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现模糊斑点（fuzzy blobs），属于表面类缺陷，符合知识库覆盖的打印质量缺陷范围。"
+  },
+  "1091468612e014e50aedaa8fc9fecaf4": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（首层被压扁且波浪状），属于知识库覆盖的附着类和结构类问题。"
+  },
+  "b842a1cd49cca0c2acdbd65f830f1989": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起的现象，属于附着类缺陷，符合知识库覆盖的打印质量缺陷范围。"
+  },
+  "4d3eccb574647f9857272da8ea2f89eb": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印质量缺陷（顶面壁之间有空隙），属于知识库覆盖的结构类或表面类缺陷范畴。"
+  },
+  "761afb052f5bc5bdd0a94941920233db": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件强度不足并沿层线断裂，属于结构类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "a28d5aeb4c211bab6de972d66e2b955a": {
+    "answerable": true,
+    "reason": "用户问题描述的是FDM打印过程中出现的过hang下垂现象，属于打印质量缺陷中的悬垂质量差问题，符合知识库覆盖范围。"
+  },
+  "cf7c63305d3c16473813996c33f2e421": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的挤出异常（extruder clicking）和结构缺陷（gaps in the print），属于FDM打印质量缺陷范畴，符合知识库覆盖范围。"
+  },
+  "fbfdfd9927069b4944904c3eadaaf16e": {
+    "answerable": true,
+    "reason": "用户问题描述的是 FDM 打印中出现的 'elephant foot' 现象，属于打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "daf4913ccf888a17a273c296a3c62828": {
+    "answerable": true,
+    "reason": "用户描述的是打印件一侧表面粗糙的问题，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "f698e5014000e9eede57610b0cd24a83": {
+    "answerable": true,
+    "reason": "问题描述的是支撑结构与零件融合且难以移除，属于打印质量缺陷中的支撑相关问题，符合知识库覆盖范围。"
+  },
+  "1e3faf5b8e1889692033a984c5d07ef4": {
+    "answerable": true,
+    "reason": "问题询问的是打印参数（flow rate）的设置，属于知识库覆盖范围内的参数调整建议。"
+  },
+  "539eaf4bacc8182519ce49b3f582e683": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的桥接（bridging）缺陷，询问的是部分冷却风扇设置，属于打印参数与校准范围。"
+  },
+  "37fa8a5b10ceb9955e3b7f277e87313e": {
+    "answerable": true,
+    "reason": "问题锚定在 FDM 打印质量缺陷（stringing），且询问的是与回抽设置相关的参数调整，属于知识库覆盖范围。"
+  },
+  "296e24e5a723ae2a666eb3f96753a358": {
+    "answerable": true,
+    "reason": "用户询问的是打印温度塔的最佳温度设置，属于打印参数与校准的范畴，且锚定到打印质量缺陷的排查。"
+  },
+  "4c171cd828742a82ebd7e9bd21602d06": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的Z轴抬升高度设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "b8a8926fc88ca171cfed776931d8d38e": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（ghosting）的参数调整，属于知识库覆盖范围"
+  },
+  "2112d6b743e4a148797c3453e87bee7a": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层错位（layer shifting），属于知识库覆盖范围。"
+  },
+  "d8c93a3082efb2193a7f96bd0b366e14": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（z rod wobble 导致的 banding on the walls），属于机械类根因导致的表面类缺陷，覆盖在知识库范围内。"
+  },
+  "16822dbced89bd7da4908ce5546099db": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷，具体为挤出中断现象，属于知识库覆盖范围。"
+  },
+  "6280a72a0623217244f941103b0296dc": {
+    "answerable": true,
+    "reason": "用户问题明确指向打印质量中的层间附着力失败（layer adhesion），属于知识库覆盖的缺陷类别。"
+  },
+  "0e34fcf2a3d671d79882dc56cea16437": {
+    "answerable": false,
+    "reason": "问题属于‘择优/选购’形态，询问的是‘哪个打印机适合初学者’，而非具体打印质量缺陷或参数设置"
+  },
+  "efabc7a89a99d1015edcdc6bcfa261c7": {
+    "answerable": false,
+    "reason": "问题属于择优类，询问应购买哪种构建表面，未描述已出现的打印质量问题"
+  },
+  "aefb58a8a906fb970fc09933b47016a7": {
+    "answerable": false,
+    "reason": "问题属于择优形态，询问哪个品牌 filament 的直径最一致，未提及具体打印质量缺陷"
+  },
+  "e15f8f3bbbf5e6f3aa28010339d5c0c7": {
+    "answerable": false,
+    "reason": "用户询问的是如何在 Cura 中旋转模型，属于切片软件的功能操作教程，而非打印质量缺陷或参数校准问题。"
+  },
+  "6205c7cce728b847746234950111275c": {
+    "answerable": false,
+    "reason": "问题询问的是如何安装切片器插件，属于切片软件的功能操作教程，而非打印质量缺陷或参数校准"
+  },
+  "63b05ddbebbf954248cce0b1f884174b": {
+    "answerable": false,
+    "reason": "用户询问的是PrusaSlicer软件的功能操作位置，属于切片软件的功能操作教程，不在FDM打印质量缺陷排障手册范围内。"
+  },
+  "3e061b9ba3209beda3089eef5f5643d4": {
+    "answerable": false,
+    "reason": "用户询问的是3D打印术语表，属于索取参考资料的形态，而非排查已发生的打印质量问题。"
+  },
+  "2e01d10d3b1b7b79c025d8278e1f36ee": {
+    "answerable": false,
+    "reason": "用户问题为‘beginner tutorial for FDM printing’，属于索取参考资料形态，不是在排查已发生的打印质量缺陷"
+  },
+  "795f7a4f33011efdac6c8792d15160bd": {
+    "answerable": true,
+    "reason": "用户询问的是FDM打印中的尺寸公差问题，属于打印质量缺陷的范畴，且涉及尺寸偏差这一知识库覆盖的故障类型。"
+  },
+  "4460e2cd3e2bb84da69aaa4ffb3ad03c": {
+    "answerable": false,
+    "reason": "问题询问的是如何更换热端，属于设备维护操作，而非打印质量缺陷或参数校准"
+  },
+  "66a798e23a0fcefe12cc28d5c025c5f3": {
+    "answerable": false,
+    "reason": "问题属于硬件选购范畴，询问应刷入哪个固件，而非针对具体打印质量缺陷或参数调整"
+  },
+  "6c72e65edc9eae1c8261b8f5f9c91d82": {
+    "answerable": false,
+    "reason": "问题涉及的是BLTouch传感器的接线，属于硬件接线与固件范畴，不属于FDM打印质量缺陷或参数校准范围"
+  },
+  "8f58e3ddf723e402ec09dd42b8a4534e": {
+    "answerable": false,
+    "reason": "问题涉及树脂槽清洁，属于非FDM工艺（SLA/DLP/树脂）的后处理操作，不在知识库覆盖范围内。"
+  },
+  "10b5f43d17c65abeab0069357787e99a": {
+    "answerable": false,
+    "reason": "问题询问的是DLP打印的用途，属于非FDM工艺的科普内容，不在知识库覆盖范围内。"
+  },
+  "b02b3f4786c78a3c4175453223b24c8e": {
+    "answerable": false,
+    "reason": "问题涉及的是树脂打印的后处理方法，属于非FDM工艺（SLA/DLP/树脂）相关的内容，不在知识库覆盖范围内。"
+  },
+  "5d6814c23df54c7d4c20f4708142eaee": {
+    "answerable": false,
+    "reason": "用户询问的是3D打印技术的历史，不属于FDM打印质量缺陷或相关参数校准的范畴。"
+  },
+  "5b3c75f9167388aaf0a952406daeca1c": {
+    "answerable": false,
+    "reason": "问题询问的是FDM打印的一般工作原理，属于工艺科普，不属于打印质量缺陷或参数校准的排障范围。"
+  },
+  "f4655bac8d4249253f4a1df1088cd586": {
+    "answerable": false,
+    "reason": "用户问题询问如何启动3D打印服务业务，属于商业运营范畴，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "af9b2bb75dd717dfa694be4d57332f24": {
+    "answerable": false,
+    "reason": "问题询问的是打印后的处理步骤（打磨和涂底漆），不属于FDM打印质量缺陷的排障范围，而是后处理与上色装饰，属于知识库不覆盖的内容。"
+  },
+  "b1e8fe816987252f58adb9c4a20176bb": {
+    "answerable": false,
+    "reason": "问题不涉及FDM打印质量缺陷或参数校准，而是询问3D打印塑料是否可在家回收，属于材料回收范畴，不在知识库覆盖范围内。"
+  },
+  "120fffc9bc6b4262541dd51ebeb234aa": {
+    "answerable": true,
+    "reason": "用户问题描述了打印表面出现模糊斑点（fuzzy blobs），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "9b789ee26d91157135233c245b5ab9a8": {
+    "answerable": true,
+    "reason": "用户问题描述的是首层打印质量异常（squished and wavy），属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "5ffe57c870b49d43aa7067875ded8906": {
+    "answerable": true,
+    "reason": "用户描述的现象是打印件角落翘起，属于附着类缺陷中的翘边或边角翘起，属于知识库覆盖范围。"
+  },
+  "cbf3464a913fc87a20aebcdbe30b8738": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（gaps between walls on the top surface），属于知识库覆盖的结构类或表面类缺陷范围。"
+  },
+  "06b43a1b3d578cc9db55bfe2f95d3db0": {
+    "answerable": true,
+    "reason": "用户描述的打印件强度弱且沿层线断裂，属于结构类缺陷中的强度不足，属于知识库覆盖范围。"
+  },
+  "2e29efd4ac4f84ab91ac997cc16e671d": {
+    "answerable": true,
+    "reason": "用户问题描述的是FDM打印过程中出现的悬垂质量差现象，属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "0051049ae4e9126e05ffaf1aa2dc9680": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的挤出异常（extruder clicking）和结构缺陷（gaps in the print），属于FDM打印质量缺陷范畴，符合知识库覆盖范围。"
+  },
+  "2340c90b0b0f09c06d8d6132264f6350": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的'elephant foot'现象，属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "6b82d0d52e12a80864620f12936e43ae": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面粗糙的问题，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "60f7bc4a1ab05a3685761f63f94a0b72": {
+    "answerable": true,
+    "reason": "问题描述的是支撑结构与零件融合且难以移除，属于打印质量缺陷中的支撑相关问题，符合知识库覆盖范围。"
+  },
+  "9fb3756b160f5595b611960d4d6a7c85": {
+    "answerable": true,
+    "reason": "问题询问的是打印参数（flow rate）的设置，属于知识库覆盖范围内的打印参数与校准内容。"
+  },
+  "7a8f08747331e43b2fc4226c2374bcd4": {
+    "answerable": true,
+    "reason": "问题涉及打印参数（part cooling fan）与FDM打印质量缺陷（bridges）相关，属于知识库覆盖范围"
+  },
+  "681a1d7c816f1b76414cdfb7a236ac09": {
+    "answerable": true,
+    "reason": "问题锚定在FDM打印质量缺陷（stringing），并询问回抽设置以解决该问题，属于知识库覆盖范围。"
+  },
+  "39a691ff51f8169681a6e20e73da2f50": {
+    "answerable": true,
+    "reason": "用户询问的是打印温度设置问题，属于打印参数与校准的覆盖范围。"
+  },
+  "3c64058922e8917115ab39894ce3a0be": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的悬垂结构问题，且询问的是通过调整Z-hop高度来避免 tall parts 被撞倒，属于打印参数与校准的范畴。"
+  },
+  "3cfb943c28c1bd560db4bfa43530591f": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（ghosting）的参数调整，属于知识库覆盖范围"
+  },
+  "7d1f263ecc2d0fedf858c7c2aa8ff518": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的层错位（layer shifting），属于知识库覆盖范围"
+  },
+  "44ab66f4cb775db1b9efa066151a86ef": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中因Z轴杆晃动导致壁面出现条纹，属于打印质量缺陷中的机械类根因问题，符合知识库覆盖范围。"
+  },
+  "229fe41bdbb50c7da57fbf441bf6088e": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷，具体为挤出中断现象，属于知识库覆盖的挤出类故障"
+  },
+  "9d0d908044e326baed9e691b2fce667b": {
+    "answerable": true,
+    "reason": "用户问题明确指向打印质量中的层间附着力失败（layer adhesion），属于知识库覆盖的缺陷类别。"
+  },
+  "16f829d91156c888619eff2f8c7dae17": {
+    "answerable": false,
+    "reason": "问题属于‘择优/选购’形态，询问的是‘哪个打印机适合初学者’，而非具体打印质量缺陷或参数设置"
+  },
+  "4a8036267b22e7b247a92dcf70b47690": {
+    "answerable": false,
+    "reason": "问题属于择优类（best X）且未描述已出现的缺陷现象"
+  },
+  "167406c8a8a71aa3afe8f6e256ac14ff": {
+    "answerable": false,
+    "reason": "问题属于‘择优’形态，询问哪个品牌 filament 的直径最一致，未描述已出现的打印质量问题"
+  },
+  "f4cec20f159a247742e50546fc1d0f34": {
+    "answerable": false,
+    "reason": "用户询问的是如何在 Cura 中旋转模型，属于软件功能操作教程，而非打印质量缺陷或参数校准问题。"
+  },
+  "7e2262676cf4fe86e34ceb87ce0da1f8": {
+    "answerable": false,
+    "reason": "问题询问的是如何安装切片器插件，属于切片软件的功能操作教程，不属于FDM打印质量缺陷的排障范围。"
+  },
+  "2a5bf29f34e94c766925dfa9f0ff83eb": {
+    "answerable": false,
+    "reason": "问题询问的是 PrusaSlicer 软件的界面位置，属于切片软件的功能操作教程，而非打印质量缺陷或参数设置问题。"
+  },
+  "8640c9f483f8a964da05f65c2da21978": {
+    "answerable": false,
+    "reason": "用户询问的是3D打印术语表（glossary of terms），属于索取参考资料的形态，而非排查已发生的打印质量问题。"
+  },
+  "8f7bfc534f11acd0a5fd701609566684": {
+    "answerable": false,
+    "reason": "用户询问的是初学者教程，属于切片/3D打印基础教学，而非具体打印质量缺陷或参数校准问题，不符合知识库覆盖范围。"
+  },
+  "6aa20bc81f04769b13c6a17f7aa26fd3": {
+    "answerable": true,
+    "reason": "用户询问的是FDM打印中的尺寸公差问题，属于打印质量缺陷的范畴，且知识库中包含与尺寸偏差相关的条目。"
+  },
+  "c0dc1503bd91162e5ec5dc3ee6fcc799": {
+    "answerable": false,
+    "reason": "用户询问的是如何更换热端，属于硬件改装操作，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "39dc9878310f2fa84cd668f83d24fa0e": {
+    "answerable": false,
+    "reason": "问题询问应刷哪种固件，属于设备固件选择，不属于FDM打印质量缺陷排障范围"
+  },
+  "6c860a5114be1cc2eece653f536e6f11": {
+    "answerable": false,
+    "reason": "问题涉及的是BLTouch传感器的接线，属于硬件接线与固件范畴，不属于FDM打印质量缺陷或参数校准范围"
+  },
+  "e982f095c99d27376f02edb13f171eab": {
+    "answerable": false,
+    "reason": "问题涉及清洗树脂槽，属于非FDM工艺的后处理操作，不在知识库覆盖范围内。"
+  },
+  "8a21f35a990c69dff4d83b0cfa3dcac6": {
+    "answerable": false,
+    "reason": "问题询问的是DLP打印的用途，属于非FDM工艺的科普内容，不在知识库覆盖范围内。"
+  },
+  "353cda8e50e0bf0b4e5911b41a083866": {
+    "answerable": false,
+    "reason": "问题涉及使用UV光固化树脂打印，属于SLA工艺，不在FDM打印质量缺陷排障手册范围内"
+  },
+  "7e5b2dc08744137cd518c4440a92094a": {
+    "answerable": false,
+    "reason": "问题询问的是3D打印技术的历史，不属于FDM打印质量缺陷或相关参数校准的范围"
+  },
+  "e40fe22652a62d67fd69555ab452f85d": {
+    "answerable": false,
+    "reason": "问题询问的是FDM打印的一般工作原理，不属于具体打印质量缺陷或参数校准的排障范畴，而是属于工艺科普，因此不在知识库覆盖范围内。"
+  },
+  "30988f8984194e9cda26b85ffbe21a82": {
+    "answerable": false,
+    "reason": "用户问题询问如何启动3D打印服务业务，属于商业运营范畴，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "60a6fb3fe50278ec48a49d2f7505b72a": {
+    "answerable": false,
+    "reason": "问题询问的是打印后的处理步骤（打磨和涂底漆），不属于FDM打印质量缺陷的排障范围，而是后处理环节，因此库外。"
+  },
+  "be7c312b79e016aee322ca1c2d106a0d": {
+    "answerable": false,
+    "reason": "问题不涉及FDM打印质量缺陷或参数校准，而是询问3D打印塑料是否可在家回收，属于材料处理与环保范畴，不在知识库覆盖范围内。"
+  },
+  "83e72ece458e0b19ffbcbe33e58fe16c": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layers are separating when I bend the part'，属于层分离（delamination）的范畴，符合知识库覆盖范围。"
+  },
+  "f82d27bab66fdb2c8045ba02f13b792f": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的细丝（thin strings webbing between the towers），属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+  },
+  "ef652fc602b3bb0cf44d8f291bc054e3": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（nozzle drags and leaves marks on the top layer），属于表面类缺陷，且涉及打印参数与校准的可能原因，符合知识库覆盖范围。"
+  },
+  "02de7ad6168645da08cb38687fb70c9a": {
+    "answerable": true,
+    "reason": "问题描述的是打印件在风扇附近出现翘边（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "b0de5ae16b111bf68197cd1b9690571b": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的挤出不均现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "08c550eb5f75748f13034ee8772c3488": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（small features come out melty and deformed），属于知识库覆盖的表面类或结构类缺陷范围。"
+  },
+  "482bb59d1a8f77754f4ec32d4518abf5": {
+    "answerable": true,
+    "reason": "问题描述的是打印件表面的可见接缝线（seam line），属于表面类缺陷，且与层错位或Z-seam相关，符合知识库覆盖范围。"
+  },
+  "cf2091f94a9933f7b39ae3abdcb591a3": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的桥接下垂现象，属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+  },
+  "fc57b4077202538eee5ad5dfec5de7c5": {
+    "answerable": true,
+    "reason": "用户询问是否应降低层高以获得更精细的细节，属于打印参数与校准范畴，且锚定到FDM打印质量。"
+  },
+  "9c83218731524f6fb3e9b505032b744c": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷（ABS零件翘边）的温度设置，属于知识库覆盖范围"
+  },
+  "f22572ea214539a5e584cf5e6bdd6850": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，即under extrusion，属于知识库覆盖范围。"
+  },
+  "001c05848aa981b74f966a65eab2b2f5": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的翘边现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "c7e36d3feee24041470c28b6f5c603ab": {
+    "answerable": false,
+    "reason": "问题询问的是切片软件的流行程度，属于择优类问题，且未描述任何已发生的打印质量缺陷"
+  },
+  "7b1a177e4a5eef4fa91d3629b5000952": {
+    "answerable": false,
+    "reason": "问题询问的是如何为OctoPrint添加摄像头，属于软件功能操作或硬件改装范畴，而非FDM打印质量缺陷或参数校准问题。"
+  },
+  "5e78a35b3dba8fd933fbb6c1751d400a": {
+    "answerable": false,
+    "reason": "问题涉及FDM与SLS的比较，属于工艺对比而非打印质量缺陷排查，且未提及具体打印问题或参数设置，属于库外内容"
+  },
+  "6c213f33ae8cb8840075d605496e17d8": {
+    "answerable": false,
+    "reason": "用户询问的是PLA材料的物性数据表，属于索取参考资料/标准数据的形态，而非排查已发生的打印质量缺陷。"
+  },
+  "7bc6960740659f7a06297eed7b0c51a8": {
+    "answerable": false,
+    "reason": "问题询问的是如何设计 snap fit joints，属于 CAD 设计或产品设计范畴，而非 FDM 打印质量缺陷或参数校准问题。"
+  },
+  "6248809b0271e5de0a582d07a1b3063d": {
+    "answerable": false,
+    "reason": "问题涉及升级直接驱动挤出机，属于硬件改装，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "26e737f9bd47fea9c8037ee36d31a7d9": {
+    "answerable": false,
+    "reason": "问题询问如何在线销售3D打印模型，不属于FDM打印质量缺陷或参数校准范畴，而是关于商业运营和销售渠道的问题。"
+  },
+  "c1cc82ad87981db9808869e156d5aa7e": {
+    "answerable": false,
+    "reason": "问题询问的是喷嘴尺寸对比表，属于择优/选购形态，且未描述已出现的打印质量问题"
+  },
+  "a7b2893d9e1a7223f49795bfb28ddd04": {
+    "answerable": false,
+    "reason": "问题属于择优类，询问的是最佳填充模式，而非具体打印质量缺陷的修复方案"
+  },
+  "8a92c3f28d81fe8ceb1edd4f6d29e890": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何在烤箱中干燥丝材，属于材料存储与处理范畴，而非FDM打印质量缺陷或参数校准问题，因此不在知识库覆盖范围内。"
+  },
+  "ef8ef4b02d477df7b590b5ae3fbec2ac": {
+    "answerable": false,
+    "reason": "问题属于‘best X’类型，且未描述已出现的打印质量缺陷，属于库外"
+  },
+  "2f922116331f132e13ee54aa180a24fb": {
+    "answerable": false,
+    "reason": "问题询问的是安装 Klipper 固件的方法，属于固件安装和配置，不属于 FDM 打印质量缺陷或参数校准的范畴。"
+  },
+  "3c872284ef5c45c6a51bc30fcd5e7459": {
+    "answerable": true,
+    "reason": "用户问题涉及温度塔校准，属于打印参数与校准的覆盖范围。"
+  },
+  "cdbe2003a094f2ef90ebbc243c0fe274": {
+    "answerable": false,
+    "reason": "问题涉及3D打印机主控板升级，属于硬件改装范畴，不在知识库覆盖范围内。"
+  },
+  "37864527ce3cefb686c228fba858b4dc": {
+    "answerable": false,
+    "reason": "问题询问的是如何使用3D笔，不属于FDM打印质量缺陷或参数校准范畴"
+  },
+  "6db6e94840c3e3c78671b672479e740f": {
+    "answerable": false,
+    "reason": "问题询问的是适合初学者的CAD软件，属于软件选购建议，而非FDM打印质量缺陷或参数校准问题。"
+  },
+  "ed21f98bb7c55d0a8472e56a46a11889": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷（oozing）"
+  },
+  "498cca52ceef0f7a4a03c33d897244f0": {
+    "answerable": false,
+    "reason": "问题询问的是如何将打印机连接到OctoPrint，属于切片/控制软件的功能操作教程，而非FDM打印质量缺陷或参数校准问题。"
+  },
+  "a004fc22db5a546600f5536be1e87976": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（web-like strands），属于知识库覆盖的‘表面类’中的‘拉丝/渗料’范畴。"
+  },
+  "fa6c6777b5c88bbeb8613d2187ff44f7": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的桥接下垂（bridges sag）和拉丝（stringing），属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "cb9f0cea668f59fd795e970bc807cdb2": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印中出现的热变形和毛发状细丝现象，属于表面类和挤出类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "28b0815afb420783397f95dd8ce1356a": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layers don't line up'，属于知识库覆盖的打印质量缺陷范畴。"
+  },
+  "26e7c621355584fd2ee92c4694afe340": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件无法粘附到打印床，属于附着类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "ba441469d4abf71db61472298b9c3a2d": {
+    "answerable": false,
+    "reason": "问题询问的是激光雕刻机的校准，不属于FDM打印质量缺陷或相关参数校准"
+  },
+  "e781c2452fdef6e95ce674be608582a0": {
+    "answerable": true,
+    "reason": "问题描述的是打印件边缘弯曲（edges bending），属于附着类或结构类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "d8c5e88e8f8e445f7b22fcb7b9939fc6": {
+    "answerable": true,
+    "reason": "问题涉及3D打印质量缺陷中的挤出类问题，具体为喷嘴堵塞，属于知识库覆盖范围。"
+  },
+  "d999cf5d98f272b44eef9b1ca8f59025": {
+    "answerable": true,
+    "reason": "用户询问的是与顶层表面质量相关的参数设置，属于FDM打印质量缺陷排障手册的覆盖范围。"
+  },
+  "c2158557a53fc0a99af23bc9d2942a96": {
+    "answerable": false,
+    "reason": "问题属于材料选择与打印参数设置的推荐，而非针对已发生的打印质量缺陷进行诊断或修复"
+  },
+  "9c4beb608a62e45857dc0bd264312346": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷'欠挤出'，且涉及喷嘴温度参数调整，属于知识库覆盖范围"
+  },
+  "567dd1e5735e70a7533c0163327c6799": {
+    "answerable": false,
+    "reason": "问题属于‘best X’类型，询问的是选购建议，而非具体打印质量缺陷或参数设置"
+  },
+  "3f30640849ddc8abd91d5736c9697bcc": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的缺陷现象（zits），属于FDM打印质量缺陷范畴，符合知识库覆盖范围。"
+  },
+  "ceb1a6d0641b6db241100eba829eb550": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷中的挤出类问题，具体为‘filament grinds’，属于知识库覆盖范围。"
+  },
+  "dde00f1072e48baccc3bb652a049fe4a": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，属于知识库覆盖范围。"
+  },
+  "bc147139ef347d47aab7bd6afeeda13c": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（weak thin layers from under extrusion），属于挤出类缺陷，覆盖在知识库范围内。"
+  },
+  "564fc7c5d056ce88d5d64e7a7c7b68ff": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的桥接质量差（messy and droopy）现象，属于FDM打印质量缺陷中的‘桥接下垂/拉丝’类别，符合知识库覆盖范围。"
+  },
+  "11f0c5e25697d016e7f47039fbe2af5c": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的附着类缺陷，具体为床附着问题，属于知识库覆盖范围。"
+  },
+  "bc75420ccb8ebf54524e7aa529ebbf4e": {
+    "answerable": true,
+    "reason": "用户问题描述了打印表面的振纹（ringing）和悬垂质量差（overhang quality is poor），这两个现象均属于FDM打印质量缺陷，且在知识库覆盖范围内。"
+  },
+  "59759a37475bc29def4d479a0e8d94cf": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面存在凸起和瑕疵，属于表面类缺陷，符合知识库覆盖的打印质量缺陷范围。"
+  },
+  "0ceafd3e31a8fecde26c0466e019cb27": {
+    "answerable": true,
+    "reason": "用户描述的是打印质量缺陷中的鬼影（ghosting）现象，属于知识库覆盖的表面类缺陷。"
+  },
+  "617b0f4147d2ae28dd30ca217bddde80": {
+    "answerable": true,
+    "reason": "用户问题描述了打印过程中出现的附着问题（首层不粘床、角翘起），属于知识库覆盖的附着类缺陷范围。"
+  },
+  "8711f804eb23774cedb6e2c99c72a26a": {
+    "answerable": false,
+    "reason": "用户问题 'how to wire a 3D printer' 属于硬件接线与固件范畴，不属于 FDM 打印质量缺陷排障手册的覆盖范围。"
+  },
+  "3ef1eedc074095017d8570640ac71cd9": {
+    "answerable": true,
+    "reason": "用户描述的现象是打印过程中出现的细塑料丝（stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "9885858575249b45fc4fd62c3755586e": {
+    "answerable": true,
+    "reason": "用户问题描述了打印表面的 blobs and zits 以及层间裂缝，属于 FDM 打印质量缺陷中的表面类和结构类问题，符合知识库覆盖范围。"
+  },
+  "12601b395a8ee95cd94e7fa345dcda2b": {
+    "answerable": true,
+    "reason": "用户问题描述的是3D打印表面出现的小 bumps，属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "a5db4da136293ab7da0e3c585a1fcfdf": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（弱壁），属于知识库覆盖的附着类和结构类问题范围。"
+  },
+  "660e88086cce5cb84ce1bf5b684020c0": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（stringy droopy），属于表面类或结构类缺陷，符合知识库覆盖范围。"
+  },
+  "6df8d84a4e870567dc581a51e0d34e86": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的桥接失败现象，属于FDM打印质量缺陷中的‘悬垂质量差’或‘桥接下垂/拉丝’类别，符合知识库覆盖范围。"
+  },
+  "6cda928e6f285e85780716010a7070e1": {
+    "answerable": true,
+    "reason": "问题询问的是回抽参数设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "7d7a5e2dfaf60dee1a0a699dd9d3b6d7": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，属于知识库覆盖范围。"
+  },
+  "9d95805849dc11b66a68dceaee224fbb": {
+    "answerable": true,
+    "reason": "用户问题锚定到 FDM 打印质量缺陷（blobs）"
+  },
+  "36a940ff5bba259e0af1ecd9633ccdfe": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的挤出异常现象，属于FDM打印质量缺陷中的‘挤出类’问题，且涉及‘filament stripped’这一具体现象，符合知识库覆盖范围。"
+  },
+  "ef704abddb2f2e9972e32ab93dbd5bd0": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（stringing/oozing 和 first layer issues），属于知识库覆盖范围"
+  },
+  "d8ebf128e707537673d8a03f72cbbe66": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（infill visible outside），属于知识库覆盖的表面类或结构类缺陷范畴。"
+  },
+  "e705c94e428bde1eda33ff2436786297": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量中的挤出不一致现象，属于知识库覆盖范围。"
+  },
+  "10758ddd639a8cb17a2d7ccf24d3dc8d": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现的波纹（ripples and echoes），属于表面类缺陷，符合知识库覆盖范围。"
+  },
+  "f29035a8007999698dbeea87b3bf2c51": {
+    "answerable": true,
+    "reason": "用户描述了打印质量缺陷（过挤出、下垂、中途停止挤出），属于知识库覆盖的挤出类和结构类问题。"
+  },
+  "b11d23363ea81ec4825b5093459b7f18": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件出现过挤出和下垂现象，属于FDM打印质量缺陷中的挤出类和结构类问题，符合知识库覆盖范围。"
+  },
+  "f00fa55426bfe2e615c8b77d6563474f": {
+    "answerable": true,
+    "reason": "问题锚定到打印质量缺陷（首层不粘床）"
+  },
+  "b365d4ffefdad6975a65fb1d4e42de32": {
+    "answerable": true,
+    "reason": "问题涉及挤出量异常，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "d1b869aa39f00e1e546c8c6b511e5c3c": {
+    "answerable": true,
+    "reason": "用户询问的是与挤出量相关的参数设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "d3934ed204c8f627609334db777b3af7": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中挤出过多材料的现象，属于FDM打印质量缺陷中的‘过挤出’问题，符合知识库覆盖范围。"
+  },
+  "0cf21919ad3bb27d3a1a9fa34ea2cd8a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的层错位现象，属于FDM打印质量缺陷中的‘层错位’，符合知识库覆盖范围。"
+  },
+  "9c2448aaadeb45ce9ada90ee2c4fd02a": {
+    "answerable": false,
+    "reason": "用户问题 'how to model organic shapes' 不是关于 FDM 打印质量缺陷或参数校准的问题，而是关于建模方法的询问，属于 CAD 建模范畴，不在知识库覆盖范围内。"
+  },
+  "030dbeb138fd6127b8ee5f310f2f5ca3": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的振动和回 ringing 现象，属于 FDM 打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "56eea7fe76e4d997a0a5412461be2686": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的角落翘起现象，属于附着类质量缺陷，符合知识库覆盖范围。"
+  },
+  "bced6ea300003f3e58dbb32ff4d26e7d": {
+    "answerable": false,
+    "reason": "问题涉及3D打印机固件设置（Marlin），不属于FDM打印质量缺陷排障范围，而是属于固件配置与操作层面的问题。"
+  },
+  "65b20776965585f49038d78bcb5abe42": {
+    "answerable": true,
+    "reason": "用户问题描述了打印质量缺陷（首层混乱、中途停挤出），属于知识库覆盖的挤出类和附着类问题。"
+  },
+  "cc08baee762b07ea7ff4747264df25ff": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量中的附着类缺陷，属于知识库覆盖范围"
+  },
+  "25631bda6d151b19bfe6367ea1a12235": {
+    "answerable": false,
+    "reason": "问题询问的是3D打印材料的安全性，不属于FDM打印质量缺陷或参数校准范畴，且未描述具体打印质量问题。"
+  },
+  "aca62524112c1f88bdc0f891332974bc": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中出现的oosing plastic现象，属于FDM打印质量缺陷中的拉丝/渗料问题，符合知识库覆盖范围。"
+  },
+  "c2e60b4a61c2e4337fe2ad46a1fe73df": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的挤出类问题，具体涉及回抽速度过高导致的料线研磨，属于知识库覆盖范围。"
+  },
+  "ef54e3bbefd629670e712804ec616970": {
+    "answerable": false,
+    "reason": "问题属于择优形态，询问 'best infill' 而非具体打印质量缺陷，未描述已出现的故障现象"
+  },
+  "0ea80f4f65b1bd6535eeac1dd2b6a784": {
+    "answerable": true,
+    "reason": "用户询问的是 Z seam alignment settings，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "ff6e02508bcf07e80acc0ede6fa661fb": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的结构类问题，即填充密度不足导致强度不足，属于知识库覆盖范围。"
+  },
+  "427fb6f899b4d632ebca3ce64b28c0a9": {
+    "answerable": false,
+    "reason": "问题询问的是最佳切片软件，属于择优类问题，且未描述具体打印质量缺陷，属于库外"
+  },
+  "a6bb3865f55caf456f7f889ee7cb90b1": {
+    "answerable": true,
+    "reason": "用户问题描述了打印件翘边（warping and lifting off the bed）和表面熔化（looks melted），属于FDM打印质量缺陷中的附着类和表面类问题，符合知识库覆盖范围。"
+  },
+  "0094233a187b6981f2dd7ff0edc124ba": {
+    "answerable": true,
+    "reason": "用户询问的是支撑结构密度对表面质量的影响，属于FDM打印质量缺陷的参数调整范畴。"
+  },
+  "0a884eb4c65645655eba9551f153e458": {
+    "answerable": true,
+    "reason": "问题涉及回抽参数（retraction amount），属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "87a3c7aa17f4d33702f6537d6d7f89b9": {
+    "answerable": false,
+    "reason": "用户问题 '3D printing speed records' 不锚定到 FDM 打印质量，而是询问速度记录，属于索取参考资料形态，不在知识库覆盖范围内。"
+  },
+  "adbf2a89ad8ffb8a7910ef514f451dfd": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的悬垂质量，且询问冷却风扇的使用，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "fd13235137941f37f3f7fe15916d63f8": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷中的‘不挤出’现象，属于知识库覆盖范围。"
+  },
+  "33bea5b031db40cb0a4d09e464bebe4d": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs at seams），属于知识库覆盖的表面类缺陷，且涉及回抽参数调整，符合库内范围。"
+  },
+  "d00b62b9dd687cb7973c931bcbb8c655": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件在已具备良好附着的情况下仍发生脱落，属于打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "3b19488c5c97bc2e37a77a12264f6410": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（层错位和挤出机研磨 filament），属于知识库覆盖的范围。"
+  },
+  "0b6cbbc8855399df7d71caf2155d687d": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印质量缺陷（elephant foot）以及打印附着问题，属于知识库覆盖的打印质量缺陷范畴。"
+  },
+  "38c6bb9c6a972f2f4861d8eff24f55af": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（filament grinding 和 warping at the corners），属于知识库覆盖的挤出类和附着类问题。"
+  },
+  "5f595761463bb249b5775d80dbb549f1": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的桥接问题，且询问风扇速度调整，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "8b103a10d17b53d0a05d37b24caeec99": {
+    "answerable": true,
+    "reason": "用户询问的是 ABS 打印时的 build plate 温度，属于打印参数与校准范畴，且与附着类缺陷（如首层不粘床）相关，符合知识库覆盖范围。"
+  },
+  "109a409d65e3d40f1ecd00c510ee2867": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的层偏移现象，属于FDM打印质量缺陷中的层错位问题，符合知识库覆盖范围。"
+  },
+  "859af4adce0ffd77a119bc865d9e49ca": {
+    "answerable": false,
+    "reason": "问题询问的是如何扫描物体用于3D打印，属于设备使用或建模前处理流程，而非FDM打印质量缺陷或参数校准问题，因此不在知识库覆盖范围内。"
+  },
+  "70befdfc2303e7dd034f9eb4a558e85f": {
+    "answerable": false,
+    "reason": "问题询问的是如何回收使用过的丝材，不属于FDM打印质量缺陷或参数校准范畴，而是涉及材料处理与回收，属于知识库不覆盖范围。"
+  },
+  "ea2abaea28312dbc5535a9f660b197b1": {
+    "answerable": true,
+    "reason": "用户问题锚定在FDM打印质量缺陷，具体为‘corners curl’，属于附着类或翘边问题，符合知识库覆盖范围。"
+  },
+  "60f76be296a29db96465d117d75cf751": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出量过高（over extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "465bfeaf0473d8800a0fc8f85ba61a4f": {
+    "answerable": true,
+    "reason": "问题涉及打印过程中出现的翘边（warping and lifting off the bed），属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+  },
+  "8cab331372a7708d60dcd16f504e28bf": {
+    "answerable": true,
+    "reason": "用户描述了打印过程中出现的字符串和堵头问题，属于FDM打印质量缺陷中的挤出类和表面类问题，符合知识库覆盖范围。"
+  },
+  "82e07307bf137e002518c772932eb1af": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（stringing）的参数设置（retraction），属于知识库覆盖范围"
+  },
+  "ab91e7e4a38c8295191e1ad5f7b38e94": {
+    "answerable": false,
+    "reason": "问题询问的是3D打印的商业创意，而非FDM打印质量缺陷或相关参数校准"
+  },
+  "50ff7007e0d851d23456b65d3f018435": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量中的悬垂质量差（overhangs droop），属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "d710b1e40331b14226ee0b9c917c6d6a": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量缺陷，包括挤出问题和表面振纹现象，属于知识库覆盖范围。"
+  },
+  "cdf92e0bef22d67e2e1a760a2f431687": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer shift'，且涉及打印速度过快这一参数设置。"
+  },
+  "27037efd1305a3f52b5c3472215c9bf5": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的Z轴偏移问题，属于知识库覆盖的机械类根因范畴。"
+  },
+  "5d8b3c82ada7ce0c90fe2b6b0a9f1904": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'layer misalignment'，属于知识库覆盖的层错位（layer misalignment）范畴。"
+  },
+  "ab9df2a13578b30a8b7ee77c1107994d": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷'under extrusion causing gaps'，属于知识库覆盖的挤出类故障"
+  },
+  "79155fb88bb88d2d715c60b8abd46bdb": {
+    "answerable": true,
+    "reason": "问题描述的是FDM打印过程中出现的桥接失败和悬垂下垂现象，属于打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "a8db49f5f8d68173483f6e27817a4126": {
+    "answerable": true,
+    "reason": "问题涉及FDM打印质量中的桥接问题，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "685b5174754ca8f90e7c49bedd826ee5": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（gaps in walls），属于知识库覆盖的附着类和结构类问题范围。"
+  },
+  "533f0f29a428caf9bb7a08930a3dc46e": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（振动/波纹和附着力不足），属于知识库覆盖范围"
+  },
+  "c66607f1b19e6f8ae9b324cfd1f96195": {
+    "answerable": true,
+    "reason": "用户问题涉及层高对细节的影响，属于打印参数与校准范畴，且锚定到FDM打印质量缺陷"
+  },
+  "98b80b2839fdb3b8489c02ef826a9eba": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（拉丝/渗料和挤出问题），属于知识库覆盖范围。"
+  },
+  "ce604f57495516983697233244f2272b": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何清洁 PETG 打印件，属于后处理与上色装饰范畴，不在 FDM 打印质量缺陷排障手册的覆盖范围内。"
+  },
+  "c399ec8ebe237669c06ccd414c9c047c": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件底部出现弯曲（bowing）的现象，属于FDM打印质量缺陷中的‘附着类’或‘结构类’问题，符合知识库覆盖范围。"
+  },
+  "2f12fb9af7d3c95c17cab2129f16bf55": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷，包括挤出中断和悬垂质量差，均属于知识库覆盖范围。"
+  },
+  "ba13fbb7a7b13cbcb64ebc0cf90bd403": {
+    "answerable": true,
+    "reason": "用户问题涉及打印尺寸不准确，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "e450bb45df1e7d8578adec36cc81f329": {
+    "answerable": true,
+    "reason": "用户描述了打印过程中出现的层分离和 filament 紊乱现象，属于 FDM 打印质量缺陷，且涉及挤出异常和层间附着问题，符合知识库覆盖范围。"
+  },
+  "f4ece4782b6bb6e1b765d3cb0f1b7c2b": {
+    "answerable": true,
+    "reason": "用户询问的是与打印质量相关的冷却风扇设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "33edd09b03321fc6ba90a2e3b623bbe4": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现的缺陷（blobs and zits），属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+  },
+  "7a6281d33c12bc84d6572a9539f28509": {
+    "answerable": true,
+    "reason": "用户问题 'print not sticking to the bed' 锚定到 FDM 打印质量中的附着类缺陷，属于知识库覆盖范围。"
+  },
+  "243561383af9659fa331b0c51f3bf1db": {
+    "answerable": true,
+    "reason": "问题描述的是打印质量缺陷（弱层和角部翘曲），属于知识库覆盖的附着类和结构类故障范围。"
+  },
+  "0adadc7ac7866967e882cd0c444f7838": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量中的结构类缺陷，即填充强度不足，属于知识库覆盖范围。"
+  },
+  "75cde59e6b08612e411fd8e056e745bb": {
+    "answerable": false,
+    "reason": "问题询问的是FDM与SLA的对比，属于工艺科普，不属于打印质量缺陷排障范围"
+  },
+  "bf2183c732aaf5a0ffa7ad01eb41e66d": {
+    "answerable": false,
+    "reason": "问题询问的是如何用尼龙打印，属于材料使用指导，而非具体打印质量缺陷或参数校准问题，未锚定到FDM打印质量本身。"
+  },
+  "ecf225d5ab1a7fc2f0f0470cb217570d": {
+    "answerable": false,
+    "reason": "问题涉及树脂打印的切片设置，而知识库仅覆盖FDM打印质量缺陷，不包含SLA/树脂工艺"
+  },
+  "fc03e9a7e73fc95d1fd0d3f43853aa7d": {
+    "answerable": true,
+    "reason": "问题涉及层偏移（layer shift）这一打印质量缺陷，且提到jerk settings（加速度设置），属于知识库覆盖的打印参数与校准范围。"
+  },
+  "c0097b6fd33d51d217b4b9c78cfab706": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中边缘向上弯曲的现象，属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+  },
+  "b20ebc49afeb17d191690a675a72ab68": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（stringing）的参数设置（retraction distance），属于知识库覆盖范围"
+  },
+  "ec1e31c8866873e63f0775d5a0e84754": {
+    "answerable": true,
+    "reason": "用户问题涉及打印速度过高导致的振纹（ringing），属于FDM打印质量缺陷，且与打印参数（加速度）相关，符合知识库覆盖范围。"
+  },
+  "414852c5f1fa2705dafc5633f12a4955": {
+    "answerable": true,
+    "reason": "用户问题涉及防止打印过程中出现的翘边现象，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "b030f20765af68a9897759fa15669bd8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（首层不粘床且混乱），属于知识库覆盖的附着类和表面类问题。"
+  },
+  "928f0af76394e726b83f77422e95a0d2": {
+    "answerable": false,
+    "reason": "问题未锚定到FDM打印质量缺陷或参数校准，而是关于3D打印医疗植入物的广泛主题，属于库外"
+  },
+  "fb5a3fdb79b3d008c92fcadbdefadbe8": {
+    "answerable": false,
+    "reason": "用户问题询问的是如何在CAD中设计3D模型，属于CAD软件功能操作教程，不属于FDM打印质量缺陷排障范围。"
+  },
+  "ab4122ae6b46c7bd19c27b7a7be361d6": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（print looks melted），属于知识库覆盖的表面类或结构类问题范畴。"
+  },
+  "c12422aa75cfa4e8c8130597adfea189": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的首层附着问题和层间分离，属于知识库覆盖的附着类和结构类缺陷范围。"
+  },
+  "3cd78e4c52e37f7eecc71c926e687756": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的‘droopy’现象，属于FDM打印质量缺陷中的悬垂质量差问题，符合知识库覆盖范围。"
+  },
+  "ca36c41d63b9b46c6e7fd6bdbdbfbd70": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（spaghetti mess），属于知识库覆盖的表面类或挤出类问题范围。"
+  },
+  "b9d5d77c1d787711f4f5cd2b444facbc": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'print splitting along layer lines'，属于知识库覆盖的 '层分离（delamination）' 类别。"
+  },
+  "176bd6b74252d0b39b7c657790b93556": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印件角落翘起（warping），属于附着类质量缺陷，符合知识库覆盖范围。"
+  },
+  "5e320acf911a42c291d066d8178fae3a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷中的首层附着问题，属于知识库覆盖的附着类缺陷"
+  },
+  "4d2a1120079c3269f94e659045bdb368": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，具体为喷嘴堵塞导致无法挤出 filament"
+  },
+  "b182eaf832e858143706a5cbf74e3a2b": {
+    "answerable": true,
+    "reason": "用户询问的是与打印强度相关的墙数设置，属于结构类缺陷的修复方案范畴，符合知识库覆盖范围。"
+  },
+  "d8114706e8b78ff90ff4e3ba2e887e06": {
+    "answerable": true,
+    "reason": "用户问题涉及打印过程中的冷却设置，属于打印参数与校准范畴，符合知识库覆盖范围。"
+  },
+  "0b7f7a6a99b18efcfe0af33c0b3b6b0c": {
+    "answerable": false,
+    "reason": "问题询问的是如何使用碳纤维打印，属于材料使用方法，而非具体打印质量缺陷或参数校准问题，未锚定到FDM打印质量。"
+  },
+  "d7440187d7a73281a6b8ecd25bb4915a": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量中的首层附着问题，属于知识库覆盖的附着类缺陷及打印参数与校准范围。"
+  },
+  "a3c589e18eece708722a94a1a7f68b5e": {
+    "answerable": true,
+    "reason": "用户问题描述了打印表面出现疤痕和过多 filament，属于表面类和挤出类的打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "273f68a21689b5aa80318ffe3ef52977": {
+    "answerable": true,
+    "reason": "用户描述了打印中的质量缺陷（对角线疤痕和壁体间隙），属于FDM打印质量排障范围。"
+  },
+  "055920bfdba12ab7343c14bcb047ad27": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（首层不粘床、拉丝/渗料），属于知识库覆盖范围内的附着类和表面类问题。"
+  },
+  "a44b828bf65f3e1ee70c9500fd14706d": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的尺寸偏差问题，属于知识库覆盖范围"
+  },
+  "a9369959ff93248b206bff6d71afb5e4": {
+    "answerable": true,
+    "reason": "用户问题涉及打印表面波纹（surface ripples），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "bcb59ecf0c7e37f9b762766ce0c664a3": {
+    "answerable": true,
+    "reason": "问题涉及层间开裂（cracks between printed layers），属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "266cdc4f0ca72d20d0fef8585415fcc9": {
+    "answerable": false,
+    "reason": "问题属于‘择优/选购’形态，询问‘最好的3D打印机’，未提及任何已发生的打印质量问题或参数设置需求。"
+  },
+  "1dc8b59bc536aebb8b08721c5e6205d7": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印机的调平方法，而知识库覆盖范围仅限于FDM打印质量缺陷，不包括树脂打印机的调平操作。"
+  },
+  "90eabe0da69f5c65fcb25422dcaa3cc5": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷——打印件从平台脱离，属于附着类故障，知识库覆盖范围包含此类问题。"
+  },
+  "612cc32a83f5a52ed1e3de2b11065efa": {
+    "answerable": false,
+    "reason": "问题涉及DLP与SLA工艺对比，属于非FDM工艺的科普内容，不在知识库覆盖范围内"
+  },
+  "a2b511e249f0060cedd925d8cb1f7948": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷中的‘不挤出’现象，属于知识库覆盖范围。"
+  },
+  "9bc6641f3c145e44aabed83197f23858": {
+    "answerable": false,
+    "reason": "问题询问的是如何对3D打印件进行涂装，属于后处理与上色装饰，不在知识库覆盖范围内。"
+  },
+  "03da7e60f2af1e255ce249cc02ca4770": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的壁面间隙问题，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "0b31e02e8681fe182c390158293a7ec8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（under extrusion），属于知识库覆盖的挤出类问题"
+  },
+  "1471873a45a0f11e35b8aa5e41f1a8c2": {
+    "answerable": false,
+    "reason": "用户问题询问的是切片软件中支撑结构的使用方法，属于软件功能操作教程，而非打印质量缺陷或参数校准问题。"
+  },
+  "ac9d30ff48b7eb16d6b35a2a97cc20d3": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中层偏移（layers shifted horizontally）的打印质量缺陷，属于知识库覆盖的FDM打印质量排障范围。"
+  },
+  "cd56886f2b95a337df7b025e87a5c349": {
+    "answerable": true,
+    "reason": "用户问题描述了打印层间开裂和欠挤出现象，属于FDM打印质量缺陷范畴，且涉及层分离和欠挤出等知识库覆盖的缺陷类型。"
+  },
+  "f723017c07455d5fad9f2506d88d61bf": {
+    "answerable": true,
+    "reason": "问题描述的是打印过程中 filament 停止挤出和桥接失败的现象，属于 FDM 打印质量缺陷中的挤出类和几何类问题，符合知识库覆盖范围。"
+  },
+  "984e84ca4a3a9af7239482287aa8fd29": {
+    "answerable": true,
+    "reason": "问题涉及 PETG 打印时的 oozing 现象，属于 FDM 打印质量缺陷中的 'Stringing or Oozing'，且询问的是 hotend 温度参数设置，符合知识库覆盖范围。"
+  },
+  "7ece15ae670787686bf001f9a69ef69e": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（裂缝出现在高大的打印件上），属于知识库覆盖的结构类或几何类缺陷范畴。"
+  },
+  "46d6d4d57bbbb288e99925725ae51806": {
+    "answerable": true,
+    "reason": "用户询问如何解决3D打印中的拉丝问题，属于FDM打印质量缺陷的范畴，且知识库中包含相关修复方案。"
+  },
+  "33cf494b87fc1bed88275d54e896c9b1": {
+    "answerable": false,
+    "reason": "问题属于‘best filament storage solutions’，是关于材料存储的择优建议，而非已发生的打印质量缺陷或参数校准问题。"
+  },
+  "03654a9c2ea570321dd7e2da60214c16": {
+    "answerable": true,
+    "reason": "问题涉及 PLA 打印时的翘边（warping）现象，属于附着类打印质量缺陷，且询问的是加热床温度设置，属于知识库覆盖的参数与校准范围。"
+  },
+  "4e4ab6605898a70a9fa1834d43a668d6": {
+    "answerable": false,
+    "reason": "问题属于硬件更换操作，而非打印质量缺陷或参数校准"
+  },
+  "6e79b6d21b7d78daf27ece11f9f776c8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（顶部有空隙），属于知识库覆盖的表面类或结构类缺陷范畴。"
+  },
+  "bd68b0d9030e92bbf00c1063a5ae7c46": {
+    "answerable": true,
+    "reason": "问题锚定到 FDM 打印质量缺陷 'whiskers on print'，属于知识库覆盖的表面类缺陷。"
+  },
+  "6d424173ed1ea5aa212a37f9ec7bdbbc": {
+    "answerable": false,
+    "reason": "问题属于‘best X’形式，且未描述已出现的打印质量缺陷，属于库外范围"
+  },
+  "0c3925644e2943af953a7401e8966802": {
+    "answerable": true,
+    "reason": "问题涉及层分离（layer separation），属于FDM打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "6ade60a386bbff4ec99b637c11b577e0": {
+    "answerable": true,
+    "reason": "问题涉及打印质量中的首层附着问题，且询问风扇速度设置，属于知识库覆盖的打印参数与校准范围。"
+  },
+  "aec7b0f62a158729bcf2886a22b0e94d": {
+    "answerable": true,
+    "reason": "用户问题涉及层分离和分层，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "8b7b36dca8c70827296f0ef4f74cf4ad": {
+    "answerable": true,
+    "reason": "用户问题涉及打印尺寸偏差和过挤出，属于FDM打印质量缺陷的范畴，且与挤出类和结构类缺陷相关，符合知识库覆盖范围。"
+  },
+  "171379268da353a9595aa77ab1304b39": {
+    "answerable": false,
+    "reason": "问题询问的是如何实现多色打印，属于切片软件功能操作教程，而非打印质量缺陷或参数校准。"
+  },
+  "f386a62ebd521e0736db8fe873dafc56": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的‘print leans’，属于知识库覆盖的打印质量范畴。"
+  },
+  "427133971f5fb0ab1791100cef562b4b": {
+    "answerable": true,
+    "reason": "用户问题描述的是层分离现象，属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "892ccb7296884544d166159f50c1303b": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（层分离）和机械故障（喷嘴堵塞），属于知识库覆盖范围。"
+  },
+  "44e3a91261e22bd6d01264c9724191cc": {
+    "answerable": true,
+    "reason": "用户问题涉及打印件粘附到床面上的现象，属于附着类缺陷，符合知识库覆盖范围。"
+  },
+  "257008b4ae9cdaad25a479eb23ab02f4": {
+    "answerable": true,
+    "reason": "用户问题涉及过量挤出（over extrusion）导致打印表面出现blobby现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "b217bdc1e578b8df65910066c5beb06d": {
+    "answerable": false,
+    "reason": "问题询问的是SLA打印的定义，属于非FDM工艺的科普内容，不在知识库覆盖范围内。"
+  },
+  "45c991f3bc880e3e60cbfcd9602668b9": {
+    "answerable": true,
+    "reason": "用户问题涉及FDM打印质量缺陷中的桥接问题，属于知识库覆盖的打印质量缺陷范围。"
+  },
+  "3805eae7f027340925939f7f54a4f779": {
+    "answerable": false,
+    "reason": "问题询问如何通过3D打印赚钱，属于商业运营范畴，不属于FDM打印质量缺陷排障手册的覆盖范围。"
+  },
+  "f72d83ad80e23f61cded3f8191f333ed": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的首层附着问题，属于知识库覆盖的附着类缺陷"
+  },
+  "ed5038f498945167659c00b22cba8ec0": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印质量缺陷（stringing and oozing），属于知识库覆盖的表面类缺陷范围。"
+  },
+  "3f5a84dd884f1832921f324ed57074c8": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（stringing）的修复方法，属于知识库覆盖范围"
+  },
+  "0d830c106aa8fa344ed399047567640a": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现波纹（ripples），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "5fc4e613a00889543a0cf32f355347e1": {
+    "answerable": true,
+    "reason": "问题涉及打印质量缺陷（oozing）的参数设置（wipe distance），属于知识库覆盖范围内的打印参数与校准内容。"
+  },
+  "4b4dbfae3de78c1d7e9cb491231f747f": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷中的首层附着问题和桥接质量问题，属于知识库覆盖范围。"
+  },
+  "d10b8ed7190fb940daa84267cdbb78a2": {
+    "answerable": true,
+    "reason": "用户问题涉及挤出过多塑料（over-extrusion），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "f5dc51c44ff1f856ccfbe41169fd37a9": {
+    "answerable": true,
+    "reason": "用户问题涉及首层高度过高导致附着不良，属于打印质量缺陷中的附着类问题，且与层高参数相关，符合知识库覆盖范围。"
+  },
+  "eacdc3251380be9921e7eb6835559af8": {
+    "answerable": true,
+    "reason": "问题描述的是打印表面出现斑点（blobs）但没有拉丝（stringing），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+  },
+  "713682fff82472e857e546437fcd1630": {
+    "answerable": true,
+    "reason": "问题涉及3D打印质量缺陷（喷嘴堵塞和悬垂部分下垂），属于知识库覆盖范围内的挤出类和几何类问题。"
+  },
+  "db8cdb6a85efd07f3796db0080840115": {
+    "answerable": false,
+    "reason": "问题询问的是树脂打印的后处理方法，而知识库仅覆盖FDM打印质量缺陷，不包含SLA/DLP等非FDM工艺的后处理内容。"
+  },
+  "ac97f34a7f9430f181b466bad3424728": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量中的桥接问题，属于知识库覆盖的几何类缺陷。"
+  },
+  "e995d5d1e4d0621cc7c19d6c94ecebdb": {
+    "answerable": true,
+    "reason": "用户描述的 'stringy and droopy over extrusion' 属于打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "98f38eb8f1399179e36f5decf6510ef3": {
+    "answerable": true,
+    "reason": "问题描述的是打印层对齐不良的现象，属于FDM打印质量缺陷中的‘层错位’，在知识库覆盖范围内。"
+  },
+  "f4f6361d854699fb1ef80987261ad6d7": {
+    "answerable": true,
+    "reason": "问题锚定到FDM打印质量缺陷，涉及 filament snaps 的现象，属于挤出类故障"
+  },
+  "efac00c1c8f15a3f20187f3fd9d0fab2": {
+    "answerable": true,
+    "reason": "用户问题描述的是 'hairy prints with whiskers of filament'，这属于 FDM 打印质量缺陷中的 'Stringing or Oozing'（拉丝/渗料），在知识库覆盖范围内。"
+  },
+  "bf9ad37b7a4d8f6dbd84263cf776c74e": {
+    "answerable": false,
+    "reason": "问题属于择优形态，询问的是‘如何选择喷嘴材料’，而非针对已发生的打印质量问题"
+  },
+  "b57655cdee993b9ee98c5adaf99d3e18": {
+    "answerable": true,
+    "reason": "用户描述的现象属于FDM打印质量缺陷中的挤出中断和打印物变成意大利面状，属于知识库覆盖的挤出类和表面类问题。"
+  },
+  "e97cf63d7d05da7ddbe05434c5b4c1ca": {
+    "answerable": false,
+    "reason": "问题涉及树脂槽清洁，属于SLA工艺相关操作，而知识库仅覆盖FDM打印质量缺陷，不包含非FDM工艺的维护内容。"
+  },
+  "b5a6fad60d08e8c68480291fc40e08d3": {
+    "answerable": true,
+    "reason": "问题涉及打印尺寸偏差（dimensional error）和背隙补偿（backlash compensation），属于知识库覆盖的机械类根因和打印参数与校准范围。"
+  },
+  "26a450d526617e2a687d4ec3d0f630e8": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印过程中出现的‘no stringing but oozing between moves’现象，属于FDM打印质量缺陷中的‘stringing or oozing’问题，符合知识库覆盖范围。"
+  },
+  "9a77ae6df3194e746968abe2053841d5": {
+    "answerable": true,
+    "reason": "用户问题涉及 extrusion multiplier 校准，属于打印参数与校准范畴，且锚定到 FDM 打印质量缺陷的修复方案。"
+  },
+  "f4200396190da967bbb97e2f34474a73": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（blobs）及其可能原因（travel speed），属于知识库覆盖的打印参数与校准范围。"
+  },
+  "bcda86463f8bfc49d728dee294456dd0": {
+    "answerable": true,
+    "reason": "用户问题描述的是挤出机堵塞（extruder is clogged），属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+  },
+  "d451fc2fd32e4438c0b178db8cf8dd21": {
+    "answerable": false,
+    "reason": "问题属于‘best X’形式，且未描述已出现的打印质量缺陷，属于择优类问题，不在知识库覆盖范围内。"
+  },
+  "9fb9652a62a68cd535542eb350a59b30": {
+    "answerable": true,
+    "reason": "用户询问的 'elephant foot compensation' 是 FDM 打印质量缺陷（底面膨胀）的修复方法，属于知识库覆盖范围内的打印参数与校准问题。"
+  },
+  "3c1cd7a4a4dde57505dde56fe6024e56": {
+    "answerable": true,
+    "reason": "用户问题描述的是打印表面出现‘hairy’现象，属于FDM打印质量缺陷中的‘Stringing or Oozing’，符合知识库覆盖范围。"
+  },
+  "d6f2d38bdbc270fd36c44c63b07d6548": {
+    "answerable": true,
+    "reason": "问题涉及层间分层（delamination between layers），属于FDM打印质量缺陷中的结构类问题，符合知识库覆盖范围。"
+  },
+  "86b5f987d52706513ecbacb37c128fa0": {
+    "answerable": true,
+    "reason": "用户问题涉及打印质量缺陷（stringing 和 corners lift），属于知识库覆盖范围内的表面类和附着类问题。"
+  }
+}

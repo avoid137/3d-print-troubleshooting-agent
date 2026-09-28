@@ -1,0 +1,257 @@
+{
+  "rows": [
+    {
+      "query": "my print has fuzzy blobs on the surface",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述了打印表面出现模糊斑点（fuzzy blobs），属于表面类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "query": "first layer looks squished and wavy",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是首层打印质量异常（squished and wavy），属于FDM打印质量缺陷中的附着类或结构类问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "corners of my part curl up after a few layers",
+      "expect": true,
+      "got": true,
+      "reason": "用户描述的现象是打印件角落翘起，属于附着类缺陷中的翘边或边角翘起，属于知识库覆盖范围。"
+    },
+    {
+      "query": "there are gaps between walls on the top surface",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是打印质量缺陷（gaps between walls on the top surface），属于知识库覆盖的结构类或表面类缺陷范围。"
+    },
+    {
+      "query": "my print is weak and snaps easily along layer lines",
+      "expect": true,
+      "got": true,
+      "reason": "用户描述的打印件强度弱且沿层线断裂，属于结构类缺陷中的强度不足，属于知识库覆盖范围。"
+    },
+    {
+      "query": "the top of my overhang droops badly",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是FDM打印过程中出现的悬垂质量差现象，属于知识库覆盖的打印质量缺陷范围。"
+    },
+    {
+      "query": "extruder clicking and gaps in the print",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述了打印过程中出现的挤出异常（extruder clicking）和结构缺陷（gaps in the print），属于FDM打印质量缺陷范畴，符合知识库覆盖范围。"
+    },
+    {
+      "query": "elephant foot on the bottom of my prints",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题涉及FDM打印质量缺陷中的'elephant foot'现象，属于知识库覆盖的打印质量缺陷范围。"
+    },
+    {
+      "query": "one side of my print is rough like sandpaper",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是打印表面粗糙的问题，属于FDM打印质量缺陷中的表面类问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "supports are fusing to the part and hard to remove",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是支撑结构与零件融合且难以移除，属于打印质量缺陷中的支撑相关问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "what flow rate should I use for matte PLA",
+      "expect": true,
+      "got": true,
+      "reason": "问题询问的是打印参数（flow rate）的设置，属于知识库覆盖范围内的打印参数与校准内容。"
+    },
+    {
+      "query": "how much part cooling fan for PLA bridges",
+      "expect": true,
+      "got": true,
+      "reason": "问题涉及打印参数（part cooling fan）与FDM打印质量缺陷（bridges）相关，属于知识库覆盖范围"
+    },
+    {
+      "query": "retraction settings to reduce stringing on a direct drive",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定在FDM打印质量缺陷（stringing），并询问回抽设置以解决该问题，属于知识库覆盖范围。"
+    },
+    {
+      "query": "my temperature tower looks best at 205, what should I change",
+      "expect": true,
+      "got": true,
+      "reason": "用户询问的是打印温度设置问题，属于打印参数与校准的覆盖范围。"
+    },
+    {
+      "query": "z hop height to avoid knocking over tall parts",
+      "expect": true,
+      "got": true,
+      "reason": "问题涉及打印质量中的悬垂结构问题，且询问的是通过调整Z-hop高度来避免 tall parts 被撞倒，属于打印参数与校准的范畴。"
+    },
+    {
+      "query": "should I lower acceleration to reduce ghosting",
+      "expect": true,
+      "got": true,
+      "reason": "问题涉及打印质量缺陷（ghosting）的参数调整，属于知识库覆盖范围"
+    },
+    {
+      "query": "could loose belts cause shifted layers",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定到FDM打印质量缺陷中的层错位（layer shifting），属于知识库覆盖范围"
+    },
+    {
+      "query": "z rod wobble causing banding on the walls",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印过程中因Z轴杆晃动导致壁面出现条纹，属于打印质量缺陷中的机械类根因问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "no clog but extrusion keeps stopping mid print",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定到FDM打印质量缺陷，具体为挤出中断现象，属于知识库覆盖的挤出类故障"
+    },
+    {
+      "query": "warping is fine, it is the layer adhesion that fails",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题明确指向打印质量中的层间附着力失败（layer adhesion），属于知识库覆盖的缺陷类别。"
+    },
+    {
+      "query": "which budget printer is best for beginners",
+      "expect": false,
+      "got": false,
+      "reason": "问题属于‘择优/选购’形态，询问的是‘哪个打印机适合初学者’，而非具体打印质量缺陷或参数设置"
+    },
+    {
+      "query": "should I buy a glass bed or a PEI sheet",
+      "expect": false,
+      "got": false,
+      "reason": "问题属于择优类（best X）且未描述已出现的缺陷现象"
+    },
+    {
+      "query": "what filament brand has the most consistent diameter",
+      "expect": false,
+      "got": false,
+      "reason": "问题属于‘择优’形态，询问哪个品牌 filament 的直径最一致，未描述已出现的打印质量问题"
+    },
+    {
+      "query": "how do I rotate a model in Cura",
+      "expect": false,
+      "got": false,
+      "reason": "用户询问的是如何在 Cura 中旋转模型，属于软件功能操作教程，而非打印质量缺陷或参数校准问题。"
+    },
+    {
+      "query": "how to install a slicer plugin",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是如何安装切片器插件，属于切片软件的功能操作教程，不属于FDM打印质量缺陷的排障范围。"
+    },
+    {
+      "query": "where is the settings menu in PrusaSlicer",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是 PrusaSlicer 软件的界面位置，属于切片软件的功能操作教程，而非打印质量缺陷或参数设置问题。"
+    },
+    {
+      "query": "3D printing glossary of terms",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “glossary”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "beginner tutorial for FDM printing",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “tutorial”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "dimensional tolerance chart for FDM",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “chart”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "how to replace the hotend on my Ender 3",
+      "expect": false,
+      "got": false,
+      "reason": "用户询问的是如何更换热端，属于硬件改装操作，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+    },
+    {
+      "query": "which firmware should I flash on my printer",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问应刷哪种固件，属于设备固件选择，不属于FDM打印质量缺陷排障范围"
+    },
+    {
+      "query": "wiring the bltouch sensor to the board",
+      "expect": false,
+      "got": false,
+      "reason": "问题涉及的是BLTouch传感器的接线，属于硬件接线与固件范畴，不属于FDM打印质量缺陷或参数校准范围"
+    },
+    {
+      "query": "cleaning the resin tank after a failed print",
+      "expect": false,
+      "got": false,
+      "reason": "问题涉及清洗树脂槽，属于非FDM工艺的后处理操作，不在知识库覆盖范围内。"
+    },
+    {
+      "query": "what is DLP printing used for",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是DLP打印的用途，属于非FDM工艺的科普内容，不在知识库覆盖范围内。"
+    },
+    {
+      "query": "how to cure resin prints with UV light",
+      "expect": false,
+      "got": false,
+      "reason": "问题涉及使用UV光固化树脂打印，属于SLA工艺，不在FDM打印质量缺陷排障手册范围内"
+    },
+    {
+      "query": "history of 3D printing technology",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是3D打印技术的历史，不属于FDM打印质量缺陷或相关参数校准的范围"
+    },
+    {
+      "query": "how does FDM printing work in general",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是FDM打印的一般工作原理，不属于具体打印质量缺陷或参数校准的排障范畴，而是属于工艺科普，因此不在知识库覆盖范围内。"
+    },
+    {
+      "query": "how to start a 3D printing service business",
+      "expect": false,
+      "got": false,
+      "reason": "用户问题询问如何启动3D打印服务业务，属于商业运营范畴，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+    },
+    {
+      "query": "how to sand and prime a print for painting",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是打印后的处理步骤（打磨和涂底漆），不属于FDM打印质量缺陷的排障范围，而是后处理环节，因此库外。"
+    },
+    {
+      "query": "is 3D printed plastic recyclable at home",
+      "expect": false,
+      "got": false,
+      "reason": "问题不涉及FDM打印质量缺陷或参数校准，而是询问3D打印塑料是否可在家回收，属于材料处理与环保范畴，不在知识库覆盖范围内。"
+    }
+  ],
+  "set": 1,
+  "prompt_version": "v8",
+  "judge_model": "qwen-turbo",
+  "n": 40,
+  "accuracy": 1.0,
+  "in_scope_total": 20,
+  "in_scope_passed": 20,
+  "in_scope_false_reject": 0.0,
+  "out_scope_total": 20,
+  "out_scope_rejected": 20,
+  "out_scope_leak": 0.0,
+  "false_rejects": [],
+  "leaks": []
+}

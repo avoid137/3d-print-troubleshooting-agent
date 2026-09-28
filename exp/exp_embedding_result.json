@@ -1,0 +1,21 @@
+{
+  "method": "dashscope_text_embedding_v3",
+  "vector_only_recall_at_5": 0.7,
+  "cat_recall": {
+    "param_compensation": 0.775,
+    "ambiguous": 0.625,
+    "single_defect": 0.66,
+    "multi_defect": 0.7667
+  },
+  "pos_top1": {
+    "mean": 0.7088,
+    "min": 0.5638
+  },
+  "neg_top1": {
+    "mean": 0.6376,
+    "max": 0.7502
+  },
+  "reject_best_threshold": 0.6865,
+  "reject_precision": 0.382,
+  "reject_recall": 0.85
+}

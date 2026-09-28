@@ -1,0 +1,161 @@
+{
+  "rows": [
+    {
+      "query": "layers are separating when I bend the part",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定到 FDM 打印质量缺陷 'layers are separating when I bend the part'，属于层分离（delamination）的范畴，符合知识库覆盖范围。"
+    },
+    {
+      "query": "thin strings webbing between the towers",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印过程中出现的细丝（thin strings webbing between the towers），属于FDM打印质量缺陷中的‘拉丝/渗料’类别，符合知识库覆盖范围。"
+    },
+    {
+      "query": "the nozzle drags and leaves marks on the top layer",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印质量缺陷（nozzle drags and leaves marks on the top layer），属于表面类缺陷，且涉及打印参数与校准的可能原因，符合知识库覆盖范围。"
+    },
+    {
+      "query": "the print warps only on the front edge near the fan",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印件在风扇附近出现翘边（warping），属于附着类打印质量缺陷，符合知识库覆盖范围。"
+    },
+    {
+      "query": "my extrusion looks uneven, some lines come out thin",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是打印过程中出现的挤出不均现象，属于FDM打印质量缺陷中的挤出类问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "small features come out melty and deformed",
+      "expect": true,
+      "got": true,
+      "reason": "用户问题描述的是打印质量缺陷（small features come out melty and deformed），属于知识库覆盖的表面类或结构类缺陷范围。"
+    },
+    {
+      "query": "the seam line is very visible on a round object",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印件表面的可见接缝线（seam line），属于表面类缺陷，且与层错位或Z-seam相关，符合知识库覆盖范围。"
+    },
+    {
+      "query": "bridges sag in the middle",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印过程中出现的桥接下垂现象，属于FDM打印质量缺陷中的‘几何类’问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "should I reduce layer height to get finer detail",
+      "expect": true,
+      "got": true,
+      "reason": "用户询问是否应降低层高以获得更精细的细节，属于打印参数与校准范畴，且锚定到FDM打印质量。"
+    },
+    {
+      "query": "what bed temperature stops ABS from lifting",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定到FDM打印质量缺陷（ABS零件翘边）的温度设置，属于知识库覆盖范围"
+    },
+    {
+      "query": "could a loose extruder gear cause under extrusion",
+      "expect": true,
+      "got": true,
+      "reason": "问题锚定到FDM打印质量缺陷中的挤出类问题，即under extrusion，属于知识库覆盖范围。"
+    },
+    {
+      "query": "the print starts curling after about 20 layers",
+      "expect": true,
+      "got": true,
+      "reason": "问题描述的是打印过程中出现的翘边现象，属于FDM打印质量缺陷中的附着类问题，符合知识库覆盖范围。"
+    },
+    {
+      "query": "which slicer is the most popular",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是切片软件的流行程度，属于择优类问题，且未描述任何已发生的打印质量缺陷"
+    },
+    {
+      "query": "how to add a camera to octoprint",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是如何为OctoPrint添加摄像头，属于软件功能操作或硬件改装范畴，而非FDM打印质量缺陷或参数校准问题。"
+    },
+    {
+      "query": "FDM vs SLS comparison table",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “comparison table”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "PLA material properties datasheet",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “datasheet”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "how to design snap fit joints",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是如何设计 snap fit joints，属于 CAD 设计或产品设计范畴，而非 FDM 打印质量缺陷或参数校准问题。"
+    },
+    {
+      "query": "upgrading to a direct drive extruder",
+      "expect": false,
+      "got": false,
+      "reason": "问题涉及升级直接驱动挤出机，属于硬件改装，不在FDM打印质量缺陷排障手册的覆盖范围内。"
+    },
+    {
+      "query": "how to sell my 3D printed models online",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问如何在线销售3D打印模型，不属于FDM打印质量缺陷或参数校准范畴，而是关于商业运营和销售渠道的问题。"
+    },
+    {
+      "query": "nozzle size comparison chart",
+      "expect": false,
+      "got": false,
+      "reason": "[预过滤] 问题在索取资料/指南/标准数据（命中 “chart”），知识库是排障手册、不含此类内容"
+    },
+    {
+      "query": "what is the strongest infill pattern",
+      "expect": false,
+      "got": false,
+      "reason": "问题属于择优类，询问的是最佳填充模式，而非具体打印质量缺陷的修复方案"
+    },
+    {
+      "query": "how to dry filament in an oven",
+      "expect": false,
+      "got": false,
+      "reason": "用户问题询问的是如何在烤箱中干燥丝材，属于材料存储与处理范畴，而非FDM打印质量缺陷或参数校准问题，因此不在知识库覆盖范围内。"
+    },
+    {
+      "query": "best 3D scanner under 500 dollars",
+      "expect": false,
+      "got": false,
+      "reason": "问题属于‘best X’类型，且未描述已出现的打印质量缺陷，属于库外"
+    },
+    {
+      "query": "how to install klipper firmware",
+      "expect": false,
+      "got": false,
+      "reason": "问题询问的是安装 Klipper 固件的方法，属于固件安装和配置，不属于 FDM 打印质量缺陷或参数校准的范畴。"
+    }
+  ],
+  "set": 2,
+  "prompt_version": "v8",
+  "judge_model": "qwen-turbo",
+  "n": 24,
+  "accuracy": 1.0,
+  "in_scope_total": 12,
+  "in_scope_passed": 12,
+  "in_scope_false_reject": 0.0,
+  "out_scope_total": 12,
+  "out_scope_rejected": 12,
+  "out_scope_leak": 0.0,
+  "false_rejects": [],
+  "leaks": []
+}

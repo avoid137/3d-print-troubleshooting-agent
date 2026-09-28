@@ -10,7 +10,10 @@ from config import (
     DASHSCOPE_API_KEY, EMBED_MODEL,
 )
 from bm25_index import load_bm25, query_bm25
-from vector_index import load_vector_index, load_fitted_embedder, _tfidf_svd_embed
+from vector_index import (
+    load_vector_index, load_fitted_embedder, _tfidf_svd_embed,
+    assert_backend_consistent,
+)
 
 RRF_K = 60  # RRF 常数，业界常用 60
 
@@ -29,6 +32,7 @@ def _embed_query(query, use_dashscope=None):
         dashscope.api_key = DASHSCOPE_API_KEY
         resp = TextEmbedding.call(
             model=EMBED_MODEL, input=query, text_type="query",
+            dimension=EMBED_DIM,
         )
         if resp.status_code != 200:
             raise RuntimeError(f"embedding error: {resp.code} {resp.message}")
@@ -47,18 +51,28 @@ class HybridRetriever:
             self.chunks = json.load(f)
         self.bm25 = load_bm25()
         self.vector_index, self.vector_meta = load_vector_index()
+        # 启动即校验：索引的 embedding 方法与查询侧后端必须一致，
+        # 否则维度相同会静默返回错误相似度（详见 vector_index.assert_backend_consistent）
+        self.embed_method = assert_backend_consistent(self.vector_meta)
 
     def retrieve(self, query, top_k=TOP_K, bm25_weight=BM25_WEIGHT,
                  vector_weight=VECTOR_WEIGHT):
-        # 1. BM25 路：取 top-50 候选
+        # 1. BM25 路：取 top-50 候选（同时保留原始分，供拒答判断用）
         bm25_top = query_bm25(self.bm25, query, top_k=50)
-        bm25_rank = {idx: r for r, (idx, _) in enumerate(bm25_top)}
+        bm25_rank, bm25_raw = {}, {}
+        for r, (idx, sc) in enumerate(bm25_top):
+            bm25_rank[idx] = r
+            bm25_raw[idx] = float(sc)
 
-        # 2. 向量路：取 top-50 候选
+        # 2. 向量路：取 top-50 候选（同时保留余弦相似度）
         qvec = _embed_query(query)
         scores, indices = self.vector_index.search(
             qvec.reshape(1, -1), 50)
-        vec_rank = {int(idx): r for r, idx in enumerate(indices[0])}
+        vec_rank, vec_raw = {}, {}
+        for r, idx in enumerate(indices[0]):
+            idx = int(idx)
+            vec_rank[idx] = r
+            vec_raw[idx] = float(scores[0][r])
 
         # 3. RRF 加权融合
         all_idx = set(bm25_rank) | set(vec_rank)
@@ -72,6 +86,9 @@ class HybridRetriever:
             fused[idx] = s
 
         # 4. 排序取 top_k
+        #
+        # ⚠️ score 是 RRF 融合分，**只反映排名、不反映相似度**（top-1 恒为常数），
+        #    因此**不能用来做拒答阈值**。拒答请用 bm25_score / cosine 原始分。
         ranked = sorted(fused.items(), key=lambda x: x[1], reverse=True)[:top_k]
         results = []
         for idx, score in ranked:
@@ -82,6 +99,8 @@ class HybridRetriever:
                 "problem": c["problem"],
                 "type": c["type"],
                 "score": round(score, 6),
+                "bm25_score": round(bm25_raw.get(idx, 0.0), 4),
+                "cosine": round(vec_raw.get(idx, -1.0), 4),
                 "text": c["text"][:200],
             })
         return results
