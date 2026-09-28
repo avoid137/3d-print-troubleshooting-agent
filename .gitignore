@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 虚拟环境（不提交）
+# 项目使用独立 venv: D:/envs/printagent
+
+# 生成的索引文件（可由代码重建，体积大）
+data/*.pkl
+data/*.bin
+
+# 但保留知识库和评测集（核心资产）
+!data/kb_v1.json
+!data/kb_v2.json
+!data/chunks.json
+!data/eval_set.json
+!data/mapping.md
+!data/dataset_cards.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时文件
+_tmp_*.py
+*.log

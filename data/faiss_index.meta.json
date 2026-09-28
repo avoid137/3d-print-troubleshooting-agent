@@ -1,0 +1,1857 @@
+[
+  {
+    "chunk_id": "KB001_p",
+    "kb_id": "KB001",
+    "problem": "Not Extruding at Start of Print"
+  },
+  {
+    "chunk_id": "KB001_c0",
+    "kb_id": "KB001",
+    "problem": "Not Extruding at Start of Print"
+  },
+  {
+    "chunk_id": "KB001_c1",
+    "kb_id": "KB001",
+    "problem": "Not Extruding at Start of Print"
+  },
+  {
+    "chunk_id": "KB001_c2",
+    "kb_id": "KB001",
+    "problem": "Not Extruding at Start of Print"
+  },
+  {
+    "chunk_id": "KB001_c3",
+    "kb_id": "KB001",
+    "problem": "Not Extruding at Start of Print"
+  },
+  {
+    "chunk_id": "KB002_p",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c0",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c1",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c2",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c3",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c4",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c5",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c6",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c7",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c8",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c9",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c10",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c11",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c12",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c13",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c14",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c15",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c16",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB002_c17",
+    "kb_id": "KB002",
+    "problem": "Not Sticking to the Bed"
+  },
+  {
+    "chunk_id": "KB003_p",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c0",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c1",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c2",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c3",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c4",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c5",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c6",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c7",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c8",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c9",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c10",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c11",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB003_c12",
+    "kb_id": "KB003",
+    "problem": "Under-Extrusion"
+  },
+  {
+    "chunk_id": "KB004_p",
+    "kb_id": "KB004",
+    "problem": "Over-Extrusion"
+  },
+  {
+    "chunk_id": "KB004_c0",
+    "kb_id": "KB004",
+    "problem": "Over-Extrusion"
+  },
+  {
+    "chunk_id": "KB004_c1",
+    "kb_id": "KB004",
+    "problem": "Over-Extrusion"
+  },
+  {
+    "chunk_id": "KB005_p",
+    "kb_id": "KB005",
+    "problem": "Gaps in Top Layers"
+  },
+  {
+    "chunk_id": "KB005_c0",
+    "kb_id": "KB005",
+    "problem": "Gaps in Top Layers"
+  },
+  {
+    "chunk_id": "KB005_c1",
+    "kb_id": "KB005",
+    "problem": "Gaps in Top Layers"
+  },
+  {
+    "chunk_id": "KB005_c2",
+    "kb_id": "KB005",
+    "problem": "Gaps in Top Layers"
+  },
+  {
+    "chunk_id": "KB006_p",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c0",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c1",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c2",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c3",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c4",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c5",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c6",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c7",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c8",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c9",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c10",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB006_c11",
+    "kb_id": "KB006",
+    "problem": "Stringing or Oozing"
+  },
+  {
+    "chunk_id": "KB007_p",
+    "kb_id": "KB007",
+    "problem": "Overheating"
+  },
+  {
+    "chunk_id": "KB007_c0",
+    "kb_id": "KB007",
+    "problem": "Overheating"
+  },
+  {
+    "chunk_id": "KB007_c1",
+    "kb_id": "KB007",
+    "problem": "Overheating"
+  },
+  {
+    "chunk_id": "KB007_c2",
+    "kb_id": "KB007",
+    "problem": "Overheating"
+  },
+  {
+    "chunk_id": "KB007_c3",
+    "kb_id": "KB007",
+    "problem": "Overheating"
+  },
+  {
+    "chunk_id": "KB008_p",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c0",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c1",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c2",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c3",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c4",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c5",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB008_c6",
+    "kb_id": "KB008",
+    "problem": "Layer Shifting"
+  },
+  {
+    "chunk_id": "KB009_p",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c0",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c1",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c2",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c3",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c4",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c5",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c6",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB009_c7",
+    "kb_id": "KB009",
+    "problem": "Layer Separation and Splitting"
+  },
+  {
+    "chunk_id": "KB010_p",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c0",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c1",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c2",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c3",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c4",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c5",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c6",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB010_c7",
+    "kb_id": "KB010",
+    "problem": "Grinding Filament"
+  },
+  {
+    "chunk_id": "KB011_p",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c0",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c1",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c2",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c3",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c4",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB011_c5",
+    "kb_id": "KB011",
+    "problem": "Clogged Extruder"
+  },
+  {
+    "chunk_id": "KB012_p",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c0",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c1",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c2",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c3",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c4",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c5",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c6",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB012_c7",
+    "kb_id": "KB012",
+    "problem": "Stops Extruding Mid Print"
+  },
+  {
+    "chunk_id": "KB013_p",
+    "kb_id": "KB013",
+    "problem": "Weak Infill"
+  },
+  {
+    "chunk_id": "KB013_c0",
+    "kb_id": "KB013",
+    "problem": "Weak Infill"
+  },
+  {
+    "chunk_id": "KB013_c1",
+    "kb_id": "KB013",
+    "problem": "Weak Infill"
+  },
+  {
+    "chunk_id": "KB013_c2",
+    "kb_id": "KB013",
+    "problem": "Weak Infill"
+  },
+  {
+    "chunk_id": "KB014_p",
+    "kb_id": "KB014",
+    "problem": "Blobs and Zits"
+  },
+  {
+    "chunk_id": "KB014_c0",
+    "kb_id": "KB014",
+    "problem": "Blobs and Zits"
+  },
+  {
+    "chunk_id": "KB014_c1",
+    "kb_id": "KB014",
+    "problem": "Blobs and Zits"
+  },
+  {
+    "chunk_id": "KB014_c2",
+    "kb_id": "KB014",
+    "problem": "Blobs and Zits"
+  },
+  {
+    "chunk_id": "KB014_c3",
+    "kb_id": "KB014",
+    "problem": "Blobs and Zits"
+  },
+  {
+    "chunk_id": "KB015_p",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c0",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c1",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c2",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c3",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c4",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB015_c5",
+    "kb_id": "KB015",
+    "problem": "Gaps Between Infill and Outline"
+  },
+  {
+    "chunk_id": "KB016_p",
+    "kb_id": "KB016",
+    "problem": "Curling or Rough Corners"
+  },
+  {
+    "chunk_id": "KB017_p",
+    "kb_id": "KB017",
+    "problem": "Scars on Top Surface"
+  },
+  {
+    "chunk_id": "KB017_c0",
+    "kb_id": "KB017",
+    "problem": "Scars on Top Surface"
+  },
+  {
+    "chunk_id": "KB017_c1",
+    "kb_id": "KB017",
+    "problem": "Scars on Top Surface"
+  },
+  {
+    "chunk_id": "KB018_p",
+    "kb_id": "KB018",
+    "problem": "Gaps in Floor Corners"
+  },
+  {
+    "chunk_id": "KB018_c0",
+    "kb_id": "KB018",
+    "problem": "Gaps in Floor Corners"
+  },
+  {
+    "chunk_id": "KB018_c1",
+    "kb_id": "KB018",
+    "problem": "Gaps in Floor Corners"
+  },
+  {
+    "chunk_id": "KB018_c2",
+    "kb_id": "KB018",
+    "problem": "Gaps in Floor Corners"
+  },
+  {
+    "chunk_id": "KB019_p",
+    "kb_id": "KB019",
+    "problem": "Lines on the Side of Print"
+  },
+  {
+    "chunk_id": "KB019_c0",
+    "kb_id": "KB019",
+    "problem": "Lines on the Side of Print"
+  },
+  {
+    "chunk_id": "KB019_c1",
+    "kb_id": "KB019",
+    "problem": "Lines on the Side of Print"
+  },
+  {
+    "chunk_id": "KB019_c2",
+    "kb_id": "KB019",
+    "problem": "Lines on the Side of Print"
+  },
+  {
+    "chunk_id": "KB020_p",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c0",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c1",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c2",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c3",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c4",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c5",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c6",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c7",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB020_c8",
+    "kb_id": "KB020",
+    "problem": "Vibrations and Ringing"
+  },
+  {
+    "chunk_id": "KB021_p",
+    "kb_id": "KB021",
+    "problem": "Gaps in Thin Walls"
+  },
+  {
+    "chunk_id": "KB021_c0",
+    "kb_id": "KB021",
+    "problem": "Gaps in Thin Walls"
+  },
+  {
+    "chunk_id": "KB021_c1",
+    "kb_id": "KB021",
+    "problem": "Gaps in Thin Walls"
+  },
+  {
+    "chunk_id": "KB022_p",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c0",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c1",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c2",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c3",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c4",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c5",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c6",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c7",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c8",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c9",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c10",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c11",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB022_c12",
+    "kb_id": "KB022",
+    "problem": "Small Features Not Printed"
+  },
+  {
+    "chunk_id": "KB023_p",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c0",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c1",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c2",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c3",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c4",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB023_c5",
+    "kb_id": "KB023",
+    "problem": "Inconsistent Extrusion"
+  },
+  {
+    "chunk_id": "KB024_p",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c0",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c1",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c2",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c3",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c4",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c5",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c6",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c7",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c8",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c9",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB024_c10",
+    "kb_id": "KB024",
+    "problem": "Warping"
+  },
+  {
+    "chunk_id": "KB025_p",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c0",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c1",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c2",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c3",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c4",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c5",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c6",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c7",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c8",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c9",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB025_c10",
+    "kb_id": "KB025",
+    "problem": "Poor Surface Above Supports"
+  },
+  {
+    "chunk_id": "KB026_p",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c0",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c1",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c2",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c3",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c4",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c5",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c6",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c7",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c8",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c9",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB026_c10",
+    "kb_id": "KB026",
+    "problem": "Dimensional Accuracy"
+  },
+  {
+    "chunk_id": "KB027_p",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c0",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c1",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c2",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c3",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c4",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c5",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c6",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c7",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB027_c8",
+    "kb_id": "KB027",
+    "problem": "Poor Bridging"
+  },
+  {
+    "chunk_id": "KB028_p",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c0",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c1",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c2",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c3",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c4",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c5",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c6",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c7",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c8",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c9",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c10",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c11",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB028_c12",
+    "kb_id": "KB028",
+    "problem": "First Layer Issues"
+  },
+  {
+    "chunk_id": "KB031_p",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c0",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c1",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c2",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c3",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c4",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB031_c5",
+    "kb_id": "KB031",
+    "problem": "Watertight Prints"
+  },
+  {
+    "chunk_id": "KB033_p",
+    "kb_id": "KB033",
+    "problem": "Scratches/bubbles on prints"
+  },
+  {
+    "chunk_id": "KB033_c0",
+    "kb_id": "KB033",
+    "problem": "Scratches/bubbles on prints"
+  },
+  {
+    "chunk_id": "KB033_c1",
+    "kb_id": "KB033",
+    "problem": "Scratches/bubbles on prints"
+  },
+  {
+    "chunk_id": "KB033_c2",
+    "kb_id": "KB033",
+    "problem": "Scratches/bubbles on prints"
+  },
+  {
+    "chunk_id": "KB033_c3",
+    "kb_id": "KB033",
+    "problem": "Scratches/bubbles on prints"
+  },
+  {
+    "chunk_id": "KB034_p",
+    "kb_id": "KB034",
+    "problem": "Out of Filament"
+  },
+  {
+    "chunk_id": "KB034_c0",
+    "kb_id": "KB034",
+    "problem": "Out of Filament"
+  },
+  {
+    "chunk_id": "KB035_p",
+    "kb_id": "KB035",
+    "problem": "Nozzle Too Close to Print Bed"
+  },
+  {
+    "chunk_id": "KB035_c0",
+    "kb_id": "KB035",
+    "problem": "Nozzle Too Close to Print Bed"
+  },
+  {
+    "chunk_id": "KB035_c1",
+    "kb_id": "KB035",
+    "problem": "Nozzle Too Close to Print Bed"
+  },
+  {
+    "chunk_id": "KB037_p",
+    "kb_id": "KB037",
+    "problem": "Print Head Misses the Bed"
+  },
+  {
+    "chunk_id": "KB037_c0",
+    "kb_id": "KB037",
+    "problem": "Print Head Misses the Bed"
+  },
+  {
+    "chunk_id": "KB037_c1",
+    "kb_id": "KB037",
+    "problem": "Print Head Misses the Bed"
+  },
+  {
+    "chunk_id": "KB037_c2",
+    "kb_id": "KB037",
+    "problem": "Print Head Misses the Bed"
+  },
+  {
+    "chunk_id": "KB038_p",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB038_c0",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB038_c1",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB038_c2",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB038_c3",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB038_c4",
+    "kb_id": "KB038",
+    "problem": "Snapped Filament"
+  },
+  {
+    "chunk_id": "KB042_p",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c0",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c1",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c2",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c3",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c4",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB042_c5",
+    "kb_id": "KB042",
+    "problem": "Supports Fell Apart"
+  },
+  {
+    "chunk_id": "KB044_p",
+    "kb_id": "KB044",
+    "problem": "Print Bows Out at Bottom (Elephant's Foot)"
+  },
+  {
+    "chunk_id": "KB044_c0",
+    "kb_id": "KB044",
+    "problem": "Print Bows Out at Bottom (Elephant's Foot)"
+  },
+  {
+    "chunk_id": "KB044_c1",
+    "kb_id": "KB044",
+    "problem": "Print Bows Out at Bottom (Elephant's Foot)"
+  },
+  {
+    "chunk_id": "KB044_c2",
+    "kb_id": "KB044",
+    "problem": "Print Bows Out at Bottom (Elephant's Foot)"
+  },
+  {
+    "chunk_id": "KB044_c3",
+    "kb_id": "KB044",
+    "problem": "Print Bows Out at Bottom (Elephant's Foot)"
+  },
+  {
+    "chunk_id": "KB046_p",
+    "kb_id": "KB046",
+    "problem": "Infill Looks Messy and Incomplete"
+  },
+  {
+    "chunk_id": "KB046_c0",
+    "kb_id": "KB046",
+    "problem": "Infill Looks Messy and Incomplete"
+  },
+  {
+    "chunk_id": "KB046_c1",
+    "kb_id": "KB046",
+    "problem": "Infill Looks Messy and Incomplete"
+  },
+  {
+    "chunk_id": "KB046_c2",
+    "kb_id": "KB046",
+    "problem": "Infill Looks Messy and Incomplete"
+  },
+  {
+    "chunk_id": "KB046_c3",
+    "kb_id": "KB046",
+    "problem": "Infill Looks Messy and Incomplete"
+  },
+  {
+    "chunk_id": "KB048_p",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB048_c0",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB048_c1",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB048_c2",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB048_c3",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB048_c4",
+    "kb_id": "KB048",
+    "problem": "Infill is Visible from the Outside"
+  },
+  {
+    "chunk_id": "KB049_p",
+    "kb_id": "KB049",
+    "problem": "Cracks Have Appeared in Tall Objects"
+  },
+  {
+    "chunk_id": "KB049_c0",
+    "kb_id": "KB049",
+    "problem": "Cracks Have Appeared in Tall Objects"
+  },
+  {
+    "chunk_id": "KB049_c1",
+    "kb_id": "KB049",
+    "problem": "Cracks Have Appeared in Tall Objects"
+  },
+  {
+    "chunk_id": "KB050_p",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c0",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c1",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c2",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c3",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c4",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB050_c5",
+    "kb_id": "KB050",
+    "problem": "Layers Don't Line Up Well"
+  },
+  {
+    "chunk_id": "KB051_p",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB051_c0",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB051_c1",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB051_c2",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB051_c3",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB051_c4",
+    "kb_id": "KB051",
+    "problem": "Some Layers are Missing"
+  },
+  {
+    "chunk_id": "KB052_p",
+    "kb_id": "KB052",
+    "problem": "Print Leans When it Shouldn't"
+  },
+  {
+    "chunk_id": "KB052_c0",
+    "kb_id": "KB052",
+    "problem": "Print Leans When it Shouldn't"
+  },
+  {
+    "chunk_id": "KB052_c1",
+    "kb_id": "KB052",
+    "problem": "Print Leans When it Shouldn't"
+  },
+  {
+    "chunk_id": "KB052_c2",
+    "kb_id": "KB052",
+    "problem": "Print Leans When it Shouldn't"
+  },
+  {
+    "chunk_id": "KB052_c3",
+    "kb_id": "KB052",
+    "problem": "Print Leans When it Shouldn't"
+  },
+  {
+    "chunk_id": "KB053_p",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB053_c0",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB053_c1",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB053_c2",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB053_c3",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB053_c4",
+    "kb_id": "KB053",
+    "problem": "Overhangs are Messy"
+  },
+  {
+    "chunk_id": "KB055_p",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c0",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c1",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c2",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c3",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c4",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB055_c5",
+    "kb_id": "KB055",
+    "problem": "Print is Unusually Weak/Looks Wrong (Non-Manifold Edges)"
+  },
+  {
+    "chunk_id": "KB058_p",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB058_c0",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB058_c1",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB058_c2",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB058_c3",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB058_c4",
+    "kb_id": "KB058",
+    "problem": "Diagonal Scars on Print"
+  },
+  {
+    "chunk_id": "KB061_p",
+    "kb_id": "KB061",
+    "problem": "Print Looks Melted and Deformed"
+  },
+  {
+    "chunk_id": "KB061_c0",
+    "kb_id": "KB061",
+    "problem": "Print Looks Melted and Deformed"
+  },
+  {
+    "chunk_id": "KB061_c1",
+    "kb_id": "KB061",
+    "problem": "Print Looks Melted and Deformed"
+  },
+  {
+    "chunk_id": "KB061_c2",
+    "kb_id": "KB061",
+    "problem": "Print Looks Melted and Deformed"
+  },
+  {
+    "chunk_id": "KB061_c3",
+    "kb_id": "KB061",
+    "problem": "Print Looks Melted and Deformed"
+  },
+  {
+    "chunk_id": "KB062_p",
+    "kb_id": "KB062",
+    "problem": "Pits and Hollows in Top Layer (Pillowing)"
+  },
+  {
+    "chunk_id": "KB062_c0",
+    "kb_id": "KB062",
+    "problem": "Pits and Hollows in Top Layer (Pillowing)"
+  },
+  {
+    "chunk_id": "KB062_c1",
+    "kb_id": "KB062",
+    "problem": "Pits and Hollows in Top Layer (Pillowing)"
+  },
+  {
+    "chunk_id": "KB062_c2",
+    "kb_id": "KB062",
+    "problem": "Pits and Hollows in Top Layer (Pillowing)"
+  },
+  {
+    "chunk_id": "KB062_c3",
+    "kb_id": "KB062",
+    "problem": "Pits and Hollows in Top Layer (Pillowing)"
+  },
+  {
+    "chunk_id": "KB063_p",
+    "kb_id": "KB063",
+    "problem": "Web-like Strings Cover the Print (Stringing)"
+  },
+  {
+    "chunk_id": "KB063_c0",
+    "kb_id": "KB063",
+    "problem": "Web-like Strings Cover the Print (Stringing)"
+  },
+  {
+    "chunk_id": "KB063_c1",
+    "kb_id": "KB063",
+    "problem": "Web-like Strings Cover the Print (Stringing)"
+  },
+  {
+    "chunk_id": "KB063_c2",
+    "kb_id": "KB063",
+    "problem": "Web-like Strings Cover the Print (Stringing)"
+  },
+  {
+    "chunk_id": "KB065_p",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c0",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c1",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c2",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c3",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c4",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c5",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c6",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB065_c7",
+    "kb_id": "KB065",
+    "problem": "Print Offset in Some Places"
+  },
+  {
+    "chunk_id": "KB067_p",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c0",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c1",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c2",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c3",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c4",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB067_c5",
+    "kb_id": "KB067",
+    "problem": "Print is Stuck to Print Bed"
+  },
+  {
+    "chunk_id": "KB069_p",
+    "kb_id": "KB069",
+    "problem": "Printing too Fast"
+  },
+  {
+    "chunk_id": "KB069_c0",
+    "kb_id": "KB069",
+    "problem": "Printing too Fast"
+  },
+  {
+    "chunk_id": "KB072_p",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB072_c0",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB072_c1",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB072_c2",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB072_c3",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB072_c4",
+    "kb_id": "KB072",
+    "problem": "A Section of the Print/Supports Detached or Moved"
+  },
+  {
+    "chunk_id": "KB074_p",
+    "kb_id": "KB074",
+    "problem": "Small Fins and Disks Attached to Print (Ragging)"
+  },
+  {
+    "chunk_id": "KB074_c0",
+    "kb_id": "KB074",
+    "problem": "Small Fins and Disks Attached to Print (Ragging)"
+  },
+  {
+    "chunk_id": "KB074_c1",
+    "kb_id": "KB074",
+    "problem": "Small Fins and Disks Attached to Print (Ragging)"
+  },
+  {
+    "chunk_id": "KB074_c2",
+    "kb_id": "KB074",
+    "problem": "Small Fins and Disks Attached to Print (Ragging)"
+  },
+  {
+    "chunk_id": "KB101_p",
+    "kb_id": "KB101",
+    "problem": "Spaghetti (Print Detached from Bed)"
+  },
+  {
+    "chunk_id": "KB101_c0",
+    "kb_id": "KB101",
+    "problem": "Spaghetti (Print Detached from Bed)"
+  },
+  {
+    "chunk_id": "KB101_c1",
+    "kb_id": "KB101",
+    "problem": "Spaghetti (Print Detached from Bed)"
+  },
+  {
+    "chunk_id": "KB101_c2",
+    "kb_id": "KB101",
+    "problem": "Spaghetti (Print Detached from Bed)"
+  },
+  {
+    "chunk_id": "KB102_p",
+    "kb_id": "KB102",
+    "problem": "Spaghetti (Nozzle Clog or Under-Extrusion)"
+  },
+  {
+    "chunk_id": "KB102_c0",
+    "kb_id": "KB102",
+    "problem": "Spaghetti (Nozzle Clog or Under-Extrusion)"
+  },
+  {
+    "chunk_id": "KB102_c1",
+    "kb_id": "KB102",
+    "problem": "Spaghetti (Nozzle Clog or Under-Extrusion)"
+  },
+  {
+    "chunk_id": "KB102_c2",
+    "kb_id": "KB102",
+    "problem": "Spaghetti (Nozzle Clog or Under-Extrusion)"
+  },
+  {
+    "chunk_id": "KB103_p",
+    "kb_id": "KB103",
+    "problem": "Spaghetti (Filament Tangle or Jam)"
+  },
+  {
+    "chunk_id": "KB103_c0",
+    "kb_id": "KB103",
+    "problem": "Spaghetti (Filament Tangle or Jam)"
+  },
+  {
+    "chunk_id": "KB103_c1",
+    "kb_id": "KB103",
+    "problem": "Spaghetti (Filament Tangle or Jam)"
+  },
+  {
+    "chunk_id": "KB103_c2",
+    "kb_id": "KB103",
+    "problem": "Spaghetti (Filament Tangle or Jam)"
+  }
+]

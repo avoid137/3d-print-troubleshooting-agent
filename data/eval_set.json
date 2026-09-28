@@ -1,0 +1,1560 @@
+[
+  {
+    "id": "eval_001",
+    "query": "temperature tower calibration",
+    "category": "param_compensation",
+    "gold": [
+      "KB003",
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_002",
+    "query": "3D printer mainboard upgrade",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_003",
+    "query": "how to use a 3D pen",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_004",
+    "query": "best CAD software for beginners",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_005",
+    "query": "retraction is fine but still oozing",
+    "category": "ambiguous",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_006",
+    "query": "how to connect printer to octoprint",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_007",
+    "query": "not stringing but web-like strands",
+    "category": "ambiguous",
+    "gold": [
+      "KB063"
+    ]
+  },
+  {
+    "id": "eval_008",
+    "query": "bridges sag and string",
+    "category": "single_defect",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_009",
+    "query": "heat deformation on tall prints and hairy prints with whiskers of filament",
+    "category": "multi_defect",
+    "gold": [
+      "KB007",
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_010",
+    "query": "the print layers don't line up",
+    "category": "single_defect",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_011",
+    "query": "part doesn't stick to print bed",
+    "category": "single_defect",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_012",
+    "query": "how to calibrate a laser engraver",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_013",
+    "query": "no warp but edges bending",
+    "category": "ambiguous",
+    "gold": [
+      "KB045"
+    ]
+  },
+  {
+    "id": "eval_014",
+    "query": "how to unclog a 3D printer nozzle",
+    "category": "single_defect",
+    "gold": [
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_015",
+    "query": "ironing settings top surface",
+    "category": "param_compensation",
+    "gold": [
+      "KB005"
+    ]
+  },
+  {
+    "id": "eval_016",
+    "query": "how to print flexible TPU",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_017",
+    "query": "nozzle temperature too low under extrusion",
+    "category": "param_compensation",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_018",
+    "query": "best enclosure for ABS printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_019",
+    "query": "zits appearing on the print",
+    "category": "single_defect",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_020",
+    "query": "nozzle is not clogged but filament grinds",
+    "category": "ambiguous",
+    "gold": [
+      "KB010"
+    ]
+  },
+  {
+    "id": "eval_021",
+    "query": "no clog but stops extruding mid print",
+    "category": "ambiguous",
+    "gold": [
+      "KB040"
+    ]
+  },
+  {
+    "id": "eval_022",
+    "query": "weak thin layers from under extrusion",
+    "category": "single_defect",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_023",
+    "query": "bridging looks messy and droopy",
+    "category": "single_defect",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_024",
+    "query": "brim width for bed adhesion",
+    "category": "param_compensation",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_025",
+    "query": "ringing artifacts on print sides and overhang quality is poor",
+    "category": "multi_defect",
+    "gold": [
+      "KB020",
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_026",
+    "query": "surface has blobs and imperfections",
+    "category": "single_defect",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_027",
+    "query": "no ringing but ghosting on sides",
+    "category": "ambiguous",
+    "gold": [
+      "KB057"
+    ]
+  },
+  {
+    "id": "eval_028",
+    "query": "the corners of my print are curling up and first layer won't adhere",
+    "category": "multi_defect",
+    "gold": [
+      "KB024",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_029",
+    "query": "how to wire a 3D printer",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_030",
+    "query": "there are thin plastic strings on my print",
+    "category": "single_defect",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_031",
+    "query": "blobs and zits on the print surface and also cracks between printed layers",
+    "category": "multi_defect",
+    "gold": [
+      "KB014",
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_032",
+    "query": "small bumps on my 3D print",
+    "category": "single_defect",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_033",
+    "query": "not under extruded but walls are weak",
+    "category": "ambiguous",
+    "gold": [
+      "KB013"
+    ]
+  },
+  {
+    "id": "eval_034",
+    "query": "not over extruded but stringy droopy",
+    "category": "ambiguous",
+    "gold": [
+      "KB059"
+    ]
+  },
+  {
+    "id": "eval_035",
+    "query": "failed bridging over gaps",
+    "category": "single_defect",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_036",
+    "query": "how much retraction for bowden extruder",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_037",
+    "query": "filament not coming out of the nozzle",
+    "category": "single_defect",
+    "gold": [
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_038",
+    "query": "coasting settings reduce blobs",
+    "category": "param_compensation",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_039",
+    "query": "no clog but filament stripped",
+    "category": "ambiguous",
+    "gold": [
+      "KB039"
+    ]
+  },
+  {
+    "id": "eval_040",
+    "query": "my print has stringing and oozing between parts and first layer issues on my print",
+    "category": "multi_defect",
+    "gold": [
+      "KB006",
+      "KB028"
+    ]
+  },
+  {
+    "id": "eval_041",
+    "query": "first layer fine but infill visible outside",
+    "category": "ambiguous",
+    "gold": [
+      "KB048"
+    ]
+  },
+  {
+    "id": "eval_042",
+    "query": "not clogging but extrusion inconsistent",
+    "category": "ambiguous",
+    "gold": [
+      "KB023"
+    ]
+  },
+  {
+    "id": "eval_043",
+    "query": "ripples and echoes on surface",
+    "category": "single_defect",
+    "gold": [
+      "KB020"
+    ]
+  },
+  {
+    "id": "eval_044",
+    "query": "print looks over extruded and droopy and printer stopped extruding halfway",
+    "category": "multi_defect",
+    "gold": [
+      "KB004",
+      "KB040"
+    ]
+  },
+  {
+    "id": "eval_045",
+    "query": "print looks over extruded and droopy",
+    "category": "single_defect",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_046",
+    "query": "bed is level but print won't stick",
+    "category": "ambiguous",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_047",
+    "query": "nozzle diameter change under extrusion",
+    "category": "param_compensation",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_048",
+    "query": "filament diameter settings",
+    "category": "param_compensation",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_049",
+    "query": "too much filament coming out",
+    "category": "single_defect",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_050",
+    "query": "layers are shifting in my print",
+    "category": "single_defect",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_051",
+    "query": "how to model organic shapes",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_052",
+    "query": "vibrations and ringing on the print",
+    "category": "single_defect",
+    "gold": [
+      "KB020"
+    ]
+  },
+  {
+    "id": "eval_053",
+    "query": "the corners of my print are curling up",
+    "category": "single_defect",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_054",
+    "query": "3D printer firmware setup marlin",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_055",
+    "query": "first layer looks messy and also extrusion stopped mid print",
+    "category": "multi_defect",
+    "gold": [
+      "KB028",
+      "KB040"
+    ]
+  },
+  {
+    "id": "eval_056",
+    "query": "how to make print stick to bed",
+    "category": "single_defect",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_057",
+    "query": "3D printing food safe",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_058",
+    "query": "oozing plastic while the nozzle moves",
+    "category": "single_defect",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_059",
+    "query": "retraction speed too high causing grinding",
+    "category": "param_compensation",
+    "gold": [
+      "KB010",
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_060",
+    "query": "best infill for strength",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_061",
+    "query": "z seam alignment settings",
+    "category": "param_compensation",
+    "gold": [
+      "KB017"
+    ]
+  },
+  {
+    "id": "eval_062",
+    "query": "infill density too low weak print",
+    "category": "param_compensation",
+    "gold": [
+      "KB013"
+    ]
+  },
+  {
+    "id": "eval_063",
+    "query": "best slicer for 3D printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_064",
+    "query": "print warping and lifting off the bed and also print looks melted",
+    "category": "multi_defect",
+    "gold": [
+      "KB024",
+      "KB007"
+    ]
+  },
+  {
+    "id": "eval_065",
+    "query": "support density for surface finish",
+    "category": "param_compensation",
+    "gold": [
+      "KB025"
+    ]
+  },
+  {
+    "id": "eval_066",
+    "query": "retraction prime amount",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_067",
+    "query": "3D printing speed records",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_068",
+    "query": "cooling fan for overhang quality",
+    "category": "param_compensation",
+    "gold": [
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_069",
+    "query": "not enough plastic being extruded",
+    "category": "single_defect",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_070",
+    "query": "retraction good but blobs at seams",
+    "category": "ambiguous",
+    "gold": [
+      "KB017"
+    ]
+  },
+  {
+    "id": "eval_071",
+    "query": "bed adhesion good but print detached",
+    "category": "ambiguous",
+    "gold": [
+      "KB101"
+    ]
+  },
+  {
+    "id": "eval_072",
+    "query": "layer misalignment on tall prints and also extruder is grinding the filament",
+    "category": "multi_defect",
+    "gold": [
+      "KB008",
+      "KB010"
+    ]
+  },
+  {
+    "id": "eval_073",
+    "query": "print sticks but elephant foot at bottom",
+    "category": "ambiguous",
+    "gold": [
+      "KB044"
+    ]
+  },
+  {
+    "id": "eval_074",
+    "query": "grinding filament in the extruder and the part is warping at the corners",
+    "category": "multi_defect",
+    "gold": [
+      "KB010",
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_075",
+    "query": "bridging fan speed",
+    "category": "param_compensation",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_076",
+    "query": "build plate temperature for ABS",
+    "category": "param_compensation",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_077",
+    "query": "print looks offset in some layers",
+    "category": "single_defect",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_078",
+    "query": "how to scan objects for 3D printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_079",
+    "query": "how to recycle used filament",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_080",
+    "query": "bed temp correct but corners curl",
+    "category": "ambiguous",
+    "gold": [
+      "KB016"
+    ]
+  },
+  {
+    "id": "eval_081",
+    "query": "flow rate too high over extrusion",
+    "category": "param_compensation",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_082",
+    "query": "print warping and lifting off the bed",
+    "category": "single_defect",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_083",
+    "query": "my print has stringing and oozing between parts and also blocked nozzle not extruding",
+    "category": "multi_defect",
+    "gold": [
+      "KB006",
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_084",
+    "query": "retraction when crossing perimeters stringing",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_085",
+    "query": "3D printing business ideas",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_086",
+    "query": "cooling is fine but overhangs droop",
+    "category": "ambiguous",
+    "gold": [
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_087",
+    "query": "no filament comes out at beginning and also ringing artifacts on print sides",
+    "category": "multi_defect",
+    "gold": [
+      "KB001",
+      "KB020"
+    ]
+  },
+  {
+    "id": "eval_088",
+    "query": "print speed too fast causing layer shift",
+    "category": "param_compensation",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_089",
+    "query": "z offset too close to bed",
+    "category": "param_compensation",
+    "gold": [
+      "KB035"
+    ]
+  },
+  {
+    "id": "eval_090",
+    "query": "layer misalignment on tall prints",
+    "category": "single_defect",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_091",
+    "query": "under extrusion causing gaps",
+    "category": "single_defect",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_092",
+    "query": "failed bridging over gaps and also droopy overhangs on print",
+    "category": "multi_defect",
+    "gold": [
+      "KB027",
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_093",
+    "query": "print speed for bridging",
+    "category": "param_compensation",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_094",
+    "query": "not under extruded but gaps in walls",
+    "category": "ambiguous",
+    "gold": [
+      "KB021"
+    ]
+  },
+  {
+    "id": "eval_095",
+    "query": "vibrations and ringing on the print and part doesn't stick to print bed",
+    "category": "multi_defect",
+    "gold": [
+      "KB020",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_096",
+    "query": "layer height affecting detail",
+    "category": "param_compensation",
+    "gold": [
+      "KB022"
+    ]
+  },
+  {
+    "id": "eval_097",
+    "query": "there are thin plastic strings on my print and extruder not primed at print start",
+    "category": "multi_defect",
+    "gold": [
+      "KB006",
+      "KB001"
+    ]
+  },
+  {
+    "id": "eval_098",
+    "query": "how to clean PETG prints",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_099",
+    "query": "not warping but print bows at bottom",
+    "category": "ambiguous",
+    "gold": [
+      "KB044"
+    ]
+  },
+  {
+    "id": "eval_100",
+    "query": "printer stopped extruding halfway and overhang quality is poor",
+    "category": "multi_defect",
+    "gold": [
+      "KB040",
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_101",
+    "query": "not warping but dimensional inaccurate",
+    "category": "ambiguous",
+    "gold": [
+      "KB026"
+    ]
+  },
+  {
+    "id": "eval_102",
+    "query": "print splitting along layer lines and filament extruded in the air tangled",
+    "category": "multi_defect",
+    "gold": [
+      "KB009",
+      "KB101"
+    ]
+  },
+  {
+    "id": "eval_103",
+    "query": "cooling fan settings for overhangs",
+    "category": "param_compensation",
+    "gold": [
+      "KB053",
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_104",
+    "query": "blobs and zits on the print surface",
+    "category": "single_defect",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_105",
+    "query": "print not sticking to the bed",
+    "category": "single_defect",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_106",
+    "query": "weak thin layers from under extrusion and the part is warping at the corners",
+    "category": "multi_defect",
+    "gold": [
+      "KB003",
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_107",
+    "query": "infill pattern strength",
+    "category": "param_compensation",
+    "gold": [
+      "KB013"
+    ]
+  },
+  {
+    "id": "eval_108",
+    "query": "what is FDM vs SLA",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_109",
+    "query": "how to print with nylon",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_110",
+    "query": "slicer settings for resin printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_111",
+    "query": "jerk settings layer shift",
+    "category": "param_compensation",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_112",
+    "query": "edges bending upwards during printing",
+    "category": "single_defect",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_113",
+    "query": "what retraction distance should I use for stringing",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_114",
+    "query": "acceleration too high ringing",
+    "category": "param_compensation",
+    "gold": [
+      "KB020"
+    ]
+  },
+  {
+    "id": "eval_115",
+    "query": "how to prevent warping",
+    "category": "single_defect",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_116",
+    "query": "the print sticks but first layer is messy",
+    "category": "ambiguous",
+    "gold": [
+      "KB028"
+    ]
+  },
+  {
+    "id": "eval_117",
+    "query": "3D printing medical implants",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_118",
+    "query": "how to design a 3D model in CAD",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_119",
+    "query": "cooling ok but print looks melted",
+    "category": "ambiguous",
+    "gold": [
+      "KB061"
+    ]
+  },
+  {
+    "id": "eval_120",
+    "query": "first layer won't adhere and layers coming apart",
+    "category": "multi_defect",
+    "gold": [
+      "KB002",
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_121",
+    "query": "not over extrusion but print droopy",
+    "category": "ambiguous",
+    "gold": [
+      "KB059"
+    ]
+  },
+  {
+    "id": "eval_122",
+    "query": "no clog but spaghetti mess",
+    "category": "ambiguous",
+    "gold": [
+      "KB101"
+    ]
+  },
+  {
+    "id": "eval_123",
+    "query": "print splitting along layer lines",
+    "category": "single_defect",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_124",
+    "query": "the part is warping at the corners",
+    "category": "single_defect",
+    "gold": [
+      "KB024"
+    ]
+  },
+  {
+    "id": "eval_125",
+    "query": "3D printing tolerances guide",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_126",
+    "query": "first layer won't adhere",
+    "category": "single_defect",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_127",
+    "query": "nozzle is clogged filament won't come out",
+    "category": "single_defect",
+    "gold": [
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_128",
+    "query": "wall count for strength",
+    "category": "param_compensation",
+    "gold": [
+      "KB013"
+    ]
+  },
+  {
+    "id": "eval_129",
+    "query": "minimal layer time cooling",
+    "category": "param_compensation",
+    "gold": [
+      "KB007"
+    ]
+  },
+  {
+    "id": "eval_130",
+    "query": "how to print with carbon fiber",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_131",
+    "query": "bed leveling for first layer",
+    "category": "param_compensation",
+    "gold": [
+      "KB028",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_132",
+    "query": "scars on the top surface of print and too much filament coming out",
+    "category": "multi_defect",
+    "gold": [
+      "KB017",
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_133",
+    "query": "diagonal scars on my print and also gaps in the print walls",
+    "category": "multi_defect",
+    "gold": [
+      "KB017",
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_134",
+    "query": "first layer won't adhere and also print became a mess of plastic strands",
+    "category": "multi_defect",
+    "gold": [
+      "KB002",
+      "KB101"
+    ]
+  },
+  {
+    "id": "eval_135",
+    "query": "not dimensional issue but parts too small",
+    "category": "ambiguous",
+    "gold": [
+      "KB064"
+    ]
+  },
+  {
+    "id": "eval_136",
+    "query": "no ringing but surface ripples",
+    "category": "ambiguous",
+    "gold": [
+      "KB019"
+    ]
+  },
+  {
+    "id": "eval_137",
+    "query": "cracks between printed layers",
+    "category": "single_defect",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_138",
+    "query": "what is the best 3D printer to buy",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_139",
+    "query": "how to level a resin printer",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_140",
+    "query": "print lifts off the build plate",
+    "category": "single_defect",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_141",
+    "query": "DLP vs SLA resin printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_142",
+    "query": "blocked nozzle not extruding",
+    "category": "single_defect",
+    "gold": [
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_143",
+    "query": "how to paint 3D printed parts",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_144",
+    "query": "gaps in the print walls",
+    "category": "single_defect",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_145",
+    "query": "print looks under extruded",
+    "category": "single_defect",
+    "gold": [
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_146",
+    "query": "how to use supports in slicer",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_147",
+    "query": "layers shifted horizontally",
+    "category": "single_defect",
+    "gold": [
+      "KB008"
+    ]
+  },
+  {
+    "id": "eval_148",
+    "query": "cracks between printed layers and print looks under extruded",
+    "category": "multi_defect",
+    "gold": [
+      "KB009",
+      "KB003"
+    ]
+  },
+  {
+    "id": "eval_149",
+    "query": "filament stops coming out during print and failed bridging over gaps",
+    "category": "multi_defect",
+    "gold": [
+      "KB040",
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_150",
+    "query": "hotend temp for PETG oozing",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_151",
+    "query": "no delamination but cracks in tall print",
+    "category": "ambiguous",
+    "gold": [
+      "KB049"
+    ]
+  },
+  {
+    "id": "eval_152",
+    "query": "how to fix stringing on my 3D print",
+    "category": "single_defect",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_153",
+    "query": "best filament storage solutions",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_154",
+    "query": "bed temperature for PLA warping",
+    "category": "param_compensation",
+    "gold": [
+      "KB024",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_155",
+    "query": "how to change nozzle",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_156",
+    "query": "first layer ok but top has gaps",
+    "category": "ambiguous",
+    "gold": [
+      "KB005"
+    ]
+  },
+  {
+    "id": "eval_157",
+    "query": "retraction fine but whiskers on print",
+    "category": "ambiguous",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_158",
+    "query": "best 3D printing youtube channels",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_159",
+    "query": "layers coming apart",
+    "category": "single_defect",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_160",
+    "query": "fan speed for first layer adhesion",
+    "category": "param_compensation",
+    "gold": [
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_161",
+    "query": "layers separating and splitting",
+    "category": "single_defect",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_162",
+    "query": "part is not the right size and also too much filament coming out",
+    "category": "multi_defect",
+    "gold": [
+      "KB026",
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_163",
+    "query": "how to print multi color",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_164",
+    "query": "no layer shift but print leans",
+    "category": "ambiguous",
+    "gold": [
+      "KB052"
+    ]
+  },
+  {
+    "id": "eval_165",
+    "query": "not overheating but layers separate",
+    "category": "ambiguous",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_166",
+    "query": "layers coming apart and how to unclog a 3D printer nozzle",
+    "category": "multi_defect",
+    "gold": [
+      "KB009",
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_167",
+    "query": "no adhesion issue but print stuck to bed",
+    "category": "ambiguous",
+    "gold": [
+      "KB067"
+    ]
+  },
+  {
+    "id": "eval_168",
+    "query": "over extrusion making blobby prints",
+    "category": "single_defect",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_169",
+    "query": "what is SLA printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_170",
+    "query": "poor bridging on my print",
+    "category": "single_defect",
+    "gold": [
+      "KB027"
+    ]
+  },
+  {
+    "id": "eval_171",
+    "query": "how to make money with 3D printing",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_172",
+    "query": "problems with the first layer and print not sticking to the bed",
+    "category": "multi_defect",
+    "gold": [
+      "KB028",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_173",
+    "query": "my print has stringing and oozing between parts",
+    "category": "single_defect",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_174",
+    "query": "nozzle wipe for stringing",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_175",
+    "query": "not overheating but ripples on surface",
+    "category": "ambiguous",
+    "gold": [
+      "KB057"
+    ]
+  },
+  {
+    "id": "eval_176",
+    "query": "wipe distance for oozing",
+    "category": "param_compensation",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_177",
+    "query": "poor bridging on my print and first layer won't adhere",
+    "category": "multi_defect",
+    "gold": [
+      "KB027",
+      "KB002"
+    ]
+  },
+  {
+    "id": "eval_178",
+    "query": "extruding too much plastic",
+    "category": "single_defect",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_179",
+    "query": "first layer height too high not sticking",
+    "category": "param_compensation",
+    "gold": [
+      "KB002",
+      "KB028"
+    ]
+  },
+  {
+    "id": "eval_180",
+    "query": "no stringing but blobs on surface",
+    "category": "ambiguous",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_181",
+    "query": "how to unclog a 3D printer nozzle and droopy overhangs on print",
+    "category": "multi_defect",
+    "gold": [
+      "KB011",
+      "KB053"
+    ]
+  },
+  {
+    "id": "eval_182",
+    "query": "how to post process resin prints",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_183",
+    "query": "not bridging issue but messy bridges",
+    "category": "ambiguous",
+    "gold": [
+      "KB066"
+    ]
+  },
+  {
+    "id": "eval_184",
+    "query": "my print is stringy and droopy over extrusion",
+    "category": "single_defect",
+    "gold": [
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_185",
+    "query": "no shift but layers don't line up",
+    "category": "ambiguous",
+    "gold": [
+      "KB050"
+    ]
+  },
+  {
+    "id": "eval_186",
+    "query": "no clog but filament snaps",
+    "category": "ambiguous",
+    "gold": [
+      "KB038"
+    ]
+  },
+  {
+    "id": "eval_187",
+    "query": "hairy prints with whiskers of filament",
+    "category": "single_defect",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_188",
+    "query": "how to choose nozzle material",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_189",
+    "query": "extrusion stopped mid print and print turned into spaghetti",
+    "category": "multi_defect",
+    "gold": [
+      "KB040",
+      "KB101"
+    ]
+  },
+  {
+    "id": "eval_190",
+    "query": "resin vat cleaning",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_191",
+    "query": "backlash compensation dimensional",
+    "category": "param_compensation",
+    "gold": [
+      "KB026"
+    ]
+  },
+  {
+    "id": "eval_192",
+    "query": "no stringing but oozing between moves",
+    "category": "ambiguous",
+    "gold": [
+      "KB006"
+    ]
+  },
+  {
+    "id": "eval_193",
+    "query": "extrusion multiplier calibration",
+    "category": "param_compensation",
+    "gold": [
+      "KB003",
+      "KB004"
+    ]
+  },
+  {
+    "id": "eval_194",
+    "query": "travel speed causing blobs",
+    "category": "param_compensation",
+    "gold": [
+      "KB014"
+    ]
+  },
+  {
+    "id": "eval_195",
+    "query": "extruder is clogged",
+    "category": "single_defect",
+    "gold": [
+      "KB011"
+    ]
+  },
+  {
+    "id": "eval_196",
+    "query": "best build plate surface",
+    "category": "out_of_scope",
+    "gold": []
+  },
+  {
+    "id": "eval_197",
+    "query": "elephant foot compensation",
+    "category": "param_compensation",
+    "gold": [
+      "KB044"
+    ]
+  },
+  {
+    "id": "eval_198",
+    "query": "not stringing but hairy surface",
+    "category": "ambiguous",
+    "gold": [
+      "KB063"
+    ]
+  },
+  {
+    "id": "eval_199",
+    "query": "delamination between layers",
+    "category": "single_defect",
+    "gold": [
+      "KB009"
+    ]
+  },
+  {
+    "id": "eval_200",
+    "query": "my print has strings but also the corners lift",
+    "category": "ambiguous",
+    "gold": [
+      "KB006",
+      "KB024"
+    ]
+  }
+]
