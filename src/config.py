@@ -52,6 +52,8 @@ TOP_K = 5                    # 返回 top-k 结果
 RECALL_K = 5                 # Recall@k
 # parent-child 扩展开关（检索精度实验用）：默认开；置 0 关掉（exp_e2e_eval.py 前加 EXPAND_PARENT=0）
 EXPAND_PARENT = os.getenv("EXPAND_PARENT", "1") == "1"
+# 两遍法生成开关（v2.2）：默认开；置 0 回退一遍法（抽取+作答 → 单遍作答）
+TWO_PASS = os.getenv("TWO_PASS", "1") == "1"
 VECTOR_BACKEND = "faiss"     # 向量后端："faiss"（默认）或 "chroma"（支持 where 元数据过滤）
 
 # Embedding（DashScope text-embedding）

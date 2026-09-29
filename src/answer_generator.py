@@ -16,10 +16,10 @@ import re
 import time
 from pathlib import Path
 
-from config import DASHSCOPE_API_KEY, PROJECT_ROOT
+from config import DASHSCOPE_API_KEY, PROJECT_ROOT, TWO_PASS
 
 ANSWER_MODEL = "qwen-plus-2025-07-28"   # 最佳配置：qwen-max 实测 35.00% < qwen-plus 39.37%（过生成触发严格判官惩罚）
-PROMPT_VERSION = "v2.1"         # 改 prompt / 上下文裁剪时必须递增（缓存 key 含此版本）
+PROMPT_VERSION = "v2.2"         # v2.2 = 两遍法(抽取相关根因→再作答)；缓存 key 含 tp 标志避免与一遍法串味
 CACHE_PATH = PROJECT_ROOT / "data" / "answer_cache.json"
 MAX_CONTEXT_CHARS = 10000       # 喂给生成模型的证据总预算（v2 上调，容纳更全的根因）
 EXPANDED_CHUNK_CHARS = 700      # 扩展块（非直接命中）每块上限（v2 上调，避免 gold 根因被截断）
@@ -67,6 +67,35 @@ FEWSHOT_USER = """用户问题：
 
 FEWSHOT_ASSISTANT = """{"answer": "第一层翘边脱落的可能根因与对策：\\n1. 打印床未调平、喷嘴与床面间隙不均：重新调平打印床，用一张 A4 纸测试间隙是否均匀（依据 KB-Demo）。\\n2. 热床温度过低：将热床温度提高到约 60°C（PLA 适用）（依据 KB-Demo）。\\n3. 床面有油脂或碎屑：用酒精擦拭床面，必要时涂固体胶棒增加附着力（依据 KB-Demo）。"}"""
 
+# ===================== 两遍法（v2.2） =====================
+# Pass 1（抽取）：让模型从证据里「逐条筛出与本问题相关的根因」——
+#   这是可推理的过滤任务（rerank 那种相似度模型做不到、LLM 能做）。
+#   指令强调「宁可多留、不要漏」以保证召回，避免把 gold 根因误删。
+# Pass 2（作答）：只把筛出的相关根因喂给生成器 → 上下文小且干净，
+#   既压制过生成（降 wrong）又逼出穷尽（降 partial），且模型无关。
+EXTRACT_SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断专家。系统检索到若干「证据」条目，每条含编号(kb_id)、问题(problem)、若干根因(cause)与对应解决方案(solution)。用户描述了一个打印问题。
+
+请**逐条审查**每条证据里的每一个根因：只保留「确实会导致用户所描述现象」的根因，明显无关的根因丢弃。判断以「用户描述的具体现象」为准，**宁可多留、不要漏掉任何可能相关的根因**（漏掉相关根因比多留一条后果更严重）。
+
+只输出 JSON，不要任何其他内容：
+{"relevant": [{"kb_id": "KBxxx", "cause": "根因描述", "solution": "方案描述"}, ...]}"""
+
+EXTRACT_USER_TEMPLATE = """用户问题：
+{query}
+
+知识库证据（共 {n} 条，retrieved=直接命中，expanded=同问题下的补充根因）：
+{context}
+
+请逐条审查上述每条证据里的每个根因，筛出与本问题相关的根因，输出 JSON。"""
+
+PASS2_USER_TEMPLATE = """用户问题：
+{query}
+
+以下是从知识库筛选出的、与本问题相关的根因（已去噪，请**逐条覆盖、不要遗漏**）：
+{context}
+
+请输出 JSON 格式的诊断回答，每条根因/方案后用「（依据 {{kb_id}}）」注明其真实编号。"""
+
 
 def build_context(evidence, max_chars=MAX_CONTEXT_CHARS,
                   expanded_chars=EXPANDED_CHUNK_CHARS):
@@ -98,10 +127,10 @@ def _extract_json(text):
     return json.loads(text)
 
 
-def _cache_key(query, model, top_k, expand, ev_fp):
+def _cache_key(query, model, top_k, expand, ev_fp, twopass=True):
     return hashlib.md5(
         f"{PROMPT_VERSION}::{model}::top{top_k}::exp{int(expand)}"
-        f"::ev{ev_fp}::{query}".encode("utf-8")).hexdigest()
+        f"::tp{int(twopass)}::ev{ev_fp}::{query}".encode("utf-8")).hexdigest()
 
 
 def load_cache():
@@ -119,58 +148,94 @@ class AnswerGenerator:
     def __init__(self, model=ANSWER_MODEL):
         self.model = model
 
-    def generate(self, query, evidence, top_k=5, expand=True,
-                 temperature=0.0, retries=3):
-        """生成诊断答案（带磁盘缓存）。返回 {answer, raw, cached}。
+    def _call_model(self, messages, temperature=0.0, retries=3):
+        import dashscope
+        from dashscope import Generation
+        if not DASHSCOPE_API_KEY:
+            raise RuntimeError("DASHSCOPE_API_KEY not set，无法生成答案")
+        dashscope.api_key = DASHSCOPE_API_KEY
+        last_err = None
+        for attempt in range(retries):
+            try:
+                resp = Generation.call(model=self.model, messages=messages,
+                                       result_format="message", temperature=temperature)
+                if resp.status_code == 200:
+                    return resp.output.choices[0].message.content
+                last_err = f"{resp.code}: {resp.message}"
+            except Exception as e:  # noqa: BLE001
+                last_err = f"{type(e).__name__}: {e}"
+            time.sleep(1.0 * (attempt + 1))
+        raise RuntimeError(f"模型调用失败: {last_err}")
 
-        ⚠️ 缓存 key 含证据指纹（证据内全部 chunk_id 的排序散列）。
-        证据构成变了（如 parent-child 扩展策略调整）→ key 失效 → 自动重新生成，
-        避免命中旧证据生成的过期答案。
+    def _extract_relevant(self, query, evidence, temperature=0.0):
+        """Pass 1：从证据里逐条筛出与本问题相关的根因。返回 list[{kb_id,cause,solution}]。"""
+        user_msg = EXTRACT_USER_TEMPLATE.format(
+            query=query, n=len(evidence), context=build_context(evidence))
+        content = self._call_model([
+            {"role": "system", "content": EXTRACT_SYSTEM_PROMPT},
+            {"role": "user", "content": user_msg},
+        ], temperature)
+        try:
+            data = _extract_json(content)
+            rel = data.get("relevant", [])
+            if isinstance(rel, list):
+                return [r for r in rel if isinstance(r, dict) and r.get("kb_id")]
+        except (json.JSONDecodeError, AttributeError):
+            pass
+        return []  # 解析失败 → 调用方回退一遍法
+
+    @staticmethod
+    def _format_extracted(relevant):
+        lines = []
+        for i, r in enumerate(relevant, 1):
+            lines.append(f"[{i}] ({r.get('kb_id')}) 根因: {r.get('cause','')} "
+                         f"→ 方案: {r.get('solution','')}")
+        return "\n".join(lines)
+
+    def generate(self, query, evidence, top_k=5, expand=True,
+                 temperature=0.0, retries=3, twopass=TWO_PASS):
+        """生成诊断答案（带磁盘缓存）。两遍法：先抽相关根因→再作答。
+
+        返回 {answer, raw, cached}。
+        ⚠️ 缓存 key 含 evidence 指纹 + twopass 标志；两遍/一遍答案互不串味。
+        若两遍抽取为空（模型判全无关或解析失败）→ 自动回退一遍法，避免丢 gold。
         """
         cache = load_cache()
         ev_fp = hashlib.md5(
             "|".join(sorted(e["chunk_id"] for e in evidence)).encode("utf-8")
         ).hexdigest()[:8]
-        ck = _cache_key(query, self.model, top_k, expand, ev_fp)
+
+        # 决定实际是否两遍：抽取为空则回退一遍法
+        effective_tp = twopass
+        relevant = []
+        if effective_tp:
+            relevant = self._extract_relevant(query, evidence, temperature)
+            if not relevant:
+                effective_tp = False
+
+        ck = _cache_key(query, self.model, top_k, expand, ev_fp, effective_tp)
         if ck in cache:
             return {**cache[ck], "cached": True}
 
-        import dashscope
-        from dashscope import Generation
-        key = DASHSCOPE_API_KEY
-        if not key:
-            raise RuntimeError("DASHSCOPE_API_KEY not set，无法生成答案")
-        dashscope.api_key = key
-
-        user_msg = USER_TEMPLATE.format(
-            query=query, n=len(evidence), context=build_context(evidence))
-        last_err = None
-        for attempt in range(retries):
-            try:
-                resp = Generation.call(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": SYSTEM_PROMPT},
-                        {"role": "user", "content": FEWSHOT_USER},
-                        {"role": "assistant", "content": FEWSHOT_ASSISTANT},
-                        {"role": "user", "content": user_msg},
-                    ],
-                    result_format="message",
-                    temperature=temperature,
-                )
-                if resp.status_code == 200:
-                    content = resp.output.choices[0].message.content
-                    try:
-                        data = _extract_json(content)
-                        answer = str(data.get("answer", content))
-                    except (json.JSONDecodeError, AttributeError):
-                        answer = content  # 模型没按 JSON 输出时兜底取原文
-                    entry = {"answer": answer, "raw": content[:500]}
-                    cache[ck] = entry
-                    save_cache(cache)
-                    return {**entry, "cached": False}
-                last_err = f"{resp.code}: {resp.message}"
-            except Exception as e:  # noqa: BLE001
-                last_err = f"{type(e).__name__}: {e}"
-            time.sleep(1.0 * (attempt + 1))
-        raise RuntimeError(f"答案生成调用失败: {last_err}")
+        if effective_tp:
+            user_msg = PASS2_USER_TEMPLATE.format(
+                query=query, context=self._format_extracted(relevant))
+        else:
+            user_msg = USER_TEMPLATE.format(
+                query=query, n=len(evidence), context=build_context(evidence))
+        messages = [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": FEWSHOT_USER},
+            {"role": "assistant", "content": FEWSHOT_ASSISTANT},
+            {"role": "user", "content": user_msg},
+        ]
+        content = self._call_model(messages, temperature)
+        try:
+            data = _extract_json(content)
+            answer = str(data.get("answer", content))
+        except (json.JSONDecodeError, AttributeError):
+            answer = content  # 模型没按 JSON 输出时兜底取原文
+        entry = {"answer": answer, "raw": content[:500]}
+        cache[ck] = entry
+        save_cache(cache)
+        return {**entry, "cached": False}
