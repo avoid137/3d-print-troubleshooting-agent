@@ -18,7 +18,7 @@ from pathlib import Path
 
 from config import DASHSCOPE_API_KEY, PROJECT_ROOT
 
-ANSWER_MODEL = "qwen-turbo"
+ANSWER_MODEL = "qwen-plus-2025-07-28"   # A/B 实验：替换 qwen-turbo，验证更强模型对接地/幻觉的改善
 PROMPT_VERSION = "v2.1"         # 改 prompt / 上下文裁剪时必须递增（缓存 key 含此版本）
 CACHE_PATH = PROJECT_ROOT / "data" / "answer_cache.json"
 MAX_CONTEXT_CHARS = 10000       # 喂给生成模型的证据总预算（v2 上调，容纳更全的根因）

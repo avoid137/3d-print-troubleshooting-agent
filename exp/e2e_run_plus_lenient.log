@@ -1,0 +1,180 @@
+[1/200] eval_001 strict=wrong lenient=unusable
+[5/200] eval_005 strict=partial lenient=unusable
+[7/200] eval_007 strict=partial lenient=usable
+[8/200] eval_008 strict=correct lenient=usable
+[9/200] eval_009 strict=wrong lenient=usable
+[10/200] eval_010 strict=partial lenient=unusable
+[11/200] eval_011 strict=partial lenient=usable
+[13/200] eval_013 strict=wrong lenient=unusable
+[14/200] eval_014 strict=partial lenient=usable
+[15/200] eval_015 strict=correct lenient=usable
+[17/200] eval_017 strict=wrong lenient=unusable
+[19/200] eval_019 strict=correct lenient=usable
+[20/200] eval_020 strict=correct lenient=usable
+[21/200] eval_021 strict=partial lenient=usable
+[22/200] eval_022 strict=wrong lenient=unusable
+[23/200] eval_023 strict=correct lenient=usable
+[24/200] eval_024 strict=partial lenient=usable
+[25/200] eval_025 strict=partial lenient=usable
+[26/200] eval_026 strict=wrong lenient=unusable
+[27/200] eval_027 strict=wrong lenient=unusable
+[28/200] eval_028 strict=correct lenient=usable
+[30/200] eval_030 strict=correct lenient=usable
+[31/200] eval_031 strict=correct lenient=usable
+[32/200] eval_032 strict=wrong lenient=unusable
+[33/200] eval_033 strict=wrong lenient=unusable
+[34/200] eval_034 strict=wrong lenient=usable
+[35/200] eval_035 strict=correct lenient=usable
+[36/200] eval_036 strict=correct lenient=usable
+[37/200] eval_037 strict=partial lenient=usable
+[38/200] eval_038 strict=correct lenient=usable
+[39/200] eval_039 strict=partial lenient=unusable
+[40/200] eval_040 strict=correct lenient=usable
+[41/200] eval_041 strict=correct lenient=usable
+[42/200] eval_042 strict=correct lenient=usable
+[43/200] eval_043 strict=correct lenient=usable
+[44/200] eval_044 strict=partial lenient=unusable
+[45/200] eval_045 strict=partial lenient=usable
+[46/200] eval_046 strict=correct lenient=usable
+[47/200] eval_047 strict=wrong lenient=unusable
+[48/200] eval_048 strict=correct lenient=usable
+[49/200] eval_049 strict=wrong lenient=unusable
+[50/200] eval_050 strict=partial lenient=unusable
+[52/200] eval_052 strict=correct lenient=usable
+[53/200] eval_053 strict=partial lenient=unusable
+[55/200] eval_055 strict=partial lenient=usable
+[56/200] eval_056 strict=correct lenient=usable
+[58/200] eval_058 strict=correct lenient=usable
+[59/200] eval_059 strict=correct lenient=usable
+[61/200] eval_061 strict=wrong lenient=unusable
+[62/200] eval_062 strict=partial lenient=usable
+[64/200] eval_064 strict=partial lenient=usable
+[65/200] eval_065 strict=correct lenient=usable
+[66/200] eval_066 strict=correct lenient=usable
+[68/200] eval_068 strict=wrong lenient=unusable
+[69/200] eval_069 strict=wrong lenient=unusable
+[70/200] eval_070 strict=wrong lenient=unusable
+[71/200] eval_071 strict=partial lenient=usable
+[72/200] eval_072 strict=partial lenient=usable
+[73/200] eval_073 strict=correct lenient=usable
+[74/200] eval_074 strict=partial lenient=unusable
+[75/200] eval_075 strict=correct lenient=usable
+[76/200] eval_076 strict=correct lenient=usable
+[77/200] eval_077 strict=partial lenient=unusable
+[80/200] eval_080 strict=correct lenient=usable
+[81/200] eval_081 strict=partial lenient=usable
+[82/200] eval_082 strict=correct lenient=usable
+[83/200] eval_083 strict=correct lenient=usable
+[84/200] eval_084 strict=correct lenient=usable
+[86/200] eval_086 strict=partial lenient=usable
+[87/200] eval_087 strict=partial lenient=unusable
+[88/200] eval_088 strict=partial lenient=usable
+[89/200] eval_089 strict=correct lenient=usable
+[90/200] eval_090 strict=partial lenient=usable
+[91/200] eval_091 strict=wrong lenient=unusable
+[92/200] eval_092 strict=partial lenient=usable
+[93/200] eval_093 strict=correct lenient=usable
+[94/200] eval_094 strict=correct lenient=usable
+[95/200] eval_095 strict=partial lenient=usable
+[96/200] eval_096 strict=partial lenient=usable
+[97/200] eval_097 strict=partial lenient=usable
+[99/200] eval_099 strict=partial lenient=usable
+[100/200] eval_100 strict=wrong lenient=unusable
+[101/200] eval_101 strict=correct lenient=usable
+[102/200] eval_102 strict=partial lenient=usable
+[103/200] eval_103 strict=wrong lenient=unusable
+[104/200] eval_104 strict=partial lenient=usable
+[105/200] eval_105 strict=partial lenient=unusable
+[106/200] eval_106 strict=partial lenient=unusable
+[107/200] eval_107 strict=correct lenient=usable
+[111/200] eval_111 strict=wrong lenient=unusable
+[112/200] eval_112 strict=partial lenient=usable
+[113/200] eval_113 strict=partial lenient=usable
+[114/200] eval_114 strict=correct lenient=usable
+[115/200] eval_115 strict=partial lenient=usable
+[116/200] eval_116 strict=correct lenient=usable
+[119/200] eval_119 strict=correct lenient=usable
+[120/200] eval_120 strict=correct lenient=usable
+[121/200] eval_121 strict=wrong lenient=unusable
+[122/200] eval_122 strict=partial lenient=usable
+[123/200] eval_123 strict=partial lenient=usable
+[124/200] eval_124 strict=correct lenient=usable
+[126/200] eval_126 strict=correct lenient=usable
+[127/200] eval_127 strict=partial lenient=usable
+[128/200] eval_128 strict=wrong lenient=unusable
+[129/200] eval_129 strict=correct lenient=usable
+[131/200] eval_131 strict=partial lenient=usable
+[132/200] eval_132 strict=correct lenient=usable
+[133/200] eval_133 strict=wrong lenient=unusable
+[134/200] eval_134 strict=correct lenient=usable
+[135/200] eval_135 strict=correct lenient=usable
+[136/200] eval_136 strict=wrong lenient=unusable
+[137/200] eval_137 strict=correct lenient=usable
+[140/200] eval_140 strict=correct lenient=usable
+[142/200] eval_142 strict=partial lenient=usable
+[144/200] eval_144 strict=wrong lenient=unusable
+[145/200] eval_145 strict=wrong lenient=unusable
+[147/200] eval_147 strict=wrong lenient=unusable
+[148/200] eval_148 strict=partial lenient=usable
+[149/200] eval_149 strict=partial lenient=unusable
+[150/200] eval_150 strict=partial lenient=unusable
+[151/200] eval_151 strict=correct lenient=usable
+[152/200] eval_152 strict=correct lenient=usable
+[154/200] eval_154 strict=correct lenient=usable
+[156/200] eval_156 strict=correct lenient=usable
+[157/200] eval_157 strict=correct lenient=usable
+[159/200] eval_159 strict=partial lenient=unusable
+[160/200] eval_160 strict=wrong lenient=unusable
+[161/200] eval_161 strict=correct lenient=usable
+[162/200] eval_162 strict=wrong lenient=unusable
+[164/200] eval_164 strict=partial lenient=usable
+[165/200] eval_165 strict=partial lenient=unusable
+[166/200] eval_166 strict=wrong lenient=usable
+[167/200] eval_167 strict=partial lenient=unusable
+[168/200] eval_168 strict=partial lenient=usable
+[170/200] eval_170 strict=correct lenient=usable
+[172/200] eval_172 strict=correct lenient=usable
+[173/200] eval_173 strict=correct lenient=usable
+[174/200] eval_174 strict=correct lenient=usable
+[175/200] eval_175 strict=wrong lenient=unusable
+[176/200] eval_176 strict=correct lenient=usable
+[177/200] eval_177 strict=wrong lenient=unusable
+[178/200] eval_178 strict=correct lenient=usable
+[179/200] eval_179 strict=partial lenient=usable
+[180/200] eval_180 strict=correct lenient=usable
+[181/200] eval_181 strict=wrong lenient=unusable
+[183/200] eval_183 strict=correct lenient=usable
+[184/200] eval_184 strict=partial lenient=usable
+[185/200] eval_185 strict=partial lenient=usable
+[186/200] eval_186 strict=correct lenient=usable
+[187/200] eval_187 strict=correct lenient=usable
+[189/200] eval_189 strict=wrong lenient=unusable
+[191/200] eval_191 strict=correct lenient=usable
+[192/200] eval_192 strict=correct lenient=usable
+[193/200] eval_193 strict=partial lenient=usable
+[194/200] eval_194 strict=wrong lenient=unusable
+[195/200] eval_195 strict=wrong lenient=unusable
+[197/200] eval_197 strict=correct lenient=usable
+[198/200] eval_198 strict=wrong lenient=unusable
+[199/200] eval_199 strict=partial lenient=unusable
+[200/200] eval_200 strict=partial lenient=unusable
+
+========== 判据核查 ==========
+{
+  "in_scope": 160,
+  "answered": 160,
+  "strict": {
+    "wrong": 37,
+    "partial": 57,
+    "correct": 66
+  },
+  "strict_task_success": 0.4125,
+  "lenient": {
+    "unusable": 52,
+    "usable": 108
+  },
+  "lenient_usable_rate": 0.675,
+  "delta": 0.2625,
+  "note": "lenient=可用率(非主指标)，strict=穷尽率(主指标)"
+}
+写入 D:\3D打印故障诊断Agent\exp\exp_e2e_lenient.json
