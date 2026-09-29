@@ -27,7 +27,7 @@ Skill 契约（Agent 下所有 Skill 统一遵守）：
 """
 import json
 
-from config import KB_V2_PATH
+from config import KB_V2_PATH, EXPAND_PARENT
 from hybrid_retriever import HybridRetriever
 from rejector import (
     prefilter_reject, judge_once, _cache_key, load_cache, save_cache,
@@ -40,10 +40,10 @@ class DiagnoseSkill:
     description = ("FDM 3D 打印质量缺陷诊断：输入打印问题描述，"
                    "执行混合检索与范围拒答，返回知识库证据或拒答结论。")
 
-    def __init__(self, retriever=None, expand_parent=True):
+    def __init__(self, retriever=None, expand_parent=None):
         self.retriever = retriever or HybridRetriever()
-        self.expand_parent = expand_parent
-        self._kb_by_id = None  # 懒加载 kb_v2
+        # expand_parent 为 None 时读 config.EXPAND_PARENT（env 可覆盖，检索精度实验用）
+        self.expand_parent = expand_parent if expand_parent is not None else EXPAND_PARENT
 
     def _kb(self):
         if self._kb_by_id is None:
