@@ -27,7 +27,30 @@
     "identical": true
   },
   "dashscope": {
-    "skipped": true,
-    "reason": "DASHSCOPE_API_KEY 未配置"
+    "skipped": false,
+    "use_dashscope": true,
+    "chroma": {
+      "hits": 120,
+      "total": 160,
+      "recall": 0.75,
+      "by_category": {
+        "param_compensation": 0.775,
+        "ambiguous": 0.775,
+        "single_defect": 0.66,
+        "multi_defect": 0.8333
+      }
+    },
+    "faiss": {
+      "hits": 120,
+      "total": 160,
+      "recall": 0.75,
+      "by_category": {
+        "param_compensation": 0.775,
+        "ambiguous": 0.775,
+        "single_defect": 0.66,
+        "multi_defect": 0.8333
+      }
+    },
+    "identical": true
   }
 }

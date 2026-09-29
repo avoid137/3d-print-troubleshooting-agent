@@ -22,3 +22,6 @@ exp/*.npy
 data/rewrite_cache.json
 data/rerank_cache.json
 data/reject_cache.json
+data/answer_cache.json
+data/judge_e2e_cache.json
+exp/exp_e2e_result.json

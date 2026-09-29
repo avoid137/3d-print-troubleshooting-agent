@@ -1,0 +1,28 @@
+========================================================================
+Chroma 纯向量路 vs FAISS 向量路 · 等价性验证
+========================================================================
+
+[tfidf] 生成 embedding（371 条 doc / 200 条 query）...
+生成 embedding（371 条，方法=auto）...
+向量维度: 1024, 数量: 371
+Chroma collection `print_chunks` 已写入 D:\3D打印故障诊断Agent\data\chroma_db，共 371 条
+  Chroma 向量路 Recall@5 : 117/160 = 0.7312  | 各类别 {'param_compensation': 0.65, 'ambiguous': 0.825, 'single_defect': 0.68, 'multi_defect': 0.8}
+  FAISS  向量路 Recall@5 : 117/160 = 0.7312  | 各类别 {'param_compensation': 0.65, 'ambiguous': 0.825, 'single_defect': 0.68, 'multi_defect': 0.8}
+  → 等价: ✅ 逐项一致
+
+[dashscope] 生成 embedding（371 条 doc / 200 条 query）...
+生成 embedding（371 条，方法=dashscope）...
+向量维度: 1024, 数量: 371
+Chroma collection `print_chunks` 已写入 D:\3D打印故障诊断Agent\data\chroma_db，共 371 条
+  Chroma 向量路 Recall@5 : 120/160 = 0.7500  | 各类别 {'param_compensation': 0.775, 'ambiguous': 0.775, 'single_defect': 0.66, 'multi_defect': 0.8333}
+  FAISS  向量路 Recall@5 : 120/160 = 0.7500  | 各类别 {'param_compensation': 0.775, 'ambiguous': 0.775, 'single_defect': 0.66, 'multi_defect': 0.8333}
+  → 等价: ✅ 逐项一致
+
+------------------------------------------------------------------------
+对照项目已发布口径（非本脚本产出，仅作参照）：
+  vector(tfidf) : 117/160 = 0.7312  （FAISS 离线兜底）
+  vector(dashscope): 120/160 = 0.7500 （FAISS 真实 embedding）
+------------------------------------------------------------------------
+结果已写入 D:\3D打印故障诊断Agent\exp\chroma_eval_result.json
+
+✅ 等价性验证通过：Chroma 纯向量召回 = FAISS 纯向量召回（零损失）
