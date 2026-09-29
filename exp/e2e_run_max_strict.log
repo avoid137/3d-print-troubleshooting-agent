@@ -1,0 +1,255 @@
+[1/200] eval_001 -> wrong
+[2/200] eval_002 -> ok_reject
+[3/200] eval_003 -> ok_reject
+[4/200] eval_004 -> ok_reject
+[5/200] eval_005 -> partial
+[6/200] eval_006 -> ok_reject
+[7/200] eval_007 -> partial
+[8/200] eval_008 -> correct
+[9/200] eval_009 -> partial
+[10/200] eval_010 -> wrong
+[11/200] eval_011 -> partial
+[12/200] eval_012 -> ok_reject
+[13/200] eval_013 -> partial
+[14/200] eval_014 -> wrong
+[15/200] eval_015 -> partial
+[16/200] eval_016 -> ok_reject
+[17/200] eval_017 -> wrong
+[18/200] eval_018 -> ok_reject
+[19/200] eval_019 -> correct
+[20/200] eval_020 -> correct
+[21/200] eval_021 -> correct
+[22/200] eval_022 -> wrong
+[23/200] eval_023 -> correct
+[24/200] eval_024 -> partial
+[25/200] eval_025 -> partial
+[26/200] eval_026 -> wrong
+[27/200] eval_027 -> wrong
+[28/200] eval_028 -> partial
+[29/200] eval_029 -> ok_reject
+[30/200] eval_030 -> correct
+[31/200] eval_031 -> partial
+[32/200] eval_032 -> wrong
+[33/200] eval_033 -> partial
+[34/200] eval_034 -> wrong
+[35/200] eval_035 -> correct
+[36/200] eval_036 -> correct
+[37/200] eval_037 -> partial
+[38/200] eval_038 -> correct
+[39/200] eval_039 -> partial
+[40/200] eval_040 -> correct
+[41/200] eval_041 -> correct
+[42/200] eval_042 -> correct
+[43/200] eval_043 -> correct
+[44/200] eval_044 -> partial
+[45/200] eval_045 -> wrong
+[46/200] eval_046 -> correct
+[47/200] eval_047 -> partial
+[48/200] eval_048 -> correct
+[49/200] eval_049 -> wrong
+[50/200] eval_050 -> wrong
+[51/200] eval_051 -> ok_reject
+[52/200] eval_052 -> correct
+[53/200] eval_053 -> partial
+[54/200] eval_054 -> ok_reject
+[55/200] eval_055 -> partial
+[56/200] eval_056 -> correct
+[57/200] eval_057 -> ok_reject
+[58/200] eval_058 -> correct
+[59/200] eval_059 -> correct
+[60/200] eval_060 -> ok_reject
+[61/200] eval_061 -> wrong
+[62/200] eval_062 -> correct
+[63/200] eval_063 -> ok_reject
+[64/200] eval_064 -> correct
+[65/200] eval_065 -> correct
+[66/200] eval_066 -> correct
+[67/200] eval_067 -> ok_reject
+[68/200] eval_068 -> wrong
+[69/200] eval_069 -> partial
+[70/200] eval_070 -> wrong
+[71/200] eval_071 -> partial
+[72/200] eval_072 -> partial
+[73/200] eval_073 -> correct
+[74/200] eval_074 -> partial
+[75/200] eval_075 -> partial
+[76/200] eval_076 -> partial
+[77/200] eval_077 -> wrong
+[78/200] eval_078 -> ok_reject
+[79/200] eval_079 -> ok_reject
+[80/200] eval_080 -> correct
+[81/200] eval_081 -> partial
+[82/200] eval_082 -> partial
+[83/200] eval_083 -> correct
+[84/200] eval_084 -> correct
+[85/200] eval_085 -> ok_reject
+[86/200] eval_086 -> wrong
+[87/200] eval_087 -> partial
+[88/200] eval_088 -> partial
+[89/200] eval_089 -> correct
+[90/200] eval_090 -> partial
+[91/200] eval_091 -> partial
+[92/200] eval_092 -> partial
+[93/200] eval_093 -> correct
+[94/200] eval_094 -> partial
+[95/200] eval_095 -> partial
+[96/200] eval_096 -> partial
+[97/200] eval_097 -> partial
+[98/200] eval_098 -> ok_reject
+[99/200] eval_099 -> partial
+[100/200] eval_100 -> wrong
+[101/200] eval_101 -> correct
+[102/200] eval_102 -> partial
+[103/200] eval_103 -> wrong
+[104/200] eval_104 -> partial
+[105/200] eval_105 -> partial
+[106/200] eval_106 -> partial
+[107/200] eval_107 -> correct
+[108/200] eval_108 -> ok_reject
+[109/200] eval_109 -> ok_reject
+[110/200] eval_110 -> ok_reject
+[111/200] eval_111 -> wrong
+[112/200] eval_112 -> wrong
+[113/200] eval_113 -> partial
+[114/200] eval_114 -> correct
+[115/200] eval_115 -> partial
+[116/200] eval_116 -> correct
+[117/200] eval_117 -> ok_reject
+[118/200] eval_118 -> ok_reject
+[119/200] eval_119 -> correct
+[120/200] eval_120 -> correct
+[121/200] eval_121 -> wrong
+[122/200] eval_122 -> wrong
+[123/200] eval_123 -> correct
+[124/200] eval_124 -> correct
+[125/200] eval_125 -> ok_reject
+[126/200] eval_126 -> partial
+[127/200] eval_127 -> partial
+[128/200] eval_128 -> wrong
+[129/200] eval_129 -> partial
+[130/200] eval_130 -> ok_reject
+[131/200] eval_131 -> partial
+[132/200] eval_132 -> partial
+[133/200] eval_133 -> wrong
+[134/200] eval_134 -> correct
+[135/200] eval_135 -> correct
+[136/200] eval_136 -> wrong
+[137/200] eval_137 -> correct
+[138/200] eval_138 -> ok_reject
+[139/200] eval_139 -> ok_reject
+[140/200] eval_140 -> correct
+[141/200] eval_141 -> ok_reject
+[142/200] eval_142 -> partial
+[143/200] eval_143 -> ok_reject
+[144/200] eval_144 -> wrong
+[145/200] eval_145 -> wrong
+[146/200] eval_146 -> ok_reject
+[147/200] eval_147 -> partial
+[148/200] eval_148 -> partial
+[149/200] eval_149 -> wrong
+[150/200] eval_150 -> wrong
+[151/200] eval_151 -> correct
+[152/200] eval_152 -> correct
+[153/200] eval_153 -> ok_reject
+[154/200] eval_154 -> partial
+[155/200] eval_155 -> ok_reject
+[156/200] eval_156 -> correct
+[157/200] eval_157 -> correct
+[158/200] eval_158 -> ok_reject
+[159/200] eval_159 -> wrong
+[160/200] eval_160 -> partial
+[161/200] eval_161 -> partial
+[162/200] eval_162 -> wrong
+[163/200] eval_163 -> ok_reject
+[164/200] eval_164 -> partial
+[165/200] eval_165 -> partial
+[166/200] eval_166 -> partial
+[167/200] eval_167 -> wrong
+[168/200] eval_168 -> partial
+[169/200] eval_169 -> ok_reject
+[170/200] eval_170 -> correct
+[171/200] eval_171 -> ok_reject
+[172/200] eval_172 -> correct
+[173/200] eval_173 -> correct
+[174/200] eval_174 -> correct
+[175/200] eval_175 -> wrong
+[176/200] eval_176 -> partial
+[177/200] eval_177 -> partial
+[178/200] eval_178 -> partial
+[179/200] eval_179 -> partial
+[180/200] eval_180 -> correct
+[181/200] eval_181 -> wrong
+[182/200] eval_182 -> ok_reject
+[183/200] eval_183 -> correct
+[184/200] eval_184 -> partial
+[185/200] eval_185 -> wrong
+[186/200] eval_186 -> correct
+[187/200] eval_187 -> correct
+[188/200] eval_188 -> ok_reject
+[189/200] eval_189 -> partial
+[190/200] eval_190 -> ok_reject
+[191/200] eval_191 -> correct
+[192/200] eval_192 -> correct
+[193/200] eval_193 -> partial
+[194/200] eval_194 -> wrong
+[195/200] eval_195 -> wrong
+[196/200] eval_196 -> ok_reject
+[197/200] eval_197 -> correct
+[198/200] eval_198 -> partial
+[199/200] eval_199 -> partial
+[200/200] eval_200 -> partial
+
+========== 端到端评测结果 ==========
+{
+  "total": 200,
+  "in_scope": 160,
+  "out_of_scope": 40,
+  "scope_gate": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "missed_reject": 0,
+    "false_answer": 0
+  },
+  "answer_quality": {
+    "judged": 160,
+    "correct": 56,
+    "partial": 66,
+    "wrong": 38,
+    "correct_rate_among_answered": 0.35
+  },
+  "e2e_task_success": 0.35,
+  "verdict_dist": {
+    "wrong": 38,
+    "ok_reject": 40,
+    "partial": 66,
+    "correct": 56
+  },
+  "by_category": {
+    "param_compensation": {
+      "wrong": 9,
+      "partial": 16,
+      "correct": 15
+    },
+    "out_of_scope": {
+      "ok_reject": 40
+    },
+    "ambiguous": {
+      "partial": 12,
+      "correct": 18,
+      "wrong": 10
+    },
+    "single_defect": {
+      "correct": 17,
+      "wrong": 14,
+      "partial": 19
+    },
+    "multi_defect": {
+      "partial": 19,
+      "correct": 6,
+      "wrong": 5
+    }
+  }
+}
+
+明细已写入 D:\3D打印故障诊断Agent\exp\exp_e2e_result.json
