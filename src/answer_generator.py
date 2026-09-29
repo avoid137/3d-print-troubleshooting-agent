@@ -19,20 +19,26 @@ from pathlib import Path
 from config import DASHSCOPE_API_KEY, PROJECT_ROOT
 
 ANSWER_MODEL = "qwen-turbo"
-PROMPT_VERSION = "v1"           # 改 prompt 时必须递增
+PROMPT_VERSION = "v2.1"         # 改 prompt / 上下文裁剪时必须递增（缓存 key 含此版本）
 CACHE_PATH = PROJECT_ROOT / "data" / "answer_cache.json"
-MAX_CONTEXT_CHARS = 8000        # 喂给生成模型的证据总预算
-EXPANDED_CHUNK_CHARS = 400      # 扩展块（非直接命中）每块上限
+MAX_CONTEXT_CHARS = 10000       # 喂给生成模型的证据总预算（v2 上调，容纳更全的根因）
+EXPANDED_CHUNK_CHARS = 700      # 扩展块（非直接命中）每块上限（v2 上调，避免 gold 根因被截断）
 
-SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断专家。用户描述了一个打印问题，
-系统已从排障知识库中检索到相关条目（含根因与解决方案）。
+SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断专家。系统已从排障知识库检索到若干「证据」条目，
+每条含编号(kb_id)、问题(problem)、若干根因(cause)与对应解决方案(solution)。
+你必须**严格只基于这些证据**作答，不得依赖自身知识。
 
-请严格基于给定证据作答：
-1. 只用证据中的信息，**禁止编造**证据外的参数、步骤或结论。
-2. 按「最可能的根因 → 对应解决方案」组织答案，多个根因按证据顺序列出。
-3. 给出具体可操作的调整项（参数值、检查步骤），保留证据中的关键数值。
-4. 用与用户提问相同的语言回答。
-5. 若证据与问题明显不相关或不足以诊断，直接说明证据不足，不要硬答。
+硬性规则：
+1. 相关才穷尽：对与用户问题**相关**的每条证据，必须列出其中**全部**根因及对应方案；
+   禁止用概括性语言跳过任何一条相关根因。若某证据块明显与问题无关，
+   可跳过并注明「该证据与问题关联性弱，未采纳」，不要罗列其根因。
+2. 仅用证据：答案里的每条根因/方案都必须能在上述证据中找到对应内容；
+   **严禁**补充证据之外的根因或对策（这类内容会被判为错误）。
+3. 标注出处：每条根因/方案后用「（依据 {kb_id}）」注明，kb_id 必须来自
+   **上方真实证据块**中实际出现的编号；禁止引用示例、杜撰或证据中不存在的编号。
+4. 排序：同一证据内多条根因按证据原有顺序；多条证据按编号顺序。
+5. 语言：与用户提问相同语言。
+6. 证据不足：若所有证据都与问题明显无关，直接说明「知识库未检索到相关条目」，不要硬答。
 
 只输出 JSON，不要任何其他内容：
 {"answer": "你的完整诊断回答"}"""
@@ -40,10 +46,26 @@ SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断专家。用户描述了一�
 USER_TEMPLATE = """用户问题：
 {query}
 
-知识库证据（{n} 条，retrieved=直接命中，expanded=同问题下的补充根因）：
+知识库证据（共 {n} 条，retrieved=直接命中，expanded=同问题下的补充根因；
+请**逐条处理，覆盖每条证据中的全部根因**，不要遗漏）：
 {context}
 
 请输出 JSON 格式的诊断回答。"""
+
+# 通用 few-shot（不取自评测集，避免过拟合）：演示「穷尽全部根因 + 标注出处 + 不补外部知识」
+# 注意：示例用合成编号 KB-Demo，且规则 3 已禁止引用示例/杜撰编号，避免模型把示例 id 照搬进真实答案。
+FEWSHOT_USER = """用户问题：
+打印件的第一层总是翘边、粘不牢，轻轻一碰就脱落。
+
+知识库证据（共 1 条，retrieved=直接命中）：
+[1] (KB-Demo, retrieved) 问题: 第一层附着不良
+根因: 打印床未调平，喷嘴与床面间隙不均 → 方案: 重新调平打印床，用一张 A4 纸测试间隙。
+根因: 热床温度过低 → 方案: 将热床温度提高到 60°C 左右（PLA）。
+根因: 床面有油脂或碎屑 → 方案: 用酒精擦拭床面，必要时涂固体胶棒增加附着力。
+
+请输出 JSON 格式的诊断回答。"""
+
+FEWSHOT_ASSISTANT = """{"answer": "第一层翘边脱落的可能根因与对策：\\n1. 打印床未调平、喷嘴与床面间隙不均：重新调平打印床，用一张 A4 纸测试间隙是否均匀（依据 KB-Demo）。\\n2. 热床温度过低：将热床温度提高到约 60°C（PLA 适用）（依据 KB-Demo）。\\n3. 床面有油脂或碎屑：用酒精擦拭床面，必要时涂固体胶棒增加附着力（依据 KB-Demo）。"}"""
 
 
 def build_context(evidence, max_chars=MAX_CONTEXT_CHARS,
@@ -129,6 +151,8 @@ class AnswerGenerator:
                     model=self.model,
                     messages=[
                         {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "user", "content": FEWSHOT_USER},
+                        {"role": "assistant", "content": FEWSHOT_ASSISTANT},
                         {"role": "user", "content": user_msg},
                     ],
                     result_format="message",
