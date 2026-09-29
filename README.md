@@ -141,6 +141,7 @@ python exp_judge_reproducibility.py          # 复现性：200×5 + 80×3，约 
 python exp_judge_reproducibility.py --reuse  # 从已存标签矩阵重算，不调 API
 python exp_holdout_scope.py                  # 留出集 #1（40 条）
 python exp_holdout_scope.py --set 2          # 留出集 #2（24 条）
+python exp_chroma_eval.py                     # Chroma 向量路 ≡ FAISS 等价验证（无 Key 跑 TF-IDF 后端）
 ```
 
 ---
@@ -164,6 +165,7 @@ python exp_holdout_scope.py --set 2          # 留出集 #2（24 条）
 │   ├── chunking.py             problem 级 + cause 级切分
 │   ├── bm25_index.py           BM25 索引
 │   ├── vector_index.py         FAISS 向量索引（DashScope / TF-IDF 双模式）
+│   ├── chroma_index.py         **Chroma 元数据过滤补充层**（FAISS 之上的按需过滤，复用 vector_index 的 embedding）
 │   ├── hybrid_retriever.py     RRF 双路融合检索
 │   ├── build_eval_set.py       评测集构造
 │   ├── evaluate.py             检索评测（Recall@5）
@@ -171,7 +173,7 @@ python exp_holdout_scope.py --set 2          # 留出集 #2（24 条）
 │   ├── tune_weights.py         权重调优
 │   ├── rejector.py             两层拒答（预过滤 + LLM 判官）
 │   └── evaluate_reject.py      拒答评测
-├── exp/                        实验脚本（embedding 对比 / 复现性 / 留出集）
+├── exp/                        实验脚本（embedding 对比 / 复现性 / 留出集 / Chroma 等价验证）
 ├── .env.example                密钥模板
 └── .gitignore                  保护 .env + 排除索引产物
 ```
@@ -195,6 +197,17 @@ Query
 **为什么用 RRF 而不是加权分数**：BM25 分数量纲（无上界）与余弦相似度（0~1）不可比，RRF 只看排名、对分数尺度不敏感，是 hybrid search 的工业标准做法。
 
 **切分策略**：每个 problem 生成 1 个 problem 级 chunk，每个 cause 生成 1 个 cause 级 chunk，共 371 个。
+
+**向量库定位（三套，职责不重叠）**：
+
+| 向量库 | 产物 | 角色 | 何时用 |
+|---|---|---|---|
+| **FAISS**（`faiss_index.bin` / `faiss_index.tfidf_svd.pkl`） | 主向量索引 | **P0 正典向量检索**（hybrid 的向量路） | 生产检索、评测 |
+| **Chroma**（`data/chroma_db/`，git 忽略） | 元数据过滤层 | **FAISS 之上的按需补充层**：在向量召回结果上按 `type` / `kb_id` 等元数据过滤，或 `where_document $contains` 关键词精筛 | 需要「向量 + 结构化过滤」组合的子场景 |
+
+> ⚠️ **Chroma 不是 FAISS 的替代品**，而是补充：它复用 `vector_index` 的同一套 embedding，且向量 L2 归一化后 **cosine（Chroma）≡ 内积（FAISS `IndexFlatIP`）**，
+> 因此纯向量召回率**与 FAISS 逐项一致**（实测 Chroma 117/160 = 0.7312 == FAISS-TF-IDF）。Chroma 的增量价值在于**元数据过滤**，而非召回质量。
+> 验证脚本：`exp/exp_chroma_eval.py`（无 Key 跑 TF-IDF 后端，配 Key 可验 DashScope 后端应得 75.00%）。
 
 ---
 
@@ -309,6 +322,7 @@ Query
 - [x] ~~留出集交叉验证~~ ✅ **已完成**（40 + 24 条手写集均 100%）
 - [x] ~~评测集 gold 悬空引用修正~~ ✅ **已完成**（7 个 kb_v1 编号规范化为 kb_v2，14 条题恢复；主口径 127/160 → **136/160 = 85.00%**）
 - [x] ~~评测集补 `source` 字段~~ ✅ **已完成**（200 条全部含 `source` 构造类型 + `gold_basis` 出题依据；14 条带 v1→v2 映射标记）
+- [x] ~~Chroma 补充过滤层 + 等价验证~~ ✅ **已完成**（`src/chroma_index.py` 元数据过滤层；`exp/exp_chroma_eval.py` 证向量路 ≡ FAISS，117/160 = 0.7312）
 - [ ] `kb_v2.json` 逐条补原始出处 `source`（当前 3/56，其余 53 条记于 `dataset_cards.md`）
 - [ ] 拒答的**第三方标注**泛化验证（当前留出集为同作者手写，存偏见风险）
 - [ ] P1：接入 5 类缺陷图像分类（Kaggle `wengmhu`，MIT，1,912 张），构建视觉 → 知识库映射层
