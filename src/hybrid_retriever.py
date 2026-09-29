@@ -120,10 +120,16 @@ class HybridRetriever:
         return out
 
     def retrieve(self, query, top_k=TOP_K, bm25_weight=BM25_WEIGHT,
-                 vector_weight=VECTOR_WEIGHT, where=None):
+                 vector_weight=VECTOR_WEIGHT, where=None, bm25_query=None):
+        # bm25_query：BM25 路的独立查询串（默认同 query）。
+        # 用途：query 改写时，扩展术语只喂 BM25 路（词面扩展），
+        #       向量路仍用原 query（保护 embedding 语义不被稀释）。
+        if bm25_query is None:
+            bm25_query = query
+
         # 1. BM25 路：取 top-50 候选（同时保留原始分，供拒答判断用）
         #    where 非空时双路同步过滤，保证融合结果口径一致
-        bm25_top = query_bm25(self.bm25, query, top_k=50)
+        bm25_top = query_bm25(self.bm25, bm25_query, top_k=50)
         if where:
             bm25_top = [(i, s) for i, s in bm25_top
                         if _match_where(self.chunks[i], where)]

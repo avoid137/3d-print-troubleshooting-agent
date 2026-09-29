@@ -17,3 +17,8 @@ data/*.backup_*
 
 # ---- 实验中间产物 ----
 exp/*.npy
+
+# ---- LLM 调用缓存（可重建，避免重复烧 token 的本地缓存）----
+data/rewrite_cache.json
+data/rerank_cache.json
+data/reject_cache.json
