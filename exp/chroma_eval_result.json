@@ -1,0 +1,33 @@
+{
+  "tfidf": {
+    "skipped": false,
+    "use_dashscope": false,
+    "chroma": {
+      "hits": 117,
+      "total": 160,
+      "recall": 0.7312,
+      "by_category": {
+        "param_compensation": 0.65,
+        "ambiguous": 0.825,
+        "single_defect": 0.68,
+        "multi_defect": 0.8
+      }
+    },
+    "faiss": {
+      "hits": 117,
+      "total": 160,
+      "recall": 0.7312,
+      "by_category": {
+        "param_compensation": 0.65,
+        "ambiguous": 0.825,
+        "single_defect": 0.68,
+        "multi_defect": 0.8
+      }
+    },
+    "identical": true
+  },
+  "dashscope": {
+    "skipped": true,
+    "reason": "DASHSCOPE_API_KEY 未配置"
+  }
+}

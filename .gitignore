@@ -11,6 +11,7 @@ data/faiss_index.bin
 data/faiss_index.meta.json
 data/faiss_index.tfidf_svd.pkl
 data/bm25_index.pkl
+data/chroma_db/
 data/_backup_*/
 data/*.backup_*
 

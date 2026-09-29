@@ -37,6 +37,8 @@ KB_V2_PATH = DATA_DIR / "kb_v2.json"            # 清洗后知识库（去重 + 
 CHUNKS_PATH = DATA_DIR / "chunks.json"          # 切分后的 chunk 列表
 BM25_INDEX_PATH = DATA_DIR / "bm25_index.pkl"   # BM25 索引
 FAISS_INDEX_PATH = DATA_DIR / "faiss_index.bin" # FAISS 向量索引
+CHROMA_DB_PATH = DATA_DIR / "chroma_db"         # Chroma 持久化目录（元数据过滤服务层）
+CHROMA_COLLECTION = "print_chunks"              # Chroma collection 名
 EVAL_SET_PATH = DATA_DIR / "eval_set.json"      # 200 条评测集
 
 # 检索参数

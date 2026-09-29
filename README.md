@@ -104,8 +104,8 @@ Query → 检索 → ┌ Layer 1 · 确定性预过滤（纯规则、零 API、�
 ### 1. 环境
 
 ```bash
-# 依赖：faiss-cpu / scikit-learn / rank_bm25 / numpy / dashscope
-pip install faiss-cpu scikit-learn rank_bm25 numpy dashscope
+# 依赖：faiss-cpu / scikit-learn / rank_bm25 / numpy / dashscope / chromadb
+pip install faiss-cpu scikit-learn rank_bm25 numpy dashscope chromadb
 ```
 
 ### 2. 配置密钥（可选但推荐）
