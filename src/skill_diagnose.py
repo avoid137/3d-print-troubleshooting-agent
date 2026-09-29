@@ -44,6 +44,7 @@ class DiagnoseSkill:
         self.retriever = retriever or HybridRetriever()
         # expand_parent 为 None 时读 config.EXPAND_PARENT（env 可覆盖，检索精度实验用）
         self.expand_parent = expand_parent if expand_parent is not None else EXPAND_PARENT
+        self._kb_by_id = None  # 懒加载 kb_v2（_expand_parent 用）
 
     def _kb(self):
         if self._kb_by_id is None:
