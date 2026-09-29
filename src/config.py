@@ -50,6 +50,7 @@ BM25_WEIGHT = 0.6            # BM25 路权重
 VECTOR_WEIGHT = 0.4          # 向量路权重
 TOP_K = 5                    # 返回 top-k 结果
 RECALL_K = 5                 # Recall@k
+VECTOR_BACKEND = "faiss"     # 向量后端："faiss"（默认）或 "chroma"（支持 where 元数据过滤）
 
 # Embedding（DashScope text-embedding）
 EMBED_MODEL = "text-embedding-v3"
