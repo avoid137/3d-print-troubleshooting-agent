@@ -1,0 +1,308 @@
+{
+  "rows": [
+    {
+      "id": "eval_010",
+      "category": "single_defect",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB050",
+        "KB033",
+        "KB019",
+        "KB031",
+        "KB051",
+        "KB028",
+        "KB062",
+        "KB009",
+        "KB008",
+        "KB005"
+      ],
+      "backfilled": false
+    },
+    {
+      "id": "eval_022",
+      "category": "single_defect",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB013",
+        "KB021",
+        "KB018",
+        "KB022",
+        "KB005",
+        "KB101",
+        "KB051",
+        "KB009",
+        "KB003",
+        "KB033"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_028",
+      "category": "multi_defect",
+      "k5": "correct",
+      "k10": "correct",
+      "kb_ids10": [
+        "KB016",
+        "KB101",
+        "KB002",
+        "KB028",
+        "KB018",
+        "KB024",
+        "KB048",
+        "KB062",
+        "KB072",
+        "KB005"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_032",
+      "category": "single_defect",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB022",
+        "KB019",
+        "KB065",
+        "KB074",
+        "KB002",
+        "KB001",
+        "KB007",
+        "KB026",
+        "KB050",
+        "KB014"
+      ],
+      "backfilled": false
+    },
+    {
+      "id": "eval_034",
+      "category": "ambiguous",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB013",
+        "KB023",
+        "KB003",
+        "KB019",
+        "KB006",
+        "KB004",
+        "KB010",
+        "KB021",
+        "KB001",
+        "KB008"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_044",
+      "category": "multi_defect",
+      "k5": "correct",
+      "k10": "partial",
+      "kb_ids10": [
+        "KB061",
+        "KB001",
+        "KB037",
+        "KB012",
+        "KB019",
+        "KB004",
+        "KB023",
+        "KB051",
+        "KB003",
+        "KB058"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_070",
+      "category": "ambiguous",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB014",
+        "KB063",
+        "KB006",
+        "KB058",
+        "KB010",
+        "KB049",
+        "KB017",
+        "KB051",
+        "KB042",
+        "KB038"
+      ],
+      "backfilled": false
+    },
+    {
+      "id": "eval_092",
+      "category": "multi_defect",
+      "k5": "correct",
+      "k10": "correct",
+      "kb_ids10": [
+        "KB027",
+        "KB005",
+        "KB018",
+        "KB072",
+        "KB042",
+        "KB015",
+        "KB025",
+        "KB053",
+        "KB016",
+        "KB051"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_096",
+      "category": "param_compensation",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB005",
+        "KB033",
+        "KB062",
+        "KB002",
+        "KB028",
+        "KB022",
+        "KB031",
+        "KB009",
+        "KB101",
+        "KB026"
+      ],
+      "backfilled": false
+    },
+    {
+      "id": "eval_102",
+      "category": "multi_defect",
+      "k5": "correct",
+      "k10": "correct",
+      "kb_ids10": [
+        "KB009",
+        "KB019",
+        "KB023",
+        "KB033",
+        "KB005",
+        "KB062",
+        "KB003",
+        "KB042",
+        "KB001",
+        "KB101"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_103",
+      "category": "param_compensation",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB024",
+        "KB016",
+        "KB007",
+        "KB008",
+        "KB053",
+        "KB062",
+        "KB003",
+        "KB027",
+        "KB049",
+        "KB061"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_116",
+      "category": "ambiguous",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB002",
+        "KB046",
+        "KB101",
+        "KB005",
+        "KB009",
+        "KB028",
+        "KB016",
+        "KB055",
+        "KB033",
+        "KB053"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_128",
+      "category": "param_compensation",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB048",
+        "KB021",
+        "KB031",
+        "KB018",
+        "KB026",
+        "KB013",
+        "KB053",
+        "KB072",
+        "KB015",
+        "KB008"
+      ],
+      "backfilled": false
+    },
+    {
+      "id": "eval_145",
+      "category": "single_defect",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB051",
+        "KB061",
+        "KB005",
+        "KB046",
+        "KB037",
+        "KB001",
+        "KB048",
+        "KB003",
+        "KB019",
+        "KB004"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_148",
+      "category": "multi_defect",
+      "k5": "partial",
+      "k10": "partial",
+      "kb_ids10": [
+        "KB009",
+        "KB051",
+        "KB005",
+        "KB046",
+        "KB048",
+        "KB061",
+        "KB003",
+        "KB018",
+        "KB019",
+        "KB049"
+      ],
+      "backfilled": true
+    },
+    {
+      "id": "eval_175",
+      "category": "ambiguous",
+      "k5": "wrong",
+      "k10": "wrong",
+      "kb_ids10": [
+        "KB007",
+        "KB017",
+        "KB061",
+        "KB016",
+        "KB024",
+        "KB003",
+        "KB002",
+        "KB028",
+        "KB020",
+        "KB005"
+      ],
+      "backfilled": false
+    }
+  ]
+}
