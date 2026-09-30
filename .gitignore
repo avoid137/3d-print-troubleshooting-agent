@@ -28,4 +28,12 @@ data/rerank_cache.json
 data/reject_cache.json
 data/answer_cache.json
 data/judge_e2e_cache.json
+data/backfill_cache.json
+data/judge_lenient_cache.json
+data/_kb016_verify_cache.json
 exp/exp_e2e_result.json
+
+# ---- 实验运行日志 ----
+exp/*_run.log
+exp/e2e_run_*.log
+exp/e2e_*.log

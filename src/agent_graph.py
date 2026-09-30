@@ -26,6 +26,7 @@ from langgraph.graph import StateGraph, START, END
 
 from skill_diagnose import DiagnoseSkill
 from answer_generator import AnswerGenerator, ANSWER_MODEL
+from config import ANSWER_BACKFILL
 from agent import REJECT_REPLY
 
 
@@ -71,15 +72,17 @@ def _make_nodes(skill: DiagnoseSkill, generator: AnswerGenerator):
 
     def generate(state: AgentState) -> dict:
         sk = state["skill_out"]
-        gen = generator.generate(state["query"], sk["evidence"],
-                                 top_k=state.get("top_k", 5),
-                                 expand=state.get("expand", True))
+        gen = generator.generate_with_backfill(state["query"], sk["evidence"],
+                                               top_k=state.get("top_k", 5),
+                                               expand=state.get("expand", True),
+                                               do_backfill=ANSWER_BACKFILL)
         return {
             "answer": gen["answer"],
             "reject_reason": "",
             "trace": [{
                 "node": "generate",
                 "cached": gen["cached"],
+                "backfilled": gen.get("backfilled", False),
                 "answer_chars": len(gen["answer"]),
             }],
         }
@@ -136,6 +139,7 @@ class GraphDiagnoseAgent:
             "reject_reason": final.get("reject_reason", ""),
             "answer": final["answer"],
             "kb_ids": final["kb_ids"],
+            "evidence": final.get("skill_out", {}).get("evidence", []),
             "top_cosine": final["top_cosine"],
             "trace": final["trace"],
         }

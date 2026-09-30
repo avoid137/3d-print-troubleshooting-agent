@@ -61,6 +61,10 @@ EXPAND_PARENT = os.getenv("EXPAND_PARENT", "1") == "1"
 # 两遍法生成开关（v2.2）：9/30 端到端验证「两遍法拖累」——同条件 B2+一遍 49.38% > B2+两遍 43.75%（+5.63pp）。
 # 默认关（一遍法）；置 1 回退两遍法（抽取+作答）。两遍法已证为净拖累，保留仅作回退验证。
 TWO_PASS = os.getenv("TWO_PASS", "0") == "1"
+# 生成后「完整性回填」开关（v2.7，选项③验证 +5.62pp / 0 回归）：
+# 生成草拟答案后，用检索证据做一次覆盖复核，只补「证据里已有且确实相关、但答案漏掉」的根因。
+# 默认开（每题都跑，生产现实：不知 gold）；置 0 关掉回到纯一遍法。
+ANSWER_BACKFILL = os.getenv("ANSWER_BACKFILL", "1") == "1"
 # 检索索引模式：默认 "kb"（B2 级，最优组合）；"chunk" 回退旧 cause 级索引。
 RETRIEVER_MODE = os.getenv("RETRIEVER_MODE", "kb")
 VECTOR_BACKEND = "faiss"     # 向量后端："faiss"（默认）或 "chroma"（支持 where 元数据过滤）

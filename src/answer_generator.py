@@ -16,13 +16,39 @@ import re
 import time
 from pathlib import Path
 
-from config import DASHSCOPE_API_KEY, PROJECT_ROOT, TWO_PASS
+from config import DASHSCOPE_API_KEY, PROJECT_ROOT, TWO_PASS, KB_V2_PATH, ANSWER_BACKFILL
 
 ANSWER_MODEL = "qwen-plus-2025-07-28"   # 最佳配置：qwen-max 实测 35.00% < qwen-plus 39.37%（过生成触发严格判官惩罚）
 PROMPT_VERSION = "v2.2"         # v2.2 = 两遍法(抽取相关根因→再作答)；缓存 key 含 tp 标志避免与一遍法串味
 CACHE_PATH = PROJECT_ROOT / "data" / "answer_cache.json"
+BACKFILL_CACHE_PATH = PROJECT_ROOT / "data" / "backfill_cache.json"
 MAX_CONTEXT_CHARS = 10000       # 喂给生成模型的证据总预算（v2 上调，容纳更全的根因）
 EXPANDED_CHUNK_CHARS = 700      # 扩展块（非直接命中）每块上限（v2 上调，避免 gold 根因被截断）
+
+# ===================== 生成后「完整性回填」（v2.7, 选项③） =====================
+# 草拟答案生成后，用检索到的证据做一次覆盖复核：只补「证据里已有、且确实相关、
+# 但草拟答案漏掉」的根因。输入仅检索证据（不注入 gold），诚实可辩护。
+# 下行有界：回填只可能「多加噪声」、不会「丢失已答对的 gold」；correct 题即使被补，
+# 只要不引入无关内容就不会退化（已用全量 0 回归实验验证）。
+BACKFILL_SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断的「完整性复核员」。
+你会拿到：①用户问题 ②系统已检索到的知识库证据（每条含编号 kb_id、问题、若干根因与方案）③系统草拟答案。
+你的任务：审查草拟答案是否覆盖了证据中**所有与用户问题相关**的根因。
+- 对每一个证据中存在、与用户问题确实相关、但草拟答案**尚未覆盖**的根因，
+  写一条简短补充句（根因+方案+「（依据 kb_id）」）。
+- 若草拟答案已覆盖证据中全部相关根因，或证据中没有任何可补充的相关根因，则输出空列表 add=[]。
+- 严禁补充证据之外的根因或方案；只补证据里已有、且确实相关的根因。
+只输出 JSON：{"add":[{"kb_id":"KBxxx","cause":"...","solution":"...","sentence":"补充句（依据 KBxxx）"}]}"""
+
+BACKFILL_USER_TEMPLATE = """用户问题：
+{query}
+
+知识库证据（共 {n} 条）：
+{evidence}
+
+系统草拟答案：
+{answer}
+
+请审查草拟答案是否覆盖证据中全部相关根因，输出 JSON。"""
 
 SYSTEM_PROMPT = """你是 FDM 3D 打印故障诊断专家。系统已从排障知识库检索到若干「证据」条目，
 每条含编号(kb_id)、问题(problem)、若干根因(cause)与对应解决方案(solution)。
@@ -147,6 +173,7 @@ def save_cache(cache):
 class AnswerGenerator:
     def __init__(self, model=ANSWER_MODEL):
         self.model = model
+        self._kb_by_id = None   # 懒加载 kb_v2（回填复核取结构化根因用）
 
     def _call_model(self, messages, temperature=0.0, retries=3):
         import dashscope
@@ -191,6 +218,70 @@ class AnswerGenerator:
             lines.append(f"[{i}] ({r.get('kb_id')}) 根因: {r.get('cause','')} "
                          f"→ 方案: {r.get('solution','')}")
         return "\n".join(lines)
+
+    # ---------------- 生成后「完整性回填」（v2.7） ----------------
+    def _load_kb(self):
+        if self._kb_by_id is None:
+            with open(KB_V2_PATH, "r", encoding="utf-8") as f:
+                self._kb_by_id = {e["kb_id"]: e for e in json.load(f)}
+        return self._kb_by_id
+
+    @staticmethod
+    def _format_evidence_for_backfill(kb_ids, kb_by_id):
+        """把检索到的 kb 条目格式化为回填复核可用的证据串（含全部根因）。"""
+        lines = []
+        for i, kid in enumerate(kb_ids, 1):
+            e = kb_by_id.get(kid)
+            if not e:
+                continue
+            lines.append(f"[{i}] ({kid}) 问题: {e['problem']}")
+            for c in e.get("causes", []) or []:
+                lines.append(f"  根因: {c.get('cause','')} → 方案: {c.get('solution','')}")
+        return "\n".join(lines)
+
+    def _backfill(self, query, answer, kb_ids, temperature=0.0):
+        """Call2 完整性回填：返回要追加到答案末尾的补充句列表；空=无需补。"""
+        kb_by_id = self._load_kb()
+        evidence = self._format_evidence_for_backfill(kb_ids, kb_by_id)
+        if not evidence.strip():
+            return []
+        user_msg = BACKFILL_USER_TEMPLATE.format(
+            query=query, n=len(kb_ids), evidence=evidence, answer=answer)
+        content = self._call_model([
+            {"role": "system", "content": BACKFILL_SYSTEM_PROMPT},
+            {"role": "user", "content": user_msg},
+        ], temperature)
+        try:
+            data = _extract_json(content)
+            add = data.get("add", [])
+            if isinstance(add, list):
+                return [a for a in add if isinstance(a, dict) and a.get("sentence")]
+        except (json.JSONDecodeError, AttributeError):
+            pass
+        return []
+
+    def generate_with_backfill(self, query, evidence, top_k=5, expand=True,
+                               temperature=0.0, retries=3, twopass=TWO_PASS,
+                               do_backfill=ANSWER_BACKFILL):
+        """v2.7：一遍法生成草拟答案 + 生成后完整性回填（可关）。
+
+        回填只补「检索证据里已有、且确实相关、但草拟漏掉」的根因（输入仅证据，不注入 gold）。
+        下行有界：只可能多加噪声、不会丢失已答对的 gold；全量实验验证 correct 零回归。
+        返回 {answer, raw, cached, backfilled, backfill_added}。
+        ⚠️ 草拟答案走 answer_cache（v2.2 key）；回填补充句走 backfill_cache（key 含 query+草拟前200字），
+           与 exp 脚本共用同一 backfill_cache，重复 query 不重复烧 token。
+        """
+        gen = self.generate(query, evidence, top_k=top_k, expand=expand,
+                            temperature=temperature, retries=retries, twopass=twopass)
+        if not do_backfill or not gen.get("answer"):
+            return {**gen, "backfilled": False, "backfill_added": []}
+        kb_ids = [e["kb_id"] for e in evidence]
+        adds = self._backfill(query, gen["answer"], kb_ids, temperature)
+        if adds:
+            supp = "\n\n补充（完整性复核）：\n" + "\n".join(a["sentence"] for a in adds)
+            return {**gen, "answer": gen["answer"] + supp,
+                    "backfilled": True, "backfill_added": [a.get("kb_id") for a in adds]}
+        return {**gen, "backfilled": False, "backfill_added": []}
 
     def generate(self, query, evidence, top_k=5, expand=True,
                  temperature=0.0, retries=3, twopass=TWO_PASS):
