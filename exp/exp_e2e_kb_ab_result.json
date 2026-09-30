@@ -1,0 +1,4622 @@
+{
+  "summary": {
+    "A_chunk_two_pass": {
+      "in_scope": 160,
+      "answered": 160,
+      "strict": {
+        "wrong": 28,
+        "partial": 75,
+        "correct": 57
+      },
+      "strict_task_success": 0.3563,
+      "lenient": {
+        "unusable": 62,
+        "usable": 98
+      },
+      "lenient_usable_rate": 0.6125,
+      "by_category_strict": {
+        "param_compensation": {
+          "strict_A": 40
+        },
+        "ambiguous": {
+          "strict_A": 40
+        },
+        "single_defect": {
+          "strict_A": 50
+        },
+        "multi_defect": {
+          "strict_A": 30
+        }
+      }
+    },
+    "B_kb_two_pass": {
+      "in_scope": 160,
+      "answered": 160,
+      "strict": {
+        "correct": 70,
+        "partial": 42,
+        "wrong": 48
+      },
+      "strict_task_success": 0.4375,
+      "lenient": {
+        "usable": 102,
+        "unusable": 58
+      },
+      "lenient_usable_rate": 0.6375,
+      "by_category_strict": {
+        "param_compensation": {
+          "strict_B": 40
+        },
+        "ambiguous": {
+          "strict_B": 40
+        },
+        "single_defect": {
+          "strict_B": 50
+        },
+        "multi_defect": {
+          "strict_B": 30
+        }
+      }
+    },
+    "delta_strict_correct": 0.0812,
+    "delta_lenient_usable": 0.025,
+    "transitions_A_to_B": {
+      "wrong->correct": 5,
+      "partial->correct": 27,
+      "partial->partial": 29,
+      "correct->correct": 38,
+      "partial->wrong": 19,
+      "correct->wrong": 11,
+      "wrong->partial": 5,
+      "correct->partial": 8,
+      "wrong->wrong": 18
+    },
+    "partial_to_correct": 27,
+    "correct_to_partial": 8,
+    "wrong_to_correct": 5,
+    "note": "配对实验：生成方法(两遍法/qwen-plus)固定，仅检索索引不同。B-A 的 strict 增量即检索增益对生成层的净传导。"
+  },
+  "records": [
+    {
+      "id": "eval_001",
+      "query": "temperature tower calibration",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB022",
+        "KB003",
+        "KB049",
+        "KB025"
+      ],
+      "kb_ids_B": [
+        "KB003",
+        "KB024",
+        "KB044",
+        "KB028",
+        "KB027"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_002",
+      "query": "3D printer mainboard upgrade",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_003",
+      "query": "how to use a 3D pen",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_004",
+      "query": "best CAD software for beginners",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_005",
+      "query": "retraction is fine but still oozing",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB058",
+        "KB014",
+        "KB006",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB014",
+        "KB063",
+        "KB001",
+        "KB017"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_006",
+      "query": "how to connect printer to octoprint",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_007",
+      "query": "not stringing but web-like strands",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB063",
+        "KB006",
+        "KB102"
+      ],
+      "kb_ids_B": [
+        "KB063",
+        "KB006",
+        "KB102",
+        "KB055",
+        "KB103"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_008",
+      "query": "bridges sag and string",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027",
+        "KB006"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB006",
+        "KB002",
+        "KB001",
+        "KB005"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_009",
+      "query": "heat deformation on tall prints and hairy prints with whiskers of filament",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB031",
+        "KB049"
+      ],
+      "kb_ids_B": [
+        "KB049",
+        "KB006",
+        "KB024",
+        "KB067",
+        "KB033"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_010",
+      "query": "the print layers don't line up",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB050",
+        "KB033",
+        "KB019",
+        "KB072"
+      ],
+      "kb_ids_B": [
+        "KB050",
+        "KB019",
+        "KB062",
+        "KB033",
+        "KB009"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_011",
+      "query": "part doesn't stick to print bed",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB067",
+        "KB024",
+        "KB002",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB067",
+        "KB002",
+        "KB101",
+        "KB024",
+        "KB044"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_012",
+      "query": "how to calibrate a laser engraver",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_013",
+      "query": "no warp but edges bending",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB024",
+        "KB055"
+      ],
+      "kb_ids_B": [
+        "KB055",
+        "KB024",
+        "KB052",
+        "KB065",
+        "KB008"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_014",
+      "query": "how to unclog a 3D printer nozzle",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB022",
+        "KB001",
+        "KB023",
+        "KB011"
+      ],
+      "kb_ids_B": [
+        "KB001",
+        "KB022",
+        "KB011",
+        "KB014",
+        "KB012"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_015",
+      "query": "ironing settings top surface",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB062",
+        "KB017",
+        "KB018"
+      ],
+      "kb_ids_B": [
+        "KB017",
+        "KB002",
+        "KB005",
+        "KB025",
+        "KB058"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_016",
+      "query": "how to print flexible TPU",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_017",
+      "query": "nozzle temperature too low under extrusion",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB102",
+        "KB006",
+        "KB005",
+        "KB002",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB102",
+        "KB003",
+        "KB006",
+        "KB023",
+        "KB004"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_018",
+      "query": "best enclosure for ABS printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_019",
+      "query": "zits appearing on the print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB014",
+        "KB033",
+        "KB067",
+        "KB065"
+      ],
+      "kb_ids_B": [
+        "KB033",
+        "KB014",
+        "KB058",
+        "KB067",
+        "KB048"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_020",
+      "query": "nozzle is not clogged but filament grinds",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB010",
+        "KB102",
+        "KB012",
+        "KB023",
+        "KB103"
+      ],
+      "kb_ids_B": [
+        "KB102",
+        "KB012",
+        "KB001",
+        "KB103",
+        "KB010"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_021",
+      "query": "no clog but stops extruding mid print",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB001",
+        "KB037",
+        "KB010"
+      ],
+      "kb_ids_B": [
+        "KB012",
+        "KB037",
+        "KB034",
+        "KB014",
+        "KB001"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_022",
+      "query": "weak thin layers from under extrusion",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB018",
+        "KB051",
+        "KB003",
+        "KB013"
+      ],
+      "kb_ids_B": [
+        "KB013",
+        "KB051",
+        "KB018",
+        "KB005",
+        "KB021"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_023",
+      "query": "bridging looks messy and droopy",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027",
+        "KB046"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB046",
+        "KB053",
+        "KB055",
+        "KB050"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_024",
+      "query": "brim width for bed adhesion",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB028",
+        "KB002",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB024",
+        "KB101",
+        "KB021",
+        "KB028"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_025",
+      "query": "ringing artifacts on print sides and overhang quality is poor",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB019",
+        "KB020",
+        "KB053",
+        "KB055"
+      ],
+      "kb_ids_B": [
+        "KB053",
+        "KB019",
+        "KB020",
+        "KB025",
+        "KB049"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_026",
+      "query": "surface has blobs and imperfections",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB062",
+        "KB014",
+        "KB028",
+        "KB026"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB062",
+        "KB017",
+        "KB058",
+        "KB028"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_027",
+      "query": "no ringing but ghosting on sides",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB048",
+        "KB020",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB020",
+        "KB048",
+        "KB049",
+        "KB019",
+        "KB055"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_028",
+      "query": "the corners of my print are curling up and first layer won't adhere",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB016",
+        "KB101",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB016",
+        "KB024",
+        "KB101",
+        "KB028",
+        "KB062"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_029",
+      "query": "how to wire a 3D printer",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_030",
+      "query": "there are thin plastic strings on my print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB063",
+        "KB006"
+      ],
+      "kb_ids_B": [
+        "KB063",
+        "KB006",
+        "KB033",
+        "KB101",
+        "KB001"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_031",
+      "query": "blobs and zits on the print surface and also cracks between printed layers",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB014",
+        "KB009",
+        "KB026",
+        "KB024",
+        "KB074"
+      ],
+      "kb_ids_B": [
+        "KB033",
+        "KB049",
+        "KB014",
+        "KB009",
+        "KB028"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_032",
+      "query": "small bumps on my 3D print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB062",
+        "KB033",
+        "KB014",
+        "KB008",
+        "KB067"
+      ],
+      "kb_ids_B": [
+        "KB062",
+        "KB022",
+        "KB019",
+        "KB055",
+        "KB067"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_033",
+      "query": "not under extruded but walls are weak",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB055",
+        "KB022",
+        "KB013",
+        "KB019",
+        "KB021"
+      ],
+      "kb_ids_B": [
+        "KB018",
+        "KB013",
+        "KB055",
+        "KB048",
+        "KB021"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_034",
+      "query": "not over extruded but stringy droopy",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB004",
+        "KB027",
+        "KB053",
+        "KB102",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB102",
+        "KB004",
+        "KB053",
+        "KB103",
+        "KB023"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_035",
+      "query": "failed bridging over gaps",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027",
+        "KB025",
+        "KB051"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB051",
+        "KB018",
+        "KB005",
+        "KB015"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_036",
+      "query": "how much retraction for bowden extruder",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB010",
+        "KB014"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB006",
+        "KB010",
+        "KB103",
+        "KB023"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_037",
+      "query": "filament not coming out of the nozzle",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB038",
+        "KB102",
+        "KB011"
+      ],
+      "kb_ids_B": [
+        "KB038",
+        "KB102",
+        "KB011",
+        "KB034",
+        "KB012"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_038",
+      "query": "coasting settings reduce blobs",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB014",
+        "KB026",
+        "KB020",
+        "KB022"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB006",
+        "KB027",
+        "KB024",
+        "KB058"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_039",
+      "query": "no clog but filament stripped",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB010"
+      ],
+      "kb_ids_B": [
+        "KB102",
+        "KB010",
+        "KB103",
+        "KB012",
+        "KB038"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_040",
+      "query": "my print has stringing and oozing between parts and first layer issues on my print",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB028",
+        "KB016"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB058",
+        "KB028",
+        "KB016"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_041",
+      "query": "first layer fine but infill visible outside",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB048",
+        "KB015",
+        "KB033",
+        "KB005"
+      ],
+      "kb_ids_B": [
+        "KB048",
+        "KB005",
+        "KB033",
+        "KB013",
+        "KB017"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_042",
+      "query": "not clogging but extrusion inconsistent",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB023",
+        "KB019",
+        "KB102"
+      ],
+      "kb_ids_B": [
+        "KB023",
+        "KB102",
+        "KB003",
+        "KB004",
+        "KB019"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_043",
+      "query": "ripples and echoes on surface",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB020",
+        "KB062",
+        "KB028",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB017",
+        "KB020",
+        "KB058",
+        "KB062",
+        "KB014"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_044",
+      "query": "print looks over extruded and droopy and printer stopped extruding halfway",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB001",
+        "KB019",
+        "KB023",
+        "KB012",
+        "KB004"
+      ],
+      "kb_ids_B": [
+        "KB037",
+        "KB023",
+        "KB001",
+        "KB004",
+        "KB012"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_045",
+      "query": "print looks over extruded and droopy",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB019",
+        "KB037",
+        "KB004",
+        "KB072",
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB004",
+        "KB051",
+        "KB019",
+        "KB050",
+        "KB055"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_046",
+      "query": "bed is level but print won't stick",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB024",
+        "KB035",
+        "KB044",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB044",
+        "KB002",
+        "KB101",
+        "KB067",
+        "KB035"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_047",
+      "query": "nozzle diameter change under extrusion",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB023",
+        "KB005",
+        "KB003",
+        "KB021",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB003",
+        "KB022",
+        "KB102",
+        "KB023",
+        "KB021"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_048",
+      "query": "filament diameter settings",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB003",
+        "KB010",
+        "KB023"
+      ],
+      "kb_ids_B": [
+        "KB003",
+        "KB010",
+        "KB023",
+        "KB038",
+        "KB031"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_049",
+      "query": "too much filament coming out",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB038",
+        "KB023",
+        "KB012",
+        "KB010"
+      ],
+      "kb_ids_B": [
+        "KB038",
+        "KB012",
+        "KB102",
+        "KB001",
+        "KB061"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_050",
+      "query": "layers are shifting in my print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB050",
+        "KB033",
+        "KB009"
+      ],
+      "kb_ids_B": [
+        "KB065",
+        "KB050",
+        "KB008",
+        "KB019",
+        "KB005"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_051",
+      "query": "how to model organic shapes",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_052",
+      "query": "vibrations and ringing on the print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB020"
+      ],
+      "kb_ids_B": [
+        "KB020",
+        "KB067",
+        "KB065",
+        "KB019",
+        "KB072"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_053",
+      "query": "the corners of my print are curling up",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB016",
+        "KB024",
+        "KB101",
+        "KB072"
+      ],
+      "kb_ids_B": [
+        "KB016",
+        "KB024",
+        "KB062",
+        "KB072",
+        "KB101"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_054",
+      "query": "3D printer firmware setup marlin",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_055",
+      "query": "first layer looks messy and also extrusion stopped mid print",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB012",
+        "KB028",
+        "KB046",
+        "KB053"
+      ],
+      "kb_ids_B": [
+        "KB046",
+        "KB012",
+        "KB101",
+        "KB001",
+        "KB028"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_056",
+      "query": "how to make print stick to bed",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB002",
+        "KB101",
+        "KB067"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB067",
+        "KB101",
+        "KB028",
+        "KB044"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_057",
+      "query": "3D printing food safe",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_058",
+      "query": "oozing plastic while the nozzle moves",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB001",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB001",
+        "KB017",
+        "KB063",
+        "KB014"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_059",
+      "query": "retraction speed too high causing grinding",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB010",
+        "KB006"
+      ],
+      "kb_ids_B": [
+        "KB010",
+        "KB006",
+        "KB103",
+        "KB020",
+        "KB014"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_060",
+      "query": "best infill for strength",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_061",
+      "query": "z seam alignment settings",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB051",
+        "KB027",
+        "KB028",
+        "KB006"
+      ],
+      "kb_ids_B": [
+        "KB008",
+        "KB026",
+        "KB006",
+        "KB014",
+        "KB051"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_062",
+      "query": "infill density too low weak print",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB013",
+        "KB046",
+        "KB005",
+        "KB018"
+      ],
+      "kb_ids_B": [
+        "KB046",
+        "KB013",
+        "KB018",
+        "KB069",
+        "KB005"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_063",
+      "query": "best slicer for 3D printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_064",
+      "query": "print warping and lifting off the bed and also print looks melted",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB024",
+        "KB035"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB024",
+        "KB035",
+        "KB067",
+        "KB061"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_065",
+      "query": "support density for surface finish",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB025",
+        "KB042",
+        "KB046"
+      ],
+      "kb_ids_B": [
+        "KB025",
+        "KB042",
+        "KB048",
+        "KB072",
+        "KB053"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_066",
+      "query": "retraction prime amount",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB058",
+        "KB010"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB014",
+        "KB001",
+        "KB010"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_067",
+      "query": "3D printing speed records",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_068",
+      "query": "cooling fan for overhang quality",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB007",
+        "KB101",
+        "KB024",
+        "KB025",
+        "KB003"
+      ],
+      "kb_ids_B": [
+        "KB053",
+        "KB025",
+        "KB007",
+        "KB062",
+        "KB024"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_069",
+      "query": "not enough plastic being extruded",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB028",
+        "KB001",
+        "KB004",
+        "KB019",
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB004",
+        "KB007",
+        "KB023",
+        "KB001",
+        "KB010"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_070",
+      "query": "retraction good but blobs at seams",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB010",
+        "KB058",
+        "KB006",
+        "KB014",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB063",
+        "KB006",
+        "KB010",
+        "KB049"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_071",
+      "query": "bed adhesion good but print detached",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB101",
+        "KB028"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB024",
+        "KB002",
+        "KB028",
+        "KB035"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_072",
+      "query": "layer misalignment on tall prints and also extruder is grinding the filament",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB023",
+        "KB003",
+        "KB010",
+        "KB008"
+      ],
+      "kb_ids_B": [
+        "KB010",
+        "KB049",
+        "KB023",
+        "KB008",
+        "KB003"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_073",
+      "query": "print sticks but elephant foot at bottom",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB044",
+        "KB002",
+        "KB067"
+      ],
+      "kb_ids_B": [
+        "KB044",
+        "KB062",
+        "KB002",
+        "KB005",
+        "KB067"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_074",
+      "query": "grinding filament in the extruder and the part is warping at the corners",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB103",
+        "KB010"
+      ],
+      "kb_ids_B": [
+        "KB010",
+        "KB103",
+        "KB012",
+        "KB024",
+        "KB001"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_075",
+      "query": "bridging fan speed",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027",
+        "KB049",
+        "KB062"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB007",
+        "KB062",
+        "KB002",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_076",
+      "query": "build plate temperature for ABS",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB009",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB024",
+        "KB003",
+        "KB009",
+        "KB101"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_077",
+      "query": "print looks offset in some layers",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB050",
+        "KB035",
+        "KB019",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB065",
+        "KB051",
+        "KB050",
+        "KB055",
+        "KB025"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_078",
+      "query": "how to scan objects for 3D printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_079",
+      "query": "how to recycle used filament",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_080",
+      "query": "bed temp correct but corners curl",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB016",
+        "KB024",
+        "KB044"
+      ],
+      "kb_ids_B": [
+        "KB024",
+        "KB016",
+        "KB044",
+        "KB101",
+        "KB037"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_081",
+      "query": "flow rate too high over extrusion",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB026",
+        "KB009",
+        "KB003",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB003",
+        "KB023",
+        "KB031",
+        "KB004",
+        "KB102"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_082",
+      "query": "print warping and lifting off the bed",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB024",
+        "KB065",
+        "KB044",
+        "KB067"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_083",
+      "query": "my print has stringing and oozing between parts and also blocked nozzle not extruding",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB001",
+        "KB046",
+        "KB058"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_084",
+      "query": "retraction when crossing perimeters stringing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063",
+        "KB014"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB014",
+        "KB103",
+        "KB017"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_085",
+      "query": "3D printing business ideas",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_086",
+      "query": "cooling is fine but overhangs droop",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB008",
+        "KB062",
+        "KB007",
+        "KB101",
+        "KB053"
+      ],
+      "kb_ids_B": [
+        "KB053",
+        "KB008",
+        "KB061",
+        "KB042",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_087",
+      "query": "no filament comes out at beginning and also ringing artifacts on print sides",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB001",
+        "KB019",
+        "KB020",
+        "KB034"
+      ],
+      "kb_ids_B": [
+        "KB001",
+        "KB020",
+        "KB063",
+        "KB019",
+        "KB067"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_088",
+      "query": "print speed too fast causing layer shift",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB065",
+        "KB007",
+        "KB020",
+        "KB008"
+      ],
+      "kb_ids_B": [
+        "KB065",
+        "KB020",
+        "KB007",
+        "KB008",
+        "KB069"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_089",
+      "query": "z offset too close to bed",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB001",
+        "KB035",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB035",
+        "KB101",
+        "KB002",
+        "KB044",
+        "KB001"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_090",
+      "query": "layer misalignment on tall prints",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB022",
+        "KB049",
+        "KB023",
+        "KB008",
+        "KB042"
+      ],
+      "kb_ids_B": [
+        "KB049",
+        "KB072",
+        "KB042",
+        "KB008",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_091",
+      "query": "under extrusion causing gaps",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB051",
+        "KB026",
+        "KB102"
+      ],
+      "kb_ids_B": [
+        "KB051",
+        "KB005",
+        "KB004",
+        "KB021",
+        "KB003"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_092",
+      "query": "failed bridging over gaps and also droopy overhangs on print",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB008",
+        "KB027",
+        "KB025",
+        "KB051",
+        "KB053"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB051",
+        "KB053",
+        "KB072",
+        "KB018"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_093",
+      "query": "print speed for bridging",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB020",
+        "KB002",
+        "KB015",
+        "KB065"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_094",
+      "query": "not under extruded but gaps in walls",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB021",
+        "KB027",
+        "KB018"
+      ],
+      "kb_ids_B": [
+        "KB021",
+        "KB018",
+        "KB051",
+        "KB005",
+        "KB048"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_095",
+      "query": "vibrations and ringing on the print and part doesn't stick to print bed",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB020",
+        "KB067",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB020",
+        "KB067",
+        "KB002",
+        "KB101",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_096",
+      "query": "layer height affecting detail",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB025",
+        "KB009",
+        "KB022",
+        "KB031",
+        "KB023"
+      ],
+      "kb_ids_B": [
+        "KB005",
+        "KB062",
+        "KB031",
+        "KB009",
+        "KB028"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_097",
+      "query": "there are thin plastic strings on my print and extruder not primed at print start",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB001",
+        "KB012",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB063",
+        "KB001",
+        "KB006",
+        "KB012",
+        "KB023"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_098",
+      "query": "how to clean PETG prints",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_099",
+      "query": "not warping but print bows at bottom",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB044",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB044",
+        "KB024",
+        "KB065",
+        "KB062",
+        "KB050"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_100",
+      "query": "printer stopped extruding halfway and overhang quality is poor",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB025",
+        "KB019",
+        "KB023",
+        "KB001"
+      ],
+      "kb_ids_B": [
+        "KB023",
+        "KB037",
+        "KB053",
+        "KB019",
+        "KB012"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_101",
+      "query": "not warping but dimensional inaccurate",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB026",
+        "KB065",
+        "KB001"
+      ],
+      "kb_ids_B": [
+        "KB026",
+        "KB024",
+        "KB008",
+        "KB065",
+        "KB044"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_102",
+      "query": "print splitting along layer lines and filament extruded in the air tangled",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB009",
+        "KB023",
+        "KB103",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB103",
+        "KB009",
+        "KB019",
+        "KB023"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_103",
+      "query": "cooling fan settings for overhangs",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB007",
+        "KB008",
+        "KB101",
+        "KB062",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB024",
+        "KB007",
+        "KB053",
+        "KB008",
+        "KB003"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_104",
+      "query": "blobs and zits on the print surface",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB014",
+        "KB026",
+        "KB062",
+        "KB028",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB058",
+        "KB028",
+        "KB067",
+        "KB024"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_105",
+      "query": "print not sticking to the bed",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB035",
+        "KB067",
+        "KB024",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB035",
+        "KB067",
+        "KB002",
+        "KB101",
+        "KB016"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_106",
+      "query": "weak thin layers from under extrusion and the part is warping at the corners",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB101",
+        "KB051",
+        "KB018"
+      ],
+      "kb_ids_B": [
+        "KB018",
+        "KB024",
+        "KB005",
+        "KB051",
+        "KB013"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_107",
+      "query": "infill pattern strength",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB013",
+        "KB015",
+        "KB046"
+      ],
+      "kb_ids_B": [
+        "KB013",
+        "KB048",
+        "KB015",
+        "KB046",
+        "KB018"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_108",
+      "query": "what is FDM vs SLA",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_109",
+      "query": "how to print with nylon",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_110",
+      "query": "slicer settings for resin printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_111",
+      "query": "jerk settings layer shift",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB020",
+        "KB002",
+        "KB005",
+        "KB026"
+      ],
+      "kb_ids_B": [
+        "KB065",
+        "KB017",
+        "KB002",
+        "KB005",
+        "KB058"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_112",
+      "query": "edges bending upwards during printing",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB008",
+        "KB024",
+        "KB052",
+        "KB055",
+        "KB065"
+      ],
+      "kb_ids_B": [
+        "KB052",
+        "KB024",
+        "KB055",
+        "KB008",
+        "KB065"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_113",
+      "query": "what retraction distance should I use for stringing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063",
+        "KB014"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB014",
+        "KB103",
+        "KB010"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_114",
+      "query": "acceleration too high ringing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB020",
+        "KB008"
+      ],
+      "kb_ids_B": [
+        "KB020",
+        "KB006",
+        "KB008",
+        "KB061",
+        "KB103"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_115",
+      "query": "how to prevent warping",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB101",
+        "KB044",
+        "KB024",
+        "KB008"
+      ],
+      "kb_ids_B": [
+        "KB024",
+        "KB065",
+        "KB044",
+        "KB008",
+        "KB020"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_116",
+      "query": "the print sticks but first layer is messy",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB028",
+        "KB002",
+        "KB026",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB046",
+        "KB101",
+        "KB028",
+        "KB053"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_117",
+      "query": "3D printing medical implants",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_118",
+      "query": "how to design a 3D model in CAD",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_119",
+      "query": "cooling ok but print looks melted",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB061",
+        "KB067",
+        "KB002",
+        "KB024",
+        "KB062"
+      ],
+      "kb_ids_B": [
+        "KB061",
+        "KB067",
+        "KB035",
+        "KB024",
+        "KB007"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_120",
+      "query": "first layer won't adhere and layers coming apart",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB026",
+        "KB002",
+        "KB028",
+        "KB003"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB028",
+        "KB002",
+        "KB009",
+        "KB055"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_121",
+      "query": "not over extrusion but print droopy",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB004",
+        "KB005",
+        "KB023",
+        "KB019",
+        "KB022"
+      ],
+      "kb_ids_B": [
+        "KB004",
+        "KB023",
+        "KB051",
+        "KB034",
+        "KB019"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_122",
+      "query": "no clog but spaghetti mess",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB102",
+        "KB101",
+        "KB103",
+        "KB003",
+        "KB028"
+      ],
+      "kb_ids_B": [
+        "KB102",
+        "KB103",
+        "KB101",
+        "KB053",
+        "KB012"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_123",
+      "query": "print splitting along layer lines",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB009",
+        "KB019",
+        "KB058"
+      ],
+      "kb_ids_B": [
+        "KB009",
+        "KB019",
+        "KB058",
+        "KB065",
+        "KB027"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_124",
+      "query": "the part is warping at the corners",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB065",
+        "KB101",
+        "KB016",
+        "KB018"
+      ],
+      "kb_ids_B": [
+        "KB024",
+        "KB016",
+        "KB018",
+        "KB101",
+        "KB065"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_125",
+      "query": "3D printing tolerances guide",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_126",
+      "query": "first layer won't adhere",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028",
+        "KB003"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB002",
+        "KB028",
+        "KB005",
+        "KB016"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_127",
+      "query": "nozzle is clogged filament won't come out",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB102",
+        "KB010",
+        "KB001"
+      ],
+      "kb_ids_B": [
+        "KB011",
+        "KB102",
+        "KB001",
+        "KB012",
+        "KB103"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_128",
+      "query": "wall count for strength",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB048",
+        "KB031",
+        "KB053",
+        "KB018",
+        "KB021"
+      ],
+      "kb_ids_B": [
+        "KB048",
+        "KB021",
+        "KB018",
+        "KB013",
+        "KB026"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_129",
+      "query": "minimal layer time cooling",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB007",
+        "KB002",
+        "KB024",
+        "KB067",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB007",
+        "KB024",
+        "KB002",
+        "KB016",
+        "KB009"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_130",
+      "query": "how to print with carbon fiber",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_131",
+      "query": "bed leveling for first layer",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB101",
+        "KB026"
+      ],
+      "kb_ids_B": [
+        "KB028",
+        "KB002",
+        "KB044",
+        "KB101",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_132",
+      "query": "scars on the top surface of print and too much filament coming out",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB058",
+        "KB017",
+        "KB062",
+        "KB012",
+        "KB024"
+      ],
+      "kb_ids_B": [
+        "KB017",
+        "KB058",
+        "KB038",
+        "KB044",
+        "KB028"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_133",
+      "query": "diagonal scars on my print and also gaps in the print walls",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB058",
+        "KB021",
+        "KB048",
+        "KB017",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB058",
+        "KB017",
+        "KB018",
+        "KB048",
+        "KB021"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_134",
+      "query": "first layer won't adhere and also print became a mess of plastic strands",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB002",
+        "KB026",
+        "KB028"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB028",
+        "KB002",
+        "KB009",
+        "KB024"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_135",
+      "query": "not dimensional issue but parts too small",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB026",
+        "KB101",
+        "KB022"
+      ],
+      "kb_ids_B": [
+        "KB026",
+        "KB022",
+        "KB007",
+        "KB005",
+        "KB023"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_136",
+      "query": "no ringing but surface ripples",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB020"
+      ],
+      "kb_ids_B": [
+        "KB020",
+        "KB017",
+        "KB062",
+        "KB058",
+        "KB074"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_137",
+      "query": "cracks between printed layers",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB009",
+        "KB049",
+        "KB018",
+        "KB005",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB049",
+        "KB009",
+        "KB033",
+        "KB018",
+        "KB005"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_138",
+      "query": "what is the best 3D printer to buy",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_139",
+      "query": "how to level a resin printer",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_140",
+      "query": "print lifts off the build plate",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB101",
+        "KB025",
+        "KB067"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB002",
+        "KB067",
+        "KB072",
+        "KB065"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_141",
+      "query": "DLP vs SLA resin printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_142",
+      "query": "blocked nozzle not extruding",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB038",
+        "KB023",
+        "KB001",
+        "KB011"
+      ],
+      "kb_ids_B": [
+        "KB011",
+        "KB001",
+        "KB038",
+        "KB012",
+        "KB017"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_143",
+      "query": "how to paint 3D printed parts",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_144",
+      "query": "gaps in the print walls",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB021",
+        "KB048",
+        "KB025",
+        "KB018",
+        "KB005"
+      ],
+      "kb_ids_B": [
+        "KB021",
+        "KB018",
+        "KB048",
+        "KB005",
+        "KB051"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_145",
+      "query": "print looks under extruded",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB051",
+        "KB004",
+        "KB037",
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB004",
+        "KB051",
+        "KB046",
+        "KB048",
+        "KB053"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_146",
+      "query": "how to use supports in slicer",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_147",
+      "query": "layers shifted horizontally",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB019",
+        "KB005",
+        "KB072",
+        "KB050"
+      ],
+      "kb_ids_B": [
+        "KB072",
+        "KB005",
+        "KB051",
+        "KB065",
+        "KB050"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_148",
+      "query": "cracks between printed layers and print looks under extruded",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB009",
+        "KB049",
+        "KB005",
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB049",
+        "KB051",
+        "KB009",
+        "KB033",
+        "KB005"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_149",
+      "query": "filament stops coming out during print and failed bridging over gaps",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB034",
+        "KB012",
+        "KB037",
+        "KB051",
+        "KB038"
+      ],
+      "kb_ids_B": [
+        "KB012",
+        "KB034",
+        "KB051",
+        "KB038",
+        "KB027"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_150",
+      "query": "hotend temp for PETG oozing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB102",
+        "KB003",
+        "KB006"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB102",
+        "KB003",
+        "KB044",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_151",
+      "query": "no delamination but cracks in tall print",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB049",
+        "KB009",
+        "KB033",
+        "KB024",
+        "KB023"
+      ],
+      "kb_ids_B": [
+        "KB049",
+        "KB033",
+        "KB024",
+        "KB009",
+        "KB058"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_152",
+      "query": "how to fix stringing on my 3D print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB012"
+      ],
+      "kb_ids_B": [
+        "KB063",
+        "KB006",
+        "KB035",
+        "KB067",
+        "KB014"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_153",
+      "query": "best filament storage solutions",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_154",
+      "query": "bed temperature for PLA warping",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB044",
+        "KB101",
+        "KB028"
+      ],
+      "kb_ids_B": [
+        "KB024",
+        "KB101",
+        "KB002",
+        "KB028",
+        "KB044"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_155",
+      "query": "how to change nozzle",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_156",
+      "query": "first layer ok but top has gaps",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB005",
+        "KB026",
+        "KB062"
+      ],
+      "kb_ids_B": [
+        "KB005",
+        "KB018",
+        "KB062",
+        "KB015",
+        "KB017"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_157",
+      "query": "retraction fine but whiskers on print",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB014",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB010",
+        "KB014",
+        "KB067"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_158",
+      "query": "best 3D printing youtube channels",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_159",
+      "query": "layers coming apart",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB019",
+        "KB009",
+        "KB051",
+        "KB053"
+      ],
+      "kb_ids_B": [
+        "KB009",
+        "KB055",
+        "KB072",
+        "KB042",
+        "KB053"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_160",
+      "query": "fan speed for first layer adhesion",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB002",
+        "KB062",
+        "KB024",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB024",
+        "KB028",
+        "KB003",
+        "KB007"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_161",
+      "query": "layers separating and splitting",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB009",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB009",
+        "KB072",
+        "KB005",
+        "KB050",
+        "KB065"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_162",
+      "query": "part is not the right size and also too much filament coming out",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB038",
+        "KB010",
+        "KB023",
+        "KB062",
+        "KB012"
+      ],
+      "kb_ids_B": [
+        "KB038",
+        "KB061",
+        "KB001",
+        "KB010",
+        "KB022"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_163",
+      "query": "how to print multi color",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_164",
+      "query": "no layer shift but print leans",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB052",
+        "KB025",
+        "KB002",
+        "KB005"
+      ],
+      "kb_ids_B": [
+        "KB052",
+        "KB065",
+        "KB002",
+        "KB005",
+        "KB062"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_165",
+      "query": "not overheating but layers separate",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB061",
+        "KB009",
+        "KB016",
+        "KB007"
+      ],
+      "kb_ids_B": [
+        "KB061",
+        "KB007",
+        "KB016",
+        "KB009",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_166",
+      "query": "layers coming apart and how to unclog a 3D printer nozzle",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB009",
+        "KB001",
+        "KB005",
+        "KB017"
+      ],
+      "kb_ids_B": [
+        "KB009",
+        "KB001",
+        "KB028",
+        "KB022",
+        "KB014"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_167",
+      "query": "no adhesion issue but print stuck to bed",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB024",
+        "KB067",
+        "KB028",
+        "KB101"
+      ],
+      "kb_ids_B": [
+        "KB067",
+        "KB002",
+        "KB024",
+        "KB028",
+        "KB101"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_168",
+      "query": "over extrusion making blobby prints",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB026",
+        "KB023",
+        "KB004",
+        "KB019"
+      ],
+      "kb_ids_B": [
+        "KB023",
+        "KB004",
+        "KB033",
+        "KB031",
+        "KB020"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_169",
+      "query": "what is SLA printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_170",
+      "query": "poor bridging on my print",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027",
+        "KB025"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB067",
+        "KB019",
+        "KB002",
+        "KB035"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_171",
+      "query": "how to make money with 3D printing",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_172",
+      "query": "problems with the first layer and print not sticking to the bed",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB028",
+        "KB002",
+        "KB101",
+        "KB035"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB028",
+        "KB035",
+        "KB016",
+        "KB101"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_173",
+      "query": "my print has stringing and oozing between parts",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB058",
+        "KB024",
+        "KB103"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_174",
+      "query": "nozzle wipe for stringing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB014",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB103",
+        "KB014",
+        "KB102"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_175",
+      "query": "not overheating but ripples on surface",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB061",
+        "KB016",
+        "KB007",
+        "KB003"
+      ],
+      "kb_ids_B": [
+        "KB061",
+        "KB016",
+        "KB007",
+        "KB017",
+        "KB003"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_176",
+      "query": "wipe distance for oozing",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB014"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB014",
+        "KB058",
+        "KB017",
+        "KB001"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_177",
+      "query": "poor bridging on my print and first layer won't adhere",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB028",
+        "KB101",
+        "KB027",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB002",
+        "KB028",
+        "KB101",
+        "KB024"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_178",
+      "query": "extruding too much plastic",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB017",
+        "KB006",
+        "KB005",
+        "KB004",
+        "KB011"
+      ],
+      "kb_ids_B": [
+        "KB017",
+        "KB023",
+        "KB012",
+        "KB001",
+        "KB004"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_179",
+      "query": "first layer height too high not sticking",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB009",
+        "KB031",
+        "KB026",
+        "KB028"
+      ],
+      "kb_ids_B": [
+        "KB002",
+        "KB035",
+        "KB009",
+        "KB101",
+        "KB028"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_180",
+      "query": "no stringing but blobs on surface",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB014",
+        "KB006",
+        "KB026"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB063",
+        "KB006",
+        "KB103",
+        "KB062"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_181",
+      "query": "how to unclog a 3D printer nozzle and droopy overhangs on print",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB008",
+        "KB012",
+        "KB072",
+        "KB001",
+        "KB022"
+      ],
+      "kb_ids_B": [
+        "KB001",
+        "KB008",
+        "KB022",
+        "KB053",
+        "KB035"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_182",
+      "query": "how to post process resin prints",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_183",
+      "query": "not bridging issue but messy bridges",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB027"
+      ],
+      "kb_ids_B": [
+        "KB027",
+        "KB053",
+        "KB055",
+        "KB046",
+        "KB052"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_184",
+      "query": "my print is stringy and droopy over extrusion",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB019",
+        "KB023",
+        "KB004",
+        "KB013"
+      ],
+      "kb_ids_B": [
+        "KB023",
+        "KB004",
+        "KB019",
+        "KB053",
+        "KB051"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_185",
+      "query": "no shift but layers don't line up",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB065",
+        "KB050",
+        "KB033",
+        "KB062",
+        "KB005"
+      ],
+      "kb_ids_B": [
+        "KB065",
+        "KB050",
+        "KB062",
+        "KB019",
+        "KB008"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_186",
+      "query": "no clog but filament snaps",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB038",
+        "KB010",
+        "KB102",
+        "KB103"
+      ],
+      "kb_ids_B": [
+        "KB038",
+        "KB102",
+        "KB010",
+        "KB103",
+        "KB003"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_187",
+      "query": "hairy prints with whiskers of filament",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB031",
+        "KB012",
+        "KB022"
+      ],
+      "kb_ids_B": [
+        "KB033",
+        "KB006",
+        "KB067",
+        "KB035",
+        "KB046"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_188",
+      "query": "how to choose nozzle material",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_189",
+      "query": "extrusion stopped mid print and print turned into spaghetti",
+      "category": "multi_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB101",
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB023"
+      ],
+      "kb_ids_B": [
+        "KB101",
+        "KB012",
+        "KB102",
+        "KB103",
+        "KB063"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_190",
+      "query": "resin vat cleaning",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_191",
+      "query": "backlash compensation dimensional",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB026",
+        "KB003",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB026",
+        "KB013",
+        "KB005",
+        "KB004",
+        "KB015"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_192",
+      "query": "no stringing but oozing between moves",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063",
+        "KB014"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB103",
+        "KB014",
+        "KB001"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_193",
+      "query": "extrusion multiplier calibration",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB004",
+        "KB003",
+        "KB026",
+        "KB009"
+      ],
+      "kb_ids_B": [
+        "KB003",
+        "KB004",
+        "KB026",
+        "KB027",
+        "KB031"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_194",
+      "query": "travel speed causing blobs",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB026",
+        "KB014",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB014",
+        "KB006",
+        "KB063",
+        "KB052",
+        "KB020"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_195",
+      "query": "extruder is clogged",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB012",
+        "KB001",
+        "KB028",
+        "KB010",
+        "KB011"
+      ],
+      "kb_ids_B": [
+        "KB012",
+        "KB001",
+        "KB011",
+        "KB102",
+        "KB023"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_196",
+      "query": "best build plate surface",
+      "category": "out_of_scope",
+      "in_scope": false,
+      "rejected_A": true,
+      "rejected_B": true,
+      "kb_ids_A": [],
+      "kb_ids_B": [],
+      "strict_A": "ok_reject",
+      "lenient_A": "ok_reject",
+      "strict_B": "ok_reject",
+      "lenient_B": "ok_reject"
+    },
+    {
+      "id": "eval_197",
+      "query": "elephant foot compensation",
+      "category": "param_compensation",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB044",
+        "KB003",
+        "KB026",
+        "KB002"
+      ],
+      "kb_ids_B": [
+        "KB044",
+        "KB002",
+        "KB026",
+        "KB005",
+        "KB003"
+      ],
+      "strict_A": "correct",
+      "lenient_A": "usable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_198",
+      "query": "not stringing but hairy surface",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB006",
+        "KB063"
+      ],
+      "kb_ids_B": [
+        "KB006",
+        "KB063",
+        "KB103",
+        "KB062",
+        "KB067"
+      ],
+      "strict_A": "wrong",
+      "lenient_A": "unusable",
+      "strict_B": "correct",
+      "lenient_B": "usable"
+    },
+    {
+      "id": "eval_199",
+      "query": "delamination between layers",
+      "category": "single_defect",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB025",
+        "KB009",
+        "KB031",
+        "KB005"
+      ],
+      "kb_ids_B": [
+        "KB005",
+        "KB009",
+        "KB018",
+        "KB062",
+        "KB065"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "usable",
+      "strict_B": "wrong",
+      "lenient_B": "unusable"
+    },
+    {
+      "id": "eval_200",
+      "query": "my print has strings but also the corners lift",
+      "category": "ambiguous",
+      "in_scope": true,
+      "rejected_A": false,
+      "rejected_B": false,
+      "kb_ids_A": [
+        "KB063",
+        "KB006",
+        "KB058",
+        "KB003",
+        "KB016"
+      ],
+      "kb_ids_B": [
+        "KB063",
+        "KB018",
+        "KB016",
+        "KB006",
+        "KB058"
+      ],
+      "strict_A": "partial",
+      "lenient_A": "unusable",
+      "strict_B": "partial",
+      "lenient_B": "unusable"
+    }
+  ]
+}

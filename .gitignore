@@ -27,6 +27,7 @@ data/rewrite_cache.json
 data/rerank_cache.json
 data/reject_cache.json
 data/answer_cache.json
+data/answer_cache_v28.json
 data/judge_e2e_cache.json
 data/backfill_cache.json
 data/judge_lenient_cache.json
@@ -37,3 +38,6 @@ exp/exp_e2e_result.json
 exp/*_run.log
 exp/e2e_run_*.log
 exp/e2e_*.log
+
+# ---- 实验临时 id 清单（调试用，非证据）----
+exp/_*.json
