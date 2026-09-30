@@ -27,7 +27,7 @@ Skill 契约（Agent 下所有 Skill 统一遵守）：
 """
 import json
 
-from config import KB_V2_PATH, EXPAND_PARENT
+from config import KB_V2_PATH, EXPAND_PARENT, RETRIEVER_MODE
 from hybrid_retriever import HybridRetriever
 from rejector import (
     prefilter_reject, judge_once, _cache_key, load_cache, save_cache,
@@ -42,8 +42,14 @@ class DiagnoseSkill:
 
     def __init__(self, retriever=None, expand_parent=None):
         self.retriever = retriever or HybridRetriever()
-        # expand_parent 为 None 时读 config.EXPAND_PARENT（env 可覆盖，检索精度实验用）
-        self.expand_parent = expand_parent if expand_parent is not None else EXPAND_PARENT
+        if expand_parent is None:
+            # kb 模式（B2 级）每块已含全部根因，无需 parent-child 扩展；
+            # chunk 模式保留 EXPAND_PARENT 开关。
+            if getattr(self.retriever, "mode", RETRIEVER_MODE) == "kb":
+                expand_parent = False
+            else:
+                expand_parent = EXPAND_PARENT
+        self.expand_parent = expand_parent
         self._kb_by_id = None  # 懒加载 kb_v2（_expand_parent 用）
 
     def _kb(self):

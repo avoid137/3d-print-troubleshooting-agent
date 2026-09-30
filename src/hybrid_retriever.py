@@ -14,6 +14,7 @@ import numpy as np
 from config import (
     CHUNKS_PATH, BM25_WEIGHT, VECTOR_WEIGHT, TOP_K, EMBED_DIM,
     DASHSCOPE_API_KEY, EMBED_MODEL, VECTOR_BACKEND,
+    KB_CHUNKS_PATH, KB_BM25_INDEX_PATH, KB_FAISS_INDEX_PATH, RETRIEVER_MODE,
 )
 from bm25_index import load_bm25, query_bm25
 from vector_index import (
@@ -70,17 +71,27 @@ def _match_where(chunk, where):
 
 
 class HybridRetriever:
-    def __init__(self, vector_backend=VECTOR_BACKEND):
+    def __init__(self, vector_backend=VECTOR_BACKEND, mode=None):
         if vector_backend not in ("faiss", "chroma"):
             raise ValueError(f"vector_backend 只能是 faiss / chroma，收到 {vector_backend}")
         self.vector_backend = vector_backend
-        with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
+        # mode: "kb"(默认, B2 级每条 kb 1 块) / "chunk"(旧 cause 级)；决定加载哪套索引
+        self.mode = mode or RETRIEVER_MODE
+        if self.mode == "kb":
+            chunks_path = KB_CHUNKS_PATH
+            bm25_path = KB_BM25_INDEX_PATH
+            faiss_path = KB_FAISS_INDEX_PATH
+        else:
+            chunks_path = CHUNKS_PATH
+            bm25_path = BM25_INDEX_PATH
+            faiss_path = FAISS_INDEX_PATH
+        with open(chunks_path, "r", encoding="utf-8") as f:
             self.chunks = json.load(f)
-        self.bm25 = load_bm25()
+        self.bm25 = load_bm25(bm25_path)
         self.chunk_id_to_idx = {c["chunk_id"]: i for i, c in enumerate(self.chunks)}
         self._chroma_collection = None
         if vector_backend == "faiss":
-            self.vector_index, self.vector_meta = load_vector_index()
+            self.vector_index, self.vector_meta = load_vector_index(faiss_path)
             # 启动即校验：索引的 embedding 方法与查询侧后端必须一致，
             # 否则维度相同会静默返回错误相似度（详见 vector_index.assert_backend_consistent）
             self.embed_method = assert_backend_consistent(self.vector_meta)

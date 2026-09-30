@@ -85,7 +85,7 @@ def _tfidf_svd_embed(texts, dim=EMBED_DIM, fitted=None):
     return X_svd, (vec, svd)
 
 
-def build_vector_index(chunks, use_dashscope=None):
+def build_vector_index(chunks, use_dashscope=None, path=FAISS_INDEX_PATH):
     """构建 FAISS 向量索引。
 
     use_dashscope: None=自动判断（有 key 就用）, True/False=强制
@@ -107,7 +107,7 @@ def build_vector_index(chunks, use_dashscope=None):
         print("未配置 DASHSCOPE_API_KEY，使用 TF-IDF+SVD 离线兜底...")
         vectors, fitted = _tfidf_svd_embed(texts)
         # 缓存 fitted 模型，供查询时复用
-        fitted_path = FAISS_INDEX_PATH.with_suffix(".tfidf_svd.pkl")
+        fitted_path = path.with_suffix(".tfidf_svd.pkl")
         import pickle
         with open(fitted_path, "wb") as f:
             pickle.dump(fitted, f)
@@ -119,16 +119,16 @@ def build_vector_index(chunks, use_dashscope=None):
     index = faiss.IndexFlatIP(dim)  # 内积（已归一化 = 余弦相似度）
     index.add(vectors)
     # FAISS 在 Windows 不支持中文路径，用 serialize_index + 标准 open 写入
-    with open(FAISS_INDEX_PATH, "wb") as f:
+    with open(path, "wb") as f:
         f.write(faiss.serialize_index(index))
-    print(f"FAISS 索引已写入 {FAISS_INDEX_PATH}")
+    print(f"FAISS 索引已写入 {path}")
 
     # 保存元数据：manifest（含 embedding 方法）+ chunks 列表
     #
     # ⚠️ 必须记录 method：DashScope(1024 维) 与 TF-IDF+SVD(补齐到 1024 维) 的
     #    维度**恰好相同**，若查询侧后端与建索引时不一致，FAISS 不会报错，
     #    只会返回无意义的相似度——这是最危险的一类静默错误。见 assert_backend_consistent()。
-    meta_path = FAISS_INDEX_PATH.with_suffix(".meta.json")
+    meta_path = path.with_suffix(".meta.json")
     manifest = {
         "method": method,                      # "dashscope" | "tfidf_svd"
         "model": EMBED_MODEL if method == "dashscope" else "tfidf_svd",
@@ -144,12 +144,12 @@ def build_vector_index(chunks, use_dashscope=None):
     return index, method
 
 
-def load_vector_index():
+def load_vector_index(path=FAISS_INDEX_PATH):
     import faiss
-    with open(FAISS_INDEX_PATH, "rb") as f:
+    with open(path, "rb") as f:
         data = np.frombuffer(f.read(), dtype=np.uint8)
     index = faiss.deserialize_index(data)
-    meta_path = FAISS_INDEX_PATH.with_suffix(".meta.json")
+    meta_path = path.with_suffix(".meta.json")
     with open(meta_path, "r", encoding="utf-8") as f:
         meta = json.load(f)
     return index, meta

@@ -16,18 +16,18 @@ def tokenize(text):
     return [t for t in tokens if t not in stop and len(t) > 1]
 
 
-def build_bm25(chunks):
+def build_bm25(chunks, path=BM25_INDEX_PATH):
     from rank_bm25 import BM25Okapi
     tokenized = [tokenize(c["text"]) for c in chunks]
     bm25 = BM25Okapi(tokenized)
-    with open(BM25_INDEX_PATH, "wb") as f:
+    with open(path, "wb") as f:
         pickle.dump(bm25, f)
-    print(f"BM25 索引已写入 {BM25_INDEX_PATH} ({len(chunks)} chunks)")
+    print(f"BM25 索引已写入 {path} ({len(chunks)} chunks)")
     return bm25
 
 
-def load_bm25():
-    with open(BM25_INDEX_PATH, "rb") as f:
+def load_bm25(path=BM25_INDEX_PATH):
+    with open(path, "rb") as f:
         return pickle.load(f)
 
 

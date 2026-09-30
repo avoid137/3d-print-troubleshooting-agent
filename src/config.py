@@ -41,6 +41,12 @@ CHROMA_DB_PATH = DATA_DIR / "chroma_db"         # Chroma 持久化目录（元�
 CHROMA_COLLECTION = "print_chunks"              # Chroma collection 名
 EVAL_SET_PATH = DATA_DIR / "eval_set.json"      # 200 条评测集
 
+# B2 kb 级索引（9/30 端到端验证最优组合：每条 kb = 1 块，56 块，cause+solution 全量）
+# 检索 Recall@5 85%→90%（+5pp）；端到端 strict 43.75%→49.38%（+5.63pp，控制变量）。
+KB_CHUNKS_PATH = DATA_DIR / "kb_chunks.json"          # B2 kb 级 chunk 列表（56 块）
+KB_BM25_INDEX_PATH = DATA_DIR / "bm25_index_kb.pkl"   # B2 BM25 索引
+KB_FAISS_INDEX_PATH = DATA_DIR / "faiss_index_kb.bin" # B2 FAISS 向量索引
+
 # 检索参数
 # 权重经消融调优实测（eval_set 的 gold 修正后重算，2026-09-28）：
 #   TF-IDF+SVD 兜底 → 0.5 : 0.5（hybrid Recall@5 = 78.12%，与 BM25 单路持平：同质融合零增量）
@@ -52,8 +58,11 @@ TOP_K = 5                    # 返回 top-k 结果
 RECALL_K = 5                 # Recall@k
 # parent-child 扩展开关（检索精度实验用）：默认开；置 0 关掉（exp_e2e_eval.py 前加 EXPAND_PARENT=0）
 EXPAND_PARENT = os.getenv("EXPAND_PARENT", "1") == "1"
-# 两遍法生成开关（v2.2）：默认开；置 0 回退一遍法（抽取+作答 → 单遍作答）
-TWO_PASS = os.getenv("TWO_PASS", "1") == "1"
+# 两遍法生成开关（v2.2）：9/30 端到端验证「两遍法拖累」——同条件 B2+一遍 49.38% > B2+两遍 43.75%（+5.63pp）。
+# 默认关（一遍法）；置 1 回退两遍法（抽取+作答）。两遍法已证为净拖累，保留仅作回退验证。
+TWO_PASS = os.getenv("TWO_PASS", "0") == "1"
+# 检索索引模式：默认 "kb"（B2 级，最优组合）；"chunk" 回退旧 cause 级索引。
+RETRIEVER_MODE = os.getenv("RETRIEVER_MODE", "kb")
 VECTOR_BACKEND = "faiss"     # 向量后端："faiss"（默认）或 "chroma"（支持 where 元数据过滤）
 
 # Embedding（DashScope text-embedding）

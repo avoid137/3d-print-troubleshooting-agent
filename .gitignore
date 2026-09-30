@@ -11,6 +11,10 @@ data/faiss_index.bin
 data/faiss_index.meta.json
 data/faiss_index.tfidf_svd.pkl
 data/bm25_index.pkl
+# B2 kb 级索引（9/30 最优组合，可重建：python src/build_kb_index.py）
+data/faiss_index_kb.bin
+data/faiss_index_kb.meta.json
+data/bm25_index_kb.pkl
 data/chroma_db/
 data/_backup_*/
 data/*.backup_*
