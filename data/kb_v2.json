@@ -626,8 +626,21 @@
       "Warping"
     ],
     "intro": "If you are seeing curling issues later on in your print, it typically points to overheating issues. The plastic is extruded at a very hot temperature, and if it does not cool quickly, it may change shape over time. Curling can be prevented by rapidly cooling each layer so that it does not have time to deform before it has solidified. Please read the Overheating section for a more detailed description of this issue and how to resolve it. If you are noticing the curling at the very beginning of your print, please see the Print Not Sticking to the Bed section to address first layer issues.",
-    "cause_count": 0,
-    "causes": []
+  "cause_count": 3,
+  "causes": [
+    {
+      "cause": "Poor first-layer adhesion: even with correct bed temperature, the first layer may not stick firmly (nozzle too far from the bed / bed surface dirty or greasy / no adhesive aid), so corners lift as printing starts.",
+      "solution": "Re-level the bed and lower the Z-offset until the first layer is slightly squished; clean the surface with isopropyl alcohol; apply a thin layer of glue stick or painter's tape on glass/PEI beds; reduce first-layer speed and use a sensible first-layer height."
+    },
+    {
+      "cause": "Insufficient part cooling: corner curling that appears later in the print is caused by each layer staying too hot and deforming before it solidifies, accumulating thermal stress that lifts the corners.",
+      "solution": "Increase the part-cooling fan to 100%; lower the nozzle/print temperature by 5-10 C; add cooling bridges over overhangs; reduce speed on edges that are prone to lifting."
+    },
+    {
+      "cause": "High material shrinkage: high-shrinkage filaments (ABS, ASA) contract as they cool and pull the corners upward, especially on large flat footprints.",
+      "solution": "Use a heated enclosure to keep the ambient temperature stable; raise the bed temperature (e.g. ABS 100-110 C); avoid drafts or AC blowing directly on the printer; switch to a low-shrinkage material such as PLA or PETG, or reduce large flat overhangs."
+    }
+  ]
   },
   {
     "kb_id": "KB017",
