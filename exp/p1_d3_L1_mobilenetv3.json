@@ -1,0 +1,106 @@
+{
+  "backbone": "mobilenetv3_small_100",
+  "img": 224,
+  "levels": {
+    "L1": {
+      "per_scheme": {
+        "grouped": {
+          "s42": {
+            "mean": 0.9815537876670731,
+            "std": 0.007997909565209403,
+            "folds": [
+              0.97123,
+              0.97511,
+              0.97994,
+              0.991,
+              0.99049
+            ]
+          },
+          "s43": {
+            "mean": 0.9815537876670731,
+            "std": 0.007997909565209403,
+            "folds": [
+              0.97123,
+              0.97511,
+              0.97994,
+              0.991,
+              0.99049
+            ]
+          }
+        },
+        "stratified": {
+          "s42": {
+            "mean": 0.9845332803454756,
+            "std": 0.00305181534765589,
+            "folds": [
+              0.98437,
+              0.98961,
+              0.98432,
+              0.98439,
+              0.97998
+            ]
+          },
+          "s43": {
+            "mean": 0.9845332803454756,
+            "std": 0.00305181534765589,
+            "folds": [
+              0.98437,
+              0.98961,
+              0.98432,
+              0.98439,
+              0.97998
+            ]
+          }
+        }
+      },
+      "grouped": {
+        "macro_f1_mean": 0.981554,
+        "macro_f1_std": 0.007997426085935377,
+        "macro_f1_min": 0.97123,
+        "macro_f1_max": 0.991,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9815537876670731,
+          "s43": 0.9815537876670731
+        }
+      },
+      "stratified": {
+        "macro_f1_mean": 0.9845339999999998,
+        "macro_f1_std": 0.00305280592242613,
+        "macro_f1_min": 0.97998,
+        "macro_f1_max": 0.98961,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9845332803454756,
+          "s43": 0.9845332803454756
+        }
+      },
+      "leakage_gap_pp": 0.3,
+      "leakage_gap_note": "stratified − grouped 的差值 = 近重复泄漏的幅度估计。⚠️ 5 折 × 2 种子下标准差通常 1~3pp，差值 <2pp 一律判「等价」。",
+      "per_class_recall_mean": {
+        "grouped|Warping": 1.0,
+        "grouped|Cracking": 0.9957670772676372,
+        "grouped|Stringing": 0.9731086142322098,
+        "grouped|Layer_shifting": 0.967047184170472,
+        "grouped|Off_platform": 0.9444444444444444
+      },
+      "level": "L1",
+      "backbone": "mobilenetv3_small_100",
+      "img": 224,
+      "seeds": [
+        42,
+        43
+      ],
+      "schemes": [
+        "grouped",
+        "stratified"
+      ],
+      "n_splits": 5,
+      "epochs": null,
+      "minutes": 3.06,
+      "counter": "RuntimeCounter: seen=1912 empty=0 (0.0%) failed=0 (0.0%)",
+      "val_frac": null,
+      "early_stop_on": "inner_val_from_train_fold"
+    }
+  }
+}

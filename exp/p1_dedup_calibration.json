@@ -1,0 +1,99 @@
+{
+  "n_images": 1912,
+  "feature_dim": 768,
+  "percentiles": {
+    "P50": 0.66774,
+    "P75": 0.78533,
+    "P90": 0.85014,
+    "P95": 0.8796,
+    "P99": 0.92437,
+    "P99.5": 0.9406,
+    "P99.9": 0.97071,
+    "P99.99": 0.99142
+  },
+  "same_class_mean": 0.72704,
+  "cross_class_mean": 0.57696,
+  "candidates": [
+    {
+      "threshold": 0.98,
+      "n_pairs": 814,
+      "n_groups": 1394,
+      "folded": 518,
+      "max_group": 23,
+      "max_group_ratio": 0.012,
+      "n_multi_groups": 219,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.99,
+      "n_pairs": 222,
+      "n_groups": 1743,
+      "folded": 169,
+      "max_group": 6,
+      "max_group_ratio": 0.0031,
+      "n_multi_groups": 110,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.995,
+      "n_pairs": 145,
+      "n_groups": 1797,
+      "folded": 115,
+      "max_group": 3,
+      "max_group_ratio": 0.0016,
+      "n_multi_groups": 82,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.998,
+      "n_pairs": 132,
+      "n_groups": 1805,
+      "folded": 107,
+      "max_group": 3,
+      "max_group_ratio": 0.0016,
+      "n_multi_groups": 81,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.999,
+      "n_pairs": 110,
+      "n_groups": 1820,
+      "folded": 92,
+      "max_group": 3,
+      "max_group_ratio": 0.0016,
+      "n_multi_groups": 72,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.9995,
+      "n_pairs": 58,
+      "n_groups": 1860,
+      "folded": 52,
+      "max_group": 3,
+      "max_group_ratio": 0.0016,
+      "n_multi_groups": 44,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.9999,
+      "n_pairs": 17,
+      "n_groups": 1895,
+      "folded": 17,
+      "max_group": 2,
+      "max_group_ratio": 0.001,
+      "n_multi_groups": 17,
+      "n_impure_groups": 0
+    },
+    {
+      "threshold": 0.99995,
+      "n_pairs": 17,
+      "n_groups": 1895,
+      "folded": 17,
+      "max_group": 2,
+      "max_group_ratio": 0.001,
+      "n_multi_groups": 17,
+      "n_impure_groups": 0
+    }
+  ],
+  "note": "阈值需人工抽查样本后定稿；不要直接照抄文献 0.92。"
+}

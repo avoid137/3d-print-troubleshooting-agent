@@ -52,13 +52,15 @@ def main():
         cuda = torch.cuda.is_available()
         name = torch.cuda.get_device_name(0) if cuda else "N/A"
         mem = f"{torch.cuda.get_device_properties(0).total_memory/1024**3:.1f} GB" if cuda else "-"
-        return cuda, f"torch={torch.__version__} cuda={torch.version.cuda} "
-        f"device={name} mem={mem}"
+        return cuda, (f"torch={torch.__version__} cuda={torch.version.cuda} "
+                      f"device={name} mem={mem}")
     has_cuda = check("PyTorch + CUDA", torch_check)
     if not has_cuda:
         print("\n❌ CUDA 不可用 —— 先修这个再往下。常见原因：装成了 CPU 版 torch。")
+        print("   ⚠️ 本机（Python 3.13）请用 cu126，不要用 cu124 —— cu124 索引下cp313")
+        print("      只有 torch 2.6/tv 0.21（老版本）；cu126 有 torch 2.9.1/tv 0.29.1。")
         print("   重装：pip install torch torchvision --index-url "
-              "https://download.pytorch.org/whl/cu124")
+              "https://download.pytorch.org/whl/cu126")
 
     # 3) timm
     def timm_check():
@@ -79,6 +81,22 @@ def main():
         root = Path(root)
         if not root.exists():
             return False, f"未找到 {root}（先跑 scripts/p1_fetch_dataset.py）"
+        # ⚠️ 2026-10-04 修正：Kaggle zip 解压后真实结构是
+        #    <root>/FDM-3D-Printing-Defect-Dataset/data/<类别>/*.jpg（**两层**嵌套），
+        #    原先只 iterdir 一层 → 永远数到 0 张 → 假 FAIL。
+        #    复用 guards.probe_dataset 的层级下探（它本就是为这个场景写的）。
+        # ⚠️ 用本地文件加载而非 `from src.vision...`：脚本在 scripts/ 下直接运行时，
+        #    sys.path[0] 是 scripts/，包导入会失败——之前用 `except: pass` 吞掉了，
+        #    结果下探静默失效、依然报 0 张。**别再吞异常。**
+        import importlib.util
+        _g = Path(__file__).resolve().parent.parent / "src" / "vision" / "guards.py"
+        _spec = importlib.util.spec_from_file_location("p1_guards", _g)
+        _mod = importlib.util.module_from_spec(_spec)
+        sys.modules["p1_guards"] = _mod          # dataclass 解析需要先注册
+        _spec.loader.exec_module(_mod)
+        probe = _mod.probe_dataset(root, strict=False)
+        if probe.root != root:
+            root = probe.root
         counts = {}
         for d in root.iterdir():
             if d.is_dir():
@@ -89,9 +107,23 @@ def main():
         total = sum(counts.values())
         exp = {"Warping": 538, "Cracking": 472, "Stringing": 447,
                "Layer_shifting": 364, "Off_platform": 91}
-        match = (counts == exp)
-        return match, f"{root} 共 {total} 张 {counts}" + (
-            "" if match else f"  ⚠️ 与期望 {exp} 不一致（数据未就位或不完整）")
+        # ⚠️ 2026-10-04 修正：原先用 counts == exp 严格相等，一个无关文件就会误报 FAIL。
+        # 改为「每类达标且总量达标即 PASS」，精确计数另行打印供人工核对。
+        missing = [c for c in exp if c not in counts]
+        short = {c: (counts.get(c, 0), n) for c, n in exp.items()
+                 if counts.get(c, 0) < n}
+        ok = not missing and not short and total >= sum(exp.values())
+        detail = f"{root} 共 {total} 张 {counts}"
+        if ok:
+            exact = "（与基准完全一致）" if counts == exp else \
+                    "（≥ 基准，含额外文件，不影响使用）"
+            return True, detail + "  " + exact
+        msg = detail + "  ⚠️ 数据未就位或不完整"
+        if missing:
+            msg += f"；缺类别目录: {missing}"
+        if short:
+            msg += f"；张数不足: {short}"
+        return False, msg
     check("数据集", data_check)
 
     # 5) GPU 实跑冒烟（合成数据，几秒）

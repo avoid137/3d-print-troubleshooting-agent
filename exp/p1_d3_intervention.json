@@ -1,0 +1,145 @@
+{
+  "n": 1912,
+  "scheme": "grouped",
+  "variants": {
+    "V0_raw": {
+      "desc": "原始全图（当前 D3 口径）",
+      "L1": {
+        "macro_f1_mean": 0.9858,
+        "macro_f1_std": 0.0052,
+        "folds": [
+          0.9864,
+          0.9909,
+          0.9759,
+          0.9885,
+          0.9872
+        ]
+      },
+      "L2": {
+        "macro_f1_mean": 0.9977,
+        "macro_f1_std": 0.0013,
+        "folds": [
+          0.9976,
+          0.9976,
+          0.996,
+          0.9975,
+          1.0
+        ]
+      },
+      "per_class_f1": {
+        "Warping": 0.9981,
+        "Cracking": 0.9947,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9959,
+        "Off_platform": 1.0
+      },
+      "seconds": 136.9
+    },
+    "V1_center60": {
+      "desc": "中心 60% 裁剪（削弱背景）",
+      "L1": {
+        "macro_f1_mean": 0.981,
+        "macro_f1_std": 0.0112,
+        "folds": [
+          0.9794,
+          1.0,
+          0.9779,
+          0.9825,
+          0.9651
+        ]
+      },
+      "L2": {
+        "macro_f1_mean": 0.9882,
+        "macro_f1_std": 0.0074,
+        "folds": [
+          0.9889,
+          0.9976,
+          0.9761,
+          0.9934,
+          0.9851
+        ]
+      },
+      "per_class_f1": {
+        "Warping": 0.9907,
+        "Cracking": 0.9958,
+        "Stringing": 0.9978,
+        "Layer_shifting": 0.9959,
+        "Off_platform": 0.9609
+      },
+      "seconds": 125.2
+    },
+    "V2_debg": {
+      "desc": "边缘边框中位数去背景平移",
+      "L1": {
+        "macro_f1_mean": 0.9895,
+        "macro_f1_std": 0.0064,
+        "folds": [
+          0.9885,
+          0.9976,
+          0.9802,
+          0.9857,
+          0.9955
+        ]
+      },
+      "L2": {
+        "macro_f1_mean": 0.9977,
+        "macro_f1_std": 0.0027,
+        "folds": [
+          0.9976,
+          0.9927,
+          0.998,
+          1.0,
+          1.0
+        ]
+      },
+      "per_class_f1": {
+        "Warping": 0.9991,
+        "Cracking": 0.9947,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9945,
+        "Off_platform": 1.0
+      },
+      "seconds": 143.6
+    },
+    "V3_gray_debg": {
+      "desc": "去色 + 去背景（只留形态）",
+      "L1": {
+        "macro_f1_mean": 0.9821,
+        "macro_f1_std": 0.0068,
+        "folds": [
+          0.9749,
+          0.9909,
+          0.9781,
+          0.9769,
+          0.9897
+        ]
+      },
+      "L2": {
+        "macro_f1_mean": 0.9944,
+        "macro_f1_std": 0.0042,
+        "folds": [
+          0.9976,
+          0.9952,
+          0.9864,
+          0.9951,
+          0.9977
+        ]
+      },
+      "per_class_f1": {
+        "Warping": 0.9972,
+        "Cracking": 0.9947,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9917,
+        "Off_platform": 0.9889
+      },
+      "seconds": 144.7
+    }
+  },
+  "conclusion": {
+    "V0_L2": 0.9977,
+    "V3_L2": 0.9944,
+    "gap_pp": 0.33,
+    "verdict": "高分数主要来自形态",
+    "note": "对外只能宣称 V3 这个「形态下界」。V0 含背景/颜色捷径，不能表述为「缺陷识别准确率」。"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "backbone": "efficientnet_b0",
+  "img": 224,
+  "levels": {
+    "L3": {
+      "per_scheme": {
+        "grouped": {
+          "s42": {
+            "mean": 0.9955787193597772,
+            "std": 0.004599701374881262,
+            "folds": [
+              1.0,
+              0.99758,
+              0.99155,
+              1.0,
+              0.98876
+            ]
+          },
+          "s43": {
+            "mean": 0.9882522534026229,
+            "std": 0.011946935463310876,
+            "folds": [
+              1.0,
+              0.97628,
+              0.97138,
+              0.99603,
+              0.99758
+            ]
+          }
+        },
+        "stratified": {
+          "s42": {
+            "mean": 0.9981014526282141,
+            "std": 0.0018558814977135294,
+            "folds": [
+              1.0,
+              0.99499,
+              0.99795,
+              1.0,
+              0.99757
+            ]
+          },
+          "s43": {
+            "mean": 0.9936468768824838,
+            "std": 0.008788400941565409,
+            "folds": [
+              0.99796,
+              0.99356,
+              1.0,
+              0.97671,
+              1.0
+            ]
+          }
+        }
+      },
+      "grouped": {
+        "macro_f1_mean": 0.991916,
+        "macro_f1_std": 0.009764456154850602,
+        "macro_f1_min": 0.97138,
+        "macro_f1_max": 1.0,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9955787193597772,
+          "s43": 0.9882522534026229
+        }
+      },
+      "stratified": {
+        "macro_f1_mean": 0.995874,
+        "macro_f1_std": 0.006730735769587163,
+        "macro_f1_min": 0.97671,
+        "macro_f1_max": 1.0,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9981014526282141,
+          "s43": 0.9936468768824838
+        }
+      },
+      "leakage_gap_pp": 0.4,
+      "leakage_gap_note": "stratified − grouped 的差值 = 近重复泄漏的幅度估计。⚠️ 5 折 × 2 种子下标准差通常 1~3pp，差值 <2pp 一律判「等价」。",
+      "per_class_recall_mean": {
+        "grouped|Warping": 0.988785046728972,
+        "grouped|Cracking": 0.991511758118701,
+        "grouped|Stringing": 1.0,
+        "grouped|Layer_shifting": 1.0,
+        "grouped|Off_platform": 1.0
+      },
+      "level": "L3",
+      "backbone": "efficientnet_b0",
+      "img": 224,
+      "seeds": [
+        42,
+        43
+      ],
+      "schemes": [
+        "grouped",
+        "stratified"
+      ],
+      "n_splits": 5,
+      "epochs": 30,
+      "minutes": 12.96,
+      "counter": "RuntimeCounter: seen=1912 empty=0 (0.0%) failed=0 (0.0%)",
+      "val_frac": 0.12,
+      "early_stop_on": "inner_val_from_train_fold"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "backbone": "mobilenetv3_small_100",
+  "img": 224,
+  "levels": {
+    "L2": {
+      "per_scheme": {
+        "grouped": {
+          "s42": {
+            "mean": 0.9941374718950924,
+            "std": 0.00698301511194955,
+            "folds": [
+              1.0,
+              0.99802,
+              0.98196,
+              1.0,
+              0.9907
+            ]
+          },
+          "s43": {
+            "mean": 0.9941374718950924,
+            "std": 0.00698301511194955,
+            "folds": [
+              1.0,
+              0.99802,
+              0.98196,
+              1.0,
+              0.9907
+            ]
+          }
+        },
+        "stratified": {
+          "s42": {
+            "mean": 0.9955490552804992,
+            "std": 0.004182880772150451,
+            "folds": [
+              0.99559,
+              1.0,
+              0.98909,
+              1.0,
+              0.99307
+            ]
+          },
+          "s43": {
+            "mean": 0.9955490552804992,
+            "std": 0.004182880772150451,
+            "folds": [
+              0.99559,
+              1.0,
+              0.98909,
+              1.0,
+              0.99307
+            ]
+          }
+        }
+      },
+      "grouped": {
+        "macro_f1_mean": 0.9941359999999999,
+        "macro_f1_std": 0.006984547515766481,
+        "macro_f1_min": 0.98196,
+        "macro_f1_max": 1.0,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9941374718950924,
+          "s43": 0.9941374718950924
+        }
+      },
+      "stratified": {
+        "macro_f1_mean": 0.9955499999999999,
+        "macro_f1_std": 0.004183027611670754,
+        "macro_f1_min": 0.98909,
+        "macro_f1_max": 1.0,
+        "n_runs": 10,
+        "per_seed_mean": {
+          "s42": 0.9955490552804992,
+          "s43": 0.9955490552804992
+        }
+      },
+      "leakage_gap_pp": 0.14,
+      "leakage_gap_note": "stratified − grouped 的差值 = 近重复泄漏的幅度估计。⚠️ 5 折 × 2 种子下标准差通常 1~3pp，差值 <2pp 一律判「等价」。",
+      "per_class_recall_mean": {
+        "grouped|Warping": 0.994392523364486,
+        "grouped|Cracking": 0.9957670772676372,
+        "grouped|Stringing": 1.0,
+        "grouped|Layer_shifting": 0.9945205479452055,
+        "grouped|Off_platform": 0.9777777777777779
+      },
+      "level": "L2",
+      "backbone": "mobilenetv3_small_100",
+      "img": 224,
+      "seeds": [
+        42,
+        43
+      ],
+      "schemes": [
+        "grouped",
+        "stratified"
+      ],
+      "n_splits": 5,
+      "epochs": null,
+      "minutes": 3.15,
+      "counter": "RuntimeCounter: seen=1912 empty=0 (0.0%) failed=0 (0.0%)",
+      "val_frac": null,
+      "early_stop_on": "inner_val_from_train_fold"
+    }
+  }
+}

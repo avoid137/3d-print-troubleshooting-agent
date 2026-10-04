@@ -1,0 +1,185 @@
+{
+  "rows": [
+    {
+      "level": "L1",
+      "backbone": "efficientnet_b0",
+      "grouped_mean": 0.9844119999999998,
+      "grouped_std": 0.005725869017013911,
+      "grouped_n": 10,
+      "strat_mean": 0.9852259999999999,
+      "strat_std": 0.006508224335408242,
+      "leak_gap_pp": 0.08,
+      "per_class": {
+        "grouped|Warping": 0.9962616822429906,
+        "grouped|Cracking": 0.997872340425532,
+        "grouped|Stringing": 0.9888389513108613,
+        "grouped|Layer_shifting": 0.9807077625570777,
+        "grouped|Off_platform": 0.9339181286549708
+      },
+      "minutes": 3.75
+    },
+    {
+      "level": "L2",
+      "backbone": "efficientnet_b0",
+      "grouped_mean": 0.997276,
+      "grouped_std": 0.0006404248589803555,
+      "grouped_n": 10,
+      "strat_mean": 0.9954820000000002,
+      "strat_std": 0.003807358139182604,
+      "leak_gap_pp": -0.18,
+      "per_class": {
+        "grouped|Warping": 0.9981308411214954,
+        "grouped|Cracking": 0.9936394176931691,
+        "grouped|Stringing": 1.0,
+        "grouped|Layer_shifting": 0.994482496194825,
+        "grouped|Off_platform": 1.0
+      },
+      "minutes": 3.82
+    },
+    {
+      "level": "L3",
+      "backbone": "efficientnet_b0",
+      "grouped_mean": 0.991916,
+      "grouped_std": 0.009764456154850602,
+      "grouped_n": 10,
+      "strat_mean": 0.995874,
+      "strat_std": 0.006730735769587163,
+      "leak_gap_pp": 0.4,
+      "per_class": {
+        "grouped|Warping": 0.988785046728972,
+        "grouped|Cracking": 0.991511758118701,
+        "grouped|Stringing": 1.0,
+        "grouped|Layer_shifting": 1.0,
+        "grouped|Off_platform": 1.0
+      },
+      "minutes": 12.96
+    },
+    {
+      "level": "L1",
+      "backbone": "mobilenetv3_small_100",
+      "grouped_mean": 0.981554,
+      "grouped_std": 0.007997426085935377,
+      "grouped_n": 10,
+      "strat_mean": 0.9845339999999998,
+      "strat_std": 0.00305280592242613,
+      "leak_gap_pp": 0.3,
+      "per_class": {
+        "grouped|Warping": 1.0,
+        "grouped|Cracking": 0.9957670772676372,
+        "grouped|Stringing": 0.9731086142322098,
+        "grouped|Layer_shifting": 0.967047184170472,
+        "grouped|Off_platform": 0.9444444444444444
+      },
+      "minutes": 3.06
+    },
+    {
+      "level": "L2",
+      "backbone": "mobilenetv3_small_100",
+      "grouped_mean": 0.9941359999999999,
+      "grouped_std": 0.006984547515766481,
+      "grouped_n": 10,
+      "strat_mean": 0.9955499999999999,
+      "strat_std": 0.004183027611670754,
+      "leak_gap_pp": 0.14,
+      "per_class": {
+        "grouped|Warping": 0.994392523364486,
+        "grouped|Cracking": 0.9957670772676372,
+        "grouped|Stringing": 1.0,
+        "grouped|Layer_shifting": 0.9945205479452055,
+        "grouped|Off_platform": 0.9777777777777779
+      },
+      "minutes": 3.15
+    },
+    {
+      "level": "L3",
+      "backbone": "mobilenetv3_small_100",
+      "grouped_mean": 0.992529,
+      "grouped_std": 0.004763228841867666,
+      "grouped_n": 10,
+      "strat_mean": 0.984358,
+      "strat_std": 0.016595978910567463,
+      "leak_gap_pp": -0.82,
+      "per_class": {
+        "grouped|Warping": 0.9962789892696435,
+        "grouped|Cracking": 0.9809406494960807,
+        "grouped|Stringing": 0.9955305867665418,
+        "grouped|Layer_shifting": 0.9917047184170471,
+        "grouped|Off_platform": 1.0
+      },
+      "minutes": 11.68
+    }
+  ],
+  "verdicts": {
+    "B0_L1_vs_L2": {
+      "diff_pp": 1.29,
+      "equivalent": true,
+      "verdict": "等价（<2pp，不宣称优劣）"
+    },
+    "B0_L2_vs_L3": {
+      "delta_pp": -0.54,
+      "std_L2": 0.06,
+      "std_L3": 0.98,
+      "equivalent": true,
+      "verdict": "等价（|Δ|<2pp）——**全量微调未带来增益**",
+      "caveat": "注意 L3 标准差 0.98pp 是 L2 的 15.2 倍，均值差 0.54pp 小于L3 自身波动 → 结论受折间方差支配。"
+    },
+    "B0_L1_leak": {
+      "gap_pp": 0.08,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "B0_L2_leak": {
+      "gap_pp": -0.18,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "B0_L3_leak": {
+      "gap_pp": 0.4,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "MV3-small_L1_vs_L2": {
+      "diff_pp": 1.26,
+      "equivalent": true,
+      "verdict": "等价（<2pp，不宣称优劣）"
+    },
+    "MV3-small_L2_vs_L3": {
+      "delta_pp": -0.16,
+      "std_L2": 0.7,
+      "std_L3": 0.48,
+      "equivalent": true,
+      "verdict": "等价（|Δ|<2pp）——**全量微调未带来增益**",
+      "caveat": "注意 L3 标准差 0.48pp 是 L2 的 0.7 倍，均值差 0.16pp 小于L3 自身波动 → 结论受折间方差支配。"
+    },
+    "MV3-small_L1_leak": {
+      "gap_pp": 0.3,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "MV3-small_L2_leak": {
+      "gap_pp": 0.14,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "MV3-small_L3_leak": {
+      "gap_pp": -0.82,
+      "verdict": "泄漏影响可忽略（|gap|<2pp）"
+    },
+    "backbone_L1": {
+      "diff_pp": 0.29,
+      "equivalent": true,
+      "verdict": "两骨干等价"
+    },
+    "backbone_L2": {
+      "diff_pp": 0.31,
+      "equivalent": true,
+      "verdict": "两骨干等价"
+    },
+    "backbone_L3": {
+      "diff_pp": 0.06,
+      "equivalent": true,
+      "verdict": "两骨干等价"
+    }
+  },
+  "discipline": {
+    "equiv_threshold_pp": 2.0,
+    "main_scheme": "grouped",
+    "n_runs_per_cell": 10,
+    "note": "Off_platform 仅 91 张（每折 18 张），单折结果不可信；所有单元格均为 5 折 × 2 种子 = 10 次。"
+  }
+}

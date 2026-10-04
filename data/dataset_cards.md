@@ -125,17 +125,22 @@ GET https://www.kaggle.com/api/v1/datasets/view/wengmhu/fdm-3d-printing-defect-d
 
 ---
 
-## DC-04 · Zenodo 18628777（图像备选 B）
+## DC-04 · Zenodo 18628777（✅ **2026-10-04 升格：P1 外部验证集 + 正常件门控数据源**）
 
 | 项 | 内容 |
 |---|---|
-| **用途** | 多角度、含无缺陷对照的大规模补充 |
-| **来源** | Zenodo `records/18628777`（Trier University of Applied Sciences） |
+| **用途** | ⬆️ **2026-10-04 定位升级**：由「图像备选 B」升为 **P1 外部验证集**（跨数据集泛化证据）+ **正常/异常门控**数据源。**不替代 DC-02R 做主集**（无 Warping/Cracking/Off_platform，替换会断映射层） |
+| **来源** | Zenodo `records/18628777`（Trier University of Applied Sciences / FH Aachen）<br>DOI `10.5281/zenodo.18628777`（v2.0.0，发布 2026-02-13） |
 | **规模** | **48.4 GB**（additional_defect_data 16.1GB / base_data 19.6GB / test_data 12.6GB） |
-| **类别** | 挤出异常、层错位、拉丝 + 无缺陷 |
-| **特色** | **三个相机角度**采集 |
-| **⚠️ 注意** | 体积大，按需部分下载 |
+| **类别** | 挤出异常（extrusion errors）/ 层错位（layershifts）/ 拉丝（stringing）/ **无缺陷（error-free）** |
+| **特色** | **三个相机角度**采集；含**无缺陷对照件** → 可做「正常/异常」门控，避免把正常件硬判成某缺陷类 |
+| **许可** | ✅ **CC BY 4.0**（2026-10-04 经论文参考文献交叉核实："License CC BY 4.0"）→ **必须署名** |
+| **关联论文** | Bast S., Scherer K., Wahl M., Naumann S., Dartmann G., Didas S. *Reference-based monitoring for defect detection in fused filament fabrication using image feature classification.* **Int J Adv Manuf Technol** 144:2047–2059 (2026). DOI `10.1007/s00170-026-17844-w`（2026-04-10） |
+| **该论文的公开 baseline** | 预训练 **ResNet-50 只做特征提取 + kNN**（不微调），各类 **F1 0.757~0.990，加权平均 0.812** → **P1 的L1 对照组即此方法**，口径可引用 |
+| **代码** | `gitlab.rlp.net/ISS/realtime-defect-detection-in-additive-manufacturing` |
+| **⚠️ 使用注意** | ① 体积大，**建议只下 `test_data.zip`（12.6 GB）**做外部验证；② **需核实是否有 part 级 ID**——若无，则同样存在近重复泄漏风险，须走 DC-02R 同一套 pHash+DINOv2 去泄漏流程 |
 | **下载日期** | 待下载 |
+
 
 ---
 
@@ -190,5 +195,7 @@ GET https://www.kaggle.com/api/v1/datasets/view/wengmhu/fdm-3d-printing-defect-d
 2. CC BY 4.0 数据集（DC-01 / DC-05）**必须署名**，成果中保留完整引用
 3. 若项目开源，**只提交代码与索引脚本，不提交原始数据**；README 指路原始来源
 4. **只采用许可明确的源**：DC-01（CC BY 4.0）、DC-02R（**MIT**）、DC-06 中的 CC0 项、DC-05（CC BY 4.0）。
+| **DC-05**（CC BY 4.0）、**DC-04**（CC BY 4.0，2026-10-04 补登）。
    许可 Unknown 的一律**不入库**，除非能溯源到原始许可方
 5. **DC-02 经核查数据不可获取且无许可** → 不作为数据源；仅引用其已公开发表的 baseline 数字（Swin-T F1 87%）
+6. **引用他人数字必须标注出处**（2026-10-04）：Bast2026 的加权 F1 0.812、Swin-T 的 87%、植物病害研究的 +23.4pp 均为**他人结果**，引用时注明任务/数据集不同、不可直接比较

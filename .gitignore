@@ -21,6 +21,10 @@ data/*.backup_*
 
 # ---- 实验中间产物 ----
 exp/*.npy
+# ⚠️ P1 特征/图像缓存：**4.3 GB**（4 个 x_V*.npy 各 1.15 GB + DINOv2 特征），
+#    全部可由脚本一键重建，进了仓库会撑爆 git 历史。
+#    重建：python -m src.vision.calibrate_dedup / python exp/d3_intervention.py
+exp/_cache/
 
 # ---- LLM 调用缓存（可重建，避免重复烧 token 的本地缓存）----
 data/rewrite_cache.json
@@ -42,11 +46,18 @@ data/datasets/
 *.pth
 *.pt
 *.onnx
+# ⚠️ safetensors 后缀必须排除：P1 预训练权重走 hf-mirror 下到 data/_weights/，
+#    DINOv2 单个 346 MB、两个共约 368 MB，进了仓库会撑爆 git 历史。
+*.safetensors
+data/_weights/
+data/_weights_b0/
 
 # ---- 实验运行日志 ----
 exp/*_run.log
 exp/e2e_run_*.log
 exp/e2e_*.log
+# P1 D3 训练日志（stdout 冗余，结论已落在 exp/p1_d3_*.json）
+exp/d3_*.log
 
 # ---- 实验临时 id 清单（调试用，非证据）----
 exp/_*.json

@@ -37,6 +37,15 @@ EXPECTED = {
 }
 EXPECTED_TOTAL = 1912
 
+# ⚠️ 2026-10-04 实测坑：Kaggle API 元数据里的 `totalBytes` **不可作为下载完整性基准**。
+#   元数据报 6,293,272,351 B，但 Google Storage 实际对象
+#   （`x-goog-stored-content-length`）是 6,279,686,097 B，差 13,586,254 B。
+#   后果：8 线程分片下载后按 totalBytes 比对会误报 SIZE_MATCH=NO，
+#   白白补下 13 MB（且 Range 请求直接被服务器拒为 InvalidRange）。
+#   **正确基准 = zip 条目数 1,912 + 类内张数 + zipfile.testzip() CRC 自检。**
+#   详见 exp/p1_vision_result.md §1.0。
+ZIP_EXPECTED_ENTRIES = 1912
+
 
 def human(n):
     return f"{n/1024**3:.2f} GB" if n >= 1024**3 else f"{n/1024**2:.1f} MB"

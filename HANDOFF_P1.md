@@ -117,6 +117,27 @@ data/p1_dataset_manifest.json  # 数据根与实测计数（脚本已生成）
 3. **运行时计数器**：累计空样本/读取失败数；空样本 > 5% → 先查管线别改模型。
 4. **无数据冒烟测试**：`--smoke-test` 用合成数据跑通全链路（64px、1 epoch、CPU 可跑），抓形状 bug 成本几乎为零。
 5. **防线自检**：写完任何断言，先验证它"条件不满足时确实会 fail"——永远通过的检查是装饰。
+6. **权重加载防线**（2026-10-04 新增，见 `src/vision/weights.py`）：加载完预训练权重要**校验注入张量数**，注入 0 个就抛错——防「以为用了预训练其实随机初始化」。
+
+> ⚠️ **2026-10-04 实测推翻了两条旧结论，务必先看**（RTX 4060 / Windows / Python 3.13）：
+>
+> 1. **DC-02R 不需要 Kaggle 凭据**。该数据集是**公开**的，匿名即可下载：
+>    `kaggle datasets download wengmhu/fdm-3d-printing-defect-dataset` 无凭据直接开始传 5.85 GB。
+>    不要再让用户配 `~/.kaggle/kaggle.json`（旧版本文档写"必须配置"是错的）。
+> 2. **`SafetensorError: header too small` 不是网络问题**，是 Windows 专属的两个坑叠加：
+>    - `huggingface_hub` 在**未开开发者模式的 Windows** 上无法创建符号链接，静默留下 **0 字节** snapshot，而 blob 本身完整（实测 blob 21,355,344 B 完好 / snapshot 0 B）；
+>    - `hf_hub_download`（含 `local_dir=`）的传输会被**截断成 0 字节**，而同一 URL 用 `curl` 完整下载（@1.08 MB/s）。
+>
+>    对策已固化为 `src/vision/weights.py`：**禁止 `timm.create_model(..., pretrained=True)`**，
+>    改用 `weights.build_model()`（四级查找 + 注入张量数校验 + 魔数嗅探读 safetensors）。
+>    `guards.py` / `train.py` / `dedup.py` 三处均已替换。已实测注入：EfficientNet-B0 358 张量、DINOv2 174 张量（0 形状不符）。
+>
+> **可用镜像（关加速器 + `unset *_PROXY` 后实测）**：
+> `hf-mirror.com` 200 @1.0 MB/s ✅ ｜ `kaggle.com` 200 ✅ ｜ `huggingface.co` 超时 ❌ ｜
+> **`modelscope.cn` 魔搭 status=000 不可达 ❌（不必再试）** ｜ `mirrors.aliyun.com` ❌
+>
+> **Kaggle 并发下载**：1 线程 ~250 KB/s → **8 线程 ~697 KB/s**（5.85 GB ≈ 2.4 h）→ 16 线程无增益。
+> CDN 支持 HTTP Range，签名 URL 有效期 3 天，断了重取 URL 续传。
 
 **本项目特有的三个坑**：
 - **Off_platform 只有 91 张**：5 折里每折测试约 18 张，单折 F1 抖动可达 ±10pp，**必须报 5 折均值±标准差**，不能只报某一折。
@@ -249,11 +270,13 @@ v2.3（净负 −3.76pp）、v2.8（+2.5pp 但 23 道回归）、v2.8b（与 v2.
 P1 任务：在 RTX 4060 上训练 5 类缺陷图像分类（Kaggle wengmhu / DC-02R，MIT 许可，1,912 张），并构建「视觉类 → 知识库条目」映射层。严格按 HANDOFF_P1.md 的「迁移三步走」「训练方案」「防坑清单」「验收标准」执行。
 
 开工前必须守住的纪律（违反会浪费大量算力或产出不可信数字）：
-1. 先加载 skill：kaggle-vision-pipeline-guards（五道防线：防"数据没喂进去但 loss 照降"这类不报错的错误）。
+1. ~~先加载 skill：kaggle-vision-pipeline-guards~~ → **该 skill 不存在**，防线已内联实现在 `src/vision/guards.py`，直接用 `python -m src.vision.guards --self-test`。
 2. 必须先 `python scripts/p1_check_env.py` 全绿、再 `python scripts/p1_fetch_dataset.py --dir D:/datasets/fdm-defect` 校验 ok:true，才能开训。
+   - ✅ **不需要配 Kaggle 凭据**（DC-02R 是公开数据集，匿名可下）——见第 4 节实测结论。
 3. Off_platform 只有 91 张 → 必须报 5 折 macro-F1 均值 ± 标准差，绝不可只报某一折。
 4. 类别映射：Warping/Stringing/Layer_shifting 同名直接映射；Cracking、Off_platform 须逐条核对知识库后再定，写报告标注核对依据。
 5. 不要改 P0 检索/生成层（已严格验证到顶，重做只会回归）；P1 只动 src/vision/。
+6. **禁止 `timm.create_model(..., pretrained=True)`**（Windows 符号链接 + hf_hub 截断 → 0 字节权重），一律用 `src/vision/weights.py` 的 `build_model()`。
 6. 数字做完才填；对外口径标注「qwen-turbo 判官，不确定度约 ±7pp」；不把论文 87% 说成自己的结果。
 7. 原始图像与权重（*.pth/*.pt）不进 git；只提交代码、报告、折划分 json、data/p1_dataset_manifest.json。
 

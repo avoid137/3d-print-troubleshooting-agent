@@ -4,9 +4,16 @@
 #    直接 pip install -r 本文件不会装 torch（torch 必须走官方索引，否则装成 CPU 版）。
 
 # ---------- 第 1 步：PyTorch（在命令行单独执行，二选一） ----------
-# CUDA 12.4（推荐，4060 = Ampere 架构，兼容）
-#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
-# CUDA 12.1（若驱动较旧）
+# 🔴 CUDA 12.6（**本机实测可用，就是这个版本**）
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+#   实测结果（2026-10-04，本机 RTX 4060 / Python 3.13.14）：
+#     torch 2.14.1+cu126 / torchvision 0.29.1+cu126
+#     torch.cuda.is_available() == True，识别到 NVIDIA GeForce RTX 4060，8.0 GB
+#
+# ⚠️ **不要用 cu124**：本机 Python 3.13，cu124 索引下 cp313 只有 torch 2.6 + tv 0.21
+#    （老版本），HANDOFF_P1.md 里的 cu124 是过时建议（实测已修正）。
+#
+# CUDA 12.1（若驱动较老）
 #   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 # 验证必须看到 True：
 #   python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"

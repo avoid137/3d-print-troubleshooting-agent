@@ -1,0 +1,50 @@
+{
+  "n": 1912,
+  "h1_pixel_shortcut_f1": 0.7147,
+  "class_rgb_mean": {
+    "Warping": [
+      0.3574,
+      0.6141,
+      0.0289
+    ],
+    "Cracking": [
+      0.4479,
+      0.4674,
+      0.0305
+    ],
+    "Stringing": [
+      0.4352,
+      0.4428,
+      0.0262
+    ],
+    "Layer_shifting": [
+      0.4396,
+      0.475,
+      0.0306
+    ],
+    "Off_platform": [
+      0.3564,
+      0.6092,
+      0.0267
+    ]
+  },
+  "h2_nn_stats": {
+    "grouped": {
+      "pct_nn_same_group": 0.0,
+      "pct_nn_cross_class": 1.31,
+      "n": 1912
+    },
+    "stratified": {
+      "pct_nn_same_group": 11.61,
+      "pct_nn_cross_class": 0.89,
+      "n": 1912
+    }
+  },
+  "h3_per_fold": [
+    0.6955,
+    0.7149,
+    0.6939,
+    0.7115,
+    0.7636
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "Stringing": {
+    "visual_class": "Stringing",
+    "zh": "拉丝/渗料",
+    "n_images": 447,
+    "primary": [
+      {
+        "kb_id": "KB006",
+        "title": "Stringing or Oozing",
+        "cause_count": 12,
+        "match": "anchor",
+        "role": "primary",
+        "note": "kb_v2 已标注 img_classes=['Stringing']"
+      },
+      {
+        "kb_id": "KB063",
+        "title": "Web-like Strings Cover the Print (Stringing)",
+        "cause_count": 3,
+        "match": "direct",
+        "role": "primary",
+        "note": "标题即 Stringing，现象更具体（覆盖全件的网状丝）"
+      }
+    ],
+    "secondary": [],
+    "confusable": [
+      {
+        "kb_id": "KB101",
+        "title": "Spaghetti (Print Detached from Bed)",
+        "cause_count": 3,
+        "match": "semantic",
+        "role": "confusable",
+        "note": "⚠️ Spaghetti 是喷不出料成团丝，与拉丝不是同一现象"
+      }
+    ],
+    "conflict_reason": "Stringing（回抽不足产生的细丝）与 Spaghetti（完全不出料/成团）成因不同，不可混用。二者在 kb_v2 中均为 FDM 条目但机理相反。",
+    "pending_visual_check": false,
+    "checked_images": 0,
+    "check_note": "3 类同名映射，kb_v2 已有 20/56 条 img_classes 锚点可依，无需看图定稿"
+  },
+  "Warping": {
+    "visual_class": "Warping",
+    "zh": "翘曲",
+    "n_images": 538,
+    "primary": [
+      {
+        "kb_id": "KB024",
+        "title": "Warping",
+        "cause_count": 11,
+        "match": "anchor",
+        "role": "primary",
+        "note": "kb_v2 img_classes=['Warping']，11 条根因，条目最完整"
+      },
+      {
+        "kb_id": "KB044",
+        "title": "Print Bows Out at Bottom (Elephant's Foot)",
+        "cause_count": 4,
+        "match": "direct",
+        "role": "primary",
+        "note": "Elephant's Foot（底部外扩），Warping 的特例"
+      },
+      {
+        "kb_id": "KB016",
+        "title": "Curling or Rough Corners",
+        "cause_count": 3,
+        "match": "direct",
+        "role": "primary",
+        "note": "翘边/圆角，边缘翘起的表现"
+      }
+    ],
+    "secondary": [],
+    "confusable": [],
+    "conflict_reason": "",
+    "pending_visual_check": false,
+    "checked_images": 0,
+    "check_note": "3 类同名映射，kb_v2 已有 img_classes 锚点"
+  },
+  "Layer_shifting": {
+    "visual_class": "Layer_shifting",
+    "zh": "层错位",
+    "n_images": 364,
+    "primary": [
+      {
+        "kb_id": "KB008",
+        "title": "Layer Shifting",
+        "cause_count": 7,
+        "match": "anchor",
+        "role": "primary",
+        "note": "kb_v2 img_classes=['Layer Shifting']，7 条根因"
+      },
+      {
+        "kb_id": "KB050",
+        "title": "Layers Don't Line Up Well",
+        "cause_count": 6,
+        "match": "direct",
+        "role": "primary",
+        "note": "层对不齐，程度更轻的表现"
+      },
+      {
+        "kb_id": "KB052",
+        "title": "Print Leans When it Shouldn't",
+        "cause_count": 4,
+        "match": "direct",
+        "role": "primary",
+        "note": "整体倾斜（打印件歪倒）"
+      },
+      {
+        "kb_id": "KB065",
+        "title": "Print Offset in Some Places",
+        "cause_count": 8,
+        "match": "direct",
+        "role": "primary",
+        "note": "局部偏移"
+      }
+    ],
+    "secondary": [],
+    "confusable": [
+      {
+        "kb_id": "KB009",
+        "title": "Layer Separation and Splitting",
+        "cause_count": 8,
+        "match": "semantic",
+        "role": "confusable",
+        "note": "⚠️ 层分离/开裂是层间结合失效，与层错位（几何错位）不同"
+      }
+    ],
+    "conflict_reason": "Layer_shifting 是**几何位置错位**；KB009/KB049 是**层间结合失效**（Delamination）。前者应调机械/运动参数，后者要调温度与层间粘合。",
+    "pending_visual_check": false,
+    "checked_images": 0,
+    "check_note": "3 类同名映射，kb_v2 已有 img_classes 锚点"
+  },
+  "Cracking": {
+    "visual_class": "Cracking",
+    "zh": "开裂",
+    "n_images": 472,
+    "primary": [
+      {
+        "kb_id": "KB049",
+        "title": "Cracks Have Appeared in Tall Objects",
+        "cause_count": 2,
+        "match": "semantic",
+        "role": "primary",
+        "note": "唯一以「裂纹/cracks」为现象主语的条目；推断 DC-02R 的 Cracking 即此"
+      }
+    ],
+    "secondary": [],
+    "confusable": [
+      {
+        "kb_id": "KB009",
+        "title": "Layer Separation and Splitting",
+        "cause_count": 8,
+        "match": "semantic",
+        "role": "confusable",
+        "note": "⚠️ 关键区分：KB009 是「层分离与劈裂（Delamination）」，KB049 是「高大件上出现裂纹」。**这是两种失效模式**，kb_v2 把两者都标了 img_classes=['Delamination']，极易混淆"
+      }
+    ],
+    "conflict_reason": "Cracking 与 Delamination 在 kb_v2 的 img_classes 里同标签，但物理机理不同：裂纹=材料内部应力破坏；层分离=层间粘合失效。若硬映射到 KB009，会把「调温度/粘合」的建议给到「调应力/结构」的场景。",
+    "pending_visual_check": true,
+    "checked_images": 0,
+    "check_note": "TODO：下载后抽 15~20 张 Cracking 图人工看，确认是表面/内部裂纹（→KB049）还是层间分离（→KB009），再定稿。禁止凭想象定稿。"
+  },
+  "Off_platform": {
+    "visual_class": "Off_platform",
+    "zh": "脱离平台",
+    "n_images": 91,
+    "primary": [
+      {
+        "kb_id": "KB002",
+        "title": "Not Sticking to the Bed",
+        "cause_count": 18,
+        "match": "semantic",
+        "role": "primary",
+        "note": "18 条根因，覆盖「不粘床」全部成因（温度/清洁/调平/Z-offset/材料）"
+      },
+      {
+        "kb_id": "KB028",
+        "title": "First Layer Issues",
+        "cause_count": 13,
+        "match": "semantic",
+        "role": "secondary",
+        "note": "首层问题 13 条根因，与「脱离平台」常同源（首层没粘住→后续翘起脱离）"
+      }
+    ],
+    "secondary": [
+      {
+        "kb_id": "KB035",
+        "title": "Nozzle Too Close to Print Bed",
+        "cause_count": 2,
+        "match": "weak",
+        "role": "secondary",
+        "note": "喷嘴离床过近（2 条根因，属特定成因"
+      },
+      {
+        "kb_id": "KB037",
+        "title": "Print Head Misses the Bed",
+        "cause_count": 3,
+        "match": "weak",
+        "role": "secondary",
+        "note": "打印头未覆盖到床（3 条根因）"
+      }
+    ],
+    "confusable": [
+      {
+        "kb_id": "KB101",
+        "title": "Spaghetti (Print Detached from Bed)",
+        "cause_count": 3,
+        "match": "semantic",
+        "role": "confusable",
+        "note": "⚠️ KB101 标题含 'Print Detached from Bed'，字面像本类，但其机制是 Spaghetti（喷不出料成团丝）——**标题相近、机理不同**，旧 mapping.md 正是在这里把 Spaghetti 与 Stringing 混淆过"
+      },
+      {
+        "kb_id": "KB067",
+        "title": "Print is Stuck to Print Bed",
+        "cause_count": 6,
+        "match": "semantic",
+        "role": "confusable",
+        "note": "反向现象：粘在床上下不来，与本类相反"
+      }
+    ],
+    "conflict_reason": "Off_platform 是「打印件脱离打印床」；需区分两种可能：(a) 首层未粘附（→KB002/KB028，附着力问题）；(b) 打印中途翘起脱落（→翘曲 + 附着力，跨 Warping 与本类）。Spaghetti 虽然标题含 'Detached from Bed'，但机制不同，不可混用。",
+    "pending_visual_check": true,
+    "checked_images": 0,
+    "check_note": "TODO：Off_platform 仅 91 张，建议全部人工过一遍，判定是「首层没粘住」还是「打印中翘起脱落」，再决定主映射权重。"
+  }
+}

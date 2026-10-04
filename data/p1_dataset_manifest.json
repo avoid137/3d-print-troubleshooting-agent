@@ -1,0 +1,18 @@
+{
+  "root": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data",
+  "ok": true,
+  "detail": {
+    "Warping": 538,
+    "Cracking": 472,
+    "Stringing": 447,
+    "Layer_shifting": 364,
+    "Off_platform": 91
+  },
+  "expected": {
+    "Warping": 538,
+    "Cracking": 472,
+    "Stringing": 447,
+    "Layer_shifting": 364,
+    "Off_platform": 91
+  }
+}
