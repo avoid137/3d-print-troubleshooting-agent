@@ -1,0 +1,88 @@
+{
+  "n_splits": 5,
+  "classifier": "L2 (StandardScaler+LogReg)",
+  "anchor_expected": 0.9973,
+  "anchor_dev_pp": 0.002,
+  "results": {
+    "full": {
+      "band": [
+        0.0,
+        1.0
+      ],
+      "macro_f1_mean": 0.99728,
+      "macro_f1_std": 0.00064,
+      "per_fold": [
+        0.99756,
+        0.99758,
+        0.996,
+        0.99754,
+        0.9977
+      ]
+    },
+    "top": {
+      "band": [
+        0.0,
+        0.33
+      ],
+      "macro_f1_mean": 0.91445,
+      "macro_f1_std": 0.02771,
+      "per_fold": [
+        0.87673,
+        0.91455,
+        0.89137,
+        0.94943,
+        0.94017
+      ]
+    },
+    "mid": {
+      "band": [
+        0.33,
+        0.66
+      ],
+      "macro_f1_mean": 0.95175,
+      "macro_f1_std": 0.0101,
+      "per_fold": [
+        0.95506,
+        0.93184,
+        0.95933,
+        0.95768,
+        0.95485
+      ]
+    },
+    "bottom": {
+      "band": [
+        0.66,
+        1.0
+      ],
+      "macro_f1_mean": 0.99911,
+      "macro_f1_std": 0.0011,
+      "per_fold": [
+        1.0,
+        1.0,
+        0.998,
+        0.99754,
+        1.0
+      ]
+    },
+    "bottom_half": {
+      "band": [
+        0.5,
+        1.0
+      ],
+      "macro_f1_mean": 0.99863,
+      "macro_f1_std": 0.0019,
+      "per_fold": [
+        1.0,
+        0.99516,
+        0.998,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "verdict": {
+    "bottom_half_pp": 99.86,
+    "top_pp": 91.44,
+    "full_pp": 99.73
+  }
+}

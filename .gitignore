@@ -61,3 +61,6 @@ exp/d3_*.log
 
 # ---- 实验临时 id 清单（调试用，非证据）----
 exp/_*.json
+exp/_cache/
+exp/d3_*.log
+exp/*.png
