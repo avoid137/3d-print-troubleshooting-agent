@@ -63,3 +63,4 @@ exp/d3_*.log
 exp/_*.json
 exp/_cache/
 exp/d3_*.log
+exp/p1_errors_part*.png
