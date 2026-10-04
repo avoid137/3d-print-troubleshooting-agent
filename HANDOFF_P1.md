@@ -25,11 +25,12 @@
 ### 步骤 A：代码（推荐直接 clone，别手工拷）
 
 ```bash
-git clone https://github.com/avoid137/<repo>.git    # 同一个 private 仓
-cd <repo>
+git clone https://github.com/avoid137/3d-print-troubleshooting-agent.git
+cd 3d-print-troubleshooting-agent
 ```
 
-- 本机已 push 到 `b3be774`，远端是最新的。
+- 远端已含本接力包（HEAD = `1b149af`，2026-10-04 push）。
+- private 仓，新机器需先配置 GitHub 凭据（PAT 或本机凭据管理器里的 token）。
 - ⚠️ 若新机器 push 报证书错误（SteamTools/Watt 加速器做 HTTPS 中间人）：
   `git -c credential.helper= -c credential.helper=wincred -c http.sslBackend=openssl -c http.sslCAInfo="<combined-ca-bundle.pem路径>" push origin main`
 - 若手工拷贝：**不要**拷 `data/chroma_db/`、`*.pkl`、`*.bin`（大且可重建）。
