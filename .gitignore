@@ -31,8 +31,17 @@ data/answer_cache_v28.json
 data/judge_e2e_cache.json
 data/backfill_cache.json
 data/judge_lenient_cache.json
+data/judge_audit_cache.json
 data/_kb016_verify_cache.json
 exp/exp_e2e_result.json
+exp/_*.pkl
+
+# ---- P1 视觉：原始数据与权重不入库（只提交代码与索引脚本，见 HANDOFF_P1.md 第 7 节）----
+data/raw/
+data/datasets/
+*.pth
+*.pt
+*.onnx
 
 # ---- 实验运行日志 ----
 exp/*_run.log

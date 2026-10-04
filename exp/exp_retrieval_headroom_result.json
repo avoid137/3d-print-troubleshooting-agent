@@ -1,0 +1,93 @@
+{
+  "n": 160,
+  "results": [
+    {
+      "variant": "A0 基线 BM25(full)+Vec(full)",
+      "cov@5": 129,
+      "cov@5_rate": 0.8063,
+      "cov@10": 143,
+      "cov@10_rate": 0.8938,
+      "rec@5": 144,
+      "rec@5_rate": 0.9,
+      "gold_hit_rate": 0.8531,
+      "n": 160
+    },
+    {
+      "variant": "A1 BM25(w3)+Vec(full)",
+      "cov@5": 129,
+      "cov@5_rate": 0.8063,
+      "cov@10": 142,
+      "cov@10_rate": 0.8875,
+      "rec@5": 143,
+      "rec@5_rate": 0.8938,
+      "gold_hit_rate": 0.85,
+      "n": 160
+    },
+    {
+      "variant": "A2 BM25(full)+Vec(sym)",
+      "cov@5": 113,
+      "cov@5_rate": 0.7063,
+      "cov@10": 133,
+      "cov@10_rate": 0.8313,
+      "rec@5": 134,
+      "rec@5_rate": 0.8375,
+      "gold_hit_rate": 0.7719,
+      "n": 160
+    },
+    {
+      "variant": "A3 BM25(w3)+Vec(sym)",
+      "cov@5": 115,
+      "cov@5_rate": 0.7188,
+      "cov@10": 132,
+      "cov@10_rate": 0.825,
+      "rec@5": 135,
+      "rec@5_rate": 0.8438,
+      "gold_hit_rate": 0.7812,
+      "n": 160
+    },
+    {
+      "variant": "A4 BM25(w3)+Vec(max(sym,full))",
+      "cov@5": 120,
+      "cov@5_rate": 0.75,
+      "cov@10": 138,
+      "cov@10_rate": 0.8625,
+      "rec@5": 139,
+      "rec@5_rate": 0.8688,
+      "gold_hit_rate": 0.8094,
+      "n": 160
+    },
+    {
+      "variant": "A5 BM25(full)+Vec(max(sym,full))",
+      "cov@5": 118,
+      "cov@5_rate": 0.7375,
+      "cov@10": 137,
+      "cov@10_rate": 0.8562,
+      "rec@5": 138,
+      "rec@5_rate": 0.8625,
+      "gold_hit_rate": 0.8,
+      "n": 160
+    },
+    {
+      "variant": "A6 BM25(w3)+Vec(cause)",
+      "cov@5": 128,
+      "cov@5_rate": 0.8,
+      "cov@10": 141,
+      "cov@10_rate": 0.8812,
+      "rec@5": 142,
+      "rec@5_rate": 0.8875,
+      "gold_hit_rate": 0.8438,
+      "n": 160
+    },
+    {
+      "variant": "A7 BM25(w3)+Vec(max(sym,cause))",
+      "cov@5": 125,
+      "cov@5_rate": 0.7812,
+      "cov@10": 136,
+      "cov@10_rate": 0.85,
+      "rec@5": 141,
+      "rec@5_rate": 0.8812,
+      "gold_hit_rate": 0.8313,
+      "n": 160
+    }
+  ]
+}
