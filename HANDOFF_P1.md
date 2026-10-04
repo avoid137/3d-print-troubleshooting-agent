@@ -227,3 +227,55 @@ v2.3（净负 −3.76pp）、v2.8（+2.5pp 但 23 道回归）、v2.8b（与 v2.
 | 折划分 json（seed + fold 分配） | ✅ 提交（可复现性证据） |
 
 回到本机：`git pull` 即可，两边保持一致。
+
+---
+
+## 9. 给新机器 WorkBuddy 的接手方案（双保险）
+
+> 目标：让新电脑上的 WorkBuddy 一接手就有完整上下文、不踩已证伪的死路、不浪费 4060 算力。
+> 两种接法任选，推荐**接法 A（粘贴提示词）**为主、**接法 B（自动加载记忆）**为辅。
+
+### 接法 A：粘贴开场提示词（最稳，不依赖记忆自动注入）
+
+新机器 clone 完、仓库当工作区打开后，把下面这段**原样发给 WorkBuddy** 即可：
+
+```
+你接手「3D 打印故障诊断 Agent」项目的 P1 子任务。请先完整阅读仓库根目录的 HANDOFF_P1.md（这是唯一权威接手文档），再读以下文件建立上下文：
+- data/dataset_cards.md（数据集台账，唯一数据源）
+- requirements-p1-vision.txt（视觉环境依赖）
+- scripts/p1_fetch_dataset.py、scripts/p1_check_env.py（已就绪的下载/环境自检脚本）
+- exp/generation_layer_campaign_conclusion.md（P0 生成层已到顶的结论，别再碰）
+
+P1 任务：在 RTX 4060 上训练 5 类缺陷图像分类（Kaggle wengmhu / DC-02R，MIT 许可，1,912 张），并构建「视觉类 → 知识库条目」映射层。严格按 HANDOFF_P1.md 的「迁移三步走」「训练方案」「防坑清单」「验收标准」执行。
+
+开工前必须守住的纪律（违反会浪费大量算力或产出不可信数字）：
+1. 先加载 skill：kaggle-vision-pipeline-guards（五道防线：防"数据没喂进去但 loss 照降"这类不报错的错误）。
+2. 必须先 `python scripts/p1_check_env.py` 全绿、再 `python scripts/p1_fetch_dataset.py --dir D:/datasets/fdm-defect` 校验 ok:true，才能开训。
+3. Off_platform 只有 91 张 → 必须报 5 折 macro-F1 均值 ± 标准差，绝不可只报某一折。
+4. 类别映射：Warping/Stringing/Layer_shifting 同名直接映射；Cracking、Off_platform 须逐条核对知识库后再定，写报告标注核对依据。
+5. 不要改 P0 检索/生成层（已严格验证到顶，重做只会回归）；P1 只动 src/vision/。
+6. 数字做完才填；对外口径标注「qwen-turbo 判官，不确定度约 ±7pp」；不把论文 87% 说成自己的结果。
+7. 原始图像与权重（*.pth/*.pt）不进 git；只提交代码、报告、折划分 json、data/p1_dataset_manifest.json。
+
+第一步：先确认环境与数据是否就绪，遇到阻塞先报告再行动，不要盲目开训。
+```
+
+### 接法 B：自动加载项目记忆（辅助，省去每次粘贴）
+
+本仓库已提交 `.workbuddy/memory/MEMORY.md`（P1 浓缩上下文）。新机器**把克隆下来的仓库根目录直接作为 WorkBuddy 工作区打开**时，该文件会被自动注入，Agent 无需提示词也知道 P1 任务与红线。
+
+⚠️ 前提：必须「以仓库根目录为工作区」打开；若把仓库放进别的目录当子文件夹，自动注入路径会错位，此时退回接法 A。
+
+### Agent 接手后别踩的死路（已证伪，别复验）
+
+| 死路 | 结论 | 来源 |
+|---|---|---|
+| 改 P0 检索（top-k=10 / rerank / query 改写 / 索引变体） | 全部证伪，净增益≤0 | exp/exp_retrieval_headroom.py + 路线表 |
+| 生成层「重写式」改造（v2.3 / v2.8 / v2.8b） | 不过零回归安全门 / 等价 | exp/generation_layer_campaign_conclusion.md |
+| 单折报指标 | Off_platform 仅 91 张，单折抖动 ±10pp | HANDOFF 第 4/5 节 |
+| 拿 Kaggle README 的 Cracking=427 对下载 | 笔误，实为 472 | HANDOFF 第 2 节 |
+| 把论文 Swin-T 87% 当自己对标 | 任务/数据集不同，只可参照不可比 | HANDOFF 第 3 节 |
+
+### P1 完成判据（WorkBuddy 自测用）
+
+5 折 macro-F1 ≥ 0.80（报均值±标准差）｜ 最弱类 recall ≥ 0.70 ｜ 5 类→KB 映射 100% 覆盖含依据 ｜ ≥5 失败案例带图 ｜ seed+折划分落盘可复现。全部达成即 P1 完成，push 回仓库。
