@@ -63,4 +63,3 @@ exp/d3_*.log
 exp/_*.json
 exp/_cache/
 exp/d3_*.log
-exp/*.png
