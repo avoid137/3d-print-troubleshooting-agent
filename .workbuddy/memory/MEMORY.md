@@ -111,29 +111,24 @@ Off_platform 只剩 3/6，且模型不知道被丢了）。方案 = **max-min轮
    写成恒等断言 → 文本路径必然 FAIL。**写断言前先问「这量在各路径语义相同吗」**。
 4. **预算记账漂移**：固定 `HEADER_RESERVE` 估算 → 实际 10,146 > 10,000。改为逐字复算。
 
-✅ **P0 既有 bug 已获批准并真修（2026-10-05）**：
-`load_fitted_embedder()` 硬编码读 cause 级索引路径，kb 模式下读不到 fitted 模型。
-修法 = `load_fitted_embedder(path=None, strict=False)` + `_FITTED_EMBEDDER_CACHE`
-**按索引路径分桶** + `HybridRetriever.faiss_path` 透传 + `strict=True` 缺失即抛。
-验收脚本的 `patch_offline_embedder()` 旁路**已删**，换成 `assert_no_bypass_needed()`
-**反向自检**（修复被回退就直接AssertionError）。
+✅ **P0 既有 bug 已获批准并真修（2026-10-05，commit `181ca19`）**：
+`load_fitted_embedder()` 硬编码读 cause 级索引路径，kb 模式读不到 fitted 模型
+→ 用单条 query 重新 fit 出**迷你模型**。修法 =按路径取 + `_FITTED_EMBEDDER_CACHE`
+**分桶** + `faiss_path` 透传 + `strict=True` 缺失即抛；验收旁路已换成
+`assert_no_bypass_needed()` **反向自检**。A~F 重跑 ALL PASS。
 
-🔴 **归因两次修正，别照抄旧结论**：原写「→ 抛 `TruncatedSVD n_components` 越界」，
-实测（`exp/_tmp_bug_mechanism.py`）有**两条**后果：
-- (a) 短 query（TF-IDF 只切1 个 token → `n_components=0`）→ **抛错**（吵闹，原判断对）
-- (b) 长 query → fit 出 **vocab=3** 的迷你模型，查 16367 词表的索引，
-  **维度同为 1024 所以 FAISS 不报错**，静默返回假相似度
-  （实测 top1=KB002 Not Sticking to the Bedcos=0.3613，正确是 KB006 Stringing）。
-  **与 `assert_backend_consistent` 同一类静默错误，危害更大** → `strict=True` 是必要的。
+🔴 **归因两次修正，别照抄旧结论**：原写「抛 `TruncatedSVD n_components` 越界」只对了一半。
+- (a) 短 query（只切 1 个 token → `n_components=0`）→ **抛错**（吵闹，原判断对）
+- (b) 长 query → **vocab=3** 的迷你模型查 16367 词表的索引，**维度同为 1024
+  所以 FAISS 不报错**，静默返回假相似度（top1 KB002 cos=0.3613，正确是 KB006）
+  → 与 `assert_backend_consistent` 同一类，**危害更大**，`strict=True` 是必要的。
 
-⚠️ **修好后暴露一个独立既有缺陷（未修，需另立任务）**：
-离线兜底 TF-IDF 对**中文 query 完全失效**——索引语料是英文、默认 `token_pattern`
-不做中文分词 → `nnz=0` → 查询向量**全零** → BM25 路被同一分词器拖累 → **双路皆零**
-→ `retrieve("打印件表面有拉丝")` 返回 KB001~KB005 的**字母序**。
-**中文场景必须配 `DASHSCOPE_API_KEY`**（生产本就如此）；或换中文分析器重建索引。
-**P0 的 54.37% SOTA 不受影响**（那是带key 测的，走 DashScope embedding）。
-但这解释了「无 key 环境下 P0 文本路径 top_cosine 恒 0」——不是 bug，是中文 query
-在英文 TF-IDF 索引上本就无信号。
+⚠️ **修好后暴露一个独立既有缺陷（未修）**：离线兜底 TF-IDF 对**中文 query
+双路皆零**——索引语料是英文 + 默认 `token_pattern` 不做中文分词 → `nnz=0`
+→ 查询向量全零；BM25 被同一分词器拖累 → `retrieve("打印件表面有拉丝")`
+返回 KB001~KB005 **字母序**。中文场景**必须配 `DASHSCOPE_API_KEY`**（生产本就如此）。
+**不影响 P0 的 54.37%**（那是带 key 测的）。但这解释了「无 key 下 top_cosine 恒 0」。
+明细与对照实验：`exp/_tmp_bug_mechanism.py` + `exp/p1_vision_result.md` §4.5.5。
 
 ## 环境（已就绪，别重装）
 
@@ -167,7 +162,7 @@ DC-02R = Kaggle `wengmhu/fdm-3d-printing-defect-dataset`，MIT，1,912 张（538
 | `src/vision/kb_mapping.py` | 映射层唯一权威源，导入即校验 KB ID 存在 |
 | `src/skill_diagnose.py` / `src/agent_graph.py` | P0 Skill 契约 + LangGraph 编排（`generate` 只吃 `evidence`） |
 | `src/skill_vision_diagnose.py` / `src/agent_vision.py` | **P0↔P1 接线**（视觉 Skill + 双路编排，含上下文预算水填充） |
-| `exp/p1_p0_wiring_check.py` | 接线验收 A~F 六项（含 P0 既有 bug 的旁路） |
+| `exp/p1_p0_wiring_check.py` | 接线验收 A~F 六项 + `assert_no_bypass_needed()` 反向自检 |
 
 ## 踩过的坑（别重犯）
 
@@ -181,11 +176,11 @@ DC-02R = Kaggle `wengmhu/fdm-3d-printing-defect-dataset`，MIT，1,912 张（538
 
 **权重加载**（`weights.py`，别绕过）
 - 🔴 **禁用 `timm.create_model(pretrained=True)`**（guards/train/dedup 三处已换 `weights.build_model`）。
-- `load_pretrained_into` 校验注入张量数，注入 0 个即抛 `WeightError`（防静默退化成随机初始化）。
+  `load_pretrained_into` 校验注入张量数，0 个即抛 `WeightError`（防静默退化成随机初始化）。
 - `_read_state_dict` 用**魔数嗅探**而非后缀（HF blob 是 sha256 无扩展名但内容是 safetensors，
   按 `.pth` 走 torch.load 报 `UnpicklingError: Unsupported operand 176`）。
-- `header too small` ≠ 网络失败（实测 blob 21,355,344 B 完整、snapshot 0 B，是符号链接失败）。
-- `EXPECTED_BYTES` 全为实测值：B0=21,355,344、DINOv2=**346,334,872**（按估计写会反复重下）。
+- `header too small` ≠ 网络失败（实测 blob 完整、snapshot 0 B，是 Windows 符号链接失败）。
+  `EXPECTED_BYTES` 全为实测值：B0=21,355,344、DINOv2=**346,334,872**（按估计写会反复重下）。
 - 唯一可用权重源 = **`hf-mirror.com`**（1.0 MB/s）；`huggingface.co` 超时、
   `modelscope.cn` status=000（不必再试）、`mirrors.aliyun.com` 不通；torch.hub 的 DINOv2 同样不可用。
 
