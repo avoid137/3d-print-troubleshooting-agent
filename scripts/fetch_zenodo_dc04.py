@@ -245,14 +245,24 @@ def main():
         gotb = 0
         with cf.ThreadPoolExecutor(max_workers=total_jobs) as ex:
             futs = [ex.submit(fetch_one, p) for p in todo]
+            failed = 0
             for n, fu in enumerate(cf.as_completed(futs), 1):
                 _, ok, nbytes, dt = fu.result()
+                if not ok:
+                    failed += 1
                 gotb += nbytes
-                el = time.time() - t0
-                rate = gotb / el if el > 0 else 0
-                eta = ((EXPECT_BYTES - got if done else EXPECT_BYTES) - gotb) / rate / 3600
+                el = max(time.time() - t0, 1e-6)
+                rate = gotb / el
+                # 🔴 2026-10-05 修复：限流时首批分片全部失败 → gotb/el 可能为 0
+                #   → 原来的 `... / rate / 3600` 直接 ZeroDivisionError 崩掉，
+                #   **把「限流」这个关键信息一起带走了**（只剩一堆 traceback）。
+                #   现在：rate<=0 时如实显示「限流/无数据」，且**不中断**，
+                #   让循环跑完如实汇报成功/失败片数。
+                remain = (EXPECT_BYTES - got if done else EXPECT_BYTES) - gotb
+                eta = f"{remain / rate / 3600:.1f} h" if rate > 0 else "-- 限流/无数据 --"
                 print(f"  [{n}/{len(todo)}] +{human(nbytes)} "
-                      f"| {human(rate)} | 剩余 {eta:.1f} h")
+                      f"| {human(rate)} | 剩余 {eta}"
+                      + (f" |❌失败 {failed}" if failed else ""))
         print(f"\n下载阶段完成，用时 {human(time.time()-t0)}，"
               f"均速 {human(gotb/max(time.time()-t0,1))}")
 
