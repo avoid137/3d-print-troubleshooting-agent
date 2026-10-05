@@ -42,36 +42,47 @@ TEXT_QUERIES = [
 ]
 
 
-def patch_offline_embedder() -> str:
-    """旁路 P0 既有 bug，让离线兜底检索能跑（不改 P0 一行代码）。
+def assert_no_bypass_needed() -> str:
+    """确认 P0 既有 bug 已真修：**不再需要任何进程内旁路**。
 
-    🔴 **P0 既有缺陷**（不是本接线引入）：
-        `vector_index.load_fitted_embedder()` 硬编码读`FAISS_INDEX_PATH`
-        的 `.tfidf_svd.pkl`（旧cause 级索引），但 kb 模式下 fitted 模型
-        落在`faiss_index_kb.tfidf_svd.pkl` → 查询侧拿到 `None`
-        → 用**单条 query** 重新 fit TF-IDF+SVD
-        → `TruncatedSVD(n_components=...)` 越界抛
-          `InvalidParameterError: Got `。
-        生产环境有 DASHSCOPE_API_KEY 走 DashScope，**不会触发**；
-        只有「无 key 的离线兜底」才暴露。
-
-    `src/vector_index.py` 与 `src/hybrid_retriever.py` 都属**P0 冻结区**
-    （纪律：P1 不改P0 检索/生成层）。所以这里只在**验收脚本进程内**
-    预置模块级 `_FITTED_EMBEDDER`，让查询侧复用建索引时的 fitted 模型。
-    🔴 这是**验证手段**，不是修复——真修需要改 `load_fitted_embedder`
-    接受 path 参数（P0 改动，需用户批准）。
+    历史：本脚本原先有 `patch_offline_embedder()`，靠在验收进程内预置
+    模块级 `_FITTED_EMBEDDER` 来绕过 P0 的
+    `vector_index.load_fitted_embedder()` 硬编码路径 bug。
+    该bug 已于 2026-10-05 获用户批准后**真修**：
+      - `load_fitted_embedder(path=None, strict=False)` 按索引路径取；
+      - `_FITTED_EMBEDDER_CACHE` 按索引路径分桶；
+      - `HybridRetriever.faiss_path` 透传到 `_embed_query`；
+      - `strict=True` 时文件缺失直接抛 `FileNotFoundError`。
+    所以旁路已删除；这里反向自检——**若修复被回退，本函数必须报错**。
     """
-    import pickle
     import hybrid_retriever as hr
     from config import KB_FAISS_INDEX_PATH
 
+    if not hasattr(hr, "_FITTED_EMBEDDER_CACHE"):
+        raise AssertionError(
+            "hr._FITTED_EMBEDDER_CACHE 不存在 → P0 修复被回退，"
+            "或代码跑在旧版本上。"
+        )
+    if hasattr(hr, "_FITTED_EMBEDDER"):
+        raise AssertionError(
+            "旧的全局面变量 _FITTED_EMBEDDER 仍在 → P0 修复未生效。"
+        )
     p = KB_FAISS_INDEX_PATH.with_suffix(".tfidf_svd.pkl")
     if not p.exists():
-        return f"跳过（无 {p.name}，需先跑 src/build_kb_index.py）"
-    if hr._FITTED_EMBEDDER is None:
-        with open(p, "rb") as f:
-            hr._FITTED_EMBEDDER = pickle.load(f)
-    return f"已预置 fitted embedder（{p.name}）"
+        return f"跳过 fitted 文件检查（无 {p.name}）"
+    # 直接调 strict=True：修复前会因路径硬编码而找不到文件（strict 抛错）
+    import vector_index as vi
+    fitted = vi.load_fitted_embedder(KB_FAISS_INDEX_PATH, strict=True)
+    vocab = len(fitted[0].vocabulary_)
+    if vocab < 1000:
+        raise AssertionError(
+            f"取到的是迷你模型（vocab={vocab}），不是 kb 级 fitted（应为万级）。"
+        )
+    # 真跑一次纯 P0 检索，确认不经任何旁路也能通
+    r = hr.HybridRetriever()
+    r.retrieve(TEXT_QUERIES[0], top_k=3)
+    return (f"无需旁路：按路径取到 kb 级 fitted（vocab={vocab}），"
+            f"纯 P0 检索通路正常")
 
 
 def check_a_p0_zero_regression(vskill: VisionDiagnoseSkill) -> dict:
@@ -304,7 +315,9 @@ def main():
 
     vskill = VisionDiagnoseSkill()
     print(f"[device] {device}")
-    print(f"[旁路] {patch_offline_embedder()}\n")
+    # 🔴 反向自检：P0 bug 已真修，本脚本不再做任何进程内旁路。
+    #    若修复被回退，这里会直接 AssertionError 而不是静默跑偏。
+    print(f"[P0 修复自检] {assert_no_bypass_needed()}\n")
 
     results = {}
     for name, fn in [("A_p0_zero_regression", lambda: check_a_p0_zero_regression(vskill)),

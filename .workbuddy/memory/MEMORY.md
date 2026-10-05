@@ -111,10 +111,29 @@ Off_platform 只剩 3/6，且模型不知道被丢了）。方案 = **max-min轮
    写成恒等断言 → 文本路径必然 FAIL。**写断言前先问「这量在各路径语义相同吗」**。
 4. **预算记账漂移**：固定 `HEADER_RESERVE` 估算 → 实际 10,146 > 10,000。改为逐字复算。
 
-🔴 **顺带发现 P0 既有 bug（只旁路未修，需用户批准）**：
-`load_fitted_embedder()` 硬编码读cause 级索引路径，kb 模式下读不到 fitted 模型
-→ 离线兜底检索抛 `TruncatedSVD n_components` 越界。**生产有 DashScope key 不触发**。
-修法 = 加 `path` 参数（2 行），但属 P0 改动。
+✅ **P0 既有 bug 已获批准并真修（2026-10-05）**：
+`load_fitted_embedder()` 硬编码读 cause 级索引路径，kb 模式下读不到 fitted 模型。
+修法 = `load_fitted_embedder(path=None, strict=False)` + `_FITTED_EMBEDDER_CACHE`
+**按索引路径分桶** + `HybridRetriever.faiss_path` 透传 + `strict=True` 缺失即抛。
+验收脚本的 `patch_offline_embedder()` 旁路**已删**，换成 `assert_no_bypass_needed()`
+**反向自检**（修复被回退就直接AssertionError）。
+
+🔴 **归因两次修正，别照抄旧结论**：原写「→ 抛 `TruncatedSVD n_components` 越界」，
+实测（`exp/_tmp_bug_mechanism.py`）有**两条**后果：
+- (a) 短 query（TF-IDF 只切1 个 token → `n_components=0`）→ **抛错**（吵闹，原判断对）
+- (b) 长 query → fit 出 **vocab=3** 的迷你模型，查 16367 词表的索引，
+  **维度同为 1024 所以 FAISS 不报错**，静默返回假相似度
+  （实测 top1=KB002 Not Sticking to the Bedcos=0.3613，正确是 KB006 Stringing）。
+  **与 `assert_backend_consistent` 同一类静默错误，危害更大** → `strict=True` 是必要的。
+
+⚠️ **修好后暴露一个独立既有缺陷（未修，需另立任务）**：
+离线兜底 TF-IDF 对**中文 query 完全失效**——索引语料是英文、默认 `token_pattern`
+不做中文分词 → `nnz=0` → 查询向量**全零** → BM25 路被同一分词器拖累 → **双路皆零**
+→ `retrieve("打印件表面有拉丝")` 返回 KB001~KB005 的**字母序**。
+**中文场景必须配 `DASHSCOPE_API_KEY`**（生产本就如此）；或换中文分析器重建索引。
+**P0 的 54.37% SOTA 不受影响**（那是带key 测的，走 DashScope embedding）。
+但这解释了「无 key 环境下 P0 文本路径 top_cosine 恒 0」——不是 bug，是中文 query
+在英文 TF-IDF 索引上本就无信号。
 
 ## 环境（已就绪，别重装）
 

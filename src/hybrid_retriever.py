@@ -24,13 +24,33 @@ from vector_index import (
 
 RRF_K = 60  # RRF 常数，业界常用 60
 
-# 进程内缓存 fitted embedder（离线兜底）
-_FITTED_EMBEDDER = None
+# 进程内缓存 fitted embedder（离线兜底）。
+# 🔴 2026-10-05：由「单个全局变量」改为**按索引路径分桶**。
+# 原实现只有一个 `_FITTED_EMBEDDER`，一旦某个mode 先填了缓存，
+# 另一个 mode 会复用**错误的** fitted 模型（两个索引的 vocab/SVD 基不同），
+# 静默返回无意义的相似度——与 assert_backend_consistent 拦的是同一类错误。
+_FITTED_EMBEDDER_CACHE = {}
 
 
-def _embed_query(query, use_dashscope=None):
-    """对 query 做 embedding（与建索引时同方法）。"""
-    global _FITTED_EMBEDDER
+def _reset_fitted_embedder_cache():
+    """清空 fitted embedder 缓存（测试用；生产无需调用）。"""
+    _FITTED_EMBEDDER_CACHE.clear()
+
+
+def _embed_query(query, use_dashscope=None, fitted_path=None):
+    """对 query 做embedding（与建索引时同方法）。
+
+    fitted_path: **必须**传当前实例实际加载的索引路径（*.bin）。
+        🔴 2026-10-05 修复：原先固定读 `FAISS_INDEX_PATH`（cause 级索引），
+        而 kb 模式下 fitted 模型在 `faiss_index_kb.tfidf_svd.pkl` → 恒拿到 None。
+        取不到时的后果**不只是报错**，实测有两条（见 `exp/_tmp_bug_mechanism.py`）：
+          (a) 单词 query：TF-IDF 只切出 1 个 token → n_components=0
+              → `InvalidParameterError` 抛错（吵闹，原判断对）；
+          (b) 多词 query：fit 出vocab=3 的迷你模型，其向量查 16367 词表建的索引
+              → 维度同为 1024，FAISS **不报错**，静默返回无意义相似度
+              （如 0.3355，与 assert_backend_consistent 拦的同类，且更隐蔽）。
+        现在按路径取，且**取不到就报错**，不再静默重新 fit。
+    """
     if use_dashscope is None:
         use_dashscope = bool(DASHSCOPE_API_KEY)
     if use_dashscope:
@@ -45,10 +65,23 @@ def _embed_query(query, use_dashscope=None):
             raise RuntimeError(f"embedding error: {resp.code} {resp.message}")
         vec = np.array(resp.output["embeddings"][0]["embedding"], dtype=np.float32)
     else:
-        # 复用建索引时缓存的 TF-IDF+SVD fitted 模型
-        if _FITTED_EMBEDDER is None:
-            _FITTED_EMBEDDER = load_fitted_embedder()
-        vec = _tfidf_svd_embed([query], fitted=_FITTED_EMBEDDER)[0]
+        # 复用建索引时缓存的 TF-IDF+SVD fitted 模型（按索引路径分桶）
+        if fitted_path is None:
+            raise ValueError(
+                "离线兜底（无 DASHSCOPE_API_KEY）时必须传 fitted_path，"
+                "否则无法确定用哪套索引的 TF-IDF+SVD 模型。"
+            )
+        key = str(fitted_path)
+        if key not in _FITTED_EMBEDDER_CACHE:
+            # strict=True：文件缺失直接抛 FileNotFoundError 并给修复命令，
+            # 而不是返回 None 让 _tfidf_svd_embed 用单条 query 重新 fit
+            # ——后者对单词 query 会抛「TruncatedSVD n_components 越界」，
+            # 但对多词 query **不抛错**，只静默返回跨语义空间的假相似度，
+            # 报错完全指不到真因（单词时也是错的报错）。
+            _FITTED_EMBEDDER_CACHE[key] = load_fitted_embedder(
+                fitted_path, strict=True)
+        vec = _tfidf_svd_embed([query],
+                               fitted=_FITTED_EMBEDDER_CACHE[key])[0]
     return vec
 
 
@@ -90,6 +123,9 @@ class HybridRetriever:
         self.bm25 = load_bm25(bm25_path)
         self.chunk_id_to_idx = {c["chunk_id"]: i for i, c in enumerate(self.chunks)}
         self._chroma_collection = None
+        # 🔴 2026-10-05：记住本实例实际用的索引路径，查询时按它取fitted 模型。
+        # 之前 `_embed_query` 硬编码读cause 级索引 → kb 模式下取不到。
+        self.faiss_path = faiss_path
         if vector_backend == "faiss":
             self.vector_index, self.vector_meta = load_vector_index(faiss_path)
             # 启动即校验：索引的 embedding 方法与查询侧后端必须一致，
@@ -111,12 +147,12 @@ class HybridRetriever:
         if self.vector_backend == "faiss":
             if where:
                 raise ValueError("faiss 后端不支持 where 过滤，请用 vector_backend='chroma'")
-            qvec = _embed_query(query)
+            qvec = _embed_query(query, fitted_path=self.faiss_path)
             scores, indices = self.vector_index.search(qvec.reshape(1, -1), top_n)
             return [(int(i), float(s)) for i, s in zip(indices[0], scores[0])]
         # chroma 后端
         collection = self._get_chroma_collection()
-        qvec = _embed_query(query)
+        qvec = _embed_query(query, fitted_path=self.faiss_path)
         kwargs = {"query_embeddings": [qvec.tolist()], "n_results": top_n,
                   "include": ["distances"]}
         if where:

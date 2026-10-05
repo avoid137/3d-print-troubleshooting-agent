@@ -7,6 +7,7 @@
 import json
 import pickle
 from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 
@@ -191,11 +192,59 @@ def assert_backend_consistent(meta, use_dashscope=None):
     return expected
 
 
-def load_fitted_embedder():
-    """加载缓存的 TF-IDF+SVD fitted 模型（离线兜底查询用）。"""
+def load_fitted_embedder(path=None, strict=False):
+    """加载缓存的 TF-IDF+SVD fitted 模型（离线兜底查询用）。
+
+    path: 索引文件路径（*.bin）。fitted 模型与其**同名同后缀**落盘
+          （`build_vector_index` 里 `path.with_suffix(".tfidf_svd.pkl")`），
+          故默认取 `FAISS_INDEX_PATH`（cause 级索引）保持向后兼容。
+
+    🔴 2026-10-05 修复的P0 既有 bug
+    ------------------------------------------------------------------
+    原实现**硬编码** `FAISS_INDEX_PATH`（cause 级索引 `faiss_index.bin`），
+    但 kb 模式（B2，`RETRIEVER_MODE=kb`，当前默认）用的是
+    `faiss_index_kb.bin`，其 fitted 模型落在 `faiss_index_kb.tfidf_svd.pkl`。
+    于是 kb 模式下 `load_fitted_embedder()` 恒返回 `None`
+    → 查询侧 `_tfidf_svd_embed([query], fitted=None)` 会**用单条 query
+      重新 fit** 一个迷你 TF-IDF+SVD。实测后果有**两条**（对照实验见
+      `exp/_tmp_bug_mechanism.py`）：
+
+      (a) query 较短、TF-IDF 只切出 1 个 token → `n_components=0`
+          → `InvalidParameterError: The 'n_components' parameter ... Got 0`
+          这是**吵闹的**失败（会崩），原判断只覆盖了这一条；
+      (b) query 较长、切出多个 token → fit 出 vocab=3 的迷你模型，
+          其 1024 维向量查 16367 词表建的索引，**维度恰好相同所以 FAISS
+          完全不报错**，静默返回无意义相似度（实测 top1 = KB002
+          "Not Sticking to the Bed" cos=0.3613，而正确答案是
+          KB006 "Stringing or Oozing"）。这是**安静的**失败，
+          与 `assert_backend_consistent` 拦的属同一类，危害更大。
+
+    为什么以前没暴露：生产有 `DASHSCOPE_API_KEY`，走 DashScope 分支
+    **根本不读这个文件**。只有「无 key 的离线兜底」才会踩到。
+
+    ⚠️ 另注：修好这个 bug 后会暴露一个**独立的既有缺陷**——离线兜底的
+    TF-IDF 对**中文 query 完全失效**（索引语料是英文，且默认
+    token_pattern 不做中文分词 → 命中 0 → 查询向量全零 → 双路皆零 →
+    返回 KB001~KB005 的字母序）。中文场景必须配 `DASHSCOPE_API_KEY`，
+    或给 TfidfVectorizer 换中文分析器后重建索引。
+
+    strict=True 时，文件缺失**直接抛错**并给出修复命令，而不是返回 None
+    让调用方在后续某个不相关的地方崩掉（SVD 越界报错完全指不到真因，
+    且多词 query 根本不报错）。
+    """
     import pickle
-    fitted_path = FAISS_INDEX_PATH.with_suffix(".tfidf_svd.pkl")
+    base = Path(path) if path is not None else FAISS_INDEX_PATH
+    fitted_path = base.with_suffix(".tfidf_svd.pkl")
     if not fitted_path.exists():
+        if strict:
+            raise FileNotFoundError(
+                f"离线兜底向量检索缺少 fitted 模型：{fitted_path}\n"
+                f"→ 修复：重跑 `python src/build_kb_index.py`"
+                f"（kb 模式）或 `python src/vector_index.py`（cause 级模式）。\n"
+                f"⚠️ 不要跳过这一步直接查询——那会用单条 query 重新 fit 出"
+                f"迷你模型：短 query 抛「TruncatedSVD n_components 越界」"
+                f"（报错指不到真因），长 query 则**静默返回无意义相似度**。"
+            )
         return None
     with open(fitted_path, "rb") as f:
         return pickle.load(f)

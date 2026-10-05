@@ -187,7 +187,7 @@
           "true_label": "Cracking",
           "pred_class": "Cracking",
           "correct": true,
-          "proba": 0.9995,
+          "proba": 1.0,
           "rejected": false,
           "kb_ids": [
             "KB009",
@@ -203,7 +203,7 @@
           "true_label": "Layer_shifting",
           "pred_class": "Layer_shifting",
           "correct": true,
-          "proba": 0.9999,
+          "proba": 1.0,
           "rejected": false,
           "kb_ids": [
             "KB008",
@@ -225,7 +225,7 @@
           "true_label": "Off_platform",
           "pred_class": "Off_platform",
           "correct": true,
-          "proba": 1.0,
+          "proba": 0.998,
           "rejected": false,
           "kb_ids": [
             "KB101",
@@ -288,7 +288,7 @@
       "note": "视觉拒答时 evidence 仍非空（pipeline 的「拒答仍输出 top-2」纪律在Skill 层同样成立），layer=vision_confidence",
       "rejected": true,
       "layer": "vision_confidence",
-      "reason": "视觉置信度不足：Image_20231130104401706.jpg 判为 Cracking 概率仅 0.9996",
+      "reason": "视觉置信度不足：Image_20240118180055173.jpg 判为 Cracking 概率仅 1.0000",
       "n_evidence": 2,
       "kb_ids": [
         "KB009",
@@ -310,7 +310,7 @@
           "true": "Cracking",
           "route": "vision",
           "pred": "Cracking",
-          "proba": 0.9996,
+          "proba": 1.0,
           "kb_ids": [
             "KB009",
             "KB049"
@@ -320,7 +320,7 @@
           "true": "Layer_shifting",
           "route": "vision",
           "pred": "Layer_shifting",
-          "proba": 0.9999,
+          "proba": 1.0,
           "kb_ids": [
             "KB008",
             "KB050",
@@ -333,7 +333,7 @@
           "true": "Off_platform",
           "route": "vision",
           "pred": "Off_platform",
-          "proba": 1.0,
+          "proba": 0.998,
           "kb_ids": [
             "KB101",
             "KB102",
@@ -368,22 +368,18 @@
       ],
       "multi_image": {
         "n_images": 3,
-        "pred": "Off_platform",
+        "pred": "Cracking",
         "class_conflict": [
           "Cracking",
           "Layer_shifting",
           "Off_platform"
         ],
         "kb_ids": [
-          "KB101",
-          "KB102",
-          "KB103",
-          "KB002",
-          "KB028",
-          "KB067"
+          "KB009",
+          "KB049"
         ],
-        "n_kb": 6,
-        "conflict_note": "⚠️ 3 张图给出了 3 个不同类别（Image_20240102172850114.jpg→Off_platform 1.00；Image_20231128164936977.jpg→Layer_shifting 1.00；Image_20231130104401706.jpg→Cracking 1.00）。本次只按置信度最高的一张（Off_platform）给建议；若要分别诊断，请一次只传一张。"
+        "n_kb": 2,
+        "conflict_note": "⚠️ 3 张图给出了 3 个不同类别（Image_20240118180055173.jpg→Cracking 1.00；Image_20231128162007003.jpg→Layer_shifting 1.00；Image_20231228112932863.jpg→Off_platform 1.00）。本次只按置信度最高的一张（Cracking）给建议；若要分别诊断，请一次只传一张。"
       },
       "note": "文本路径与 P0 逐字段一致；每张图 route=vision；多图只取主类别映射 +显式告知类别冲突"
     }

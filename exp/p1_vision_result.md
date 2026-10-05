@@ -807,20 +807,80 @@ evidence 混入 **12 个 KB / 3 个互斥类别**（拉丝+层分离+不粘床�
 `build_context` 照样二次截断，预算形同虚设。
 改为按 `build_context` 的真实格式**逐字复算**开销（`_block_cost`）。
 
-### 4.5.5 🔴 顺带发现一个 P0 既有 bug（**未修，只旁路**）
+### 4.5.5 🔴 顺带发现一个 P0 既有 bug（**已批准并真修**）
 
 `vector_index.load_fitted_embedder()` 硬编码读 `FAISS_INDEX_PATH` 的
 `.tfidf_svd.pkl`（**cause 级**索引），但 kb 模式下 fitted 模型落在
-`faiss_index_kb.tfidf_svd.pkl` → 查询侧拿到 `None`
-→ 用**单条 query** 重新 fit TF-IDF+SVD → `TruncatedSVD(n_components=…)` 越界抛
-`InvalidParameterError`。
+`faiss_index_kb.tfidf_svd.pkl` → 查询侧拿到 `None` → 用**单条 query**
+重新 fit 一个迷你 TF-IDF+SVD。
 
-- **生产环境不触发**：有 `DASHSCOPE_API_KEY` 走 DashScope，不读该文件。
-- **只有「无 key 的离线兜底」才暴露**——本机即此情形。
-- 🔴 `src/vector_index.py` 与 `src/hybrid_retriever.py` 都属 **P0 冻结区**，
-  **本轮只旁路不修改**：`exp/p1_p0_wiring_check.py` 的
-  `patch_offline_embedder()` 在**验收进程内**预置模块级 `_FITTED_EMBEDDER`。
-- **真修需要**给 `load_fitted_embedder` 加 path 参数（属P0 改动，需用户批准）。
+**生产不触发**：有 `DASHSCOPE_API_KEY` 走 DashScope，不读该文件。
+**只在「无 key 的离线兜底」暴露**——本机即此情形。
+
+#### 🔴 机制归因（对照实验两次修正，别照抄旧结论）
+
+原判断写作「→ `TruncatedSVD(n_components=…)` 越界抛」。**这只对了一半**，
+实测（`exp/_tmp_bug_mechanism.py`）后果有**两条**：
+
+| 情形 | 机制 | 表现 | 性质 |
+|---|---|---|---|
+| (a) query 较短，TF-IDF 只切出 1 个 token | `n_components=0` | `InvalidParameterError: Got 0` | **吵闹**（会崩），原判断对 |
+| (b) query 较长，切出多个 token | fit 出 **vocab=3** 的迷你模型，其向量查 **16367** 词表建的索引 | 维度同为 1024 → FAISS **不报错**，静默返回无意义相似度 | **安静**，危害更大 |
+
+(b) 的实测对照（query = 「打印件表面有拉丝」）：
+
+```
+迷你向量（vocab=3）查 kb 索引 →不报错，返回：
+    KB002  cos=0.3613  Not Sticking to the Bed     ← 错误
+    KB006  cos=0.3355  Stringing or Oozing
+```
+
+与 `assert_backend_consistent` 拦的是**同一类**静默错误
+（「维度恰好相同 → FAISS 不会报异常，只会拿不同语义空间的向量算内积」）。
+所以 `strict=True` 主动报错不是小题大做，是必要的。
+
+> 💡 **本项目第N 次同款教训**：又是一次「按语义推断 bug 机制」被实测推翻。
+> 前一条是映射层「字面对得上 ≠ 现象对得上」，这条是「异常信息指向的机制
+> ≠ 真实机制」——`InvalidParameterError` 只在**单词 query** 下出现，
+> 稍长一点的 query 根本不报错。**只测过一个 case 就下机制结论 = 测得不够。**
+
+#### 修法（P0 冻结区，经用户批准）
+
+| 文件 | 改动 |
+|---|---|
+| `src/vector_index.py` | `load_fitted_embedder(path=None, strict=False)` 按索引路径取；补 `from pathlib import Path` |
+| `src/hybrid_retriever.py` | `_FITTED_EMBEDDER` 单全局变量 → `_FITTED_EMBEDDER_CACHE` **按索引路径分桶**；`_embed_query(..., fitted_path=None)` 缺失即 `ValueError`；`HybridRetriever.faiss_path` 透传 2 处调用点 |
+
+分桶的理由：两个索引的 vocab/SVD 基不同，单个全局变量会让一个 mode
+复用另一个 mode 的 fitted —— **与 bug 同源的静默错误**。
+
+`exp/p1_p0_wiring_check.py` 的 `patch_offline_embedder()` 旁路已**删除**，
+替换为 `assert_no_bypass_needed()` **反向自检**：若修复被回退则直接
+`AssertionError`，而不是静默跑偏。
+
+#### ⚠️ 修好这个 bug 后暴露的独立缺陷（**未修，需另立任务**）
+
+离线兜底的 TF-IDF 对**中文 query 完全失效**：
+
+```
+nnz=0   打印件表面有拉丝        ← 中文整串被当作 1 个 token，词表命中 0
+nnz=0   第一层没粘住
+nnz=1   Stringing（英文才命中）
+→ 查询向量非零维数 = 0（全零向量）→ 双路皆零
+→ retrieve("打印件表面有拉丝") 返回 KB001~KB005 的**字母序**，
+  score 只剩 0.013 量级的位置先验
+```
+
+根因：kb 索引语料是**英文**（`KB001 text = 'Not Extruding at Start...'`），
+而 `TfidfVectorizer` 默认 `token_pattern` **不做中文分词**。
+BM25 路被同一个分词器拖累，所以不是「只有向量路失效」，是**双路同时失效**。
+
+- **建议**：中文场景**必须配 `DASHSCOPE_API_KEY`**（生产本就如此）；
+  或给 `TfidfVectorizer` 换中文分析器（`char_wb` 级）后重建索引。
+- **本项目 P0 的 54.37% SOTA 不受影响**——那是**有 DashScope key** 时测的，
+  走的是 DashScope embedding，与离线兜底无关。**别把这坑算到 P0 头上。**
+- 但这解释了「为什么无 key 环境下 P0 文本路径 top_cosine 恒为 0」：
+  不是 bug，是**中文 query 在英文 TF-IDF 索引上本就无信号**。
 
 ### 4.5.6 复现
 
@@ -828,6 +888,7 @@ evidence 混入 **12 个 KB / 3 个互斥类别**（拉丝+层分离+不粘床�
 python src/build_kb_index.py                # 首次需建 P0 索引（无 key 走 TF-IDF+SVD）
 python -m src.vision.infer --train          # 若 data/_model/ 不存在
 .venv/Scripts/python.exe -u exp/p1_p0_wiring_check.py     # → exp/p1_wiring_result.json
+.venv/Scripts/python.exe exp/_tmp_bug_mechanism.py        # 上面四条归因的对照实验
 ```
 
 CLI 用法：
@@ -919,7 +980,8 @@ ag.answer("这图什么问题？", image_paths=["a.jpg"])           # 图像 →
 | 2 | 🟡 **DC-04 下载（推荐但非阻塞）** | 换网络环境，或手动下载 `test_data.zip`（12.6 GB）放 `D:/datasets/dc04/`。
 |   |   | **这是当前唯一的未闭合风险**：99.73% 是数据集内成绩，跨数据集泛化未知。§2.4.3 已证明「模型读的是缺陷件」，但**推不出「换机器/换材料也准」** |
 | 3 | 🟢 **换机型/换材料后重采目标域验证数据** | 若 P1 要落地到非Ender/非 PLA，必须重采一批做外部验证，**不能沿用 99.73%** |
-| 4 | 🟡 **是否批准修P0 的 `load_fitted_embedder`** | 该函数硬编码读 cause 级索引路径，kb 模式下读不到 fitted 模型 → 离线兜底检索直接抛 `TruncatedSVD n_components` 越界。**生产有 DashScope key 不触发**，只在无 key 环境暴露。本轮按「P0 冻结区」纪律**只旁路未修**（见 §4.5.5）。修法是给它加一个 `path` 参数，改动 2 行。 |
+| 4 | ✅ **已批准并完成：修 P0 的 `load_fitted_embedder`** | 该函数硬编码读 cause 级索引路径，kb 模式下读不到 fitted 模型。**2026-10-05 已真修**（按路径取+ 分桶 + `strict=True`），验收 A~F 重跑 **ALL PASS**，旁路已删换成反向自检。⚠️归因两次修正，且修好后暴露一个独立缺陷（离线兜底 TF-IDF 对中文 query 双路皆零），见 §4.5.5 |
+| 5 | 🟡 **离线兜底对中文 query 失效（修 bug 后暴露）** | 索引语料是英文 + 默认 `token_pattern` 不做中文分词 → `nnz=0` → 查询向量全零 → BM25 也被同一分词器拖累 → `retrieve("打印件表面有拉丝")` 返回 KB001~KB005 **字母序**。中文场景必须配 `DASHSCOPE_API_KEY`（生产本就如此），或换中文分析器重建索引。**不影响 P0 的 54.37%**（那是带 key 测的） |
 
 ---
 
