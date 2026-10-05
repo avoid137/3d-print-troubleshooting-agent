@@ -140,8 +140,12 @@ def fetch_one(p: dict, timeout: int = 300) -> tuple:
             tmp.replace(dst)
             return p["i"], True, got, time.time() - t0
         last = f"got {got}/{p['size']} (curl rc={r.returncode})"
-        if tmp.exists():
-            tmp.unlink()
+        # 🔴 2026-10-05 修复：原先这里 `tmp.unlink()` 清残片，
+        #   但**删除操作被运行环境的安全策略拦截**（批量删除需确认），
+        #   抛 PermissionError → 重试逻辑被打断 → 整个下载在 63% 处崩掉，
+        #   留下 1098 个孤儿 .part。
+        #   **不需要 unlink**：`curl -o` 本身就以覆盖写方式创建文件，
+        #   残片下次重试直接被截断重写。不删反而更稳（少一个失败点）。
         time.sleep(min(2 ** attempt, 15))  # 指数退避
     print(f"  [FAIL] 分片 {p['i']} {last}")
     return p["i"], False, 0, time.time() - t0
