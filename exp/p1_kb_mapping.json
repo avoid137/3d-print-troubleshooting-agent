@@ -32,7 +32,7 @@
         "note": "⚠️ Spaghetti 是喷不出料成团丝，与拉丝不是同一现象"
       }
     ],
-    "conflict_reason": "Stringing（回抽不足产生的细丝）与 Spaghetti（完全不出料/成团）成因不同，不可混用。二者在 kb_v2 中均为 FDM 条目但机理相反。",
+    "conflict_reason": "Stringing（回抽不足产生的细丝）与 Spaghetti（完全不出料/成团）成因不同，不可混用。⚠️ 2026-10-05 看图定稿后，Spaghetti 已确认是**Off_platform 的主映射**（KB101/102/103），故本类的易混淆项应读作「若图上不是稀疏细丝而是成团乱丝，应改判Off_platform」。",
     "pending_visual_check": false,
     "checked_images": 0,
     "check_note": "3 类同名映射，kb_v2 已有 20/56 条 img_classes 锚点可依，无需看图定稿"
