@@ -1,0 +1,90 @@
+{
+  "n": 1912,
+  "oof_accuracy": 0.99686,
+  "n_errors": 6,
+  "conf_correct": {
+    "mean": 0.9957,
+    "median": 0.99989,
+    "min": 0.55758
+  },
+  "conf_error": {
+    "mean": 0.69097,
+    "median": 0.66456,
+    "min": 0.49193
+  },
+  "threshold_scan": [
+    {
+      "threshold": 0.5,
+      "coverage": 0.999,
+      "answer_rate": 0.999,
+      "errors_caught": 2,
+      "err_block_rate": 0.3333,
+      "precision_when_answered": 0.9979
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.9984,
+      "answer_rate": 0.9984,
+      "errors_caught": 2,
+      "err_block_rate": 0.3333,
+      "precision_when_answered": 0.9979
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.9963,
+      "answer_rate": 0.9963,
+      "errors_caught": 4,
+      "err_block_rate": 0.6667,
+      "precision_when_answered": 0.999
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.9911,
+      "answer_rate": 0.9911,
+      "errors_caught": 4,
+      "err_block_rate": 0.6667,
+      "precision_when_answered": 0.9989
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.9864,
+      "answer_rate": 0.9864,
+      "errors_caught": 5,
+      "err_block_rate": 0.8333,
+      "precision_when_answered": 0.9995
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.9791,
+      "answer_rate": 0.9791,
+      "errors_caught": 5,
+      "err_block_rate": 0.8333,
+      "precision_when_answered": 0.9995
+    },
+    {
+      "threshold": 0.99,
+      "coverage": 0.9461,
+      "answer_rate": 0.9461,
+      "errors_caught": 6,
+      "err_block_rate": 1.0,
+      "precision_when_answered": 1.0
+    },
+    {
+      "threshold": 0.999,
+      "coverage": 0.7845,
+      "answer_rate": 0.7845,
+      "errors_caught": 6,
+      "err_block_rate": 1.0,
+      "precision_when_answered": 1.0
+    },
+    {
+      "threshold": 0.9999,
+      "coverage": 0.4806,
+      "answer_rate": 0.4806,
+      "errors_caught": 6,
+      "err_block_rate": 1.0,
+      "precision_when_answered": 1.0
+    }
+  ],
+  "note": "阈值从**折外**预测标定，不是在部署件上自证。仅 6 个错误样本 → 样本量极小，阈值只当起点。pipeline.py 的 0.60 是起点，实际应按业务成本调。"
+}

@@ -1,0 +1,90 @@
+{
+  "cls": "Cracking",
+  "seed": 20261005,
+  "n_total": 472,
+  "n_sampled": 20,
+  "grid": "5x4",
+  "note": "编号与拼图格子一一对应（1-based，行优先）",
+  "items": [
+    {
+      "no": 1,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231128200136974.jpg"
+    },
+    {
+      "no": 2,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231128202306996.jpg"
+    },
+    {
+      "no": 3,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231128202906982.jpg"
+    },
+    {
+      "no": 4,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130102031714.jpg"
+    },
+    {
+      "no": 5,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130102831708.jpg"
+    },
+    {
+      "no": 6,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130102931725.jpg"
+    },
+    {
+      "no": 7,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130103231716.jpg"
+    },
+    {
+      "no": 8,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130103931702.jpg"
+    },
+    {
+      "no": 9,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130105201702.jpg"
+    },
+    {
+      "no": 10,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130112201743.jpg"
+    },
+    {
+      "no": 11,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130112501733_original.jpg"
+    },
+    {
+      "no": 12,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130113131701.jpg"
+    },
+    {
+      "no": 13,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130113601718.jpg"
+    },
+    {
+      "no": 14,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231130114001723_original.jpg"
+    },
+    {
+      "no": 15,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240118174225140.jpg"
+    },
+    {
+      "no": 16,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240118175125149.jpg"
+    },
+    {
+      "no": 17,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240118181355171.jpg"
+    },
+    {
+      "no": 18,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240118181825179.jpg"
+    },
+    {
+      "no": 19,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240124144128931.jpg"
+    },
+    {
+      "no": 20,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20240124161458965.jpg"
+    }
+  ]
+}

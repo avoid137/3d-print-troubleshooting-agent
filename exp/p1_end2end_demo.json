@@ -1,0 +1,278 @@
+[
+  {
+    "source_path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Warping\\Image_20231228112532914.jpg",
+    "pred_class": "Warping",
+    "proba": 0.9992,
+    "top2": [
+      [
+        "Warping",
+        0.9992
+      ],
+      [
+        "Off_platform",
+        0.0008
+      ]
+    ],
+    "kb_ids": [
+      "KB024",
+      "KB044",
+      "KB016"
+    ],
+    "kb_details": [
+      {
+        "kb_id": "KB024",
+        "title": "Warping",
+        "role": "primary",
+        "match": "anchor",
+        "cause_count": 11,
+        "note": "kb_v2 img_classes=['Warping']，11 条根因，条目最完整"
+      },
+      {
+        "kb_id": "KB044",
+        "title": "Print Bows Out at Bottom (Elephant's Foot)",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 4,
+        "note": "Elephant's Foot（底部外扩），Warping 的特例"
+      },
+      {
+        "kb_id": "KB016",
+        "title": "Curling or Rough Corners",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 3,
+        "note": "翘边/圆角，边缘翘起的表现"
+      }
+    ],
+    "rejected": false,
+    "reject_reason": ""
+  },
+  {
+    "source_path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Cracking\\Image_20231128195336980.jpg",
+    "pred_class": "Cracking",
+    "proba": 0.9963,
+    "top2": [
+      [
+        "Cracking",
+        0.9963
+      ],
+      [
+        "Stringing",
+        0.0024
+      ]
+    ],
+    "kb_ids": [
+      "KB009",
+      "KB049"
+    ],
+    "kb_details": [
+      {
+        "kb_id": "KB009",
+        "title": "Layer Separation and Splitting",
+        "role": "primary",
+        "match": "semantic",
+        "cause_count": 8,
+        "note": "**看图定稿**：20/20 张裂纹沿层向水平贯穿、边缘有撕裂纤维、常伴层间错位与缝隙 → 层间结合失效（Delamination）为主。KB009 的 8 条根因正是层高过大/温度过低，与之对应"
+      },
+      {
+        "kb_id": "KB049",
+        "title": "Cracks Have Appeared in Tall Objects",
+        "role": "secondary",
+        "match": "semantic",
+        "cause_count": 2,
+        "note": "高件上横向贯穿裂纹偏此形态（2 条根因：挤出温度/风扇方向）。与 KB009 在同一批图上共存，但数量占少数，降为次要"
+      }
+    ],
+    "rejected": false,
+    "reject_reason": ""
+  },
+  {
+    "source_path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Stringing\\Image_20231228204319982.jpg",
+    "pred_class": "Stringing",
+    "proba": 0.9977,
+    "top2": [
+      [
+        "Stringing",
+        0.9977
+      ],
+      [
+        "Off_platform",
+        0.0022
+      ]
+    ],
+    "kb_ids": [
+      "KB006",
+      "KB063",
+      "KB101"
+    ],
+    "kb_details": [
+      {
+        "kb_id": "KB006",
+        "title": "Stringing or Oozing",
+        "role": "primary",
+        "match": "anchor",
+        "cause_count": 12,
+        "note": "kb_v2 已标注 img_classes=['Stringing']"
+      },
+      {
+        "kb_id": "KB063",
+        "title": "Web-like Strings Cover the Print (Stringing)",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 3,
+        "note": "标题即 Stringing，现象更具体（覆盖全件的网状丝）"
+      },
+      {
+        "kb_id": "KB101",
+        "title": "Spaghetti (Print Detached from Bed)",
+        "role": "confusable",
+        "match": "semantic",
+        "cause_count": 3,
+        "note": "⚠️ Spaghetti 是喷不出料成团丝，与拉丝不是同一现象"
+      }
+    ],
+    "rejected": false,
+    "reject_reason": ""
+  },
+  {
+    "source_path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Layer_shifting\\Image_20231128155537009.jpg",
+    "pred_class": "Layer_shifting",
+    "proba": 0.9971,
+    "top2": [
+      [
+        "Layer_shifting",
+        0.9971
+      ],
+      [
+        "Cracking",
+        0.0012
+      ]
+    ],
+    "kb_ids": [
+      "KB008",
+      "KB050",
+      "KB052",
+      "KB065",
+      "KB009"
+    ],
+    "kb_details": [
+      {
+        "kb_id": "KB008",
+        "title": "Layer Shifting",
+        "role": "primary",
+        "match": "anchor",
+        "cause_count": 7,
+        "note": "kb_v2 img_classes=['Layer Shifting']，7 条根因"
+      },
+      {
+        "kb_id": "KB050",
+        "title": "Layers Don't Line Up Well",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 6,
+        "note": "层对不齐，程度更轻的表现"
+      },
+      {
+        "kb_id": "KB052",
+        "title": "Print Leans When it Shouldn't",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 4,
+        "note": "整体倾斜（打印件歪倒）"
+      },
+      {
+        "kb_id": "KB065",
+        "title": "Print Offset in Some Places",
+        "role": "primary",
+        "match": "direct",
+        "cause_count": 8,
+        "note": "局部偏移"
+      },
+      {
+        "kb_id": "KB009",
+        "title": "Layer Separation and Splitting",
+        "role": "confusable",
+        "match": "semantic",
+        "cause_count": 8,
+        "note": "⚠️ 层分离/开裂是层间结合失效，与层错位（几何错位）不同"
+      }
+    ],
+    "rejected": false,
+    "reject_reason": ""
+  },
+  {
+    "source_path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20231228112802894.jpg",
+    "pred_class": "Off_platform",
+    "proba": 0.9985,
+    "top2": [
+      [
+        "Off_platform",
+        0.9985
+      ],
+      [
+        "Warping",
+        0.0014
+      ]
+    ],
+    "kb_ids": [
+      "KB101",
+      "KB102",
+      "KB103",
+      "KB002",
+      "KB028",
+      "KB067"
+    ],
+    "kb_details": [
+      {
+        "kb_id": "KB101",
+        "title": "Spaghetti (Print Detached from Bed)",
+        "role": "primary",
+        "match": "semantic",
+        "cause_count": 3,
+        "note": "**看图定稿**：20/20 张画面中**没有任何成形的打印件**，材料全部堆成乱丝/团状；放大可见喷头在床面上方来回移动、材料卷曲成弹簧状细丝 → 这是教科书级的 **Spaghetti failure（挤出失败）**。KB101 标题即 'Spaghetti (Print Detached from Bed)'、img_classes=['Spaghetti']，首条根因即 'First layer did not adhere properly'，自洽"
+      },
+      {
+        "kb_id": "KB102",
+        "title": "Spaghetti (Nozzle Clog or Under-Extrusion)",
+        "role": "primary",
+        "match": "semantic",
+        "cause_count": 3,
+        "note": "Spaghetti 的挤出侧根因：喷嘴部分堵塞/欠挤出（堵塞、丝径不均、温度过低）—— 图中「卷曲成弹簧状细丝」正是欠挤出的特征"
+      },
+      {
+        "kb_id": "KB103",
+        "title": "Spaghetti (Filament Tangle or Jam)",
+        "role": "primary",
+        "match": "semantic",
+        "cause_count": 3,
+        "note": "Spaghetti 的料路侧根因：缠料 / 送料器打滑 / PTFE 管折弯 obstructed"
+      },
+      {
+        "kb_id": "KB002",
+        "title": "Not Sticking to the Bed",
+        "role": "secondary",
+        "match": "semantic",
+        "cause_count": 18,
+        "note": "深层根因：附着力/调平/Z-offset/首层温度（18 条根因）。KB101 首条根因已指向首层未粘附，故 KB002 作为根因层保留"
+      },
+      {
+        "kb_id": "KB028",
+        "title": "First Layer Issues",
+        "role": "secondary",
+        "match": "semantic",
+        "cause_count": 13,
+        "note": "首层问题 13 条根因，与 KB002 同域（首层没粘住 → 挤出乱堆）"
+      },
+      {
+        "kb_id": "KB067",
+        "title": "Print is Stuck to Print Bed",
+        "role": "confusable",
+        "match": "semantic",
+        "cause_count": 6,
+        "note": "反向现象：粘在床上下不来，与本类相反"
+      }
+    ],
+    "rejected": false,
+    "reject_reason": ""
+  }
+]

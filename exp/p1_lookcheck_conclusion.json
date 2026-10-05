@@ -1,0 +1,55 @@
+{
+  "purpose": "kb_mapping.py 中 Cracking / Off_platform 两类 pending_visual_check 的定稿依据。看图 20+6 张，结论推翻原推断。",
+  "method": {
+    "cracking": "分层随机抽 20 张（seed=20261005，5×4 拼图），其中 4 张与 16 张做中央 55~62% 放大到400~620px 判读形态",
+    "off_platform": "分层随机抽 20 张（seed=20261005，5×4 拼图），其中 6 张裁下半部放大到 430px 判读",
+    "caveat": "DC-02R 构图= 整台打印机 + 底下一小块件，缺陷件占比小，故必须放大才能判读形态；仅看缩略图会误判"
+  },
+  "cracking": {
+    "conclusion": "**层间结合失效（Delamination）为主**，不是材料内部随机应力裂纹",
+    "evidence": [
+      "20/20 张裂纹都沿**层向水平贯穿**，不是随机走向的斜裂纹",
+      "裂纹边缘可见**撕裂纤维/毛刺**，是层间结合力不足的典型表现（材料内部应力裂纹断面更干净）",
+      "多处可见**层间错位 + 缝隙并存**（如 #16 上下两块沿层错开并露缝）",
+      "形态高度同质：20 张里 18 张是同一形态，仅颜色（黄/蓝）与打印件尺寸不同"
+    ],
+    "mapping_decision": {
+      "primary": "KB009 (Layer Separation and Splitting, 8 根因, img_classes=['Delamination'])",
+      "secondary": "KB049 (Cracks Have Appeared in Tall Objects, 2 根因, img_classes=['Delamination'])",
+      "rationale": "两种现象在同一批图上共存（#9 高件横向贯穿裂纹偏 KB049；#16 层间错开偏 KB009），**主映射取 KB009**（数量占优、机理更贴合），KB049 降为 secondary 而非丢弃",
+      "reversed_from_original": "原推断 'Cracking → KB049 为primary、KB009 为易混淆' **方向反了**"
+    },
+    "real_impact": "KB009 根因是「层高过大/打印温度过低」（调层高与温度）；KB049 根因是「挤出温度/风扇方向」（调温度与冷却）。若映射反了会给错参数方向——但两者都指向**温度/层间结合**，故实害有限，但不能不做区分。"
+  },
+  "off_platform": {
+    "conclusion": "**Spaghetti failure（挤出失败成团丝）**，不是「打印件脱离打印床」",
+    "evidence": [
+      "20/20 张画面中**没有任何成形的打印件**——材料全部堆成乱丝/团状",
+      "6 张放大图可见喷头在床面上方来回移动，材料**卷曲成弹簧状细丝**堆成一片",
+      "看不到「成形的件从床面翘起/脱落」的形态（那应该保留件的完整轮廓）",
+      "该形态在 3D 打印术语里是教科书级的 **extrusion failure / spaghetti**"
+    ],
+    "mapping_decision": {
+      "primary": ["KB101 (Print Detached from Bed)", "KB102 (Nozzle Clog or Under-Extrusion)", "KB103 (Filament Tangle or Jam)"],
+      "secondary": "KB002 (Not Sticking to the Bed, 18 根因)",
+      "rationale": "kb_v2 中 **KB101 的标题就是 'Spaghetti (Print Detached from Bed)'、img_classes=['Spaghetti']**，其 3 条根因中第1 条即 'First layer did not adhere properly'——与 Spaghetti 现象完全自洽。原推断把 KB101 当成「标题相近、机理不同的易混淆项」是**错的**，它是本类的现象主条目。KB002 作为深层根因（附着力/调平/温度）保留为 secondary。",
+      "reversed_from_original": "原映射 primary=KB002+KB028、KB101 归入 confusable —— **主次颠倒**"
+    },
+    "real_impact": "Spaghetti 与「打印件脱离平台」的处置完全不同：前者要先解决**挤出/堵塞/缠料/首层粘附**（KB102/103 是直接对应），后者是**粘床问题**。DC-02R 这批图没有一例是后者。"
+  },
+  "not_revisited": {
+    "Stringing/Warping/Layer_shifting": "kb_v2 已有 img_classes 同名锚点（20/56 条），原判定 pending_visual_check=False 成立，本轮不重看"
+  },
+  "residual_uncertainty": [
+    "Cracking: 20 张同质度极高，存在我未见到的多样本可能（472 张中我看了 20 张，4.2%）。若后续发现斜向/随机裂纹为主，KB049 权重应上调。",
+    "Off_platform: 91 张抽了 20 张（22%），20/20 一致，置信度较高。",
+    "两种形态共存的比例我未定量统计（Cracking 里 KB009 型 vs KB049 型各占多少），报告不编造该比例。"
+  ],
+  "artifacts": [
+    "exp/p1_lookcheck_Cracking.png / .json（20 张拼图 + 编号清单）",
+    "exp/p1_lookcheck_zoom.png（Cracking 4 张放大）",
+    "exp/p1_lookcheck_crack_a.png / _b.png（Cracking 其余 16 张放大）",
+    "exp/p1_lookcheck_Off_platform.png / .json（20 张拼图 + 清单）",
+    "exp/p1_lookcheck_off_zoom.png（Off_platform 6 张放大）"
+  ]
+}

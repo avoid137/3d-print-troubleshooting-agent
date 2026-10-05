@@ -134,42 +134,68 @@
     "n_images": 472,
     "primary": [
       {
-        "kb_id": "KB049",
-        "title": "Cracks Have Appeared in Tall Objects",
-        "cause_count": 2,
-        "match": "semantic",
-        "role": "primary",
-        "note": "唯一以「裂纹/cracks」为现象主语的条目；推断 DC-02R 的 Cracking 即此"
-      }
-    ],
-    "secondary": [],
-    "confusable": [
-      {
         "kb_id": "KB009",
         "title": "Layer Separation and Splitting",
         "cause_count": 8,
         "match": "semantic",
-        "role": "confusable",
-        "note": "⚠️ 关键区分：KB009 是「层分离与劈裂（Delamination）」，KB049 是「高大件上出现裂纹」。**这是两种失效模式**，kb_v2 把两者都标了 img_classes=['Delamination']，极易混淆"
+        "role": "primary",
+        "note": "**看图定稿**：20/20 张裂纹沿层向水平贯穿、边缘有撕裂纤维、常伴层间错位与缝隙 → 层间结合失效（Delamination）为主。KB009 的 8 条根因正是层高过大/温度过低，与之对应"
       }
     ],
-    "conflict_reason": "Cracking 与 Delamination 在 kb_v2 的 img_classes 里同标签，但物理机理不同：裂纹=材料内部应力破坏；层分离=层间粘合失效。若硬映射到 KB009，会把「调温度/粘合」的建议给到「调应力/结构」的场景。",
-    "pending_visual_check": true,
-    "checked_images": 0,
-    "check_note": "TODO：下载后抽 15~20 张 Cracking 图人工看，确认是表面/内部裂纹（→KB049）还是层间分离（→KB009），再定稿。禁止凭想象定稿。"
+    "secondary": [
+      {
+        "kb_id": "KB049",
+        "title": "Cracks Have Appeared in Tall Objects",
+        "cause_count": 2,
+        "match": "semantic",
+        "role": "secondary",
+        "note": "高件上横向贯穿裂纹偏此形态（2 条根因：挤出温度/风扇方向）。与 KB009 在同一批图上共存，但数量占少数，降为次要"
+      }
+    ],
+    "confusable": [],
+    "conflict_reason": "🔴 **原推断方向反了，已看图纠正**：原写 'Cracking 主映射 KB049（裂纹）、KB009（层分离）为易混淆'。看图 20 张后确认 DC-02R 的 Cracking **主要是层间结合失效**而非材料内部随机应力裂纹，故主映射改为 KB009、KB049 降为 secondary。实害有限但非零：KB009 调「层高/温度」、KB049 调「挤出温度/风扇」，方向相近但参数不同，故仍须区分，不能合并成一条。",
+    "pending_visual_check": false,
+    "checked_images": 20,
+    "check_note": "✅ 2026-10-05 看图定稿：分层随机 20 张（seed=20261005），其中 20 张做中央 55~62% 放大至 400~620px 判读。20/20 为层向水平贯穿裂纹 + 撕裂纤维 + 层间错位，形态同质。未定量统计 KB009 型与 KB049 型各占多少（不编造比例）。依据：exp/p1_lookcheck_conclusion.json + 6 张拼图/放大图"
   },
   "Off_platform": {
     "visual_class": "Off_platform",
-    "zh": "脱离平台",
+    "zh": "未成形/挤出失败",
     "n_images": 91,
     "primary": [
+      {
+        "kb_id": "KB101",
+        "title": "Spaghetti (Print Detached from Bed)",
+        "cause_count": 3,
+        "match": "semantic",
+        "role": "primary",
+        "note": "**看图定稿**：20/20 张画面中**没有任何成形的打印件**，材料全部堆成乱丝/团状；放大可见喷头在床面上方来回移动、材料卷曲成弹簧状细丝 → 这是教科书级的 **Spaghetti failure（挤出失败）**。KB101 标题即 'Spaghetti (Print Detached from Bed)'、img_classes=['Spaghetti']，首条根因即 'First layer did not adhere properly'，自洽"
+      },
+      {
+        "kb_id": "KB102",
+        "title": "Spaghetti (Nozzle Clog or Under-Extrusion)",
+        "cause_count": 3,
+        "match": "semantic",
+        "role": "primary",
+        "note": "Spaghetti 的挤出侧根因：喷嘴部分堵塞/欠挤出（堵塞、丝径不均、温度过低）—— 图中「卷曲成弹簧状细丝」正是欠挤出的特征"
+      },
+      {
+        "kb_id": "KB103",
+        "title": "Spaghetti (Filament Tangle or Jam)",
+        "cause_count": 3,
+        "match": "semantic",
+        "role": "primary",
+        "note": "Spaghetti 的料路侧根因：缠料 / 送料器打滑 / PTFE 管折弯 obstructed"
+      }
+    ],
+    "secondary": [
       {
         "kb_id": "KB002",
         "title": "Not Sticking to the Bed",
         "cause_count": 18,
         "match": "semantic",
-        "role": "primary",
-        "note": "18 条根因，覆盖「不粘床」全部成因（温度/清洁/调平/Z-offset/材料）"
+        "role": "secondary",
+        "note": "深层根因：附着力/调平/Z-offset/首层温度（18 条根因）。KB101 首条根因已指向首层未粘附，故 KB002 作为根因层保留"
       },
       {
         "kb_id": "KB028",
@@ -177,36 +203,10 @@
         "cause_count": 13,
         "match": "semantic",
         "role": "secondary",
-        "note": "首层问题 13 条根因，与「脱离平台」常同源（首层没粘住→后续翘起脱离）"
-      }
-    ],
-    "secondary": [
-      {
-        "kb_id": "KB035",
-        "title": "Nozzle Too Close to Print Bed",
-        "cause_count": 2,
-        "match": "weak",
-        "role": "secondary",
-        "note": "喷嘴离床过近（2 条根因，属特定成因"
-      },
-      {
-        "kb_id": "KB037",
-        "title": "Print Head Misses the Bed",
-        "cause_count": 3,
-        "match": "weak",
-        "role": "secondary",
-        "note": "打印头未覆盖到床（3 条根因）"
+        "note": "首层问题 13 条根因，与 KB002 同域（首层没粘住 → 挤出乱堆）"
       }
     ],
     "confusable": [
-      {
-        "kb_id": "KB101",
-        "title": "Spaghetti (Print Detached from Bed)",
-        "cause_count": 3,
-        "match": "semantic",
-        "role": "confusable",
-        "note": "⚠️ KB101 标题含 'Print Detached from Bed'，字面像本类，但其机制是 Spaghetti（喷不出料成团丝）——**标题相近、机理不同**，旧 mapping.md 正是在这里把 Spaghetti 与 Stringing 混淆过"
-      },
       {
         "kb_id": "KB067",
         "title": "Print is Stuck to Print Bed",
@@ -216,9 +216,9 @@
         "note": "反向现象：粘在床上下不来，与本类相反"
       }
     ],
-    "conflict_reason": "Off_platform 是「打印件脱离打印床」；需区分两种可能：(a) 首层未粘附（→KB002/KB028，附着力问题）；(b) 打印中途翘起脱落（→翘曲 + 附着力，跨 Warping 与本类）。Spaghetti 虽然标题含 'Detached from Bed'，但机制不同，不可混用。",
-    "pending_visual_check": true,
-    "checked_images": 0,
-    "check_note": "TODO：Off_platform 仅 91 张，建议全部人工过一遍，判定是「首层没粘住」还是「打印中翘起脱落」，再决定主映射权重。"
+    "conflict_reason": "🔴 **原推断主次颠倒，已看图纠正**：原写 'primary=KB002/KB028（不粘床）、KB101 归入 confusable（标题相近、机理不同）'。看图 20 张后确认：**画面里根本没有成形的件**，是挤出失败成团丝，不是「成形的件脱离平台」。kb_v2 里 KB101 的标题恰恰就是 'Spaghetti (Print Detached from Bed)'，把它当「机理不同的易混淆项」是**误判**。处置差异很实在：Spaghetti 要先查挤出/堵塞/缠料（KB102/103 直接对应），「脱离平台」只需处理粘床（KB002）。**DC-02R 这 91 张里没有一例是后者。**",
+    "pending_visual_check": false,
+    "checked_images": 20,
+    "check_note": "✅ 2026-10-05 看图定稿：91 张中分层随机抽 20 张（22%），20/20 一致。6 张裁下半部放大至 430px 判读，均见乱丝/团状，无成形件。依据：exp/p1_lookcheck_conclusion.json + 拼图/放大图。⚠️ 类名 'Off_platform' 与实际现象不符（实为 Spaghetti），为保持与数据集目录/标签一致**不改类名**，但中文名已改为「未成形/挤出失败」。"
   }
 }

@@ -1,0 +1,90 @@
+{
+  "cls": "Off_platform",
+  "seed": 20261005,
+  "n_total": 91,
+  "n_sampled": 20,
+  "grid": "5x4",
+  "note": "编号与拼图格子一一对应（1-based，行优先）",
+  "items": [
+    {
+      "no": 1,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20231228112932863.jpg"
+    },
+    {
+      "no": 2,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20231228113332862.jpg"
+    },
+    {
+      "no": 3,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20231228113502868.jpg"
+    },
+    {
+      "no": 4,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20231228113802865.jpg"
+    },
+    {
+      "no": 5,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102144020143.jpg"
+    },
+    {
+      "no": 6,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102144120096.jpg"
+    },
+    {
+      "no": 7,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102171620104.jpg"
+    },
+    {
+      "no": 8,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102171850096.jpg"
+    },
+    {
+      "no": 9,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172120127.jpg"
+    },
+    {
+      "no": 10,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172350095.jpg"
+    },
+    {
+      "no": 11,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172450113.jpg"
+    },
+    {
+      "no": 12,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172520128.jpg"
+    },
+    {
+      "no": 13,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172550131.jpg"
+    },
+    {
+      "no": 14,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172850114.jpg"
+    },
+    {
+      "no": 15,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102172920127.jpg"
+    },
+    {
+      "no": 16,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102173520099.jpg"
+    },
+    {
+      "no": 17,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102173550108.jpg"
+    },
+    {
+      "no": 18,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102173620100.jpg"
+    },
+    {
+      "no": 19,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102174520114.jpg"
+    },
+    {
+      "no": 20,
+      "path": "D:\\datasets\\fdm-defect\\FDM-3D-Printing-Defect-Dataset\\data\\Off_platform\\Image_20240102174850118.jpg"
+    }
+  ]
+}

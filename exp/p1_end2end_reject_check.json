@@ -1,0 +1,49 @@
+{
+  "threshold": 0.9,
+  "n": 4,
+  "n_rejected": 4,
+  "reproduce_recorded_errors": "4/4",
+  "rows": [
+    {
+      "file": "Image_20240124155158917",
+      "truth": "Cracking",
+      "oof_pred": "Warping",
+      "expected_wrong_as": "Warping",
+      "matches_recorded": true,
+      "proba": 0.6343,
+      "margin": 0.2746,
+      "rejected": true
+    },
+    {
+      "file": "Image_20240124161528923",
+      "truth": "Cracking",
+      "oof_pred": "Warping",
+      "expected_wrong_as": "Warping",
+      "matches_recorded": true,
+      "proba": 0.4919,
+      "margin": 0.0123,
+      "rejected": true
+    },
+    {
+      "file": "Image_20231128160707000",
+      "truth": "Layer_shifting",
+      "oof_pred": "Cracking",
+      "expected_wrong_as": "Cracking",
+      "matches_recorded": true,
+      "proba": 0.8417,
+      "margin": 0.7207,
+      "rejected": true
+    },
+    {
+      "file": "Image_20231128175607011",
+      "truth": "Layer_shifting",
+      "oof_pred": "Cracking",
+      "expected_wrong_as": "Cracking",
+      "matches_recorded": true,
+      "proba": 0.6948,
+      "margin": 0.3945,
+      "rejected": true
+    }
+  ],
+  "note": "用折外模型验证（部署件见过训练图，概率虚高不可用）。4/4 触发拒答，但错例样本量仅 6，统计基础薄；另有一张高置信度错误未被本脚本覆盖。"
+}
