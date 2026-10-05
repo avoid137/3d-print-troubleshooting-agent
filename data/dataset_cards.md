@@ -132,7 +132,9 @@ GET https://www.kaggle.com/api/v1/datasets/view/wengmhu/fdm-3d-printing-defect-d
 | **用途** | ⬆️ **2026-10-04 定位升级**：由「图像备选 B」升为 **P1 外部验证集**（跨数据集泛化证据）+ **正常/异常门控**数据源。**不替代 DC-02R 做主集**（无 Warping/Cracking/Off_platform，替换会断映射层） |
 | **来源** | Zenodo `records/18628777`（Trier University of Applied Sciences / FH Aachen）<br>DOI `10.5281/zenodo.18628777`（v2.0.0，发布 2026-02-13） |
 | **规模** | **48.4 GB**（additional_defect_data 16.1GB / base_data 19.6GB / test_data 12.6GB） |
-| **类别** | 挤出异常（extrusion errors）/ 层错位（layershifts）/ 拉丝（stringing）/ **无缺陷（error-free）** |
+| **类别** | 🔴 **实测只有 3 类**（2026-10-05 unzip 核实，台账原记 4 类有误）：挤出异常 `extrusion_error_print` 7,006 / 层错位 `layershift_error_print` 6,700 / **无缺陷** `no_error_print` 6,435。**无 stringing** |
+| **两套视图** | `cropped/` 1080×1080 与 `full_res/` 1920×1080，**同名文件= 同一场景两个版本**（20,141 场景 × 2）。天然构成「裁剪带干预实验」，外部验证务必两视图都评 |
+| **目视场景** | Original Prusa i3 + **红色立方件** + 工业相机 cam1/2/3。与 DC-02R（桌面 Ender + 灰白件 + 手机）域差异极大，红色件是 DC-02R 没有的颜色域 |
 | **特色** | **三个相机角度**采集；含**无缺陷对照件** → 可做「正常/异常」门控，避免把正常件硬判成某缺陷类 |
 | **许可** | ✅ **CC BY 4.0**（2026-10-04 经论文参考文献交叉核实："License CC BY 4.0"）→ **必须署名** |
 | **关联论文** | Bast S., Scherer K., Wahl M., Naumann S., Dartmann G., Didas S. *Reference-based monitoring for defect detection in fused filament fabrication using image feature classification.* **Int J Adv Manuf Technol** 144:2047–2059 (2026). DOI `10.1007/s00170-026-17844-w`（2026-04-10） |
