@@ -26,6 +26,7 @@
 | D3.7 | 高分可信度三层递进（遮挡 + 跨类相似度 + 裁剪带因果判据） | ✅ **完成**：模型确实在读缺陷件（§2.4.3） |
 | D4 | 映射层 `src/vision/kb_mapping.py` | ✅ **完成**（5/5 覆盖）+ ✅ **看图定稿 5/5**（2026-10-05，两条推断被推翻，见 §3.3） |
 | **D6** | 端到端`src/vision/infer.py` + `pipeline.py` | ✅ **已打通**（拒答 4/4 触发，见 §四） |
+| **D7** | **P0 ↔ P1 接线** `src/skill_vision_diagnose.py` + `src/agent_vision.py` | ✅ **已打通**（验收 A~F 六项全过，**P0 冻结区零改动**，见 §四之二） |
 | D5 | 外部验证（DC-04） | ⏸ **暂缓**，见 §六（Zenodo 16 KB/s，78 小时） |
 | — | DC-02R 数据集 | ✅ **已下完并校验通过**（1,912 张，CRC 全过） |
 
@@ -698,6 +699,148 @@ DC-02R 的构图是**整台打印机 + 底下一小块缺陷件**，缺陷件在
 
 ---
 
+## 四之二、P0 ↔ P1 接线（✅ 已打通，2026-10-05）
+
+### 4.5.1 接线方案：让 P1 的输出长成 P0 的 evidence
+
+P0 的 `AnswerGenerator.generate(query, evidence, ...)` 只认evidence 里
+`kb_id` / `problem` / `text` 三个字段——**与 `data/kb_chunks.json`（56 块）
+的结构完全一致**。所以不需要改生成器任何一行：
+
+```
+图像 → P1 分类 → 5 类之一 → kb_mapping 查 KB ID
+     → 从 kb_chunks.json 回查全文 chunk → evidence
+     → P0 生成器原样消费（零改动）
+```
+
+新增两个文件（P0 冻结区 `retriever/generator/rejector/skill_diagnose/agent_graph`
+**一行未改**，`git status` 可验）：
+
+| 文件 | 作用 |
+|---|---|
+| `src/skill_vision_diagnose.py` | `VisionDiagnoseSkill`，契约与 `DiagnoseSkill` 对齐 |
+| `src/agent_vision.py` | `VisionDiagnoseAgent`，按有无图片自动选路 |
+
+### 4.5.2 接线里唯一的真问题：上下文预算（10k 装不下 24k）
+
+P0 的 `MAX_CONTEXT_CHARS = 10000` 硬编码在 `answer_generator.build_context`，不能改。
+而视觉路径的 kb 级全文体量实测：
+
+| 视觉类 | KB 数 | 全文体量 | 根因数|
+|---|---|---|---|
+| Cracking | 2 | 7,192 | 10 |
+| Stringing | 3 | 11,153 | 18 |
+| Warping | 3 | 12,191 | 18 |
+| Layer_shifting | 5 | 24,126 | 33 |
+| Off_platform | 6 | 28,271 | 46 |
+
+**若直接丢给 `build_context`，贪心截断会挤掉整块**：
+
+```
+Layer_shifting 送 5 块 → 只剩 KB008（KB050/052/065/009 全丢）
+Off_platform   送 6 块 → 只剩 KB101/102/103（KB002/028/067 全丢）
+```
+
+被挤掉的恰恰是**次要映射与易混淆项**，且模型**不知道**它们被丢了
+（`build_context` 只在末尾加一句「预算用尽」）→ 静默丢证据。
+
+**最终方案：max-min 轮转填充**（保底 + 轮转），实测每类都保留全部 KB：
+
+| 视觉类 | KB 保留 | 上下文长度 | 根因覆盖 |
+|---|---|---|---|
+| Cracking | 2/2 | 7,316 | 10/10 (100%) |
+| Stringing | 3/3 | 9,068 | 14/18 (78%) |
+| Layer_shifting | 5/5 | 9,732 | 14/33 (42%) |
+| Warping | 3/3 | 9,898 | 13/18 (72%) |
+| Off_platform | 6/6 | 9,828 | 16/46 (35%) |
+
+🔴 **54% 的根因覆盖是 10k 硬上限下的诚实结果，不是算法浪费**：
+实测单条根因块最大 3,453 字（KB024 c4），物理上塞不下更多。
+且根因级拼装与 kb_chunks 原文仅差 91~662 字，说明没有可省的冗余。
+
+⚠️ **每处裁剪都往 text 里追加 `[…已截断 N 条根因]`**——
+绝不静默截断。静默会让模型以为已穷尽，与 v2.8 枚举式的设计前提直接冲突。
+
+>试过「按剩余体量比例分配预算」，**更差**：Layer_shifting 只花掉 6,768/10,000
+> （剩 32% 浪费），而最重要的 primary KB008 只拿到 1 条根因
+> ——因为下一条根因块比预切额度大就直接 break。**「预算没花完 + 关键条目没覆盖」
+> 是双重损失**。轮转填充把它推到 9,732 且 KB008 拿到 3 条。
+
+### 4.5.3 验收：6 项全过（`exp/p1_p0_wiring_check.py`）
+
+| 项 | 判据 | 实测 |
+|---|---|---|
+| A **P0 零回归** | 无图时 evidence/kb_ids/rejected/layer/reason/top_cosine 逐字段一致 | 2/2 query 全一致（含 evidence 逐块顺序） |
+| B **上下文预算** | 5 类都不触发 `build_context` 二次截断、KB 全保留、≤10000 | 5/5 通过 |
+| C **视觉端到端** | 每张图 kb_ids 与 `kb_mapping` 全量映射一致 | 5/5 张一致 |
+| D **拒答透传** | 阈值调到 1.01 必拒答，且 evidence 仍非空 | `layer=vision_confidence`，n_evidence=2 |
+| E **契约一致** | 两路径字段齐备 | 齐备 |
+| F **图路由** | 文本逐字段一致 + 每张图 `route=vision` + 多图不混类别 | 全过 |
+
+### 4.5.4 接线上抓到的 4 个真 bug（含 1 个静默失效）
+
+**① LangGraph 静默丢弃 schema 未声明的入参**（最危险）
+`AgentState` 是 `TypedDict(total=False)`，未声明的 `image_paths` 传进去**直接消失、
+不报任何错** → 有图也走文本路径，而所有返回值「看起来都正常」。
+最小复现：`StateGraph(S2).invoke({'query':..,'image_paths':[..]})` → `{'query': ..}`。
+修法：本模块自定义 `VisionAgentState(AgentState)` 追加字段。
+🔴 这类bug **只能靠断言 `route == "vision"` 抓到**，看字段齐不齐是抓不到的。
+
+**② 多图合并所有 KB 会给出互斥建议**
+初版按图置信度拼接每张图的 kb_ids，实测传 3 张不同类别的图 →
+evidence 混入 **12 个 KB / 3 个互斥类别**（拉丝+层分离+不粘床三套互斥建议）。
+**类别是互斥的诊断结论，不是可以并集的信息。**
+改为只取主类别映射 + 显式告知冲突：
+
+```
+⚠️ 3 张图给出了 3 个不同类别（…→Off_platform 1.00；…→Layer_shifting 1.00；…→Cracking 1.00）。
+   本次只按置信度最高的一张（Off_platform）给建议；若要分别诊断，请一次只传一张。
+```
+
+**③ 验收断言写错：断言 `top_cosine` 恒为 -1.0**
+它在两条路径上**语义不同**：文本路径 = 真实检索余弦（0.3355），视觉路径 = -1.0。
+写成恒等断言 → 文本路径必然 FAIL。
+教训：**写断言前先问「这个量在两条路径上语义相同吗」**。
+
+**④ 预算记账漂移**
+初版按固定 `HEADER_RESERVE=120` 记账，实际和10,146 > 10,000 →
+`build_context` 照样二次截断，预算形同虚设。
+改为按 `build_context` 的真实格式**逐字复算**开销（`_block_cost`）。
+
+### 4.5.5 🔴 顺带发现一个 P0 既有 bug（**未修，只旁路**）
+
+`vector_index.load_fitted_embedder()` 硬编码读 `FAISS_INDEX_PATH` 的
+`.tfidf_svd.pkl`（**cause 级**索引），但 kb 模式下 fitted 模型落在
+`faiss_index_kb.tfidf_svd.pkl` → 查询侧拿到 `None`
+→ 用**单条 query** 重新 fit TF-IDF+SVD → `TruncatedSVD(n_components=…)` 越界抛
+`InvalidParameterError`。
+
+- **生产环境不触发**：有 `DASHSCOPE_API_KEY` 走 DashScope，不读该文件。
+- **只有「无 key 的离线兜底」才暴露**——本机即此情形。
+- 🔴 `src/vector_index.py` 与 `src/hybrid_retriever.py` 都属 **P0 冻结区**，
+  **本轮只旁路不修改**：`exp/p1_p0_wiring_check.py` 的
+  `patch_offline_embedder()` 在**验收进程内**预置模块级 `_FITTED_EMBEDDER`。
+- **真修需要**给 `load_fitted_embedder` 加 path 参数（属P0 改动，需用户批准）。
+
+### 4.5.6 复现
+
+```bash
+python src/build_kb_index.py                # 首次需建 P0 索引（无 key 走 TF-IDF+SVD）
+python -m src.vision.infer --train          # 若 data/_model/ 不存在
+.venv/Scripts/python.exe -u exp/p1_p0_wiring_check.py     # → exp/p1_wiring_result.json
+```
+
+CLI 用法：
+
+```python
+from agent_vision import VisionDiagnoseAgent
+ag = VisionDiagnoseAgent()
+ag.answer("my print has stringing")# 纯文本 → P0 原路径
+ag.answer("这图什么问题？", image_paths=["a.jpg"])           # 图像 → P1 路径
+```
+
+---
+
 ## 五、失败案例（✅ 6 例，全部实测，`exp/p1_error_grid.png`）
 
 验收要求：≥ 5 例失败案例，带图 + 误判去向。实测 6 例，超过门槛。
@@ -776,6 +919,7 @@ DC-02R 的构图是**整台打印机 + 底下一小块缺陷件**，缺陷件在
 | 2 | 🟡 **DC-04 下载（推荐但非阻塞）** | 换网络环境，或手动下载 `test_data.zip`（12.6 GB）放 `D:/datasets/dc04/`。
 |   |   | **这是当前唯一的未闭合风险**：99.73% 是数据集内成绩，跨数据集泛化未知。§2.4.3 已证明「模型读的是缺陷件」，但**推不出「换机器/换材料也准」** |
 | 3 | 🟢 **换机型/换材料后重采目标域验证数据** | 若 P1 要落地到非Ender/非 PLA，必须重采一批做外部验证，**不能沿用 99.73%** |
+| 4 | 🟡 **是否批准修P0 的 `load_fitted_embedder`** | 该函数硬编码读 cause 级索引路径，kb 模式下读不到 fitted 模型 → 离线兜底检索直接抛 `TruncatedSVD n_components` 越界。**生产有 DashScope key 不触发**，只在无 key 环境暴露。本轮按「P0 冻结区」纪律**只旁路未修**（见 §4.5.5）。修法是给它加一个 `path` 参数，改动 2 行。 |
 
 ---
 
@@ -790,6 +934,9 @@ DC-02R 的构图是**整台打印机 + 底下一小块缺陷件**，缺陷件在
 | 映射产物 | `exp/p1_kb_mapping.json`（✅ 5/5 已看图定稿） |
 | 推理部署件 | `data/_model/l2_deploy.{joblib,json}` + `backbone.safetensors`（全量重训，**不可用于算性能指标**） |
 | D6 端到端验收 | `exp/p1_end2end_reject_check.json`（拒答 4/4） |
+| **P0↔P1 接线验收** | `exp/p1_wiring_result.json`（A~F 六项全过） |
+| **接线验收脚本** | `exp/p1_p0_wiring_check.py`（含 P0 既有 bug 的旁路） |
+| **接线代码** | `src/skill_vision_diagnose.py` + `src/agent_vision.py`（**P0 冻结区零改动**） |
 | 拒答标定 | `exp/p1_d3_reject_calibration.json`（阈值 0.90 的来由） |
 | 看图定稿依据 | `exp/p1_lookcheck_conclusion.json` + 6 张拼图/放大图 |
 | 三级结果 | `exp/p1_L{1,2,3}_grouped.json` |

@@ -14,6 +14,12 @@ data/bm25_index.pkl
 # B2 kb 级索引（9/30 最优组合，可重建：python src/build_kb_index.py）
 data/faiss_index_kb.bin
 data/faiss_index_kb.meta.json
+# ⚠️ 离线兜底（TF-IDF+SVD）建索引时落盘的 fitted 模型，7.8 MB，可重建。
+# 2026-10-05 接线时发现：vector_index.load_fitted_embedder() 只读
+# faiss_index.tfidf_svd.pkl（cause 级），读不到这个 kb 级文件 →
+# 查询侧拿 None 会用单条 query 重新 fit → TruncatedSVD n_components 越界。
+# 见 exp/p1_p0_wiring_check.py 的 patch_offline_embedder()。
+data/faiss_index_kb.tfidf_svd.pkl
 data/bm25_index_kb.pkl
 data/chroma_db/
 data/_backup_*/

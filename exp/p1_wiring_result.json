@@ -1,0 +1,391 @@
+{
+  "all_pass": true,
+  "device": "cuda",
+  "budget": 10000,
+  "p0_max_context": 10000,
+  "default_reject_threshold": 0.9,
+  "results": {
+    "A_p0_zero_regression": {
+      "pass": true,
+      "note": "无图 → 委托 DiagnoseSkill，evidence/kb_ids/rejected/layer/reason/top_cosine 全部逐字段一致",
+      "queries": [
+        {
+          "query": "my print has stringing and oozing",
+          "fields": {
+            "rejected": true,
+            "layer": true,
+            "reason": true,
+            "kb_ids": true,
+            "top_cosine": true,
+            "evidence(逐块含顺序)": true
+          },
+          "kb_ids": [
+            "KB006",
+            "KB014",
+            "KB063",
+            "KB001",
+            "KB058"
+          ],
+          "n_evidence": 5
+        },
+        {
+          "query": "best filament brand to buy",
+          "fields": {
+            "rejected": true,
+            "layer": true,
+            "reason": true,
+            "kb_ids": true,
+            "top_cosine": true,
+            "evidence(逐块含顺序)": true
+          },
+          "kb_ids": [
+            "KB067",
+            "KB009",
+            "KB003",
+            "KB012",
+            "KB035"
+          ],
+          "n_evidence": 5
+        }
+      ]
+    },
+    "B_context_budget": {
+      "pass": true,
+      "note": "每类映射的证据都完整保留所有 KB、不触发 build_context 二次截断、且总长 ≤ P0 硬编码的 10000",
+      "per_class": [
+        {
+          "cls": "Stringing",
+          "n_kb": 3,
+          "n_kb_used": 3,
+          "ctx_chars": 9068,
+          "budget": 10000,
+          "build_context_retriggered": false,
+          "all_kb_kept": true,
+          "within_budget": true,
+          "causes_shown": 14,
+          "causes_total": 18,
+          "coverage": 0.7778,
+          "truncated": [
+            {
+              "kb_id": "KB006",
+              "truncated_causes": 4
+            }
+          ]
+        },
+        {
+          "cls": "Warping",
+          "n_kb": 3,
+          "n_kb_used": 3,
+          "ctx_chars": 9898,
+          "budget": 10000,
+          "build_context_retriggered": false,
+          "all_kb_kept": true,
+          "within_budget": true,
+          "causes_shown": 13,
+          "causes_total": 18,
+          "coverage": 0.7222,
+          "truncated": [
+            {
+              "kb_id": "KB024",
+              "truncated_causes": 5
+            }
+          ]
+        },
+        {
+          "cls": "Layer_shifting",
+          "n_kb": 5,
+          "n_kb_used": 5,
+          "ctx_chars": 9732,
+          "budget": 10000,
+          "build_context_retriggered": false,
+          "all_kb_kept": true,
+          "within_budget": true,
+          "causes_shown": 14,
+          "causes_total": 33,
+          "coverage": 0.4242,
+          "truncated": [
+            {
+              "kb_id": "KB008",
+              "truncated_causes": 4
+            },
+            {
+              "kb_id": "KB050",
+              "truncated_causes": 3
+            },
+            {
+              "kb_id": "KB052",
+              "truncated_causes": 1
+            },
+            {
+              "kb_id": "KB065",
+              "truncated_causes": 5
+            },
+            {
+              "kb_id": "KB009",
+              "truncated_causes": 6
+            }
+          ]
+        },
+        {
+          "cls": "Cracking",
+          "n_kb": 2,
+          "n_kb_used": 2,
+          "ctx_chars": 7316,
+          "budget": 10000,
+          "build_context_retriggered": false,
+          "all_kb_kept": true,
+          "within_budget": true,
+          "causes_shown": 10,
+          "causes_total": 10,
+          "coverage": 1.0,
+          "truncated": []
+        },
+        {
+          "cls": "Off_platform",
+          "n_kb": 6,
+          "n_kb_used": 6,
+          "ctx_chars": 9828,
+          "budget": 10000,
+          "build_context_retriggered": false,
+          "all_kb_kept": true,
+          "within_budget": true,
+          "causes_shown": 16,
+          "causes_total": 46,
+          "coverage": 0.3478,
+          "truncated": [
+            {
+              "kb_id": "KB002",
+              "truncated_causes": 16
+            },
+            {
+              "kb_id": "KB028",
+              "truncated_causes": 10
+            },
+            {
+              "kb_id": "KB067",
+              "truncated_causes": 4
+            }
+          ]
+        }
+      ]
+    },
+    "E_contract": {
+      "pass": true,
+      "missing_text_route": [],
+      "missing_vision_route": [],
+      "top_cosine_text_route": 0.5032,
+      "top_cosine_vision_route": -1.0,
+      "note": "两路径字段均齐备；top_cosine 按路径取值（文本=真实余弦 / 视觉=-1.0 表示不适用，复用 P0 无结果时的取值而非 0/1）"
+    },
+    "C_vision_e2e": {
+      "pass": true,
+      "n_images": 5,
+      "n_correct": 5,
+      "note": "每张图的 kb_ids 必须与 kb_mapping 全量映射一致（primary→secondary→confusable 去重保序）",
+      "rows": [
+        {
+          "true_label": "Cracking",
+          "pred_class": "Cracking",
+          "correct": true,
+          "proba": 0.9995,
+          "rejected": false,
+          "kb_ids": [
+            "KB009",
+            "KB049"
+          ],
+          "kb_ids_match_mapping": true,
+          "n_causes_shown": {
+            "KB009": 8,
+            "KB049": 2
+          }
+        },
+        {
+          "true_label": "Layer_shifting",
+          "pred_class": "Layer_shifting",
+          "correct": true,
+          "proba": 0.9999,
+          "rejected": false,
+          "kb_ids": [
+            "KB008",
+            "KB050",
+            "KB052",
+            "KB065",
+            "KB009"
+          ],
+          "kb_ids_match_mapping": true,
+          "n_causes_shown": {
+            "KB008": 3,
+            "KB050": 3,
+            "KB052": 3,
+            "KB065": 3,
+            "KB009": 2
+          }
+        },
+        {
+          "true_label": "Off_platform",
+          "pred_class": "Off_platform",
+          "correct": true,
+          "proba": 1.0,
+          "rejected": false,
+          "kb_ids": [
+            "KB101",
+            "KB102",
+            "KB103",
+            "KB002",
+            "KB028",
+            "KB067"
+          ],
+          "kb_ids_match_mapping": true,
+          "n_causes_shown": {
+            "KB101": 3,
+            "KB102": 3,
+            "KB103": 3,
+            "KB002": 2,
+            "KB028": 3,
+            "KB067": 2
+          }
+        },
+        {
+          "true_label": "Stringing",
+          "pred_class": "Stringing",
+          "correct": true,
+          "proba": 1.0,
+          "rejected": false,
+          "kb_ids": [
+            "KB006",
+            "KB063",
+            "KB101"
+          ],
+          "kb_ids_match_mapping": true,
+          "n_causes_shown": {
+            "KB006": 8,
+            "KB063": 3,
+            "KB101": 3
+          }
+        },
+        {
+          "true_label": "Warping",
+          "pred_class": "Warping",
+          "correct": true,
+          "proba": 1.0,
+          "rejected": false,
+          "kb_ids": [
+            "KB024",
+            "KB044",
+            "KB016"
+          ],
+          "kb_ids_match_mapping": true,
+          "n_causes_shown": {
+            "KB024": 6,
+            "KB044": 4,
+            "KB016": 3
+          }
+        }
+      ]
+    },
+    "D_reject_passthrough": {
+      "pass": true,
+      "note": "视觉拒答时 evidence 仍非空（pipeline 的「拒答仍输出 top-2」纪律在Skill 层同样成立），layer=vision_confidence",
+      "rejected": true,
+      "layer": "vision_confidence",
+      "reason": "视觉置信度不足：Image_20231130104401706.jpg 判为 Cracking 概率仅 0.9996",
+      "n_evidence": 2,
+      "kb_ids": [
+        "KB009",
+        "KB049"
+      ]
+    },
+    "F_graph_routing": {
+      "pass": true,
+      "text_route_zero_regression": {
+        "rejected": true,
+        "layer": true,
+        "answer": true,
+        "kb_ids": true,
+        "top_cosine": true,
+        "evidence序列": true
+      },
+      "per_image_routes": [
+        {
+          "true": "Cracking",
+          "route": "vision",
+          "pred": "Cracking",
+          "proba": 0.9996,
+          "kb_ids": [
+            "KB009",
+            "KB049"
+          ]
+        },
+        {
+          "true": "Layer_shifting",
+          "route": "vision",
+          "pred": "Layer_shifting",
+          "proba": 0.9999,
+          "kb_ids": [
+            "KB008",
+            "KB050",
+            "KB052",
+            "KB065",
+            "KB009"
+          ]
+        },
+        {
+          "true": "Off_platform",
+          "route": "vision",
+          "pred": "Off_platform",
+          "proba": 1.0,
+          "kb_ids": [
+            "KB101",
+            "KB102",
+            "KB103",
+            "KB002",
+            "KB028",
+            "KB067"
+          ]
+        },
+        {
+          "true": "Stringing",
+          "route": "vision",
+          "pred": "Stringing",
+          "proba": 1.0,
+          "kb_ids": [
+            "KB006",
+            "KB063",
+            "KB101"
+          ]
+        },
+        {
+          "true": "Warping",
+          "route": "vision",
+          "pred": "Warping",
+          "proba": 1.0,
+          "kb_ids": [
+            "KB024",
+            "KB044",
+            "KB016"
+          ]
+        }
+      ],
+      "multi_image": {
+        "n_images": 3,
+        "pred": "Off_platform",
+        "class_conflict": [
+          "Cracking",
+          "Layer_shifting",
+          "Off_platform"
+        ],
+        "kb_ids": [
+          "KB101",
+          "KB102",
+          "KB103",
+          "KB002",
+          "KB028",
+          "KB067"
+        ],
+        "n_kb": 6,
+        "conflict_note": "⚠️ 3 张图给出了 3 个不同类别（Image_20240102172850114.jpg→Off_platform 1.00；Image_20231128164936977.jpg→Layer_shifting 1.00；Image_20231130104401706.jpg→Cracking 1.00）。本次只按置信度最高的一张（Off_platform）给建议；若要分别诊断，请一次只传一张。"
+      },
+      "note": "文本路径与 P0 逐字段一致；每张图 route=vision；多图只取主类别映射 +显式告知类别冲突"
+    }
+  }
+}
