@@ -524,3 +524,88 @@ BM25 被同一分词器拖累 → `retrieve("打印件表面有拉丝")` 返回 
 在验收 D 项（**故意**把阈值设成 1.01 触发拒答）会输出「概率仅 1.0000」——
 概率 1.0 本该通过任何 ≤1.0 的阈值，这句话会让人误判阈值标定有问题。
 已改为「概率 {proba:.4f} < 阈值 {th:.4f}」。
+
+---
+
+## 12. D10 · Caxton-S 跨域探针（2026-10-06 进行中）
+
+### 要验证的假设
+
+> **H1：DC-04 的失败是「数据域单一」造成的，而不是「模型天生不能跨域」。**
+
+D8 已证明 DC-04 上塌缩（6.25%/8.25%），但**从没验证过"换域多样性更高的数据会怎样"**。
+Caxton-S（Kaggle `adritganeriwala/caxton-s-semantic-3d-printing-defect-dataset`）
+是公开 FDM 数据里域多样性最高的：**8 台打印机、变几何/材料颜色/光照**，
+且 6 类中 Warping / Stringing / Spaghetti 与本项目类别咬合。
+
+🔴 **本实验不改变任何既有结论**，只回答"换数据能不能救回泛化"这一个悬空问题。
+
+### 文件
+
+| 文件 | 作用 |
+|---|---|
+| `scripts/fetch_caxton_s.py` | 匿名下载 + 分片 + CRC/类数校验 |
+| `exp/d10_caxton_probe_design.md` | **判据已写死**，跑前不可改 |
+| `exp/d10_caxton_probe.py` | 三个测量 |
+| `exp/d10_caxton_result.md` | 结果（待生成） |
+
+### 三个测量（各自回答不同问题，不是 A/B/C/D）
+
+| # | 测什么 | 回答 |
+|---|---|---|
+| ① | Caxton-S **域内上界**（group-aware折外 macro-F1） | 骨干在这个域行不行？不行则跨域低分无法归因 |
+| ② | **DC-02R 模型 → Caxton-S 零样本**（与 D8 完全同构） | 域多样性更高的数据上，泛化是否明显好于 6.25% |
+| ③ | **双向吞噬**（联合训练） | 加Caxton-S 会不会把 DC-02R 弄坏，反之呢 |
+
+### 预注册判据（跑前写死）
+
+- ① ≥90% 骨干完全可用 / 70~90% 可用但有难度 / **<70% 则本数据不作判别基准**
+- ② >50% → H1 支持；20~50% → 有帮助但不充分；**<20% → H1 不支持，必须改方案**
+- ③ **四项全过**才算可行：A 侧 macro-F1 掉 ≤2pp、B 侧保持 ≥上界 95%、
+  `Off_platform`（91 张小类）不被吞、`Spaghetti` 不被旧类吞
+
+### 类别对齐（未覆盖的绝不硬塞）
+
+| Caxton-S | 映射 | 处理 |
+|---|---|---|
+| warping | `Warping` | 直接算准确率 |
+| stringing | `Stringing` | 直接算准确率 |
+| spaghetti | `Off_platform` | ⚠️ 语义相近，**单独看混淆矩阵不合并** |
+| under_extrusion | — | 🔴 **未覆盖**（我们5 类无对应） |
+| over_extrusion | — | 🔴 **未覆盖** |
+| good_print | — | 正常件非我方类，**只测拒答门控，不算准确率** |
+
+### 数据获取实测（Kaggle 匿名）
+
+- 端点 `GET /api/v1/datasets/download/adritganeriwala/caxton-s-...` **无需凭据**
+- 🔴 **HEAD 请求返回 404**（端点只支持 GET）→ 误判成"下不了"会白放弃一次
+- 🔴 **`totalBytes` 又一次不可信**：元数据 8,011,887,621 B vs GCS 真实 7,252,871,100 B，
+  **差 759 MB**。分片基准必须用 `Content-Range` 实测值
+- 8 线程分片，单连接 ~72 KB/s，合计 ~0.55 MB/s（比 DC-02R 时期的 697 KB/s 慢）
+- ⚠️ 分片失败重跑是**从零重下**（`curl -o`覆盖），不是断点续传
+
+### 本轮修的 4 个 bug（全部自己写的，`不报错/静默型`）
+
+| # | 位置 | 现象 | 根因 |
+|---|---|---|---|
+| 1 | `fetch_caxton_s.py: curl()` | 探活返回空，看起来像"端点不支持" | **漏传 URL**，curl rc=2 → 已在辅助函数入口加断言 |
+| 2 | `fetch_caxton_s.py: download()` | `int has no attribute exists` | 解包顺序错，`parts` 是 `(path, lo, hi)` |
+| 3 | `d10: m3_joint()` | 拼接后长度翻倍 | **同名参数遮蔽入参** `y = list(y02r) + list(y)` → 加断言 |
+| 4 | `d10: print_task()` | 不同类的 `p1` 被判同一 group → **跨类泄漏** | group 键未带类名 → 改 `f"{cls}#{key}"` |
+
+> 🔴 bug 3、4 都是**反向自检抓出来的**，不是跑出来的。
+> 其中 4 若不修，折外数字会虚高且**不报任何错**——最危险的一类。
+
+### 许可
+
+Caxton-S **CC BY 4.0**，🔴 **对外产出必须署名**：
+Brion, D., & Pattinson, S. (2022). *Data set for 'Generalisable 3D printing
+error detection and correction via multi-head neural networks'*.
+University of Cambridge Apollo Repository. https://doi.org/10.17863/CAM.84082
+
+### 🔴 无论 D10 结果如何都不变的结论
+
+1. 对外口径仍是「**DC-02R 内、group-aware 折、5 类 macro-F1 99.73%**」，
+   D10 的任何数字**不得**混入该口径当"提升"。
+2. **OOD/域外拒答仍是必做项**——多域训练只能推迟这个问题，不能消除它。
+3. ⚠️ Caxton-S 是 **64×64 喷嘴特写上采样到 224**，与 DC-02R 原生分辨率**不可并列比较**。
