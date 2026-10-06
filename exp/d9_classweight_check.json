@@ -1,0 +1,34 @@
+{
+  "none": {
+    "class_weight": "none",
+    "dc02r_macro_f1_5": 0.9959658423733873,
+    "per_f1_5": {
+      "Warping": 0.9972196478220574,
+      "Cracking": 0.9936440677966102,
+      "Stringing": 1.0,
+      "Layer_shifting": 0.9944903581267218,
+      "Off_platform": 0.994475138121547
+    },
+    "normal_correct": 1.0,
+    "defect_preserved_th090": 0.9869246861924686
+  },
+  "balanced": {
+    "class_weight": "balanced",
+    "dc02r_macro_f1_5": 0.9972835504499695,
+    "per_f1_5": {
+      "Warping": 0.9972144846796658,
+      "Cracking": 0.9946977730646872,
+      "Stringing": 1.0,
+      "Layer_shifting": 0.9945054945054945,
+      "Off_platform": 1.0
+    },
+    "normal_correct": 1.0,
+    "defect_preserved_th090": 0.9853556485355649
+  },
+  "_delta_balanced_minus_none_pp": {
+    "dc02r_macro_f1_5": 0.132,
+    "normal_correct": 0.0,
+    "defect_preserved": -0.157
+  },
+  "_verdict": "两者均可（差异在噪声内），取与 A/B 实测一致者"
+}
