@@ -88,11 +88,17 @@ Layer_shifting→KB008,KB050,KB052,KB065（conf KB009）｜**Cracking→KB009**�
 ⚠️ 高置信≠正确。**加正常类后 0.90 沿用**，无需重标。
 🔴 `rejected` 与 `is_normal` **语义不同**：正常 = 答出来了（不必拒答），拒答 = 答不出来。混用会让正常件被当失败。
 
-**P0↔P1 接线**：`MAX_CONTEXT_CHARS=10000` 硬编码 vs 视觉证据 7.2k~28.3k，贪心截断挤掉整块
-→ 改**max-min 轮转水填充**（5 类 KB 全保留、根因覆盖 54%）。验收 A~F 全过。
+**P0↔P1 接线**：✅ **A~F ALL PASS**（`exp/p1_p0_wiring_check.py`），实测链路
+`图片 → P1 → KB 条目 → P0 证据` 全通，Cracking→`['KB009','KB049']` 与映射表一致。
+`MAX_CONTEXT_CHARS=10000` 硬编码 vs 视觉证据 7.2k~28.3k，贪心截断挤掉整块
+→ 改**max-min 轮转水填充**（5 类 KB 全保留、根因覆盖 54%）。
 🔴 **抓到的 bug ① 最危险：LangGraph 静默丢弃 schema 未声明入参**（`TypedDict(total=False)`）→
 未声明的 `image_paths` 直接消失不报错 → 有图也走文本路径，返回值「看起来都正常」，
 只能靠断言 `route=="vision"` 抓到。
+🔴 **但「出答案」那步需要 API**：`dashscope` 未安装 + `DASHSCOPE_API_KEY` 未设置
+→ `VisionDiagnoseAgent.answer()` 最后一步直接崩。**这不是接线 bug，是环境依赖。**
+（`VisionDiagnoseSkill.run()` 只返回**证据**，answer 由 agent 层生成——合理分层）
+⚠️ 中文 query **必须**配 `DASHSCOPE_API_KEY`：离线兜底 TF-IDF 对中文双路皆零。
 
 ## D8 / D9 结论
 

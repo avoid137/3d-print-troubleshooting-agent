@@ -389,9 +389,14 @@ class VisionDiagnoseSkill:
         if vision_rejected:
             layer = "vision_confidence"
             bad = [p for p in preds if p.rejected]
+            # 🔴 文案里**必须带上实际阈值**。「概率仅 1.0000」这种话是错的——
+            #   概率 1.0 本该通过任何 ≤1.0 的阈值，它之所以被拒是因为调用方
+            #   把阈值设成了 1.01。不写清楚会让人以为阈值标定有问题，
+            #   而实际是验收脚本**故意**用极端阈值触发拒答通路。
             reason = ("视觉置信度不足：" + "；".join(
                 f"{Path(p.source_path).name} 判为 {p.pred_class} "
-                f"概率仅 {p.proba:.4f}" for p in bad))
+                f"概率 {p.proba:.4f} < 阈值 {reject_threshold:.4f}"
+                for p in bad))
             rejected = True
         elif p0_rejected:
             layer, reason, rejected = p0_layer, p0_reason, True
