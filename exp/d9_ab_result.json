@@ -1,0 +1,217 @@
+{
+  "A": {
+    "acc": 0.9973849372384938,
+    "macro_f1": 0.996761732266353,
+    "per_f1": {
+      "Warping": 0.9990714948932219,
+      "Cracking": 0.9957716701902748,
+      "Stringing": 1.0,
+      "Layer_shifting": 0.9944903581267218,
+      "Off_platform": 0.994475138121547
+    },
+    "dc04": {
+      "normal_got_normal": 0.0,
+      "note": "A 体系无正常类，域外正常件只能被误报（结构性缺陷）",
+      "pred_dist": {
+        "Warping": 8,
+        "Cracking": 6,
+        "Stringing": 142,
+        "Layer_shifting": 19,
+        "Off_platform": 5
+      }
+    }
+  },
+  "B": {
+    "50": {
+      "acc": 0.9964322120285423,
+      "macro_f1_6": 0.9958846482577771,
+      "dc02r_macro_f1_5": 0.9950615779093326,
+      "dc02r_f1_delta_pp": -0.17,
+      "per_f1_6": {
+        "Warping": 0.9972196478220574,
+        "Cracking": 0.9947089947089947,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9944903581267218,
+        "Off_platform": 0.9888888888888889,
+        "No_error": 1.0
+      },
+      "th_sweep": [
+        {
+          "th": 0.5,
+          "normal_correct": 1.0,
+          "defect_preserved": 1.0,
+          "coverage": 1.0
+        },
+        {
+          "th": 0.6,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9973849372384938,
+          "coverage": 0.9974515800203874
+        },
+        {
+          "th": 0.7,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9947698744769874,
+          "coverage": 0.9949031600407747
+        },
+        {
+          "th": 0.8,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9905857740585774,
+          "coverage": 0.9908256880733946
+        },
+        {
+          "th": 0.9,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9864016736401674,
+          "coverage": 0.9867482161060143
+        },
+        {
+          "th": 0.95,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9811715481171548,
+          "coverage": 0.981651376146789
+        }
+      ],
+      "dc04": {
+        "normal_hit_rate": 0.9833333333333333,
+        "defect_given_a_class": 0.058333333333333334,
+        "top_share": 0.9555555555555556
+      }
+    },
+    "100": {
+      "acc": 0.9965208747514911,
+      "macro_f1_6": 0.9958846482577771,
+      "dc02r_macro_f1_5": 0.9950615779093326,
+      "dc02r_f1_delta_pp": -0.17,
+      "per_f1_6": {
+        "Warping": 0.9972196478220574,
+        "Cracking": 0.9947089947089947,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9944903581267218,
+        "Off_platform": 0.9888888888888889,
+        "No_error": 1.0
+      },
+      "th_sweep": [
+        {
+          "th": 0.5,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9994769874476988,
+          "coverage": 0.9995029821073559
+        },
+        {
+          "th": 0.6,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9973849372384938,
+          "coverage": 0.9975149105367793
+        },
+        {
+          "th": 0.7,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.99581589958159,
+          "coverage": 0.9960238568588469
+        },
+        {
+          "th": 0.8,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9905857740585774,
+          "coverage": 0.9910536779324056
+        },
+        {
+          "th": 0.9,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9864016736401674,
+          "coverage": 0.9870775347912525
+        },
+        {
+          "th": 0.95,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9801255230125523,
+          "coverage": 0.9811133200795229
+        }
+      ],
+      "dc04": {
+        "normal_hit_rate": 1.0,
+        "defect_given_a_class": 0.025,
+        "top_share": 0.9833333333333333
+      }
+    },
+    "200": {
+      "acc": 0.9966856060606061,
+      "macro_f1_6": 0.9966382019778227,
+      "dc02r_macro_f1_5": 0.9959658423733873,
+      "dc02r_f1_delta_pp": -0.08,
+      "per_f1_6": {
+        "Warping": 0.9972196478220574,
+        "Cracking": 0.9936440677966102,
+        "Stringing": 1.0,
+        "Layer_shifting": 0.9944903581267218,
+        "Off_platform": 0.994475138121547,
+        "No_error": 1.0
+      },
+      "th_sweep": [
+        {
+          "th": 0.5,
+          "normal_correct": 1.0,
+          "defect_preserved": 1.0,
+          "coverage": 1.0
+        },
+        {
+          "th": 0.6,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9989539748953975,
+          "coverage": 0.9990530303030303
+        },
+        {
+          "th": 0.7,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9963389121338913,
+          "coverage": 0.9966856060606061
+        },
+        {
+          "th": 0.8,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9911087866108786,
+          "coverage": 0.9919507575757576
+        },
+        {
+          "th": 0.9,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.9869246861924686,
+          "coverage": 0.9881628787878788
+        },
+        {
+          "th": 0.95,
+          "normal_correct": 1.0,
+          "defect_preserved": 0.979602510460251,
+          "coverage": 0.9815340909090909
+        }
+      ],
+      "dc04": {
+        "normal_hit_rate": 1.0,
+        "defect_given_a_class": 0.008333333333333333,
+        "top_share": 0.9944444444444445
+      }
+    }
+  },
+  "n_list": [
+    50,
+    100,
+    200
+  ],
+  "classes_5": [
+    "Warping",
+    "Cracking",
+    "Stringing",
+    "Layer_shifting",
+    "Off_platform"
+  ],
+  "classes_6": [
+    "Warping",
+    "Cracking",
+    "Stringing",
+    "Layer_shifting",
+    "Off_platform",
+    "No_error"
+  ]
+}
