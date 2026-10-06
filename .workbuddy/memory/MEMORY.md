@@ -38,47 +38,25 @@ Layer_shifting→KB008,KB050,KB052,KB065（conf KB009）｜**Cracking→KB009**�
 🔴 **正常类 `No_error` 不做 KB 映射**（pipeline 提前返回，kb_ids=[]）——
 知识库里没有「未发现缺陷」条目，硬造一条即为伪造映射。
 
-## ✅ D9 落地：6 类方案**已实现但默认关闭**（2026-10-06）
+## D9 正常类：代码就绪，**默认关闭**（明细见 HANDOFF_P1.md §10）
 
-代码侧全部就绪：`DEFECT_CLASSES`(5) + `NORMAL_CLASS="No_error"` = `CLASSES`(6)；
-`pipeline.py` 有`No_error` 提前分支（不查 mapping、`kb_ids=[]`、`is_normal=True`、`rejected=False`）；
-`Prediction` 加了 `advice`/`is_normal` 字段。**只有分类头需重建**（`coef_` (5,1280)→(6,1280)）。
-🔴 `NORMAL_CLASS` **追加在末尾**——改前 5 类顺序会让旧部署件与映射层索引全部失效。
+`CLASSES = DEFECT_CLASSES(5) + [No_error]`（**追加末尾**，改前 5 类顺序会让旧部署件/映射索引失效）；
+`pipeline.py` 有 `No_error` 提前分支（不查 mapping、`kb_ids=[]`、`is_normal=True`、`rejected=False`）；
+**正常类不做 KB 映射**（知识库无此条目，硬造即伪造）。
 
-🔴🔴 **但落地实测发现 DC-04 正常件不能用作通用正常类，故 `NORMAL_TRAIN=0` 默认关闭。**
-端到端回归实测：**DC-04 缺陷件 100% 被判成 `No_error`（p≈0.999）**，两类缺陷无一幸免。
-根因（已测特征空间，非推测）：
-- DC-04 三类质心与 DC-02R 全体质心余弦 **0.53~0.55，三类几乎重合**；
-- 正常件质心相对缺陷类质心**只领先 +0.019**，而 `class_weight="balanced"` 再放大 1.76×；
-- → 模型学到的是「**像 DC-04** ⇒ 正常」，不是「**无缺陷** ⇒ 正常」。
-- 🔴 `class_weight=None` 对此**毫无改善**（同样 100%）→ **不是权重问题**，
-  是特征空间本身不可分。**调阈值也救不了**（塌缩下高置信度是危险信号）。
-- ⚠️ 这**比原塌缩更危险**：原「都判 Stringing」至少还会给排查建议，
-  全判正常则**一条建议都不给**，用户以为件是好的。
+🔴🔴 **`NORMAL_TRAIN = 0`，默认不混 DC-04 正常件** —— 实测**缺陷件100% 被误判成正常**（p≈0.999），
+DC-04 上所有图都被报「未发现缺陷」。根因（已测特征空间）：
+三类质心与 DC-02R 全体余弦 **0.53~0.55 几乎重合**；正常件仅领先 **+0.019**，
+`balanced` 再放大 1.76× ⇒ 模型学到「**像 DC-04 ⇒ 正常**」而非「无缺陷 ⇒ 正常」。
+`class_weight=None` **毫无改善** → 非权重问题，特征空间不可分；**调阈值也救不了**。
+⚠️ **比 D8 原塌缩更危险**：原「都判 Stringing」还给排查建议，全判正常则一条建议都不给。
 
-🔴 **D9 的结论没错，但边界被划窄了**：它测的是「DC-02R 缺陷 + DC-04 正常」混合分布，
-**从未验证「域外缺陷件不会被误判为正常」**——而这恰是上线后最致命的一项。少测的那项现在由护栏强制拦截。
+🔴 **护栏 `_sanity_check_ood()`**：落盘前用 DC-04 缺陷件检查，误判成正常 ≥50% 直接抛
+`InferError` 拒绝写文件（**已反向自检**，`--n-normal 200` 实测被拦、目录零文件）。
+要开正常类必须显式 `--n-normal N` 且会被它拦下。
 
-🔴 **新增护栏 `_sanity_check_ood()`（已反向自检确认真的会 FAIL）**：
-落盘前用 DC-04 缺陷件做健全性检查，误判成正常 **≥50% 直接抛 `InferError` 拒绝写文件**。
-判据先写死再跑，避免看到结果再挑说法。这与「部署件不能报 99.73%」同类——
-不是阻止汇报，而是防**未验证模型被当成已验证的交付品**。
-要开启正常类必须显式 `--n-normal N`，**会被这道护栏拦下**。
-
-🔴 **口径核对（exp/d9_class_weight_check.py）** 曾报「balanced 下 DC-02R 5 类 99.73%、零损伤」，
-但那**只在折外成立，不能搬进部署件**：折外时正常件被 held-out，
-部署件是**全量重训**、正常件被反复见到 → 吞噬严重得多。
-**折外结论不能直接搬到全量部署件**，这是「部署件高置信度是自证」的另一面。
-
-🔴 **顺带抓到的第8 个坑：护栏自己也会说谎。**
-`train_and_save` 的分类头自检原本拿模块级 `CLASSES`(6) 当基准。
-把正常类默认关闭（`n_normal=0`）后，分类头本就该是 5 类，
-自检却报「训练数据缺类别」——**护栏在正确配置下误报**。
-修法：基准改为 `classes_eff = DEFECT_CLASSES + ([NORMAL_CLASS] if n_normal_used else [])`，
-并让 `load_deployed_model` 把**实际类别**透出给 `pipeline`（5 类部署件的 proba 只有 5 列，
-按 6 类索引会 IndexError 或静默错位）。
-🔴 **教训：护栏的判据也必须有「合法配置的分支」**——
-一个只会 FAIL 的护栏，早晚会在正确用法上误报，然后被当成噪音关掉。
+🔴 **折外结论不能直接搬进部署件**：折外正常件被 held-out，部署件全量重训、被反复见到 →
+行为显著不同（D9 折外「零损伤」在部署件上变成「100% 缺陷件被吞」）。
 
 ## 🔴 铁律
 
@@ -90,15 +68,13 @@ Layer_shifting→KB008,KB050,KB052,KB065（conf KB009）｜**Cracking→KB009**�
 
 **P0↔P1 接线**：✅ **A~F ALL PASS**（`exp/p1_p0_wiring_check.py`），实测链路
 `图片 → P1 → KB 条目 → P0 证据` 全通，Cracking→`['KB009','KB049']` 与映射表一致。
-`MAX_CONTEXT_CHARS=10000` 硬编码 vs 视觉证据 7.2k~28.3k，贪心截断挤掉整块
-→ 改**max-min 轮转水填充**（5 类 KB 全保留、根因覆盖 54%）。
 🔴 **抓到的 bug ① 最危险：LangGraph 静默丢弃 schema 未声明入参**（`TypedDict(total=False)`）→
 未声明的 `image_paths` 直接消失不报错 → 有图也走文本路径，返回值「看起来都正常」，
 只能靠断言 `route=="vision"` 抓到。
-🔴 **但「出答案」那步需要 API**：`dashscope` 未安装 + `DASHSCOPE_API_KEY` 未设置
+🔴 **但「出答案」那步需 API**：`dashscope` 未安装 + `DASHSCOPE_API_KEY` 未设置
 → `VisionDiagnoseAgent.answer()` 最后一步直接崩。**这不是接线 bug，是环境依赖。**
-（`VisionDiagnoseSkill.run()` 只返回**证据**，answer 由 agent 层生成——合理分层）
-⚠️ 中文 query **必须**配 `DASHSCOPE_API_KEY`：离线兜底 TF-IDF 对中文双路皆零。
+⚠️ 中文 query **必须**配 key：离线兜底 TF-IDF 对中文双路皆零 → 返回字母序。
+⚠️ Skill 层只给**证据**（`evidence[].kb_id`/`.problem`），answer 由 agent 层生成。
 
 ## D8 / D9 结论
 
@@ -111,14 +87,16 @@ Layer_shifting→KB008,KB050,KB052,KB065（conf KB009）｜**Cracking→KB009**�
 ⛔ 换大骨干/QLoRA **不解决域问题，别做**。💡 **塌缩下高置信度是危险信号**，
 「proba≥0.90 就作答」在域外会给高置信错误答案。
 
-## 环境与数据（**明细全在 HANDOFF_P1.md**，此处只留易踩的）
+## 环境与数据（**明细全在 HANDOFF_P1.md §10/§11**，此处只留易踩的）
 
 torch 2.14.1+**cu126**（cu124 下 cp313 只有 torch 2.6；CPU 版慢 20×）、RTX 4060 8GB、Python 3.13、
 venv=`.venv`。P0 索引需先 `python src/build_kb_index.py`。
+🔴 **`dashscope` 未安装、`DASHSCOPE_API_KEY` 未设置 → demo 跑不出答案**（验收能过是因为用了
+`use_judge=False` 绕过，两件事别混）。
 
 - **DC-02R**（主集）Kaggle `wengmhu/...` MIT 1,912 张，**不需 Kaggle 凭据**。数据根**两层嵌套**，
   **无材料/参数/EXIF 维度** → **「按材料/参数分层验证」无法设计，别再提**。
-- **DC-04**（外部验证 + **正常件来源**）Zenodo 18628777 CC BY 4.0（**需署名**）。🔴 **实测只 3 类**
+- **DC-04**（外部验证）Zenodo 18628777 CC BY 4.0（**需署名**）。🔴 **实测只 3 类**
   （台账原记 4 类有误），**无 stringing**。Prusa i3 + **红色立方件** + 工业相机（域差异极大）。
   两视图 `cropped/` 与 `full_res/`，**同名文件 = 同一场景**，共 **2,150 场景** → 抽样**必须按场景**。
 - 🔴 **知识库缺口**：`Blobs/Zits`/`Z Seam`/`Overhang` **三标签完全无图像** → 只能自采。
@@ -133,7 +111,7 @@ venv=`.venv`。P0 索引需先 `python src/build_kb_index.py`。
 `src/vision/guards.py`（**13 道防线**，`--self-test` 全绿）｜`infer.py`+`pipeline.py`+`kb_mapping.py`｜
 `train.py`+`dedup.py`+`weights.py`｜`src/skill_diagnose.py`+`agent_graph.py`（P0）｜
 `skill_vision_diagnose.py`+`agent_vision.py`（接线）｜`scripts/fetch_zenodo_dc04.py`｜
-`exp/d9_ab_normal_class.py`（A/B）｜`exp/d9_class_weight_check.py`（口径核对）
+`exp/d9_ab_normal_class.py`｜`exp/d9_class_weight_check.py`（口径核对）｜`exp/p1_p0_wiring_check.py`（A~F）
 
 ## 通用坑（脚手架级，明细见 HANDOFF_P1.md）
 

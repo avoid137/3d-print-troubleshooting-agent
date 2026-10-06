@@ -454,3 +454,73 @@ zip CRC 全过。→ **真实的域外泛化失败**。
 3. 🔴 **引入 OOD / 域检测，且必须先于分类器**——
    域外输入应先判「是否在本域内」，而不是硬给一个高置信缺陷类
 4. 🔴 知识库缺口：`Blobs`/`Zits`/`Z Seam`/`Overhang` **三标签完全无图像** → 只能自采
+
+---
+
+## 11. P0↔P1 接线：现状与「为什么还出不了答案」（2026-10-06 复核）
+
+### 11.1 链路已通，实测走通
+
+```
+图片 → P1（EffNet-B0 冻结 + 线性探针，5 类）
+     → kb_v2 条目（primary + secondary + confusable）
+     → P0 证据（KB 正文 + 根因）
+     → P0 生成答案
+```
+
+实测（Cracking 图）：
+- `kb_ids = ['KB009','KB049']` —— 与 `kb_mapping` **完全一致**
+- `evidence[0] = KB009 "Layer Separation and Splitting"` + 根因正文 ✅
+- `route=vision`、`rejected=False`、`layer=none` ✅
+- 验收 `exp/p1_p0_wiring_check.py`：**A~F ALL PASS**
+
+| 验收项 | 含义 |
+|---|---|
+| A | 无图 → 纯文本路径，P0 逐字段零回归 |
+| B | 5 类映射证据都在 10,000 字预算内，KB 全保留、不触发二次截断 |
+| C | 每张图的 kb_ids 与 kb_mapping 全量映射一致 |
+| D | 视觉拒答时 evidence 仍非空（top-2 留给人工） |
+| E | 两条路径的返回字段均齐备（契约完整） |
+| F | LangGraph 每张图都真的走 vision 路由（抓「静默丢弃入参」那个bug） |
+
+### 11.2 🔴 但「出答案」那步需要 API，本机没配
+
+`VisionDiagnoseAgent.answer()` 实测崩在最后一步：
+
+```
+File "src/answer_generator.py", line 239, in _call_model
+    import dashscope
+ModuleNotFoundError: No module named 'dashscope'
+```
+
+且 `DASHSCOPE_API_KEY` **未设置**。
+
+⚠️ **这不是接线 bug，是环境依赖。**
+⚠️ 中文 query **必须**配 `DASHSCOPE_API_KEY`——
+离线兜底 TF-IDF 对中文**双路皆零**（英文语料 + 默认 `token_pattern` 不分中文 → nnz=0）；
+BM25 被同一分词器拖累 → `retrieve("打印件表面有拉丝")` 返回 KB001~005 **字母序**。
+
+**要跑通需**：
+```bash
+.venv/Scripts/pip install dashscope
+# 并设置环境变量 DASHSCOPE_API_KEY
+```
+验收脚本用 `use_judge=False` 绕过判官/生成，所以**验收能过但 demo 不能跑**——
+这是两件事，别混。
+
+### 11.3 层间分工（复核确认，非缺陷）
+
+| 层 | 入口 | 返回 |
+|---|---|---|
+| Skill | `VisionDiagnoseSkill.run()` | **证据**（evidence / kb_ids / layer），**无 answer** |
+| Agent | `VisionDiagnoseAgent.answer()` |证据 + **answer** |
+
+🔴 查证据字段用 `evidence[].kb_id` / `.problem` / `.text`，
+**不是** `.kb_ids` / `.title`（不存在，误查会拿到 None）。
+
+### 11.4 顺手修的一处措辞
+
+`skill_vision_diagnose.py` 拒答文案原写死「概率仅 {proba}」，
+在验收 D 项（**故意**把阈值设成 1.01 触发拒答）会输出「概率仅 1.0000」——
+概率 1.0 本该通过任何 ≤1.0 的阈值，这句话会让人误判阈值标定有问题。
+已改为「概率 {proba:.4f} < 阈值 {th:.4f}」。
