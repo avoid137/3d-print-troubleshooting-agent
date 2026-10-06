@@ -1,0 +1,35 @@
+====================================================================
+Caxton-S 下载与校验（Kaggle 公开数据集，匿名可下）
+====================================================================
+slug  : adritganeriwala/caxton-s-semantic-3d-printing-defect-dataset
+许可  : CC BY 4.0 —— 🔴 使用需署名 Brion & Pattinson (2022), DOI 10.17863/CAM.84082
+落盘  : D:\datasets\caxton-s
+
+[探活] 元数据 …
+  title   : Caxton-S: Semantic 3D Printing Defect Dataset
+  license : Attribution 4.0 International (CC BY 4.0)
+  version : 1  updated: 2026-04-03T08:54:50.387Z
+  totalBytes(参考,不作判据): 7.46 GB
+[探活] Range GET 首字节 …
+  试1: rc=0 http/size='206 1024' 落地=1024B
+  ✅ 206 + 魔数 PK → zip 可下（真实大小见下）
+
+[实测] GCS 真实大小 6.75 GB（元数据 7.46 GB，差 -759016521 B → 印证 totalBytes 不可作判据）
+[空间] 目标盘剩余 265.8 GB / 需要约 8.1 GB
+[下载] 8 线程分片，每片 864.6 MB …
+  [续传] _part00 已有 75.4 MB / 864.6 MB，只补拉缺口
+  [续传] _part01 已有 160.1 MB / 864.6 MB，只补拉缺口
+  [续传] _part02 已有 131.2 MB / 864.6 MB，只补拉缺口
+  [续传] _part03 已完整 864.6 MB，跳过
+  [续传] _part04 已有 421.4 MB / 864.6 MB，只补拉缺口
+  [续传] _part05 已有 439.3 MB / 864.6 MB，只补拉缺口
+  [续传] _part06 已有 123.9 MB / 864.6 MB，只补拉缺口
+  [续传] _part07 已有 182.9 MB / 864.6 MB，只补拉缺口
+    2.52/7.25 GB ( 34.8%) 240.7 MB/s  ETA 0.3 min
+    2.53/7.25 GB ( 34.9%) 120.6 MB/s  ETA 0.6 min
+    2.54/7.25 GB ( 35.0%) 80.6 MB/s  ETA 0.9 min
+    2.54/7.25 GB ( 35.1%) 60.6 MB/s  ETA 1.2 min
+    2.55/7.25 GB ( 35.2%) 48.6 MB/s  ETA 1.5 min
+    2.56/7.25 GB ( 35.3%) 40.7 MB/s  ETA 1.8 min
+    2.57/7.25 GB ( 35.4%) 35.0 MB/s  ETA 2.1 min
+    2.57/7.25 GB ( 35.5%) 30.7 MB/s  ETA 2.4 min

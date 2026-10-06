@@ -31,3 +31,6 @@ kaggle>=1.6.0          # 数据集下载（DC-02R）
 # ---------- 可选：P0 检索链路（若同一环境也要跑 RAG 评测） ----------
 # 见 requirements-p0.txt（faiss-cpu / rank-bm25 / dashscope / langgraph）
 # 注意：P0 用 faiss-cpu 即可，不要装 faiss-gpu，避免与 torch 的 CUDA 运行时冲突。
+
+# 静态检查（抓 NameError 等 py_compile 抓不到的问题）
+pyflakes>=3.2

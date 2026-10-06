@@ -193,6 +193,15 @@ def download(dest: Path, threads: int, resume: bool) -> Path:
         zip_path.unlink()
 
     # ---- 分片并发：Kaggle CDN 支持 Range；实测 8 并发最优，16 无增益 ----
+    #🔴 2026-10-06 实测两个必须处理的坑（首次跑挂了 1.5 h才发现）：
+    #   ① **必须设 `--speed-limit/--speed-time`**：不带超时的 curl 会在
+    #      速率掉到0 时**永久挂起**（实测 7 个进程全停、25 s 零字节，
+    #      文件时间戳停在 14:42，进程却一直"running"）。
+    #      → `--speed-limit 10240 --speed-time 60` = 低于 10 KB/s 持续 60 s 就自杀重试。
+    #      ⚠️ 这与「限流时 rate=0 会ZeroDivisionError」是同一类问题：
+    #      **0 速率必须被当成异常处理，不能当成"还在慢慢下"**。
+    #   ② **必须支持断点续传**：此前 `curl -o` 覆盖 = 从零重下，
+    #      挂了 1.5 h 才发现 → 2.4 GB 白费。curl 加 `-C -` 即可续传。
     chunk = (total + threads - 1) // threads
     parts = []
     print(f"[下载] {threads} 线程分片，每片 {human(chunk)} …")
@@ -208,10 +217,39 @@ def download(dest: Path, threads: int, resume: bool) -> Path:
         #   进度循环里却按 `(p, lo, hi)` 之外的顺序解包 →拿到 int当路径用。
         #   报错虽响，但已浪费两轮 8线程下载。**在源头断言形状。**
         assert isinstance(p, Path), f"parts[0] 必须是 Path，实为 {type(p)}"
+
+        # ---- 断点续传：**手工算区间**，不用 curl -C - ----
+        # 🔴 实测坑：`curl -C -` 与 `-r` **不能共用**，curl 直接报
+        #   `option -r: is badly used here` 且**静默不续传**（文件大小不变）。
+        #   若照抄会以为"续传了"实则从头覆盖，白等几小时。
+        #   正解：分片已有 N 字节 → 只需拉 [lo+N, hi]，追加写。
+        want_here = hi - lo + 1
+        already = p.stat().st_size if p.exists() else 0
+        if already > want_here:
+            # 超长 = 上次换过范围或文件损坏 → 删掉重下，绝不"截断"凑数
+            print(f"  [续传] _part{i:02d} 现有 {already} B > 应有 {want_here} B"
+                  f" → 判定损坏，删除重下")
+            p.unlink()
+            already = 0
+        if already == want_here:
+            print(f"  [续传] _part{i:02d} 已完整 {human(already)}，跳过")
+            procs.append((i, lo, hi, p, None))
+            continue
+        if already:
+            print(f"  [续传] _part{i:02d} 已有 {human(already)} / "
+                  f"{human(want_here)}，只补拉缺口")
+        start = lo + already
         cmd = [
-            "curl", "-s", "-L", "--retry", "8", "--retry-delay", "5",
+            "curl", "-s", "-L",
+            "--retry", "20", "--retry-delay", "5",
             "--retry-all-errors",
-            "-r", f"{lo}-{hi}", "-o", str(p), API_URL,
+            # 🔴 低速自杀：低于 10 KB/s 持续 60 s 放弃本次连接（触发 retry）。
+            #   不带这两个参数时速率掉到 0 会**永久挂起**（实测 1.5 h 零字节、
+            #   进程仍报 running）——0 速率必须当异常处理。
+            "--speed-limit", "10240", "--speed-time", "60",
+            "-r", f"{start}-{hi}",
+            # 追加写（`-o -` 追加不行，curl 会覆盖）→ 先下到临时文件再合并
+            "-o", str(p) + ".seg", API_URL,
         ]
         procs.append((i, lo, hi, p,
                       subprocess.Popen(cmd, stdout=subprocess.DEVNULL,
@@ -219,40 +257,72 @@ def download(dest: Path, threads: int, resume: bool) -> Path:
 
     t0 = time.time()
     done_bytes = 0
-    while any(pr.poll() is None for _, _, _, _, pr in procs):
+    # parts 的元素是 (path, lo, hi) → **path 是第 0 位**，不是第 2 位。
+    # 🔴 本次已栽两次：写成 `for _, _, p in parts` 会把 `hi`(int) 当路径用，
+    #   报 AttributeError。解包顺序错是本项目最常见的静默/报错混合型bug。
+    last_size = -1
+    last_change = time.time()
+    STALL_LIMIT = 300  # 秒：5 分钟零增长视为卡死
+    #🔴 procs 里可能有 `pr=None`（分片已完整被跳过），所有遍历必须过滤掉
+    alive = [t for t in procs if t[4] is not None]
+    while any(pr.poll() is None for _, _, _, _, pr in alive):
         time.sleep(10)
-        # parts 的元素是 (path, lo, hi) → **path 是第 0 位**，不是第 2 位。
-        # 🔴 本次已栽两次：写成 `for _, _, p in parts` 会把 `hi`(int) 当路径用，
-        #   报 AttributeError。解包顺序错是本项目最常见的静默/报错混合型bug。
-        done_bytes = sum(p.stat().st_size for p, _, _ in parts
-                         if p.exists())
+        done_bytes = sum(
+            (p.stat().st_size if p.exists() else 0)
+            + (Path(str(p) + ".seg").stat().st_size
+               if Path(str(p) + ".seg").exists() else 0)
+            for p, _, _ in parts)
         rate = done_bytes / max(time.time() - t0, 1e-9)
         left = (total - done_bytes) / rate if rate > 0 else float("inf")
         # 🔴 rate=0 时不算 eta（否则 ZeroDivisionError，且把"正在被限流"的现场一起带走）
         eta = f"ETA {left/60:.1f} min" if rate > 0 else "ETA 未知（速率 0，可能被限流）"
         print(f"  {done_bytes/1e9:6.2f}/{total/1e9:.2f} GB "
               f"({done_bytes/total*100:5.1f}%) {human(rate)}/s  {eta}")
-        if time.time() - t0 > 60 * 60 * 6:
-            print("❌ 超时 6 小时仍未完成，中止。")
-            for _, _, _, _, pr in procs:
+
+        # 🔴 卡死检测：进程还在跑但字节数不动 → 与其干等 1.5 h，不如立刻报错
+        if done_bytes != last_size:
+            last_size, last_change = done_bytes, time.time()
+        elif time.time() - last_change > STALL_LIMIT:
+            print(f"\n🔴 **卡死：{STALL_LIMIT}s 内字节数零增长**"
+                  f"（停在 {done_bytes/1e9:.2f} GB）"
+                  f"→ curl 连接已挂死（低速但未触发 --speed-limit，或CDN 半开）")
+            print("   已保留所有分片，重跑本脚本会**断点续传**，不会从零开始。")
+            for _, _, _, _, pr in alive:
+                pr.kill()
+            sys.exit(7)
+
+        if time.time() - t0 > 60 * 60 * 12:
+            print("❌ 超时 12 小时仍未完成，中止（分片已保留，可续传）。")
+            for _, _, _, _, pr in alive:
                 pr.kill()
             sys.exit(4)
 
-    bad = []
+    # ---- 各分片收尾：把 .seg 追加回分片本体 ----
+    # 🔴 顺序必须按索引 i 升序，且**每一片都独立追加**——
+    #   缺这一步会得到"分片是完整的但少了中间一段"的zip，
+    #   而 zipfile 只在读中央目录时才报错，CRC 自检能过一部分，
+    #   表现为"部分文件能读、部分读不了"，极难定位。
     for i, lo, hi, p, pr in procs:
-        if pr.returncode != 0:
-            bad.append((i, "rc", pr.returncode))
+        seg = Path(str(p) + ".seg")
+        if pr is None or not seg.exists():
+            seg.unlink(missing_ok=True)
             continue
+        if seg.stat().st_size:
+            with p.open("ab") as dst, seg.open("rb") as src:
+                shutil.copyfileobj(src, dst, 1 << 22)
+        seg.unlink(missing_ok=True)
+
+    bad = []
+    for i, lo, hi, p, pr in alive:
         want = hi - lo + 1
         got = p.stat().st_size if p.exists() else 0
+        # 🔴 续传后 curl 可能已正常退出但返回非 0（"range not satisfiable"
+        #   这类在分片已下完时无害）。**判据是最终字节数，不是返回码。**
         if got != want:
-            bad.append((i, f"size {got} != {want}"))
+            bad.append((i, f"size {got} != {want}", pr.returncode))
     if bad:
-        # 🔴 文案必须照实说：分片是 `curl -o` 直接写文件，重跑会**从零重下**，
-        #   不是断点续传（`--resume` 只对已合并的完整 zip 生效）。
-        print(f"❌ 分片异常 {bad}")
-        print(f"   → 修网络/代理后重跑本脚本（分片会重新下载，"
-              f"已合并的完整 zip 会跳过）")
+        print(f"❌ 分片未达预期大小: {bad}")
+        print("   → 重跑本脚本会**断点续传**（curl -C -），已下的部分不会重下。")
         sys.exit(5)
 
     print("[合并] 拼接分片 …")

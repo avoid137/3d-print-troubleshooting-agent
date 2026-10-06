@@ -73,6 +73,14 @@ P0 索引需先 `python src/build_kb_index.py`。`guards.py` **13 道防线**，
 
 ## 通用坑（脚手架级）
 
+🔴 **长时间任务：进程"在跑"≠ 有进展**。必须按**字节增长趋势**判断，
+不能只看进程状态（实测 curl 卡死 1.5 h、7 个进程都在却零传输）。
+🔴 **curl 必须加低速自杀** `--speed-limit 10240 --speed-time 60`——
+`--retry` 只管连接失败，速率归零会**永久阻塞**。
+🔴 **`curl -C -` 与 `-r` 不能共用**（实测 `option -r: is badly used here`，
+且**静默不续传**、rc=0 也不报错）→ 手工算区间 `[lo+已有, hi]` 下到 `.seg` 再追加。
+🔴 **`py_compile` 抓不到 NameError**（删了定义仍能过编译）→ 提交前必跑
+`pyflakes <file>`，这类"改 A 漏 B"肉眼抓不到。
 🔴 别用 `tmp.unlink()` 清残片（被安全策略拦截）；`curl -o` 本身覆盖截断。
 🔴 限流时 rate=0 会 ZeroDivisionError 崩掉 → `rate>0` 才算 eta。
 🔴 **别拿短时峰值当结论**（已犯 3 次）。⚠️ **别用 `except: pass` 掩盖导入失败**
@@ -80,8 +88,11 @@ P0 索引需先 `python src/build_kb_index.py`。`guards.py` **13 道防线**，
 ⚠️ **`0.99and` 会被当小数点字面量**（只发 SyntaxWarning，py_compile 不报错）。
 `global` 写在 `parse_args()` 之后 → SyntaxError；别凭记忆写 `old_string`。
 `nohup &` 会被回收 → 用 `run_in_background` + `python -u`。
-🔴 **网络**：18 并发触发限流，**6 并发稳态最快**；`modelscope.cn` 不可达不必再试；
-唯一权重源= **`hf-mirror.com`**。🔴 Kaggle `totalBytes` **不可作完整性基准** → 判据 = zip 条目数 + CRC + 各类张数。
+⚠️ Windows 上 `stdbuf` 不可用（`libstdbuf.dll` 找不到）→ 别在 Windows 用它。
+🔴 **网络**：并发不是越高越好（18 并发触发限流，**6 并发稳态最快**）；`modelscope.cn` 不可达不必再试；
+✅ 唯一权重源 = **`hf-mirror.com`**。🔴 Kaggle `totalBytes` **不可作完整性基准**
+→ 判据 = zip 条目数 + CRC + 各类张数。Kaggle 公开集**匿名可下**，
+但 🔴 **HEAD 请求返回 404**（端点只支持 GET，会误判成"下不了"）。
 
 ## 方法论纪律（本项目最值钱的部分）
 
