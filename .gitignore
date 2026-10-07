@@ -65,6 +65,10 @@ exp/e2e_*.log
 # P1 D3 训练日志（stdout 冗余，结论已落在 exp/p1_d3_*.json）
 exp/d3_*.log
 
+# ---- D11 OOD 探针：dry-run 产物是合成数据，不入库；真实结果由 4060 跑完后手动加回 ----
+exp/d11_ood_result.json
+exp/d11_ood_result.md
+
 # ---- 实验临时 id 清单（调试用，非证据）----
 exp/_*.json
 exp/_cache/
