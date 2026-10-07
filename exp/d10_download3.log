@@ -97,3 +97,22 @@ slug  : adritganeriwala/caxton-s-semantic-3d-printing-defect-dataset
     7.15/7.25 GB ( 98.5%) 9.9 MB/s  ETA 0.2 min
     7.19/7.25 GB ( 99.2%) 9.8 MB/s  ETA 0.1 min
     7.24/7.25 GB ( 99.8%) 9.7 MB/s  ETA 0.0 min
+    7.25/7.25 GB (100.0%) 9.6 MB/s  ETA 0.0 min
+[合并] 发现 1 个残留 .seg，分片数 8，开始合并回分片…
+  ✅ _part02 合并完成 906608888 B
+[合并] 拼接分片 …
+[完成] D:\datasets\caxton-s\caxton_s.zip 6.75 GB
+
+[校验] 打开 zip 并做 CRC 自检（8 GB，需几分钟）…
+  CRC 全过，用时 67s
+
+[校验] 图像条目共 187770 张（README 声明 187770）
+  ✅ good_print         实测  18175  期望  18175  (Good Print (正常件))
+  ✅ under_extrusion    实测  66084  期望  66084  (Under-Extrusion)
+  ✅ over_extrusion     实测  84943  期望  84943  (Over-Extrusion)
+  ✅ spaghetti          实测   6420  期望   6420  (Spaghetti)
+  ✅ warping            实测   9790  期望   9790  (Warping)
+  ✅ stringing          实测   2358  期望   2358  (Stringing)
+
+[产出] F:\workbuddy\3d-print-troubleshooting-agent\data\caxton_s_manifest.json
+✅ 校验通过

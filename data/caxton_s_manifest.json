@@ -1,0 +1,48 @@
+{
+  "slug": "adritganeriwala/caxton-s-semantic-3d-printing-defect-dataset",
+  "zip": "D:\\datasets\\caxton-s\\caxton_s.zip",
+  "zip_bytes": 7252871100,
+  "license": "CC BY 4.0 (需署名)",
+  "attribution": "Brion, D., & Pattinson, S. (2022). Data set for 'Generalisable 3D printing error detection and correction via multi-head neural networks'. University of Cambridge Apollo Repository. https://doi.org/10.17863/CAM.84082",
+  "ok": true,
+  "per_class": {
+    "good_print": {
+      "count": 18175,
+      "expected": 18175,
+      "match": true
+    },
+    "under_extrusion": {
+      "count": 66084,
+      "expected": 66084,
+      "match": true
+    },
+    "over_extrusion": {
+      "count": 84943,
+      "expected": 84943,
+      "match": true
+    },
+    "spaghetti": {
+      "count": 6420,
+      "expected": 6420,
+      "match": true
+    },
+    "warping": {
+      "count": 9790,
+      "expected": 9790,
+      "match": true
+    },
+    "stringing": {
+      "count": 2358,
+      "expected": 2358,
+      "match": true
+    }
+  },
+  "classes": {
+    "good_print": "Good Print (正常件)",
+    "under_extrusion": "Under-Extrusion",
+    "over_extrusion": "Over-Extrusion",
+    "spaghetti": "Spaghetti",
+    "warping": "Warping",
+    "stringing": "Stringing"
+  }
+}

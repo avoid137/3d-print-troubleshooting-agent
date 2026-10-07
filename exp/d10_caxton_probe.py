@@ -125,48 +125,84 @@ def scan_entries(z: zipfile.ZipFile) -> dict:
     return {k: sorted(v) for k, v in out.items()}
 
 
+#: 帧号间隙阈值：大于此值即认为是**另一次打印**（实测 p22/warping 中位间隙=1，
+#: 间隙>100 的有 17 个 → 该打印机下共 18 次独立打印）。
+#: 🔴 这个阈值不是拍脑袋来的，是**从数据实测的中位间隙与分布形状定的**。
+FRAME_GAP = 100
+
+
+def print_segments(cls: str, names: list) -> dict:
+    """把同一(类, 打印机)下的帧按**帧号间隙**切成若干「打印批次」。
+
+    🔴🔴 2026-10-07 重大修正——**我原先把 `p22` 当成"打印任务 ID"，是错的**：
+        实测 Caxton-S 全库只有 **10 台打印机**（p22/p24/p31/p32/p40/p46/p54/p79/p82/p91），
+        帧号跨度上万且不连续（p22: 218~15218）。
+        → `p22` 是**打印机编号**，不是任务编号。
+        → 按它分组 = 只得到 10 个 group，抽样 400 变成 n=58，
+          **整份报告的 macro-F1 全部作废**（域内 3.51% 是这么来的）。
+        正确粒度：**每次打印是一个批次**，边界由帧号间隙给出
+        （连续帧 gap=1，跨打印 gap≫1）→ 同一段连续帧必然是同一次打印。
+
+        ⚠️ 这正是项目铁律「**字面对得上 ≠ 现象对得上**」的又一例：
+        文件名长得像任务 ID，就真的是任务 ID 吗？**必须实测分布。**
+
+    返回 {segment_key: [条目名, ...]}
+    """
+    fr: dict = {}
+    for nm in names:
+        base = Path(nm).name
+        m = re.match(r"(p\d+)_image-(\d+)\.jpg$", base)
+        if m:
+            fr.setdefault(m.group(1), []).append((int(m.group(2)), nm))
+        else:
+            # 文件名不符合模式 → 单独成组（保守：宁可分组过细）
+            fr.setdefault(base, []).append((0, nm))
+    segs: dict = {}
+    for printer, items in fr.items():
+        items.sort()
+        cur_key = None
+        prev = None
+        for idx, (no, nm) in enumerate(items):
+            if prev is None or (no - prev) > FRAME_GAP:
+                # 新批次：段名带上打印机 + 起始帧号，保证跨打印机不撞
+                cur_key = f"{cls}#{printer}#{no}"
+            segs.setdefault(cur_key, []).append(nm)
+            prev = no
+    return segs
+
+
 def print_task(cls: str, nm: str) -> str:
-    """提取「打印任务 id」，作为 group 的键。
+    """🔴 兼容旧调用：单图版group 键（= 打印机，不是批次）。
 
-    Caxton-S 的文件名形如 `p22_image-10042.jpg`
-        → `p22` 是打印机/任务编号，`image-10042` 是帧序号。
-    🔴 **同一打印任务的相邻帧几乎相同** → 必须按任务 group 划分折，
-       否则折外评估泄漏（本项目已在 D8 因抽样方式踩过坑）。
-
-    🔴 2026-10-06 修**自检抓到的真bug**：原实现只取 `p22`，**不带类名**。
-       反向自检（造 6 类都用 p0~p99 的数据）立刻炸出：
-       不同类的 `p1` 被判成同一 group → 跨类泄漏，且不报任何错。
-       现在强制带类名前缀。
-    若文件名不含 `p<数字>` 前缀，回退用完整文件名（保守：宁可分组过细）。
+    ⚠️ 真实分组请用 `print_segments()`。本函数仅用于快速查看，
+       **绝不要用它做 group-aware 折**（会退化成"按打印机分折"）。
     """
     base = Path(nm).name
     m = re.match(r"(p\d+)_image-(\d+)", base)
-    key = m.group(1) if m else base
-    return f"{cls}#{key}"
+    return f"{cls}#{m.group(1) if m else base}"
 
 
 def sample_plan(entries: dict, per_class: int, seed: int) -> list:
-    """每类抽 min(per_class, 该类打印任务数) 个**打印任务**，每任务取 1 帧。
+    """每类抽 min(per_class, 批次总数) 个**打印批次**，每批次取 1 帧。
 
-    🔴 按任务抽、不按图抽：同任务多帧高度相似，按图独立抽会让
-       同一任务的多帧同时落进训练集和测试集 → 折外数字虚高。
+    🔴 必须按**打印批次**抽，不按图也不按打印机抽：
+       · 按图独立抽 → 同一次打印的多帧同时进训练集与测试集 → 折外虚高
+       · 按打印机抽   → 只有 10 组，n 会被压到几十，本轮就踩了这个坑
     """
     rng = random.Random(seed)
     plan = []
     for cls, names in entries.items():
         if not names:
             continue
-        by_task: dict = {}
-        for nm in names:
-            by_task.setdefault(print_task(cls, nm), []).append(nm)
-        tasks = sorted(by_task)
-        take = tasks if per_class <= 0 or per_class >= len(tasks) \
-            else rng.sample(tasks, per_class)
-        for t in take:
+        segs = print_segments(cls, names)
+        keys = sorted(segs)
+        take = keys if per_class <= 0 or per_class >= len(keys) \
+            else rng.sample(keys, per_class)
+        for k in take:
             plan.append({
                 "cx_class": cls,
-                "task": t,
-                "name": rng.choice(by_task[t]),
+                "task": k,
+                "name": rng.choice(segs[k]),
                 "align": ALIGN[cls],
             })
     return plan
@@ -282,6 +318,7 @@ def m1_domain_upper(feat, y, groups, labels, k, seed) -> dict:
         "macro_f1": round(mf1, 4),
         "per_class": per,
         "n_groups": len(set(groups)),
+            "group_definition": "打印批次 = 同(类,打印机)下帧号间隙<=100 的连续段",
         "n_folds_used": k,
         "pred_dist": dict(sorted(Counter(yp).items(), key=lambda x: -x[1])),
     }
@@ -424,8 +461,9 @@ def render_md(res: dict) -> str:
     A("# D10 · Caxton-S 跨域探针结果\n")
     A(f"- 数据：Caxton-S v1（Kaggle，CC BY 4.0，"
       f"**需署名** Brion & Pattinson (2022) DOI 10.17863/CAM.84082）")
-    A(f"- 抽样：**每类 {res['_meta']['per_class']} 个打印任务**，"
-      f"共 {res['_meta']['n_plan']} 张（group-aware，按打印任务非按图）")
+    A(f"- 抽样：**每类 {res['_meta']['per_class']} 个打印批次**"
+      f"共 {res['_meta']['n_plan']} 张"
+      f"（group-aware，按**打印批次**分组）")
     A(f"- 🔴 **未覆盖类别**：{', '.join(CX_CLASSES[c] for c in UNCOVERED)}"
       f" —— 语义粒度与我们 5 类不对应，**不硬塞进任何类**")
     A(f"- ⚠️ Caxton-S 为 **64×64 喷嘴特写**，上采样到 224；"
@@ -544,7 +582,7 @@ def render_md(res: dict) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--per-class", type=int, default=400,
-                    help="每类抽多少个打印任务（<=0 = 全取）")
+                    help="每类抽多少个**打印批次**（<=0 = 全取）")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--device", default="cuda")
@@ -685,6 +723,7 @@ def main():
             "seed": a.seed,
             "folds": a.folds,
             "n_groups": len(set(groups)),
+            "group_definition": "打印批次 = 同(类,打印机)下帧号间隙<=100 的连续段",
             "zip_bytes": CAXTON_ZIP.stat().st_size,
             "uncovered": UNCOVERED,
             "alignment": ALIGN,

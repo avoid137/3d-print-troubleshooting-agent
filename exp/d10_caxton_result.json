@@ -1,0 +1,137 @@
+{
+ "m1_domain_upper": {
+  "n": 58,
+  "labels": [
+   "Off_platform",
+   "Stringing",
+   "Warping"
+  ],
+  "macro_f1": 0.0351,
+  "per_class": {
+   "Off_platform": {
+    "n": 10,
+    "acc": 0.0
+   },
+   "Stringing": {
+    "n": 8,
+    "acc": 0.125
+   },
+   "Warping": {
+    "n": 10,
+    "acc": 0.0
+   }
+  },
+  "n_groups": 58,
+  "n_folds_used": 5,
+  "pred_dist": {
+   "Off_platform": 12,
+   "Stringing": 11,
+   "Warping": 9,
+   "over_extrusion": 9,
+   "under_extrusion": 9,
+   "good_print": 8
+  }
+ },
+ "m2_zeroshot": {
+  "n": 28,
+  "covered_classes": [
+   "Off_platform",
+   "Stringing",
+   "Warping"
+  ],
+  "acc": 0.25,
+  "per_class": {
+   "Off_platform": {
+    "n": 10,
+    "acc": 0.6
+   },
+   "Stringing": {
+    "n": 8,
+    "acc": 0.0
+   },
+   "Warping": {
+    "n": 10,
+    "acc": 0.1
+   }
+  },
+  "random_baseline": 0.3333,
+  "spaghetti_off_platform_confusion": {
+   "Off_platform": 6,
+   "Stringing": 2,
+   "Layer_shifting": 2
+  },
+  "collapse": {
+   "top_class": "Off_platform",
+   "top_share": 0.6071,
+   "n_distinct_pred": 5,
+   "pred_dist": {
+    "Off_platform": 17,
+    "Layer_shifting": 5,
+    "Stringing": 3,
+    "Cracking": 2,
+    "Warping": 1
+   },
+   "verdict": "🔴 输出塌缩"
+  },
+  "good_print_gate": {
+   "n": 10,
+   "would_reject_at_0.90": 5,
+   "reject_rate": 0.5,
+   "false_alarm": {
+    "Off_platform": 6,
+    "Layer_shifting": 3,
+    "Stringing": 1
+   },
+   "false_alarm_total": 5
+  }
+ },
+ "m3_joint": {
+  "A_dc02r_macro_f1": 0.9965,
+  "A_n": 1912,
+  "A_off_platform_keep": 0.978,
+  "A_off_platform_n": 91,
+  "B_caxton_aligned_macro_f1": 0.0684,
+  "B_n": 28,
+  "B_spaghetti_keep": 0.1,
+  "B_spaghetti_n": 10,
+  "labels_joint": [
+   "Cracking",
+   "Layer_shifting",
+   "Off_platform",
+   "Stringing",
+   "Warping"
+  ],
+  "baseline_dc02r_f1": 0.9969,
+  "A_drop_pp": 0.04
+ },
+ "_meta": {
+  "n_plan": 58,
+  "per_class": 400,
+  "seed": 42,
+  "folds": 5,
+  "n_groups": 58,
+  "zip_bytes": 7252871100,
+  "uncovered": [
+   "under_extrusion",
+   "over_extrusion"
+  ],
+  "alignment": {
+   "warping": "Warping",
+   "stringing": "Stringing",
+   "spaghetti": "Off_platform",
+   "under_extrusion": null,
+   "over_extrusion": null,
+   "good_print": null
+  },
+  "license": "CC BY 4.0 (需署名 Brion & Pattinson 2022, DOI 10.17863/CAM.84082)",
+  "note": "Caxton-S 为 64x64 喷嘴特写上采样到 224，与 DC-02R 原生分辨率不可并列比较",
+  "verdicts_pre_registered": {
+   "domain_upper_ok": 0.9,
+   "domain_upper_weak": 0.7,
+   "zeroshot_good": 0.5,
+   "zeroshot_bad": 0.2,
+   "joint_max_drop_pp": 2.0,
+   "joint_min_keep": 0.95
+  }
+ }
+}
