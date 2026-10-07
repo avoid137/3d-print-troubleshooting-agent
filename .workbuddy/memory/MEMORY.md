@@ -121,6 +121,23 @@ Off_platform 20/20 画面**无成形件**、材料堆成乱丝 → 是 **Spaghet
 🔴 **判据**：任何「新增一类」或「加判别分支」的方案，必须同时测**双向吞噬**（新不吞旧、旧不吞新），
 只测一个等于没测。与②同源——**都要问「去掉它会怎样」，不能只看「加上它好不好」**。
 
+## 换机与推送（2026-10-07）
+
+✅ **56 提交 + tag `backup-20261007` 已推送到 GitHub**（远端 HEAD = `dea86f5`）。
+🔴 **本机 GitHub HTTPS 域名级阻断**（浏览器能开是因装了**浏览器内代理扩展**，
+命令行走 WorkBuddy 系统代理 `127.0.0.1:50529`，路径不同）。
+**唯一可用通道 = SSH over 443**（`ssh.github.com:443`）。
+⚠️ 判据：返回 `Permission denied (publickey)` 而非 timeout = 通道通、只缺公钥。
+换机后必须重建：`ssh-keygen` → 加公钥到 GitHub → 写 `~/.ssh/config`
+（`Host github.com` → `HostName ssh.github.com` / `Port 443`）→ 远端切 SSH。
+❌ 无效方案（别再试）：`gitclone.com`（clone 通但 push 504 只读镜像）、
+`gitee.com`（需注册）、`GIT_SSL_NO_REVOKE`、`schannelCheckRevoke`、`--resolve` 换 IP。
+
+🔴 **D10 报告已作废**：`p22` 实为**打印机编号**不是任务 ID（全库仅 10 台），
+按它分组只得 n=58 → 域内 macro-F1=3.51% 无意义。正确粒度=打印批次（帧号间隙，
+实测中位=1、>100 有 17 个）。**n 明显小于预期 = 口径错的信号。**
+⏭ 下一个障碍：Caxton-S 有截断 JPEG（zip CRC 能过但像素不全）。
+
 ## 后续优先级
 
 自采目标域缺陷数据 + P1 引入 **OOD/域检测且必须先于分类器**；
