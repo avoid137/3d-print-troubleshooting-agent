@@ -200,13 +200,25 @@ def download(dest: Path, threads: int, resume: bool) -> Path:
     #      → `--speed-limit 10240 --speed-time 60` = 低于 10 KB/s 持续 60 s 就自杀重试。
     #      ⚠️ 这与「限流时 rate=0 会ZeroDivisionError」是同一类问题：
     #      **0 速率必须被当成异常处理，不能当成"还在慢慢下"**。
-    #   ② **必须支持断点续传**：此前 `curl -o` 覆盖 = 从零重下，
-    #      挂了 1.5 h 才发现 → 2.4 GB 白费。curl 加 `-C -` 即可续传。
-    chunk = (total + threads - 1) // threads
+    #   ② **必须支持断点续传**：`curl -o` 覆盖 = 从零重下，
+    #      挂了 1.5 h 才发现 → 2.4 GB 白费。且 `curl -C -` 与 `-r` 不能共存
+    #      （见下），故手工算区间。
+    #
+    # 🔴🔴 2026-10-07 修**最危险的设计缺陷**：
+    #   分片大小原本 = total / threads → **改--threads 就会让全部已完成分片失效**
+    #   （实测：8 片已完整时误用 --threads 2 → 每片应长从 864.6 MB 变 3.38 GB，
+    #   7 片全被判定"不完整"要重下，6.2 GB 白费）。
+    #   → 改为**固定 8 片**（SHARDS 常量，与线程数解耦）：
+    #     线程数只影响**并发多少个请求**，不影响**怎么切分文件**。
+    #   → 且分片文件里**持久化分片数**，换机/换参数都能读回来。
+    n_shards = detect_shard_count(dest, total, threads)
+    chunk = (total + n_shards - 1) // n_shards
     parts = []
-    print(f"[下载] {threads} 线程分片，每片 {human(chunk)} …")
+    print(f"[下载] {threads} 线程并发 / **{n_shards} 个固定分片**，"
+          f"每片 {human(chunk)}")
+    print(f"       （分片数与线程数解耦：改 --threads 不会让已下分片失效）")
     procs = []
-    for i in range(threads):
+    for i in range(n_shards):
         lo = i * chunk
         hi = min(total - 1, lo + chunk - 1)
         if lo > hi:
@@ -302,15 +314,7 @@ def download(dest: Path, threads: int, resume: bool) -> Path:
     #   缺这一步会得到"分片是完整的但少了中间一段"的zip，
     #   而 zipfile 只在读中央目录时才报错，CRC 自检能过一部分，
     #   表现为"部分文件能读、部分读不了"，极难定位。
-    for i, lo, hi, p, pr in procs:
-        seg = Path(str(p) + ".seg")
-        if pr is None or not seg.exists():
-            seg.unlink(missing_ok=True)
-            continue
-        if seg.stat().st_size:
-            with p.open("ab") as dst, seg.open("rb") as src:
-                shutil.copyfileobj(src, dst, 1 << 22)
-        seg.unlink(missing_ok=True)
+    merge_segments(dest)
 
     bad = []
     for i, lo, hi, p, pr in alive:
@@ -382,6 +386,101 @@ def verify(zip_path: Path) -> tuple:
     return ok, detail
 
 
+def detect_shard_count(dest: Path, total: int, fallback: int) -> int:
+    """推断**已落盘的分片数**，让分片划分与 `--threads` 解耦。
+
+    🔴 为什么必须这样做（2026-10-07 实测事故）：
+        原本 `chunk = total / threads`。于是把 `--threads 8` 改成 2 去"专攻慢片"时，
+        每片应长从 864.6 MB 变成 3.38 GB → **7 个已完整分片全被判为"不完整"**，
+        6.2 GB 已下数据面临重下。线程数是**并发度**，不该影响**文件怎么切**。
+
+    判据优先级：
+    1. `dest/_shards.txt` 里持久化的分片数（若存在且与现有分片自洽）
+    2. 现有 `_partNN` 文件的最大编号 + 1
+    3. `fallback`（首次下载，无任何痕迹）
+    """
+    n = 0
+    for p in dest.glob("_part[0-9][0-9]"):
+        try:
+            n = max(n, int(p.name.split("_part")[1]) + 1)
+        except (IndexError, ValueError):
+            continue
+    if n == 0:
+        f = dest / "_shards.txt"
+        if f.exists():
+            try:
+                n = int(f.read_text().strip())
+            except (ValueError, OSError):
+                n = 0
+    if n == 0:
+        n = fallback
+    # 校验：分片数必须能把 total 整除到合理大小（每片 ≥ 32 MB，否则并发无意义）
+    chunk = (total + n - 1) // n
+    if chunk < 32 * 1024 * 1024:
+        n = fallback
+    # 持久化，供换机后复用
+    (dest / "_shards.txt").write_text(str(n), encoding="utf-8")
+    return n
+
+
+def merge_segments(dest: Path) -> bool:
+    """把残留的 `_partNN.seg` 追加回 `_partNN`，然后删掉 .seg。
+
+    🔴 为什么必须独立成函数（2026-10-07 新增）：
+        合并原先只在「全部 curl 正常退出后」做。若脚本被 kill 或卡死退出，
+        `.seg` 里的数据**不会被合并**；下次重跑时 `base` 仍是旧值，
+        `curl -o` 会**覆盖 `.seg`** → **已下数据全部白费**。
+        本函数让「合并」与「下载」解耦，任意时刻可单独调用。
+
+    判据：
+    · 合并后 `len(_partNN) > want`（分片应得长度）→ 判损坏并报错，不静默截断
+    · `len(_partNN) == want` → 正常完成
+    · 合并后仍< want → 说明还有缺口，**如实报告**（不假装成功）
+    """
+    segs = sorted(dest.glob("_part*.seg"))
+    if not segs:
+        print("[合并] 无残留 .seg，跳过")
+        return True
+    full = 7252871100
+    # 🔴 分片数必须与 download() 用同一个来源（落盘文件反推），
+    #   不能硬编码 8 —— 否则改过 --threads 后会算出错误的应得长度，
+    #   把正常分片误判为损坏。
+    n_shards = 0
+    for p in dest.glob("_part[0-9][0-9]"):
+        try:
+            n_shards = max(n_shards, int(p.name.split("_part")[1]) + 1)
+        except (IndexError, ValueError):
+            continue
+    if n_shards == 0:
+        print("[合并] 找不到分片文件，放弃合并（避免误判）")
+        return False
+    total = (full + n_shards - 1) // n_shards
+    print(f"[合并] 发现 {len(segs)} 个残留 .seg，分片数 {n_shards}，"
+          f"开始合并回分片…")
+    ok = True
+    for seg in segs:
+        base = seg.with_suffix("")     # _partNN.seg -> _partNN
+        i = int(base.name.split("_part")[1])
+        lo = i * total
+        hi = min(full - 1, lo + total - 1)
+        want = hi - lo + 1
+        n = seg.stat().st_size
+        if n:
+            with base.open("ab") as dst, seg.open("rb") as src:
+                shutil.copyfileobj(src, dst, 1 << 22)
+        seg.unlink(missing_ok=True)
+        got = base.stat().st_size if base.exists() else 0
+        if got > want:
+            print(f"  ❌ _part{i:02d} 合并后 {got} > 应有 {want} → 判损坏")
+            ok = False
+        elif got == want:
+            print(f"  ✅ _part{i:02d} 合并完成 {got} B")
+        else:
+            print(f"  ⚠️ _part{i:02d} 合并后仍缺 {want - got} B"
+                  f"（{got/want*100:.1f}%）→ 重跑本脚本会续传这部分")
+    return ok
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="D:/datasets/caxton-s")
@@ -390,6 +489,9 @@ def main():
     ap.add_argument("--no-resume", action="store_true")
     ap.add_argument("--check-only", action="store_true",
                     help="只校验已下载的 zip，不重下")
+    ap.add_argument("--merge-only", action="store_true",
+                    help="🔴 只把残留的 _partNN.seg 追加回分片，不下载。"
+                         "用于脚本被 kill 后抢救已下数据")
     a = ap.parse_args()
 
     dest = Path(a.dir)
@@ -403,6 +505,13 @@ def main():
     print(f"许可  : CC BY 4.0 —— 🔴 使用需署名 Brion & Pattinson (2022), "
           f"DOI 10.17863/CAM.84082")
     print(f"落盘  : {dest}\n")
+
+    if a.merge_only:
+        # 🔴 2026-10-07 新增：`.seg` 合并原先只在全部 curl 退出后做，
+        #   脚本被 kill / 卡死退出时，`.seg` 里的数据**不会被合并**，
+        #   下次重跑 `base` 仍按旧值算 → `.seg` 被 `-o` 覆盖丢弃，
+        #   **已下数据全白费**。这里把「合并」从「下载」里解耦出来。
+        return 0 if merge_segments(dest) else 1
 
     if a.check_only:
         if not zip_path.exists():

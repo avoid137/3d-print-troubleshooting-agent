@@ -551,6 +551,9 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
+    # 部署件的 5 类名单：**从 infer 单一事实源取**，不硬编码
+    from src.vision.infer import DEFECT_CLASSES as blob_classes_5
+
     if not CAXTON_ZIP.exists():
         print(f"❌ 找不到 {CAXTON_ZIP}\n"
               f"→ 跑 `python scripts/fetch_caxton_s.py` 下载并校验")
@@ -599,11 +602,16 @@ def main():
     # ---- ② 零样本跨域 ----
     print("\n[②] 零样本跨域（加载 DC-02R 部署件，不重训）…")
     from src.vision.infer import load_deployed_model
-    blob = load_deployed_model(device=a.device)
-    sc, clf = blob["scaler"], blob["clf"]
-    classes = list(blob["meta"]["classes"])
+    # 🔴 2026-10-06 修：load_deployed_model() 返回的是
+    #   **(scaler, clf, model, meta) 四元组**，不是 dict。
+    #   原写法 `blob["meta"]` → TypeError: tuple indices must be integers。
+    sc, clf, backbone, meta = load_deployed_model(device=a.device)
+    classes = list(meta["classes"])
     print(f"  部署件类别 = {classes}"
-          f"（正常类启用={blob['meta'].get('normal_class_enabled')}）")
+          f"（正常类启用={meta.get('normal_class_enabled')}）")
+    if classes != list(blob_classes_5):
+        print(f"  ⚠️ 部署件类别 = {classes}，与预期 5 类不同，"
+              f"本实验的可对齐判定仍按 ALIGN 走（未覆盖类仍标未覆盖）")
     m2 = m2_zeroshot(feat, plan, (sc, clf, classes), ALIGN)
     print(f"  acc = {m2['acc']*100:.2f}%"
           f"（随机 {m2['random_baseline']*100:.1f}%）")
